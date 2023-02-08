@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxi2nf4f7c0vw"]
+[gd_scene load_steps=8 format=3 uid="uid://upf0dooiu0pv"]
 
-[ext_resource type="Texture2D" uid="uid://dlnj5va34dp" path="res://tilemap-based-level/tilesets/TilesetFloor.png" id="1_0nsjv"]
-[ext_resource type="Texture2D" uid="uid://bdbrefgiuqmm2" path="res://tilemap-based-level/tilesets/TilesetNature.png" id="2_ud3bf"]
-[ext_resource type="PackedScene" uid="uid://danp14i7q625d" path="res://tilemap-based-level/player/Player.tscn" id="3_igso7"]
+[ext_resource type="Texture2D" uid="uid://dlnj5va34dp" path="res://tilemap-based-level/tilesets/tileset_floor.png" id="1_8jok0"]
+[ext_resource type="Texture2D" uid="uid://bdbrefgiuqmm2" path="res://tilemap-based-level/tilesets/tileset_nature.png" id="2_g1qwa"]
+[ext_resource type="PackedScene" uid="uid://bco7pmgvbfv7n" path="res://tilemap-based-level/player/player.tscn" id="3_igso7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em7dn"]
-texture = ExtResource("1_0nsjv")
+texture = ExtResource("1_8jok0")
 0:7/0 = 0
 0:7/0/terrain_set = 0
 0:7/0/terrain = 0
@@ -459,7 +459,7 @@ texture = ExtResource("1_0nsjv")
 8:11/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q52uv"]
-texture = ExtResource("1_0nsjv")
+texture = ExtResource("1_8jok0")
 0:12/0 = 0
 0:12/0/terrain_set = 0
 0:12/0/terrain = 1
@@ -559,7 +559,7 @@ texture = ExtResource("1_0nsjv")
 2:11/0/terrains_peering_bit/top_right_corner = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iev5i"]
-texture = ExtResource("2_ud3bf")
+texture = ExtResource("2_g1qwa")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
