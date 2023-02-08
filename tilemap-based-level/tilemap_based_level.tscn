@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bew6un4cipgch" path="res://tilemap-based-level/chicken/chicken.tscn" id="4_mcox7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em7dn"]
+resource_name = "Dirt"
 texture = ExtResource("1_8jok0")
 0:7/0 = 0
 0:7/0/terrain_set = 0
@@ -465,6 +466,7 @@ texture = ExtResource("1_8jok0")
 10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q52uv"]
+resource_name = "Grass"
 texture = ExtResource("1_8jok0")
 0:12/0 = 0
 0:12/0/terrain_set = 0
@@ -565,6 +567,7 @@ texture = ExtResource("1_8jok0")
 2:11/0/terrains_peering_bit/top_right_corner = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iev5i"]
+resource_name = "Trees"
 texture = ExtResource("2_g1qwa")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -597,6 +600,7 @@ texture_region_size = Vector2i(32, 32)
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(13.5, 3, 13.5, 15, -13.5, 15, -13.5, 3)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5jgok"]
+resource_name = "NPCs"
 scenes/1/scene = ExtResource("4_mcox7")
 
 [sub_resource type="TileSet" id="TileSet_gqje6"]
