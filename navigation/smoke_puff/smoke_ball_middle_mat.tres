@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnvmsr64tkgyn"]
+
+[ext_resource type="Shader" path="res://Enemies/smoke_puff/smoke_ball_middle.gdshader" id="1_oh10p"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 10
+shader = ExtResource("1_oh10p")
