@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxi2nf4f7c0vw"]
+[gd_scene load_steps=8 format=3 uid="uid://cxi2nf4f7c0vw"]
 
 [ext_resource type="Texture2D" uid="uid://dlnj5va34dp" path="res://tilemap-based-level/tilesets/TilesetFloor.png" id="1_0nsjv"]
 [ext_resource type="Texture2D" uid="uid://bdbrefgiuqmm2" path="res://tilemap-based-level/tilesets/TilesetNature.png" id="2_ud3bf"]
+[ext_resource type="PackedScene" uid="uid://danp14i7q625d" path="res://tilemap-based-level/player/Player.tscn" id="3_igso7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em7dn"]
 texture = ExtResource("1_0nsjv")
@@ -616,3 +617,6 @@ layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 0
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(131095, 2, 0, 196635, 2, 0, 524321, 131074, 0, 983067, 131074, 0, 524290, 131074, 0, 458759, 65538, 0, 655375, 65538, 0, 1114122, 65538, 0, 1114131, 65538, 4, 1114136, 65538, 4, 65549, 2, 4, 786440, 2, 4, 917538, 2, 4)
+
+[node name="Player" parent="." instance=ExtResource("3_igso7")]
+position = Vector2(264, 144)
