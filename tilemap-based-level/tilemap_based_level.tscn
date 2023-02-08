@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dlnj5va34dp" path="res://tilemap-based-level/tilesets/tileset_floor.png" id="1_8jok0"]
 [ext_resource type="Script" path="res://tilemap-based-level/tilemap_based_level.gd" id="1_p7onf"]
 [ext_resource type="Texture2D" uid="uid://bdbrefgiuqmm2" path="res://tilemap-based-level/tilesets/tileset_nature.png" id="2_g1qwa"]
-[ext_resource type="PackedScene" uid="uid://bco7pmgvbfv7n" path="res://tilemap-based-level/player/player.tscn" id="3_igso7"]
+[ext_resource type="PackedScene" uid="uid://ry5yhth2csmb" path="res://tilemap-based-level/player/player.tscn" id="3_igso7"]
 [ext_resource type="PackedScene" uid="uid://bew6un4cipgch" path="res://tilemap-based-level/chicken/chicken.tscn" id="4_mcox7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_em7dn"]
