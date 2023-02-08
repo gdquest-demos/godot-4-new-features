@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://tilemap-based-level/player/player.gd" id="1_o04l8"]
 [ext_resource type="Script" path="res://tilemap-based-level/player/player_skin.gd" id="2_nbx8u"]
-[ext_resource type="Texture2D" uid="uid://b1020rg5tjl3a" path="res://tilemap-based-level/player/Walk.png" id="3_sh7em"]
+[ext_resource type="Texture2D" uid="uid://b1020rg5tjl3a" path="res://tilemap-based-level/player/walk.png" id="3_sh7em"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pjn5"]
 radius = 7.0
