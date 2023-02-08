@@ -52,6 +52,7 @@ script = ExtResource("1_12qyf")
 shape = SubResource("CircleShape2D_roryp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_hfbe2")
 animation = &"idle"
 autoplay = "idle"

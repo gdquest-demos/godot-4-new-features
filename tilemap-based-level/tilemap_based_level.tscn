@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://upf0dooiu0pv"]
+[gd_scene load_steps=13 format=3 uid="uid://dn0oo8321c8cs"]
 
 [ext_resource type="Texture2D" uid="uid://dlnj5va34dp" path="res://tilemap-based-level/tilesets/tileset_floor.png" id="1_8jok0"]
 [ext_resource type="Script" path="res://tilemap-based-level/tilemap_based_level.gd" id="1_p7onf"]
@@ -633,6 +633,7 @@ script = ExtResource("1_p7onf")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
+texture_filter = 1
 tile_set = SubResource("TileSet_gqje6")
 format = 2
 layer_0/name = "Ground"
@@ -659,3 +660,7 @@ layer_0/tile_data = PackedInt32Array(65535, 786432, 8, 131071, 786432, 8, 196607
 
 [node name="Player" parent="." instance=ExtResource("3_igso7")]
 position = Vector2(280, 128)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 152)
+zoom = Vector2(3.5, 3.5)
