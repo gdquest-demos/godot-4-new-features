@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtwayurkl2ptr"]
+[gd_scene load_steps=14 format=3 uid="uid://dtwayurkl2ptr"]
 
 [ext_resource type="PackedScene" uid="uid://cll0trio57a6b" path="res://navigation/Beetle.tscn" id="1_rbkf6"]
+[ext_resource type="Script" path="res://navigation/navigation.gd" id="1_unp00"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
 vertices = PackedVector3Array(-4.5, -0.46351, -26.5, -4.5, -0.46351, -17.5, 4.5, -0.46351, -17.5, 4.5, -0.46351, -26.5, -4.5, -0.46351, -4.5, -4.5, -0.46351, 4.5, 4.5, -0.46351, 4.5, 4.5, -0.46351, -4.5)
@@ -72,10 +73,10 @@ _data = {
 }
 
 [node name="Navigation" type="Node3D"]
+script = ExtResource("1_unp00")
 
-[node name="Beetle" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_rbkf6")]
+[node name="Beetle" parent="." instance=ExtResource("1_rbkf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933386, 0)
-target = NodePath("../C")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46351, 0)
@@ -130,6 +131,14 @@ libraries = {
 
 [node name="A" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="AB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="BC" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -18)
 mesh = SubResource("SphereMesh_kifhs")
 
 [node name="C" type="MeshInstance3D" parent="."]
