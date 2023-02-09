@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dtwayurkl2ptr"]
 
-[ext_resource type="PackedScene" uid="uid://cll0trio57a6b" path="res://navigation/Beetle.tscn" id="1_rbkf6"]
+[ext_resource type="PackedScene" uid="uid://cll0trio57a6b" path="res://navigation/beetle.tscn" id="1_rbkf6"]
 [ext_resource type="Script" path="res://navigation/navigation.gd" id="1_unp00"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cll0trio57a6b"]
 
-[ext_resource type="Script" path="res://navigation/Beetle.gd" id="1_mefon"]
+[ext_resource type="Script" path="res://navigation/beetle.gd" id="1_mefon"]
 [ext_resource type="PackedScene" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 
 [sub_resource type="Animation" id="Animation_5pcps"]
