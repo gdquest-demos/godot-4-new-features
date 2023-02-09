@@ -114,3 +114,7 @@ pause={
 [physics]
 
 3d/solver/solver_iterations=8
+
+[navigation]
+
+3d/default_edge_connection_margin=2.0

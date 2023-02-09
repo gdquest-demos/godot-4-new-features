@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtwayurkl2ptr"]
+[gd_scene load_steps=13 format=3 uid="uid://dtwayurkl2ptr"]
 
-[ext_resource type="PackedScene" path="res://navigation/Beetle.tscn" id="1_rbkf6"]
+[ext_resource type="PackedScene" uid="uid://cll0trio57a6b" path="res://navigation/Beetle.tscn" id="1_rbkf6"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_cw0lq"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
+vertices = PackedVector3Array(-4.5, -0.46351, -26.5, -4.5, -0.46351, -17.5, 4.5, -0.46351, -17.5, 4.5, -0.46351, -26.5, -4.5, -0.46351, -4.5, -4.5, -0.46351, 4.5, 4.5, -0.46351, 4.5, 4.5, -0.46351, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cckqs"]
 size = Vector3(10, 1, 10)
@@ -15,6 +17,21 @@ size = Vector3(4, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0bl2"]
 size = Vector3(4, 1, 4)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_txvch"]
+vertices = PackedVector3Array(-1.5, 0.7, -1.5, -1.5, 0.7, 1.5, 1.5, 0.7, 1.5, 1.5, 0.7, -1.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_size = 0.1
+cell_height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxlw5"]
+shading_mode = 0
+albedo_color = Color(0.388235, 0.168627, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kifhs"]
+material = SubResource("StandardMaterial3D_jxlw5")
+radial_segments = 16
+rings = 8
 
 [sub_resource type="Animation" id="Animation_215et"]
 length = 0.001
@@ -56,30 +73,32 @@ _data = {
 
 [node name="Navigation" type="Node3D"]
 
-[node name="Beetle" parent="." instance=ExtResource("1_rbkf6")]
+[node name="Beetle" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_rbkf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933386, 0)
+target = NodePath("../C")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46351, 0)
-navigation_mesh = SubResource("NavigationMesh_cw0lq")
+navigation_mesh = SubResource("NavigationMesh_f1mbg")
 
-[node name="Ground" type="MeshInstance3D" parent="."]
+[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46351, 0)
 mesh = SubResource("BoxMesh_cckqs")
 skeleton = NodePath("StaticBody3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
 shape = SubResource("BoxShape3D_kwrk7")
 
-[node name="Ground2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+[node name="Ground2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46351, -22)
 mesh = SubResource("BoxMesh_cckqs")
 skeleton = NodePath("StaticBody3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground2/StaticBody3D"]
 shape = SubResource("BoxShape3D_kwrk7")
 
 [node name="MovingPlatform" type="MeshInstance3D" parent="."]
@@ -92,6 +111,14 @@ skeleton = NodePath("StaticBody3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform/StaticBody3D"]
 shape = SubResource("BoxShape3D_v0bl2")
 
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="MovingPlatform"]
+navigation_mesh = SubResource("NavigationMesh_txvch")
+
+[node name="B" type="MeshInstance3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_kifhs")
+skeleton = NodePath("../..")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5.52794, 7.45286)
 
@@ -100,3 +127,11 @@ autoplay = "platform_loop"
 libraries = {
 "": SubResource("AnimationLibrary_7tc6i")
 }
+
+[node name="A" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="C" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -22)
+mesh = SubResource("SphereMesh_kifhs")
