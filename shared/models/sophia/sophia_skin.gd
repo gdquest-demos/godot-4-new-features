@@ -1,3 +1,4 @@
+class_name MiniSophiaSkin
 extends Node3D
 
 var walk_run_blending = 0.0 : set = _set_walk_run_blending
