@@ -121,7 +121,7 @@ mesh = SubResource("SphereMesh_kifhs")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5.52794, 7.45286)
+transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "platform_loop"

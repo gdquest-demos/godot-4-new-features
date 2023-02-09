@@ -5,6 +5,7 @@ signal path_end_reached
 const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 const SPEED := 3.0
 
+
 ## This array represents a queue of the locations the agent will move towards.
 ## As the scene has moving platforms, some locations aren't reachable until the
 ## moving platform connects to the place the agent is.
@@ -50,6 +51,5 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * SPEED
 		move_and_slide()
 	else:
-		# TODO: check if this runs the setter?
-		move_targets.pop_front()
+		move_targets = move_targets.slice(1)
 		_navigation_agent.target_position = move_targets.front().global_position
