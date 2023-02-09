@@ -1,0 +1,185 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvp4o5d1011o3"]
+
+[ext_resource type="Texture2D" uid="uid://b01xlbl80r3nm" path="res://cutout-character/samurai_fox_parts/body.PNG" id="1_k5ksc"]
+[ext_resource type="Texture2D" uid="uid://bjuoqmxd2xgtq" path="res://cutout-character/samurai_fox_parts/arm.L.PNG" id="2_i32ej"]
+[ext_resource type="Texture2D" uid="uid://cqm7x7r6ll5hj" path="res://cutout-character/samurai_fox_parts/arm.R.PNG" id="3_qk2bx"]
+[ext_resource type="Texture2D" uid="uid://c23i27squ6hi2" path="res://cutout-character/samurai_fox_parts/leg.R.PNG" id="4_6d6ld"]
+[ext_resource type="Texture2D" uid="uid://daory7g8ro8pr" path="res://cutout-character/samurai_fox_parts/leg.L.PNG" id="5_r7at0"]
+[ext_resource type="Texture2D" uid="uid://65du7kareg7j" path="res://cutout-character/samurai_fox_parts/head.PNG" id="6_5aalc"]
+[ext_resource type="Texture2D" uid="uid://din6efpmr8e48" path="res://cutout-character/samurai_fox_parts/tail.PNG" id="6_ki5iv"]
+[ext_resource type="Texture2D" uid="uid://qgljop7ju1np" path="res://cutout-character/samurai_fox_parts/ear.R.PNG" id="7_hfw4e"]
+[ext_resource type="Texture2D" uid="uid://gcgl638ox07x" path="res://cutout-character/samurai_fox_parts/ear.L.PNG" id="8_8axq2"]
+
+[sub_resource type="Animation" id="Animation_yw57h"]
+resource_name = "animate"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoCanvasGroup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xhiso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NoCanvasGroup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_et2ky"]
+_data = {
+"RESET": SubResource("Animation_xhiso"),
+"animate": SubResource("Animation_yw57h")
+}
+
+[node name="CutoutCharacter" type="Node2D"]
+
+[node name="NoCanvasGroup" type="Node2D" parent="."]
+position = Vector2(416, 848)
+
+[node name="Body" type="Sprite2D" parent="NoCanvasGroup"]
+texture = ExtResource("1_k5ksc")
+offset = Vector2(0, -100)
+
+[node name="ArmR" type="Sprite2D" parent="NoCanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(-56, -184)
+texture = ExtResource("3_qk2bx")
+offset = Vector2(-64, 88)
+
+[node name="ArmL" type="Sprite2D" parent="NoCanvasGroup/Body"]
+position = Vector2(48, -184)
+texture = ExtResource("2_i32ej")
+offset = Vector2(64, 88)
+
+[node name="LegR" type="Sprite2D" parent="NoCanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(-48, -16)
+texture = ExtResource("4_6d6ld")
+offset = Vector2(-8, 104)
+
+[node name="LegL" type="Sprite2D" parent="NoCanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(40, -16)
+texture = ExtResource("5_r7at0")
+offset = Vector2(-8, 104)
+
+[node name="Tail" type="Sprite2D" parent="NoCanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(72, -72)
+texture = ExtResource("6_ki5iv")
+offset = Vector2(216, 16)
+
+[node name="Head" type="Sprite2D" parent="NoCanvasGroup/Body"]
+position = Vector2(16, -232)
+texture = ExtResource("6_5aalc")
+offset = Vector2(0, -176)
+
+[node name="EarR" type="Sprite2D" parent="NoCanvasGroup/Body/Head"]
+show_behind_parent = true
+position = Vector2(-120, -312)
+texture = ExtResource("7_hfw4e")
+offset = Vector2(0, -112)
+
+[node name="EarL" type="Sprite2D" parent="NoCanvasGroup/Body/Head"]
+position = Vector2(96, -296)
+texture = ExtResource("8_8axq2")
+offset = Vector2(0, -112)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(1352, 848)
+
+[node name="Body" type="Sprite2D" parent="CanvasGroup"]
+texture = ExtResource("1_k5ksc")
+offset = Vector2(0, -100)
+
+[node name="ArmR" type="Sprite2D" parent="CanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(-56, -184)
+texture = ExtResource("3_qk2bx")
+offset = Vector2(-64, 88)
+
+[node name="ArmL" type="Sprite2D" parent="CanvasGroup/Body"]
+position = Vector2(48, -184)
+texture = ExtResource("2_i32ej")
+offset = Vector2(64, 88)
+
+[node name="LegR" type="Sprite2D" parent="CanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(-48, -16)
+texture = ExtResource("4_6d6ld")
+offset = Vector2(-8, 104)
+
+[node name="LegL" type="Sprite2D" parent="CanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(40, -16)
+texture = ExtResource("5_r7at0")
+offset = Vector2(-8, 104)
+
+[node name="Tail" type="Sprite2D" parent="CanvasGroup/Body"]
+show_behind_parent = true
+position = Vector2(72, -72)
+texture = ExtResource("6_ki5iv")
+offset = Vector2(216, 16)
+
+[node name="Head" type="Sprite2D" parent="CanvasGroup/Body"]
+position = Vector2(16, -232)
+texture = ExtResource("6_5aalc")
+offset = Vector2(0, -176)
+
+[node name="EarR" type="Sprite2D" parent="CanvasGroup/Body/Head"]
+show_behind_parent = true
+position = Vector2(-120, -312)
+texture = ExtResource("7_hfw4e")
+offset = Vector2(0, -112)
+
+[node name="EarL" type="Sprite2D" parent="CanvasGroup/Body/Head"]
+position = Vector2(96, -296)
+texture = ExtResource("8_8axq2")
+offset = Vector2(0, -112)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animate"
+libraries = {
+"": SubResource("AnimationLibrary_et2ky")
+}
