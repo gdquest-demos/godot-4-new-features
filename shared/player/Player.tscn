@@ -53,7 +53,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_x5x50")
 size = Vector2(0.3, 0.3)
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="SophieCharacterController" type="CharacterBody3D" groups=["player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
