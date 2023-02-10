@@ -212,7 +212,6 @@ func _physics_process(delta: float) -> void:
 	if get_real_velocity().length() > 0.01:
 		camera_controller.update_camera(global_position, delta)
 
-	$Label.text = str(velocity)
 	# Move and collide
 	move_and_slide()
 

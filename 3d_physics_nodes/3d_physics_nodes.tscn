@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://ym3hw6dxpord"]
+[gd_scene load_steps=12 format=3 uid="uid://dy1hyu4jpc8nf"]
 
-[ext_resource type="PackedScene" uid="uid://bybwye0vcgqqu" path="res://shared/player/Player.tscn" id="1_ucjtk"]
-[ext_resource type="PackedScene" uid="uid://bxwdkerxhac3h" path="res://3d_physics_nodes/ball.tscn" id="2_etean"]
+[ext_resource type="PackedScene" path="res://shared/sophie_character_controller/sophie_character_controller.tscn" id="1_l0g8y"]
+[ext_resource type="PackedScene" uid="uid://bxwdkerxhac3h" path="res://3d_physics_nodes/ball.tscn" id="2_qmsx2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_712ij"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -39,7 +39,7 @@ size = Vector2(14, 4.6)
 subdivide_width = 9
 subdivide_depth = 10
 
-[node name="Main" type="Node3D"]
+[node name="3DPhysicsNodes" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -48,7 +48,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dt45g")
 
-[node name="Player" parent="." instance=ExtResource("1_ucjtk")]
+[node name="Player" parent="." instance=ExtResource("1_l0g8y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17589, 1.90447, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
@@ -62,40 +62,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789169, 0)
 operation = 2
 mesh = SubResource("BoxMesh_77d7e")
 
-[node name="Ball" parent="." instance=ExtResource("2_etean")]
+[node name="Ball" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.498, 0.557281, 4.84256)
 
-[node name="Ball2" parent="." instance=ExtResource("2_etean")]
+[node name="Ball2" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05794, 0.490026, 5.27904)
 
-[node name="Ball3" parent="." instance=ExtResource("2_etean")]
+[node name="Ball3" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8971, 0.490024, 5.45028)
 
-[node name="Ball4" parent="." instance=ExtResource("2_etean")]
+[node name="Ball4" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2831, 0.490025, 2.80945)
 
-[node name="Ball5" parent="." instance=ExtResource("2_etean")]
+[node name="Ball5" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4627, 0.490025, -6.90725)
 
-[node name="Ball6" parent="." instance=ExtResource("2_etean")]
+[node name="Ball6" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7307, 0.490025, -0.956017)
 
-[node name="Ball10" parent="." instance=ExtResource("2_etean")]
+[node name="Ball10" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1169, 0.490025, 2.9299)
 
-[node name="Ball11" parent="." instance=ExtResource("2_etean")]
+[node name="Ball11" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2574, 0.490025, -3.90926)
 
-[node name="Ball12" parent="." instance=ExtResource("2_etean")]
+[node name="Ball12" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8973, 0.490025, -0.657287)
 
-[node name="Ball7" parent="." instance=ExtResource("2_etean")]
+[node name="Ball7" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2629, 0.490025, 1.48434)
 
-[node name="Ball8" parent="." instance=ExtResource("2_etean")]
+[node name="Ball8" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3981, 0.490025, -7.25788)
 
-[node name="Ball9" parent="." instance=ExtResource("2_etean")]
+[node name="Ball9" parent="." instance=ExtResource("2_qmsx2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48823, 0.490025, -1.35947)
 
 [node name="MetalBar" type="StaticBody3D" parent="."]

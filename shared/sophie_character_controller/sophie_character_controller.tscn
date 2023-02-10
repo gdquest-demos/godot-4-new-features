@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bybwye0vcgqqu"]
+[gd_scene load_steps=16 format=3]
 
-[ext_resource type="Script" path="res://shared/player/Player.gd" id="1_rvo1c"]
-[ext_resource type="AudioStream" uid="uid://bx0t7f2nuk2lr" path="res://shared/player/Sounds/03_Step_grass_03.wav" id="2_0k6pv"]
-[ext_resource type="Script" path="res://shared/player/CameraController.gd" id="3_qrkly"]
+[ext_resource type="Script" path="res://shared/sophie_character_controller/sophie_character_controller.gd" id="1_rvo1c"]
+[ext_resource type="AudioStream" uid="uid://bx0t7f2nuk2lr" path="res://shared/sophie_character_controller/Sounds/03_Step_grass_03.wav" id="2_0k6pv"]
+[ext_resource type="Script" path="res://shared/sophie_character_controller/camera_controller.gd" id="3_qrkly"]
 [ext_resource type="PackedScene" uid="uid://dgvq4io2wgwv" path="res://shared/models/sophia/sophia_skin.tscn" id="4_i7dnh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4it54"]
@@ -118,7 +118,3 @@ amount = 2
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_ws674")
 draw_pass_1 = SubResource("QuadMesh_c5lqg")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
