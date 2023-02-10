@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://SceneTreeTween/CardDraw3D/DeckCardDraw3D.gd" type="Script" id=1]
+[ext_resource path="res://SceneTreeTween/CardDraw3D/HandTween3D.gd" type="Script" id=2]
+[ext_resource path="res://assets/Card/3DCard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Environment/space_environment_meshlib.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://SceneTreeTween/CardDraw3D/card_back.svg" type="Texture" id=6]
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0 ), 0.0, 3.86787, 0, 0, Vector2( 0.497283, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.48109, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=12]
+min_value = -1.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, -1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1.3, 1, 1.8 )
+
+[sub_resource type="QuadMesh" id=6]
+size = Vector2( 2.5, 3.5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 2.5, 0.688, 3.5 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.152941, 0.152941, 0.211765, 1 )
+
+[sub_resource type="SphereShape" id=10]
+radius = 9.78158
+
+[node name="CardDraw3D" type="Spatial"]
+script = ExtResource( 2 )
+card_scene = ExtResource( 3 )
+height_curve = SubResource( 11 )
+rotation_curve = SubResource( 12 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, 0.5, 0.5, 0, -0.707107, 0.707107, 0.707107, -0.5, -0.5, 0, 10, 0 )
+shadow_enabled = true
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.2
+directional_shadow_max_distance = 50.0
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 12, 0 )
+current = true
+fov = 80.0
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+mesh_library = ExtResource( 5 )
+cell_center_y = false
+data = {
+"cells": PoolIntArray( -65536, 0, 9, -65535, 0, 9, -65534, 0, 9, -65533, 0, 9, -65532, 0, 9, -65531, 0, 9, -65530, 0, 9, -65529, 0, 9, -65528, 0, 9, -65527, 0, 9, -9, 0, 9, -8, 0, 9, -7, 0, 9, -6, 0, 9, -5, 0, 9, -4, 0, 9, -3, 0, 9, -2, 0, 9, -1, 0, 9, -65536, 1, 9, -65535, 1, 9, -65534, 1, 9, -65533, 1, 9, -65532, 1, 9, -65531, 1, 9, -65530, 1, 9, -65529, 1, 9, -65528, 1, 9, -65527, 1, 9, -9, 1, 9, -8, 1, 9, -7, 1, 9, -6, 1, 9, -5, 1, 9, -4, 1, 9, -3, 1, 9, -2, 1, 9, -1, 1, 9, -65536, 2, 9, -65535, 2, 9, -65534, 2, 9, -65533, 2, 9, -65532, 2, 9, -65531, 2, 9, -65530, 2, 9, -65529, 2, 9, -65528, 2, 9, -65527, 2, 9, -9, 2, 9, -8, 2, 9, -7, 2, 9, -6, 2, 9, -5, 2, 9, -4, 2, 9, -3, 2, 9, -2, 2, 9, -1, 2, 9, -65536, 3, 9, -65535, 3, 9, -65534, 3, 9, -65533, 3, 9, -65532, 3, 9, -65531, 3, 9, -65530, 3, 9, -65529, 3, 9, -65528, 3, 9, -65527, 3, 9, -9, 3, 9, -8, 3, 9, -7, 3, 9, -6, 3, 9, -5, 3, 9, -4, 3, 9, -3, 3, 9, -2, 3, 9, -1, 3, 9, -65536, 4, 9, -65535, 4, 9, -65534, 4, 9, -65533, 4, 9, -65532, 4, 9, -65531, 4, 9, -65530, 4, 9, -65529, 4, 9, -65528, 4, 9, -65527, 4, 9, -9, 4, 9, -8, 4, 9, -7, 4, 9, -6, 4, 9, -5, 4, 9, -4, 4, 9, -3, 4, 9, -2, 4, 9, -1, 4, 9, -65536, 65531, 9, -65535, 65531, 9, -65534, 65531, 9, -65533, 65531, 9, -65532, 65531, 9, -65531, 65531, 9, -65530, 65531, 9, -65529, 65531, 9, -65528, 65531, 9, -65527, 65531, 9, -9, 65531, 9, -8, 65531, 9, -7, 65531, 9, -6, 65531, 9, -5, 65531, 9, -4, 65531, 9, -3, 65531, 9, -2, 65531, 9, -1, 65531, 9, -65536, 65532, 9, -65535, 65532, 9, -65534, 65532, 9, -65533, 65532, 9, -65532, 65532, 9, -65531, 65532, 9, -65530, 65532, 9, -65529, 65532, 9, -65528, 65532, 9, -65527, 65532, 9, -9, 65532, 9, -8, 65532, 9, -7, 65532, 9, -6, 65532, 9, -5, 65532, 9, -4, 65532, 9, -3, 65532, 9, -2, 65532, 9, -1, 65532, 9, -65536, 65533, 9, -65535, 65533, 9, -65534, 65533, 9, -65533, 65533, 9, -65532, 65533, 9, -65531, 65533, 9, -65530, 65533, 9, -65529, 65533, 9, -65528, 65533, 9, -65527, 65533, 9, -9, 65533, 9, -8, 65533, 9, -7, 65533, 9, -6, 65533, 9, -5, 65533, 9, -4, 65533, 9, -3, 65533, 9, -2, 65533, 9, -1, 65533, 9, -65536, 65534, 9, -65535, 65534, 9, -65534, 65534, 9, -65533, 65534, 9, -65532, 65534, 9, -65531, 65534, 9, -65530, 65534, 9, -65529, 65534, 9, -65528, 65534, 9, -65527, 65534, 9, -9, 65534, 9, -8, 65534, 9, -7, 65534, 9, -6, 65534, 9, -5, 65534, 9, -4, 65534, 9, -3, 65534, 9, -2, 65534, 9, -1, 65534, 9, -65536, 65535, 9, -65535, 65535, 9, -65534, 65535, 9, -65533, 65535, 9, -65532, 65535, 9, -65531, 65535, 9, -65530, 65535, 9, -65529, 65535, 9, -65528, 65535, 9, -65527, 65535, 9, -9, 65535, 9, -8, 65535, 9, -7, 65535, 9, -6, 65535, 9, -5, 65535, 9, -4, 65535, 9, -3, 65535, 9, -2, 65535, 9, -1, 65535, 9 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="Player" type="Spatial" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -1, 8 )
+
+[node name="Hand" type="Spatial" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0888681, 2, -3.88457e-09 )
+
+[node name="Deck" type="Area" parent="Player"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.63735, 0.87647, 12.7171 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player/Deck"]
+shape = SubResource( 5 )
+
+[node name="Model" type="Spatial" parent="Player/Deck"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0156682, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/Deck/Model"]
+transform = Transform( 0.994373, 0.105934, 4.63054e-09, 0, -4.37114e-08, 1, 0.105934, -0.994373, -4.34654e-08, 0, 0.222941, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Player/Deck/Model"]
+transform = Transform( 0.998953, -0.0457466, -1.99965e-09, 0, -4.37114e-08, 1, -0.0457466, -0.998953, -4.36656e-08, 0, 0.578114, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Player/Deck/Model"]
+transform = Transform( 0.999308, -0.0372018, -1.62614e-09, 0, -4.37114e-08, 1, -0.0372018, -0.999308, -4.36811e-08, 0, 0.796946, 0 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Player/Deck/Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.448411, 0 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="CardsRestingPlace" type="Area" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03302, 0, -22.3223 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player/CardsRestingPlace"]
+shape = SubResource( 10 )

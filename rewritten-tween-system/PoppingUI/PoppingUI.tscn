@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/UI/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/UI/completionmark_gem_blue.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/completionmark_empty.png" type="Texture" id=4]
+[ext_resource path="res://SceneTreeTween/PoppingUI/PoppingUI.gd" type="Script" id=5]
+[ext_resource path="res://assets/background.png" type="Texture" id=6]
+
+[node name="PoppingUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1920, 1080 )
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+
+[node name="Slot1" type="Sprite" parent="."]
+position = Vector2( 959.998, 308.998 )
+texture = ExtResource( 4 )
+
+[node name="Gem" type="TextureRect" parent="Slot1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -286.0
+margin_top = -286.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 318, 128 )
+rect_pivot_offset = Vector2( 159, 159 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Slot2" type="Sprite" parent="."]
+position = Vector2( 839.998, 514.998 )
+texture = ExtResource( 4 )
+
+[node name="Gem" type="TextureRect" parent="Slot2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -287.0
+margin_top = -285.0
+margin_right = 31.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 318, 128 )
+rect_pivot_offset = Vector2( 159, 159 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Slot3" type="Sprite" parent="."]
+position = Vector2( 1080, 514.998 )
+texture = ExtResource( 4 )
+
+[node name="Gem" type="TextureRect" parent="Slot3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -287.002
+margin_top = -285.0
+margin_right = 30.998
+margin_bottom = 33.0
+rect_min_size = Vector2( 318, 128 )
+rect_pivot_offset = Vector2( 159, 159 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.0
+margin_top = 184.0
+margin_right = 159.0
+margin_bottom = 312.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+shortcut_in_tooltip = false
+action_mode = 0
+text = "Pop"
