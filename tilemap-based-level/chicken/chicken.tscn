@@ -44,20 +44,24 @@ animations = [{
 radius = 64.0
 
 [node name="Chicken" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_12qyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_roryp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_hfbe2")
 animation = &"move"
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8)
 collision_layer = 0
 monitorable = false
 
