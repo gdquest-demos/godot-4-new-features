@@ -1,0 +1,159 @@
+[gd_scene load_steps=3 format=3 uid="uid://b82k7qo8rbm1c"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_gstvm"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rio3c"]
+
+[node name="Lobby" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_gstvm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Nickname"
+
+[node name="NickLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Your desired nick"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HFlowContainer/HBoxContainer"]
+layout_mode = 2
+text = "IP"
+
+[node name="AddressLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/HFlowContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "localhost"
+placeholder_text = "localhost"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HFlowContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Port"
+
+[node name="PortLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/HFlowContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8910"
+placeholder_text = "8910"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="IsServerCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer/HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "server"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "status:"
+vertical_alignment = 1
+
+[node name="StatusOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_icons/arrow = SubResource("ImageTexture_rio3c")
+disabled = true
+button_mask = 0
+flat = true
+alignment = 1
+item_count = 1
+selected = 0
+popup/item_0/text = "none"
+popup/item_0/id = 0
+
+[node name="ConnectButton" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StatusRichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3/VBoxContainer/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessageLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SendMessageButton" type="Button" parent="VBoxContainer/HBoxContainer3/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "send"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayersVBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
