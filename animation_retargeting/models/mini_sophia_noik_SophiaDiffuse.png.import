@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfkx0fwflesox"
-path="res://.godot/imported/mini_sophia_Image.png-4a722273564f705301edde660bb449d5.ctex"
+uid="uid://emj0joo5yxaf"
+path.s3tc="res://.godot/imported/mini_sophia_noik_SophiaDiffuse.png-3d2a79079200bf66289eee82753b9b41.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/mini_sophia_Image.png"
-dest_files=["res://.godot/imported/mini_sophia_Image.png-4a722273564f705301edde660bb449d5.ctex"]
+source_file="res://animation_retargeting/models/mini_sophia_noik_SophiaDiffuse.png"
+dest_files=["res://.godot/imported/mini_sophia_noik_SophiaDiffuse.png-3d2a79079200bf66289eee82753b9b41.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +33,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

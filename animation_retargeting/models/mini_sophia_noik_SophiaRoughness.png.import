@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpacuqe236x5x"
-path.s3tc="res://.godot/imported/mini_sophia_SophiaDiffuse.png-cb2e2241bcfc9b1ff9c1ea76c3d2dbb2.s3tc.ctex"
+uid="uid://360tf8gu22bt"
+path.s3tc="res://.godot/imported/mini_sophia_noik_SophiaRoughness.png-1fb71add85ea4dbeb925ee0194be95d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/mini_sophia_SophiaDiffuse.png"
-dest_files=["res://.godot/imported/mini_sophia_SophiaDiffuse.png-cb2e2241bcfc9b1ff9c1ea76c3d2dbb2.s3tc.ctex"]
+source_file="res://animation_retargeting/models/mini_sophia_noik_SophiaRoughness.png"
+dest_files=["res://.godot/imported/mini_sophia_noik_SophiaRoughness.png-1fb71add85ea4dbeb925ee0194be95d1.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rbi5ygw3m6wv"
-path.s3tc="res://.godot/imported/gdbot-test_smiley.png-08002fee54f274c82f929c30ca4ffe93.s3tc.ctex"
+uid="uid://8xiibp1mfr8j"
+path.s3tc="res://.godot/imported/gdbot-noik_roughness.png-58ba96f4a9ce61f6a7e5c45d72a87d1b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/gdbot-test_smiley.png"
-dest_files=["res://.godot/imported/gdbot-test_smiley.png-08002fee54f274c82f929c30ca4ffe93.s3tc.ctex"]
+source_file="res://animation_retargeting/models/gdbot-noik_roughness.png"
+dest_files=["res://.godot/imported/gdbot-noik_roughness.png-58ba96f4a9ce61f6a7e5c45d72a87d1b.s3tc.ctex"]
 
 [params]
 

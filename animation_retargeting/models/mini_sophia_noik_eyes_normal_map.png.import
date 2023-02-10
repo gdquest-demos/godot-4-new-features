@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddpwjvyt4xroq"
-path.s3tc="res://.godot/imported/mini_sophia_SophiaNormal.png-b9a258a912bc078dbbb997cb9e208e5a.s3tc.ctex"
+uid="uid://dckpi7cicccxi"
+path.s3tc="res://.godot/imported/mini_sophia_noik_eyes_normal_map.png-4def5176f628e200e8e110af4c3f5d22.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/mini_sophia_SophiaNormal.png"
-dest_files=["res://.godot/imported/mini_sophia_SophiaNormal.png-b9a258a912bc078dbbb997cb9e208e5a.s3tc.ctex"]
+source_file="res://animation_retargeting/models/mini_sophia_noik_eyes_normal_map.png"
+dest_files=["res://.godot/imported/mini_sophia_noik_eyes_normal_map.png-4def5176f628e200e8e110af4c3f5d22.s3tc.ctex"]
 
 [params]
 
@@ -26,7 +26,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://animation_retargeting/models/mini_sophia_SophiaNormal.png"
+roughness/src_normal="res://animation_retargeting/models/mini_sophia_noik_eyes_normal_map.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

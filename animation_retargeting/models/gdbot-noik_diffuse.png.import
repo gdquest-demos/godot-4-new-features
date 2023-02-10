@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw26e1k1axba8"
-path.s3tc="res://.godot/imported/gdbot_diffuse.png-cc770db8cfe5c044d34bafa9c2cbe5a5.s3tc.ctex"
+uid="uid://ckepjdc8rsh5d"
+path.s3tc="res://.godot/imported/gdbot-noik_diffuse.png-39e688191dfe89f370ef83356ba9a067.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/gdbot_diffuse.png"
-dest_files=["res://.godot/imported/gdbot_diffuse.png-cc770db8cfe5c044d34bafa9c2cbe5a5.s3tc.ctex"]
+source_file="res://animation_retargeting/models/gdbot-noik_diffuse.png"
+dest_files=["res://.godot/imported/gdbot-noik_diffuse.png-39e688191dfe89f370ef83356ba9a067.s3tc.ctex"]
 
 [params]
 

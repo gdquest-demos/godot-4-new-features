@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2ixgccwhocjl"
-path.s3tc="res://.godot/imported/mini_sophia_mouth_normal_map.png-0c9bc7f642f5d586cdad3486f917cc0f.s3tc.ctex"
+uid="uid://d1x4uscpttf3c"
+path.s3tc="res://.godot/imported/gdbot-noik_smiley.png-78f6241f7678c477eb723ae648650d4a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/mini_sophia_mouth_normal_map.png"
-dest_files=["res://.godot/imported/mini_sophia_mouth_normal_map.png-0c9bc7f642f5d586cdad3486f917cc0f.s3tc.ctex"]
+source_file="res://animation_retargeting/models/gdbot-noik_smiley.png"
+dest_files=["res://.godot/imported/gdbot-noik_smiley.png-78f6241f7678c477eb723ae648650d4a.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://animation_retargeting/models/mini_sophia_mouth_normal_map.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

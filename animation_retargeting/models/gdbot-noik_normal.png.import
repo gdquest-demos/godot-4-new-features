@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cymsptsggx7ha"
-path.s3tc="res://.godot/imported/gdbot_normal.png-f1920115a0a513b614ab90c23ed8dbf6.s3tc.ctex"
+uid="uid://cujtlllo3re56"
+path.s3tc="res://.godot/imported/gdbot-noik_normal.png-c8a3d460f49924cea44f01611c61e99f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/gdbot_normal.png"
-dest_files=["res://.godot/imported/gdbot_normal.png-f1920115a0a513b614ab90c23ed8dbf6.s3tc.ctex"]
+source_file="res://animation_retargeting/models/gdbot-noik_normal.png"
+dest_files=["res://.godot/imported/gdbot-noik_normal.png-c8a3d460f49924cea44f01611c61e99f.s3tc.ctex"]
 
 [params]
 
@@ -26,7 +26,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://animation_retargeting/models/gdbot_normal.png"
+roughness/src_normal="res://animation_retargeting/models/gdbot-noik_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

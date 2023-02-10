@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo8xp8q74lq5k"
-path.s3tc="res://.godot/imported/gdbot-test_diffuse.png-344f40bf015c50216fde5abcb7ee57a6.s3tc.ctex"
+uid="uid://urkhakpj2o2j"
+path.s3tc="res://.godot/imported/mini_sophia_noik_SophiaNormal.png-e94dffdf50bdca55f3ef98da1c673b1c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/gdbot-test_diffuse.png"
-dest_files=["res://.godot/imported/gdbot-test_diffuse.png-344f40bf015c50216fde5abcb7ee57a6.s3tc.ctex"]
+source_file="res://animation_retargeting/models/mini_sophia_noik_SophiaNormal.png"
+dest_files=["res://.godot/imported/mini_sophia_noik_SophiaNormal.png-e94dffdf50bdca55f3ef98da1c673b1c.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://animation_retargeting/models/mini_sophia_noik_SophiaNormal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7d5sx80umjni"
-path.s3tc="res://.godot/imported/gdbot-test_roughness.png-79d3bfc626e1feff8d5a9dd7ca74141a.s3tc.ctex"
+uid="uid://coip215skx515"
+path="res://.godot/imported/mini_sophia_noik_Image.png-065f16cf8b489c2c0ca001623e6c65e4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
-source_file="res://animation_retargeting/models/gdbot-test_roughness.png"
-dest_files=["res://.godot/imported/gdbot-test_roughness.png-79d3bfc626e1feff8d5a9dd7ca74141a.s3tc.ctex"]
+source_file="res://animation_retargeting/models/mini_sophia_noik_Image.png"
+dest_files=["res://.godot/imported/mini_sophia_noik_Image.png-065f16cf8b489c2c0ca001623e6c65e4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -33,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
