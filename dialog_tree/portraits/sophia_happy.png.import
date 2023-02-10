@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pf23ur6ue5v0"
-path="res://.godot/imported/sophia_happy.png-2fa70433ffa42904d1336d41aa332e83.ctex"
+path="res://.godot/imported/sophia_happy.png-04dfdff08b88f61f983b48388fb08ffe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog-boxes/portraits/sophia_happy.png"
-dest_files=["res://.godot/imported/sophia_happy.png-2fa70433ffa42904d1336d41aa332e83.ctex"]
+source_file="res://dialog_tree/portraits/sophia_happy.png"
+dest_files=["res://.godot/imported/sophia_happy.png-04dfdff08b88f61f983b48388fb08ffe.ctex"]
 
 [params]
 

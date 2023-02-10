@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crsckxpasqf4p"
-path="res://.godot/imported/sophia_sad.png-9ee7925a047b778d7d006a3dca9ba6a3.ctex"
+uid="uid://b1iu6o2f5v7k1"
+path="res://.godot/imported/sophia_neutral.png-ccb5390b74c20e6307ed42410c93fdd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog-boxes/portraits/sophia_sad.png"
-dest_files=["res://.godot/imported/sophia_sad.png-9ee7925a047b778d7d006a3dca9ba6a3.ctex"]
+source_file="res://dialog_tree/portraits/sophia_neutral.png"
+dest_files=["res://.godot/imported/sophia_neutral.png-ccb5390b74c20e6307ed42410c93fdd7.ctex"]
 
 [params]
 
