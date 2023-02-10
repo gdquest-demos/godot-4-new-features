@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bew6un4cipgch"]
+[gd_scene load_steps=9 format=3]
 
-[ext_resource type="Script" path="res://tilemap-based-level/chicken/chicken.gd" id="1_12qyf"]
-[ext_resource type="Texture2D" uid="uid://nifcgc476ir5" path="res://tilemap-based-level/chicken/sprite_sheet_white.png" id="2_06ffs"]
+[ext_resource type="Script" path="res://tilemap/chicken/chicken.gd" id="1_12qyf"]
+[ext_resource type="Texture2D" uid="uid://nifcgc476ir5" path="res://tilemap/chicken/sprite_sheet_white.png" id="2_06ffs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_roryp"]
 radius = 8.0
