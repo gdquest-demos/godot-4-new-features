@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cll0trio57a6b"]
+[gd_scene load_steps=10 format=3 uid="uid://byuw8qf1cgbw0"]
 
-[ext_resource type="Script" path="res://navigation/beetle.gd" id="1_mefon"]
+[ext_resource type="Script" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
 [ext_resource type="PackedScene" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 
 [sub_resource type="Animation" id="Animation_5pcps"]
@@ -100,7 +100,7 @@ radius = 0.489449
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm81s"]
 size = Vector3(1.4, 0.2, 1.4)
 
-[node name="Beetle" type="CharacterBody3D" groups=["damageables", "targeteables"]]
+[node name="Beetle" type="CharacterBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtwayurkl2ptr"]
+[gd_scene load_steps=14 format=3 uid="uid://dblkt0dtob47t"]
 
-[ext_resource type="PackedScene" uid="uid://cll0trio57a6b" path="res://navigation/beetle.tscn" id="1_rbkf6"]
-[ext_resource type="Script" path="res://navigation/navigation.gd" id="1_unp00"]
+[ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_nko7b"]
+[ext_resource type="PackedScene" uid="uid://byuw8qf1cgbw0" path="res://navigation/beetle.tscn" id="2_54ad7"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
 vertices = PackedVector3Array(-4.5, -0.46351, -26.5, -4.5, -0.46351, -17.5, 4.5, -0.46351, -17.5, 4.5, -0.46351, -26.5, -4.5, -0.46351, -4.5, -4.5, -0.46351, 4.5, 4.5, -0.46351, 4.5, 4.5, -0.46351, -4.5)
@@ -25,12 +25,12 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 cell_size = 0.1
 cell_height = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxlw5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfah7"]
 shading_mode = 0
 albedo_color = Color(0.388235, 0.168627, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_kifhs"]
-material = SubResource("StandardMaterial3D_jxlw5")
+material = SubResource("StandardMaterial3D_sfah7")
 radial_segments = 16
 rings = 8
 
@@ -73,9 +73,9 @@ _data = {
 }
 
 [node name="Navigation" type="Node3D"]
-script = ExtResource("1_unp00")
+script = ExtResource("1_nko7b")
 
-[node name="Beetle" parent="." instance=ExtResource("1_rbkf6")]
+[node name="Beetle" parent="." instance=ExtResource("2_54ad7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933386, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
