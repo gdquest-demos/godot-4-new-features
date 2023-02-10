@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daory7g8ro8pr"
-path="res://.godot/imported/leg.L.PNG-5fbd8ba68613ac8da65090963f140d6c.ctex"
+uid="uid://b01xlbl80r3nm"
+path="res://.godot/imported/body.PNG-13089b0c7b270ef6d24e5a45790e47ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cutout-character/samurai_fox_parts/leg.L.PNG"
-dest_files=["res://.godot/imported/leg.L.PNG-5fbd8ba68613ac8da65090963f140d6c.ctex"]
+source_file="res://cutout_character/samurai_fox_parts/body.PNG"
+dest_files=["res://.godot/imported/body.PNG-13089b0c7b270ef6d24e5a45790e47ab.ctex"]
 
 [params]
 
