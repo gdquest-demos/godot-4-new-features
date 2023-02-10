@@ -1,8 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://jq7h64i1ln0o"]
+[gd_scene load_steps=5 format=3 uid="uid://jq7h64i1ln0o"]
 
 [ext_resource type="PackedScene" uid="uid://ct55ii5h0dbf2" path="res://animation_retargeting/models/RobotDanceModel.glb" id="1_i8uby"]
+[ext_resource type="PackedScene" uid="uid://3hfgs7g8uojy" path="res://animation_retargeting/models/gdbot-test.glb" id="1_wigc7"]
+[ext_resource type="AnimationLibrary" uid="uid://ckcknbqn7xbcn" path="res://animation_retargeting/models/RobotDanceLibrary.glb" id="2_4y8rl"]
+[ext_resource type="PackedScene" uid="uid://dfuiyaq4sro3w" path="res://animation_retargeting/models/mini_sophia.glb" id="3_ia8cq"]
 
 [node name="AnimatonRetargeting" type="Node3D"]
+
+[node name="gdbot-test" parent="." instance=ExtResource("1_wigc7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="GeneralSkeleton" parent="gdbot-test/Armature" index="0"]
+bones/0/position = Vector3(-0.00193779, 0.401465, 0.00634487)
+bones/0/rotation = Quaternion(0.000997488, -0.0882294, -0.0282757, 0.995698)
+bones/1/rotation = Quaternion(0.0313482, 0.0193715, 0.0286159, 0.998911)
+bones/3/rotation = Quaternion(0.00236704, -0.00933571, 0.0828213, 0.996518)
+bones/4/rotation = Quaternion(0.420218, 0.565544, 0.495662, -0.507835)
+bones/5/rotation = Quaternion(0.623014, 0.78155, -0.0181304, 0.0265579)
+bones/6/rotation = Quaternion(0.0236081, -0.706713, 0.0236081, 0.706713)
+bones/7/rotation = Quaternion(-0.0821124, 0.69593, 0.121647, 0.702952)
+bones/18/rotation = Quaternion(-0.313595, 0.601479, 0.665975, 0.310416)
+bones/19/rotation = Quaternion(-0.397719, 0.915952, 0.0225961, 0.0483872)
+bones/20/rotation = Quaternion(0.0827408, 0.702249, -0.0827407, 0.702249)
+bones/21/rotation = Quaternion(-0.363015, -0.700912, -0.229303, 0.569529)
+bones/32/rotation = Quaternion(-0.129466, -0.0371536, -0.985515, 0.103049)
+bones/33/rotation = Quaternion(0.00217517, 0.9942, -0.0832551, 0.0680435)
+bones/34/rotation = Quaternion(0.0381435, 0.685162, -0.714462, 0.136536)
+bones/35/rotation = Quaternion(-0.0586787, 0.0481782, 0.996042, 0.046218)
+bones/36/rotation = Quaternion(0.0263684, 0.996263, -0.0380116, -0.0729373)
+bones/37/rotation = Quaternion(0.111296, 0.746128, -0.654416, -0.0514341)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gdbot-test"]
+autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
+libraries = {
+"RobotDanceLibrary": ExtResource("2_4y8rl")
+}
+
+[node name="mini_sophia" parent="." instance=ExtResource("3_ia8cq")]
+
+[node name="GeneralSkeleton" parent="mini_sophia/Armature" index="0"]
+bones/16/rotation = Quaternion(0.00236704, -0.00933571, 0.0828213, 0.996518)
+bones/56/position = Vector3(-0.00478857, 0.992082, 0.0156792)
+bones/56/rotation = Quaternion(0.000997488, -0.0882294, -0.0282757, 0.995698)
+bones/57/rotation = Quaternion(-0.129466, -0.0371536, -0.985515, 0.103049)
+bones/58/rotation = Quaternion(0.00217517, 0.9942, -0.0832551, 0.0680435)
+bones/59/rotation = Quaternion(-0.0586787, 0.0481782, 0.996042, 0.046218)
+bones/60/rotation = Quaternion(0.0263684, 0.996263, -0.0380116, -0.0729373)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="mini_sophia"]
+autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
+libraries = {
+"RobotDanceLibrary": ExtResource("2_4y8rl")
+}
 
 [node name="RobotDanceModel" parent="." instance=ExtResource("1_i8uby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -86,6 +135,9 @@ bones/63/rotation = Quaternion(-1.49215e-07, 0.999962, 0.00869405, -5.93121e-09)
 autoplay = "Robot Hip Hop Dance"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+fov = 40.0
 
+[editable path="gdbot-test"]
+[editable path="mini_sophia"]
 [editable path="RobotDanceModel"]
