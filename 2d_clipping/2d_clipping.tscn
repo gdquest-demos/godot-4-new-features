@@ -11,9 +11,25 @@
 
 [node name="Box" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(248, 144)
+position = Vector2(240, 144)
 texture = ExtResource("1_pm75i")
 script = ExtResource("2_fnb8m")
+
+[node name="Label" type="Label" parent="Box"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 1.271
+anchor_right = 0.521
+anchor_bottom = 1.271
+offset_left = -65.008
+offset_top = -37.008
+offset_right = 16.992
+offset_bottom = -11.008
+grow_horizontal = 2
+grow_vertical = 2
+text = "no clip"
+horizontal_alignment = 1
 
 [node name="Mask" type="Sprite2D" parent="Box"]
 texture = ExtResource("2_ir0x8")
@@ -24,9 +40,25 @@ texture = ExtResource("3_yrnj2")
 
 [node name="Box2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(328, 144)
+position = Vector2(336, 144)
 texture = ExtResource("1_pm75i")
 script = ExtResource("2_fnb8m")
+
+[node name="Label" type="Label" parent="Box2"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 1.271
+anchor_right = 0.521
+anchor_bottom = 1.271
+offset_left = -65.008
+offset_top = -37.008
+offset_right = 16.992
+offset_bottom = -11.008
+grow_horizontal = 2
+grow_vertical = 2
+text = "clip only"
+horizontal_alignment = 1
 
 [node name="Mask" type="Sprite2D" parent="Box2"]
 clip_children = 1
@@ -38,9 +70,25 @@ texture = ExtResource("4_pyltk")
 
 [node name="Box3" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(408, 144)
+position = Vector2(432, 144)
 texture = ExtResource("1_pm75i")
 script = ExtResource("2_fnb8m")
+
+[node name="Label" type="Label" parent="Box3"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 1.271
+anchor_right = 0.521
+anchor_bottom = 1.271
+offset_left = -66.008
+offset_top = -37.008
+offset_right = 17.992
+offset_bottom = -11.008
+grow_horizontal = 2
+grow_vertical = 2
+text = "clip + draw"
+horizontal_alignment = 1
 
 [node name="Mask" type="Sprite2D" parent="Box3"]
 clip_children = 2
@@ -52,8 +100,24 @@ texture = ExtResource("5_mlp3v")
 
 [node name="Box4" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(168, 144)
+position = Vector2(144, 144)
 texture = ExtResource("1_pm75i")
+
+[node name="Label" type="Label" parent="Box4"]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 1.271
+anchor_right = 0.521
+anchor_bottom = 1.271
+offset_left = -65.008
+offset_top = -37.008
+offset_right = 16.992
+offset_bottom = -11.008
+grow_horizontal = 2
+grow_vertical = 2
+text = "frame"
+horizontal_alignment = 1
 
 [node name="Mask" type="Sprite2D" parent="Box4"]
 texture = ExtResource("2_ir0x8")
