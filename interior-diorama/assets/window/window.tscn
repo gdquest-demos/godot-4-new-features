@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhl5af7otkks6"]
+
+[ext_resource type="PackedScene" uid="uid://b8eq030jpn0q1" path="res://interior-diorama/assets/window/window.glb" id="1_66nvu"]
+[ext_resource type="Script" path="res://interior-diorama/hide_from_back.gd" id="1_f0o2e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fm4q3"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ofw6"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.35
+
+[sub_resource type="QuadMesh" id="QuadMesh_e8jvo"]
+size = Vector2(1, 1.2)
+
+[node name="Window" type="Node3D" node_paths=PackedStringArray("target_transform")]
+script = ExtResource("1_f0o2e")
+target_transform = NodePath(".")
+
+[node name="window" parent="." instance=ExtResource("1_66nvu")]
+
+[node name="window001" parent="window" index="0"]
+cast_shadow = 0
+gi_mode = 0
+
+[node name="glass" parent="window" index="1"]
+material_override = SubResource("StandardMaterial3D_fm4q3")
+cast_shadow = 0
+gi_mode = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+layers = 0
+material_override = SubResource("StandardMaterial3D_4ofw6")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_e8jvo")
+
+[editable path="window"]
