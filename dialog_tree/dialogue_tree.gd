@@ -1,8 +1,13 @@
 extends PanelContainer
 
+
 var _languages_button_group := ButtonGroup.new()
 var _line_id := 0
 var _language := "en"
+var _font_size_text := {
+	"en": "Font Size",
+	"ro": "Mărimea Font-ului",
+}
 var _dialogue := [
 	{
 		"expression": "neutral",
@@ -72,10 +77,13 @@ var _dialogue := [
 @onready var rich_text_label := %RichTextLabel
 @onready var buttons_column := %ButtonsColumn
 @onready var languages_row := %LanguagesRow
+@onready var font_size_label := %FontSizeLabel
+@onready var slider := %HSlider
 
 
 func _ready() -> void:
 	_languages_button_group.connect("pressed", set_language)
+	slider.connect("value_changed", set_text)
 	for button in languages_row.get_children():
 		button.button_group = _languages_button_group
 	show_line(_line_id)
@@ -84,17 +92,17 @@ func _ready() -> void:
 func show_line(id: int) -> void:
 	_line_id = id
 	var line_data: Dictionary = _dialogue[id]
-	set_text(line_data[_language].text)
+	set_text(slider.value)
 	set_expression(line_data.expression)
-
 	for button in buttons_column.get_children():
 		button.queue_free()
-
 	create_buttons(line_data[_language].buttons)
 
 
-func set_text(new_text: String) -> void:
-	rich_text_label.bbcode_text = new_text
+func set_text(font_size: int) -> void:
+	var text: String = _dialogue[_line_id][_language].text
+	font_size_label.text = "%s: %03d" % [_font_size_text[_language], font_size]
+	rich_text_label.bbcode_text = "[font_size={0}]{1}[/font_size]".format([font_size, text])
 
 
 func set_expression(expression: String) -> void:
@@ -108,7 +116,7 @@ func set_expression(expression: String) -> void:
 
 func set_language(_button: Button) -> void:
 	_language = _languages_button_group.get_pressed_button().text.to_lower()
-	set_text(_dialogue[_line_id][_language].text)
+	set_text(slider.value)
 	for idx in range(buttons_column.get_children().size()):
 		buttons_column.get_child(idx).text = _dialogue[_line_id][_language].buttons.keys()[idx]
 

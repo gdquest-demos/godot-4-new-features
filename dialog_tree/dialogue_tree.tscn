@@ -65,8 +65,21 @@ layout_mode = 2
 toggle_mode = true
 text = "RO"
 
-[node name="SlidersRow" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="SlidersRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FontSizeLabel" type="Label" parent="MarginContainer/VBoxContainer/SlidersRow"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SlidersRow"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 999.0
+value = 18.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true
