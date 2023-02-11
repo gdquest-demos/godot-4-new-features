@@ -1,11 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://jq7h64i1ln0o"]
+[gd_scene load_steps=9 format=3 uid="uid://jq7h64i1ln0o"]
 
 [ext_resource type="PackedScene" uid="uid://cd7otm4lflmtx" path="res://animation_retargeting/models/gdbot-noik.glb" id="1_241xh"]
 [ext_resource type="PackedScene" uid="uid://bbtd6s8t8dnum" path="res://animation_retargeting/models/mini_sophia_noik.glb" id="1_d2w5j"]
 [ext_resource type="PackedScene" uid="uid://ct55ii5h0dbf2" path="res://animation_retargeting/models/RobotDanceModel.glb" id="1_i8uby"]
 [ext_resource type="AnimationLibrary" uid="uid://ckcknbqn7xbcn" path="res://animation_retargeting/models/RobotDanceLibrary.glb" id="2_4y8rl"]
+[ext_resource type="Material" path="res://shared/models/gdbot/materials/gdbot_face_mat.tres" id="4_4qd0u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m5tua"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_10kuu"]
+sky_material = SubResource("ProceduralSkyMaterial_m5tua")
+
+[sub_resource type="Environment" id="Environment_57wsp"]
+background_mode = 2
+sky = SubResource("Sky_10kuu")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="AnimatonRetargeting" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_57wsp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
 
 [node name="mini_sophia_noik" parent="." instance=ExtResource("1_d2w5j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37285, 0, 0)
@@ -65,6 +86,9 @@ bones/34/rotation = Quaternion(0.0381435, 0.685162, -0.714462, 0.136536)
 bones/35/rotation = Quaternion(-0.0586787, 0.0481782, 0.996042, 0.046218)
 bones/36/rotation = Quaternion(0.0263684, 0.996263, -0.0380116, -0.0729373)
 bones/37/rotation = Quaternion(0.111296, 0.746128, -0.654416, -0.0514341)
+
+[node name="gdbot_mesh" parent="gdbot-noik/Armature/GeneralSkeleton" index="0"]
+surface_material_override/1 = ExtResource("4_4qd0u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="gdbot-noik"]
 autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
