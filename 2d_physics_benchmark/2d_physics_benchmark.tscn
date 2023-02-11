@@ -5,7 +5,7 @@
 [node name="2DPhysicsBenchmark" type="Node2D"]
 script = ExtResource("1_wx1ud")
 
-[node name="FPSLabel" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 offset_right = 36.0
 offset_bottom = 26.0
 
@@ -13,3 +13,6 @@ offset_bottom = 26.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, -64, 0, -64, 1152, 1984, 1152, 1984, 0, 1920, 0, 1920, 1024, 0, 1024)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(960, 0)
