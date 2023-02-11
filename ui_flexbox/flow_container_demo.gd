@@ -35,9 +35,10 @@ func add_item() -> void:
 
 
 func remove_item() -> void:
-	var last: Node = h_flow_container.get_child(h_flow_container.get_child_count() - 1)
-	if last:
-		h_flow_container.remove_child(last)
+	if h_flow_container.get_child_count() > 0:
+		var last: Node = h_flow_container.get_child(h_flow_container.get_child_count() - 1)
+		if last:
+			h_flow_container.remove_child(last)
 
 
 func set_margins(new_value: int) -> void:
