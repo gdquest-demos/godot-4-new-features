@@ -4,9 +4,5 @@ extends RigidBody3D
 
 
 func _ready():
+	# Randomize the color of each ball instance
 	mesh_instance.set("instance_shader_parameters/albedo", Color.from_hsv(randf_range(0.0, 0.99), 0.5, 0.5))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
