@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3]
+[gd_scene load_steps=52 format=3 uid="uid://chutqcphfpgi5"]
 
 [ext_resource type="Script" path="res://tilemap/player/player.gd" id="1_o04l8"]
 [ext_resource type="Script" path="res://tilemap/player/player_skin.gd" id="2_nbx8u"]
