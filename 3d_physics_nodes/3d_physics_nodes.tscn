@@ -1,0 +1,197 @@
+[gd_scene load_steps=12 format=3 uid="uid://dy1hyu4jpc8nf"]
+
+[ext_resource type="PackedScene" path="res://shared/sophie_character_controller/sophie_character_controller.tscn" id="1_l0g8y"]
+[ext_resource type="PackedScene" uid="uid://bxwdkerxhac3h" path="res://3d_physics_nodes/ball.tscn" id="2_qmsx2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_712ij"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3wuw6"]
+sky_material = SubResource("ProceduralSkyMaterial_712ij")
+
+[sub_resource type="Environment" id="Environment_dt45g"]
+background_mode = 2
+sky = SubResource("Sky_3wuw6")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x70l"]
+albedo_color = Color(0.466667, 0.768627, 0.537255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nb0s6"]
+size = Vector3(30, 4, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_77d7e"]
+size = Vector3(28, 5, 18)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6wsp6"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 14.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3nxqv"]
+height = 14.0
+radius = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4i6l"]
+size = Vector2(14, 4.6)
+subdivide_width = 9
+subdivide_depth = 10
+
+[node name="3DPhysicsNodes" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_angular_distance = 0.8
+shadow_enabled = true
+shadow_blur = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dt45g")
+
+[node name="Player" parent="." instance=ExtResource("1_l0g8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17589, 1.90447, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2053, 0, 0)
+material_override = SubResource("StandardMaterial3D_6x70l")
+use_collision = true
+mesh = SubResource("BoxMesh_nb0s6")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789169, 0)
+operation = 2
+mesh = SubResource("BoxMesh_77d7e")
+
+[node name="Ball" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.498, 0.557281, 4.84256)
+
+[node name="Ball2" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05794, 0.490026, 5.27904)
+
+[node name="Ball3" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8971, 0.490024, 5.45028)
+
+[node name="Ball4" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2831, 0.490025, 2.80945)
+
+[node name="Ball5" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4627, 0.490025, -6.90725)
+
+[node name="Ball6" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7307, 0.490025, -0.956017)
+
+[node name="Ball10" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1169, 0.490025, 2.9299)
+
+[node name="Ball11" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2574, 0.490025, -3.90926)
+
+[node name="Ball12" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8973, 0.490025, -0.657287)
+
+[node name="Ball7" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2629, 0.490025, 1.48434)
+
+[node name="Ball8" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3981, 0.490025, -7.25788)
+
+[node name="Ball9" parent="." instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48823, 0.490025, -1.35947)
+
+[node name="MetalBar" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3391, 2.62138, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6wsp6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_3nxqv")
+
+[node name="MetalBar3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3391, -4.23864, 6.76256)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar3"]
+mesh = SubResource("CylinderMesh_6wsp6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar3"]
+shape = SubResource("CylinderShape3D_3nxqv")
+
+[node name="MetalBar4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.339, -4.239, -6.763)
+collision_layer = 3
+collision_mask = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar4"]
+mesh = SubResource("CylinderMesh_6wsp6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar4"]
+shape = SubResource("CylinderShape3D_3nxqv")
+
+[node name="SoftBody3D" type="SoftBody3D" parent="."]
+transform = Transform3D(-3.95603e-08, -0.425337, -0.905035, -1.85921e-08, 0.905035, -0.425337, 1, 1.27769e-15, -4.37114e-08, 27.4555, 0.367323, 0)
+mesh = SubResource("QuadMesh_i4i6l")
+collision_layer = 2
+collision_mask = 2
+pinned_points = [132, 143, 141, 139, 137, 135, 131, 129, 127, 125, 123, 121, 10, 8, 6, 4, 2, 0]
+attachments/0/point_index = 132
+attachments/0/spatial_attachment_path = NodePath("")
+attachments/0/offset = Vector3(0, 0, 0)
+attachments/1/point_index = 143
+attachments/1/spatial_attachment_path = NodePath("")
+attachments/1/offset = Vector3(0, 0, 0)
+attachments/2/point_index = 141
+attachments/2/spatial_attachment_path = NodePath("")
+attachments/2/offset = Vector3(0, 0, 0)
+attachments/3/point_index = 139
+attachments/3/spatial_attachment_path = NodePath("")
+attachments/3/offset = Vector3(0, 0, 0)
+attachments/4/point_index = 137
+attachments/4/spatial_attachment_path = NodePath("")
+attachments/4/offset = Vector3(0, 0, 0)
+attachments/5/point_index = 135
+attachments/5/spatial_attachment_path = NodePath("")
+attachments/5/offset = Vector3(0, 0, 0)
+attachments/6/point_index = 131
+attachments/6/spatial_attachment_path = NodePath("")
+attachments/6/offset = Vector3(0, 0, 0)
+attachments/7/point_index = 129
+attachments/7/spatial_attachment_path = NodePath("")
+attachments/7/offset = Vector3(0, 0, 0)
+attachments/8/point_index = 127
+attachments/8/spatial_attachment_path = NodePath("")
+attachments/8/offset = Vector3(0, 0, 0)
+attachments/9/point_index = 125
+attachments/9/spatial_attachment_path = NodePath("")
+attachments/9/offset = Vector3(0, 0, 0)
+attachments/10/point_index = 123
+attachments/10/spatial_attachment_path = NodePath("")
+attachments/10/offset = Vector3(0, 0, 0)
+attachments/11/point_index = 121
+attachments/11/spatial_attachment_path = NodePath("")
+attachments/11/offset = Vector3(0, 0, 0)
+attachments/12/point_index = 10
+attachments/12/spatial_attachment_path = NodePath("")
+attachments/12/offset = Vector3(0, 0, 0)
+attachments/13/point_index = 8
+attachments/13/spatial_attachment_path = NodePath("")
+attachments/13/offset = Vector3(0, 0, 0)
+attachments/14/point_index = 6
+attachments/14/spatial_attachment_path = NodePath("")
+attachments/14/offset = Vector3(0, 0, 0)
+attachments/15/point_index = 4
+attachments/15/spatial_attachment_path = NodePath("")
+attachments/15/offset = Vector3(0, 0, 0)
+attachments/16/point_index = 2
+attachments/16/spatial_attachment_path = NodePath("")
+attachments/16/offset = Vector3(0, 0, 0)
+attachments/17/point_index = 0
+attachments/17/spatial_attachment_path = NodePath("")
+attachments/17/offset = Vector3(0, 0, 0)

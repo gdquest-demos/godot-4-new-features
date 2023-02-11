@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3]
+[gd_scene load_steps=53 format=3 uid="uid://dgvq4io2wgwv"]
 
 [ext_resource type="PackedScene" uid="uid://douscbe20506q" path="res://shared/models/sophia/mini_sophia.glb" id="1_f2l4o"]
 [ext_resource type="Script" path="res://shared/models/sophia/sophia_skin.gd" id="1_n654l"]
