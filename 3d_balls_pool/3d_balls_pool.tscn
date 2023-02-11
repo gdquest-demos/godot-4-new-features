@@ -1,0 +1,165 @@
+[gd_scene load_steps=16 format=3 uid="uid://brhbpdmco1p2g"]
+
+[ext_resource type="Script" path="res://3d_balls_pool/3d_balls_pool.gd" id="1_iilj0"]
+[ext_resource type="Script" path="res://3d_balls_pool/DeathPlane.gd" id="2_lnerr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_onuov"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_7yqss"]
+sky_material = SubResource("ProceduralSkyMaterial_onuov")
+
+[sub_resource type="Environment" id="Environment_odtnt"]
+background_mode = 2
+sky = SubResource("Sky_7yqss")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_grv1i"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bydrg"]
+size = Vector3(10, 0.5, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_axnxf"]
+size = Vector3(0.5, 3, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjq48"]
+size = Vector3(0.5, 3, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ijojy"]
+size = Vector3(0.5, 3, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyusj"]
+size = Vector3(0.5, 3, 7)
+
+[sub_resource type="Animation" id="Animation_mr3oj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wkavj"]
+resource_name = "default"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x42kw"]
+_data = {
+"RESET": SubResource("Animation_mr3oj"),
+"default": SubResource("Animation_wkavj")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ai2sd"]
+size = Vector3(1000, 1, 1000)
+
+[node name="3DBallsPool" type="Node3D"]
+script = ExtResource("1_iilj0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_odtnt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_grv1i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bydrg")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_axnxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_mjq48")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_axnxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_mjq48")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, 5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+mesh = SubResource("BoxMesh_axnxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("BoxShape3D_mjq48")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, -5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
+mesh = SubResource("BoxMesh_axnxf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("BoxShape3D_mjq48")
+
+[node name="RotatingWall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RotatingWall"]
+mesh = SubResource("BoxMesh_ijojy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RotatingWall"]
+shape = SubResource("BoxShape3D_tyusj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotatingWall"]
+autoplay = "default"
+playback_process_mode = 0
+libraries = {
+"": SubResource("AnimationLibrary_x42kw")
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999998, 0.00142177, -0.00107536, 0, 0.603238, 0.797561, 0.00178264, -0.79756, 0.603237, -0.253901, 11.5959, 8.92557)
+
+[node name="DeathPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+script = ExtResource("2_lnerr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+shape = SubResource("BoxShape3D_ai2sd")
+
+[node name="FPSLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ActiveBalls" type="Label" parent="."]
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 53.0
