@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=33 format=3 uid="uid://bgpjrj0qf7awr"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://bgpjrj0qf7awr"]
 
 [ext_resource type="Texture2D" uid="uid://cmbtcqbj0wce" path="res://interface/checkbox_checked.png" id="1_uff15"]
 [ext_resource type="Texture2D" uid="uid://coqm1cey55xhh" path="res://interface/checkbox_disabled_checked.png" id="2_e6m6n"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dhhfk0yihuce0" path="res://interface/fonts/OpenSans-BoldItalic.ttf" id="8_fbcgr"]
 [ext_resource type="FontFile" uid="uid://3aib8bl57svf" path="res://interface/fonts/OpenSans-Italic.ttf" id="9_cyyj2"]
 [ext_resource type="FontFile" uid="uid://bhwlykn0sh6o4" path="res://interface/fonts/OpenSans-Regular.ttf" id="10_3161s"]
+[ext_resource type="FontFile" uid="uid://dtb7jxx53rbdu" path="res://interface/fonts/SourceCodePro-Regular.otf" id="10_kty8b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h65f2"]
 bg_color = Color(0.0901961, 0.0941176, 0.188235, 1)
@@ -287,9 +288,11 @@ MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
 Panel/styles/panel = SubResource("2")
 PanelContainer/styles/panel = SubResource("2")
+RichTextLabel/font_sizes/mono_font_size = 18
 RichTextLabel/fonts/bold_font = ExtResource("7_tbpk5")
 RichTextLabel/fonts/bold_italics_font = ExtResource("8_fbcgr")
 RichTextLabel/fonts/italics_font = ExtResource("9_cyyj2")
+RichTextLabel/fonts/mono_font = ExtResource("10_kty8b")
 RichTextLabel/fonts/normal_font = ExtResource("10_3161s")
 VBoxContainer/constants/separation = 20
 VFlowContainer/constants/hseparation = 12

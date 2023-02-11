@@ -50,3 +50,18 @@ layout_mode = 2
 theme_type_variation = &"ButtonCancel"
 text = "No"
 icon = ExtResource("4_jd6v5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=26]Select the [code]Button[/code] nodes in the [i]Scene[/i] dock and from the [i]Inspector > Theme > Type Variation[/i] choose the provided variations: [code]ButtonCancel[/code] or [code]ButtonSuccess[/code].
+
+[b]Note[/b] that these varations appear in the [i]Inspector[/i] dropw-down because we set the theme with these variations as a project-wise theme. You can see this [i]Project Settings... > GUI > Theme[/i] options. You have to toggle on [i]Advanced Settings[/i] for [i]GUI > Theme[/i] to be shown. Otherwise we'd have to write the name of the [i]Theme Variation[/i] manually in the [i]Inspector[/i].[/font_size]"
