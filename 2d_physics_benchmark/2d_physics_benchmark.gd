@@ -1,30 +1,38 @@
 extends Node2D
 
 
-const RigidBody := preload("rigid_body_2d.tscn")
-const SPAWNS_INIT := 4000
+const CannonBall := preload("cannon_ball.tscn")
+
+@export var init_spawns := 1000
 
 var spawns := 0
 
 @onready var label := $Label
-@onready var marker := $Marker2D
+@onready var cannons := $Cannons
 
 
 func _ready() -> void:
-	for idx in range(SPAWNS_INIT):
-		spawn(Vector2(20, 0) * index_to_xy(1880, idx))
+	for cannon in cannons.get_children():
+		cannon.connect("fired", increment_spawns)
+
+	for idx in range(init_spawns):
+		spawn(20 * index_to_xy(80, idx) + Vector2(180, 400))
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	label.text = "FPS %d\nSpawns %d" % [Performance.get_monitor(Performance.TIME_FPS), spawns]
-	spawn(marker.position)
+
+
+func increment_spawns() -> void:
+	spawns += 1
 
 
 func spawn(location: Vector2) -> void:
-	var rigid_body := RigidBody.instantiate()
-	rigid_body.position = location
-	add_child(rigid_body)
-	spawns += 1
+	var cannon_ball := CannonBall.instantiate()
+	cannon_ball.position = location
+	add_child(cannon_ball)
+	increment_spawns()
+
 
 func index_to_xy(width: int, index: int) -> Vector2:
 	return Vector2(index % width, index / width)
