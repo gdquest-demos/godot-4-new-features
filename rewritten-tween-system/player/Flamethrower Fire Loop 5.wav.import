@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bm673bh8n7l1f"
+path="res://.godot/imported/Flamethrower Fire Loop 5.wav-0a42bad555d79482b8fc65728b6263c1.sample"
+
+[deps]
+
+source_file="res://rewritten-tween-system/player/Flamethrower Fire Loop 5.wav"
+dest_files=["res://.godot/imported/Flamethrower Fire Loop 5.wav-0a42bad555d79482b8fc65728b6263c1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

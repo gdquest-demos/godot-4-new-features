@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8miq4bj4y8po"]
+
+[ext_resource type="Script" path="res://rewritten-tween-system/TweenDemo.gd" id="1_0jyno"]
+[ext_resource type="Texture2D" uid="uid://bqfgl7n1ftrwg" path="res://rewritten-tween-system/background.png" id="2_0qttr"]
+[ext_resource type="PackedScene" uid="uid://cyles1x1mibrt" path="res://rewritten-tween-system/player/player.tscn" id="3_1l8h0"]
+
+[node name="TweenDemo" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0qttr")
+stretch_mode = 4
+script = ExtResource("1_0jyno")
+
+[node name="Player" parent="." instance=ExtResource("3_1l8h0")]
