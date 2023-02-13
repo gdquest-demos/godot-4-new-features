@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://3d_balls_pool/3d_balls_pool.gd" id="1_iilj0"]
 [ext_resource type="Script" path="res://3d_balls_pool/DeathPlane.gd" id="2_lnerr"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_onuov"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_66v01"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_7yqss"]
-sky_material = SubResource("ProceduralSkyMaterial_onuov")
+[sub_resource type="Sky" id="Sky_e1rb0"]
+sky_material = SubResource("ProceduralSkyMaterial_66v01")
 
-[sub_resource type="Environment" id="Environment_odtnt"]
+[sub_resource type="Environment" id="Environment_d8f8m"]
 background_mode = 2
-sky = SubResource("Sky_7yqss")
+sky = SubResource("Sky_e1rb0")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -78,12 +78,12 @@ size = Vector3(1000, 1, 1000)
 [node name="3DBallsPool" type="Node3D"]
 script = ExtResource("1_iilj0")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d8f8m")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_odtnt")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

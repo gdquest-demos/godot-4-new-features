@@ -31,7 +31,6 @@ script = ExtResource("1_gen3q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_fvbbb")
-cast_shadow = 0
 instance_shader_parameters/albedo = Color(1, 1, 1, 1)
 mesh = SubResource("SphereMesh_6png3")
 
