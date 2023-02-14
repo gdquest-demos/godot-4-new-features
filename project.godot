@@ -109,3 +109,7 @@ pause={
 [layer_names]
 
 2d_physics/layer_1="Player"
+
+[physics]
+
+3d/solver/solver_iterations=8
