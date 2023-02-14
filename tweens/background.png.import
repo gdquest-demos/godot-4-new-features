@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn38tgb4imh6c"
-path="res://.godot/imported/blue_gem.png-73d1e812e6967718b0e44fea72999a65.ctex"
+uid="uid://bqfgl7n1ftrwg"
+path="res://.godot/imported/background.png-761fcba1b61df620f3d73be164a68325.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rewritten-tween-system/gem/blue_gem.png"
-dest_files=["res://.godot/imported/blue_gem.png-73d1e812e6967718b0e44fea72999a65.ctex"]
+source_file="res://tweens/background.png"
+dest_files=["res://.godot/imported/background.png-761fcba1b61df620f3d73be164a68325.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cu84ep5dj8e50"
-path="res://.godot/imported/Collect star 3.wav-0ed92e60d1972296428dc5670f310d17.sample"
+path="res://.godot/imported/collect_gem.wav-7e322f7d3ab9ed1eb66dc8e40c8c6536.sample"
 
 [deps]
 
-source_file="res://rewritten-tween-system/gem/Collect star 3.wav"
-dest_files=["res://.godot/imported/Collect star 3.wav-0ed92e60d1972296428dc5670f310d17.sample"]
+source_file="res://tweens/gem/collect_gem.wav"
+dest_files=["res://.godot/imported/collect_gem.wav-7e322f7d3ab9ed1eb66dc8e40c8c6536.sample"]
 
 [params]
 

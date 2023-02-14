@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyles1x1mibrt"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Texture2D" uid="uid://clqit06m3f2b3" path="res://rewritten-tween-system/player/player.png" id="1_7cxjc"]
-[ext_resource type="Script" path="res://rewritten-tween-system/player/Player.gd" id="2_bu7s7"]
-[ext_resource type="AudioStream" uid="uid://bm673bh8n7l1f" path="res://rewritten-tween-system/player/Flamethrower Fire Loop 5.wav" id="3_7dbvb"]
+[ext_resource type="Texture2D" uid="uid://clqit06m3f2b3" path="res://tweens/player/player.png" id="1_7cxjc"]
+[ext_resource type="Script" path="res://tweens/player/player.gd" id="2_bu7s7"]
+[ext_resource type="AudioStream" uid="uid://bm673bh8n7l1f" path="res://tweens/player/Flamethrower Fire Loop 5.wav" id="3_7dbvb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_25jsp"]
 radius = 45.2769
@@ -46,7 +46,7 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_25jsp")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7dbvb")
 volume_db = -30.0
 

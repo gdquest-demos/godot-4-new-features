@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct0hsy5rw8tbb"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://rewritten-tween-system/gem/Gem.gd" id="1_asmyj"]
-[ext_resource type="Texture2D" uid="uid://bn38tgb4imh6c" path="res://rewritten-tween-system/gem/blue_gem.png" id="2_juwn7"]
-[ext_resource type="AudioStream" uid="uid://cu84ep5dj8e50" path="res://rewritten-tween-system/gem/Collect star 3.wav" id="3_opftb"]
+[ext_resource type="Script" path="res://tweens/gem/gem.gd" id="1_asmyj"]
+[ext_resource type="Texture2D" uid="uid://bn38tgb4imh6c" path="res://tweens/gem/blue_gem.png" id="2_juwn7"]
+[ext_resource type="AudioStream" uid="uid://cu84ep5dj8e50" path="res://tweens/gem/collect_gem.wav" id="3_b25r1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dd8gn"]
 radius = 76.0066
@@ -10,7 +10,7 @@ radius = 76.0066
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5b8wt"]
 streams_count = 1
 random_volume_offset_db = 0.0
-stream_0/stream = ExtResource("3_opftb")
+stream_0/stream = ExtResource("3_b25r1")
 stream_0/weight = 1.0
 
 [node name="Gem" type="Node2D"]
@@ -33,8 +33,6 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_dd8gn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_5b8wt")
 max_polyphony = 10
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
