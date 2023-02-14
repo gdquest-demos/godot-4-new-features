@@ -4,12 +4,19 @@ const DEMOS := [
 	{"scene_path": "res://2d_clipping/2d_clipping.tscn", "name": "2D Clipping"},
 	{"scene_path": "res://3d_physics_nodes/3d_physics_nodes.tscn", "name": "3D Physics Nodes"},
 	{"scene_path": "res://animation_retargeting/animation_retargeting.tscn", "name": "Animation Retargeting"},
-	{"scene_path": "res://cutout_character/cutout_character.tscn", "name": "Cutout Character"}
+	{"scene_path": "res://cutout_character/cutout_character.tscn", "name": "Cutout Character"},
+	{"scene_path": "res://interior-diorama/interior_diorama.tscn", "name": "Interior Diorama"},
+	{"scene_path": "res://outdoor_environment/outdoor_environment.tscn", "name": "Outdoor Environment"},
+	{"scene_path": "res://theme_variations/theme_variations.tscn", "name": "Theme Variations"},
+	{"scene_path": "res://tilemap/tilemap_based_level.tscn", "name": "Tilemap Level"},
+	{"scene_path": "res://tweens/tween_demo.tscn", "name": "Tween Demo"},
+	{"scene_path": "res://ui_flexbox/flow_container_demo.tscn", "name": "Flow Container"}
 ]
 const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 
 @onready var grid_container : GridContainer = $GridContainer
 @onready var _cached_mouse_mode : int
+@onready var _current_scene_idx : int
 
 
 func _ready():
@@ -29,6 +36,7 @@ func _ready():
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file(DEMOS[demo_id]["scene_path"])
+	_current_scene_idx = demo_id
 	resume()
 
 
@@ -40,6 +48,7 @@ func _input(event):
 			resume()
 		else:
 			pause()
+			grid_container.get_child(_current_scene_idx).grab_focus()
 
 
 func pause() -> void:
