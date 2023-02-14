@@ -1,17 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://d4mjp57jai7ya"]
 
-[ext_resource type="PackedScene" uid="uid://o7qyt01n7x0k" path="res://main/ui_scene_entry.tscn" id="1_y8fnq"]
+[ext_resource type="Script" path="res://main/ui_scene_selector.gd" id="1_x13la"]
 
-[node name="UISceneSelector" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="UISceneSelector" type="CanvasLayer"]
+script = ExtResource("1_x13la")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +14,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.137255)
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.197917
 anchor_top = 0.169444
@@ -32,39 +25,3 @@ theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 columns = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="Panel" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel2" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel3" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel4" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel5" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel6" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel7" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel8" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel9" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel10" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel11" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
-
-[node name="Panel12" parent="GridContainer" instance=ExtResource("1_y8fnq")]
-layout_mode = 2
