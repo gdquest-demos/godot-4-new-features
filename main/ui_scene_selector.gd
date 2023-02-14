@@ -37,6 +37,7 @@ func _ready():
 
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file(DEMOS[demo_id]["scene_path"])
 	_current_scene_idx = demo_id
 	resume()
