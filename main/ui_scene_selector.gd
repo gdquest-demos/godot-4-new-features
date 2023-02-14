@@ -14,7 +14,9 @@ const DEMOS := [
 ]
 const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 
-@onready var grid_container : GridContainer = $GridContainer
+@onready var grid_container : GridContainer = $SelectorRoot/GridContainer
+@onready var selector_root : Control = $SelectorRoot
+
 @onready var _cached_mouse_mode : int
 @onready var _current_scene_idx : int
 
@@ -53,6 +55,10 @@ func _input(event):
 
 func pause() -> void:
 	visible = true
+	selector_root.modulate = Color.TRANSPARENT
+	var tween := create_tween()
+	tween.tween_property(selector_root, "modulate", Color.WHITE, 0.2)
+	
 	if get_tree().current_scene:
 		get_tree().current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_cached_mouse_mode = Input.mouse_mode
@@ -60,7 +66,11 @@ func pause() -> void:
 
 
 func resume() -> void:
-	visible = false
+	selector_root.modulate = Color.WHITE
+	var tween := create_tween()
+	tween.tween_property(selector_root, "modulate", Color.TRANSPARENT, 0.2)
+	tween.tween_callback(set_visible.bind(false))
+	
 	if get_tree().current_scene:
 		get_tree().current_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		Input.mouse_mode = _cached_mouse_mode
