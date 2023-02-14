@@ -18,11 +18,6 @@ enum MESSAGE_TYPE {
 
 ## Maximum allowed number of clients
 const MAX_CLIENTS = 10
-## Server ID is always 1
-const SERVER_PEER_ID = 1
-## When calling an RPC method in a non-RPC way, the `get_remote_sender_id()`
-## method always returns 0
-const NOT_A_PEER_ID = 0
 
 ## Emitted when the manager needs to communicate a change
 signal status_message_emitted(message: String, type: MESSAGE_TYPE)
@@ -48,6 +43,8 @@ var port := 8910
 var is_server := DisplayServer.get_name() == "headless"
 ## A generated nickname for the player
 var nickname: String = ["Brave", "Horrific", "Courageous", "Terrific", "Fair", "Conqueror", "Victorious", "Glorious", "Invicible"].pick_random() + ["Leopard", "Cheetah", "Bear", "Turtle", "Rabbit", "Porcupine", "Hare", "Pigeon", "Albatross", "Crow" ].pick_random()
+## A generated color for the player
+var color: Color = Color.from_hsv((randi() % 12) / 12.0, 1, 1)
 ## All connected players will be listed here
 ## Matches a player id with a Player instance
 ## @type Dictionary[Int, Player]
@@ -119,15 +116,16 @@ func end_session() -> void:
 
 
 @rpc("any_peer", "call_local")
-func _register_player(player_nickname: String) -> void:
+func _register_player(player_nickname: String, player_color: Color) -> void:
 	var id := multiplayer.get_remote_sender_id()
-	assert(id != NOT_A_PEER_ID, "this method should only be called from an RPC context")
+	assert(is_a_peer(id), "this method should only be called from an RPC context")
 	var player := Player.new()
 	player.id = id
 	player.nickname = player_nickname
-	player.is_host = id == SERVER_PEER_ID
+	player.color = player_color
+	player.is_host = peer_is_server(id)
 	players[id] = player
-
+	
 	var self_id := multiplayer.get_unique_id()
 	if id == self_id:
 		status_message_emitted.emit("set own nickame to: %s"%[player_nickname], MESSAGE_TYPE.INFO)
@@ -135,24 +133,10 @@ func _register_player(player_nickname: String) -> void:
 		status_message_emitted.emit("%s set nickame to: %s"%[id, player_nickname], MESSAGE_TYPE.INFO)
 	player_added.emit(player)
 
+
 ## Sets the player's nickname
 func register_player() -> void:
-	_register_player.rpc(nickname)
-
-
-@rpc("any_peer", "call_local")
-func _dispatch_message(message: String) -> void:
-	var id := multiplayer.get_remote_sender_id()
-	assert(id != NOT_A_PEER_ID, "this method should only be called from an RPC context")
-	if not players.has(id):
-		return
-	var player: Player = players[id]
-	player_sent_text.emit(player, message)
-
-
-## Dispatches a message to all players
-func dispatch_message(message: String) -> void:
-	_dispatch_message.rpc(message)
+	_register_player.rpc(nickname, color)
 
 
 ## Only on client
@@ -174,7 +158,7 @@ func _on_server_disconnected() -> void:
 
 
 func _on_player_connected(player_id: int) -> void:
-	if player_id == SERVER_PEER_ID:
+	if peer_is_server(player_id):
 		status_message_emitted.emit("connected to server", MESSAGE_TYPE.SUCCESS)
 	else:
 		status_message_emitted.emit("player %s connected"%player_id, MESSAGE_TYPE.SUCCESS)
@@ -182,18 +166,38 @@ func _on_player_connected(player_id: int) -> void:
 
 
 func _on_player_disconnected(player_id: int) -> void:
-	if player_id == SERVER_PEER_ID:
+	if peer_is_server(player_id):
 		status_message_emitted.emit("disconnected from server", MESSAGE_TYPE.INFO)
 	else:
 		status_message_emitted.emit("player %s disconnected"%player_id, MESSAGE_TYPE.INFO)
 	player_removed.emit(player_id)
 
 
+func peer_is_server(peer_id: int) -> bool:
+	return peer_id == 1
+
+
+func is_a_peer(peer_id: int) -> bool:
+	# When calling an RPC method in a non-RPC way, the `get_remote_sender_id()`
+	# method always returns 0
+	return peer_id != 0
+
+
+func get_player_by_id(player_id: int) -> Player:
+	if not players.has(player_id):
+		return
+	var player: Player = players[player_id]
+	return player
+
+
 class Player:
-	var id: int
-	var nickname: String
-	var color := Color.from_hsv((randi() % 12) / 12.0, 1, 1)
+	var id := 0
+	var nickname := ""
+	var color := Color.BLACK
 	var is_host := false
 	var prefix := "":
 		get:
 			return "@" if is_host else ""
+	
+	func _to_string() -> String:
+		return "Player(%s:%s)"%[id, nickname]

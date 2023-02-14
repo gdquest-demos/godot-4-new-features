@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://d15h07ftljmgk"]
+
+[ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="1_7ff6j"]
+[ext_resource type="Script" path="res://networking/FPS/fps.gd" id="1_j1v2d"]
+[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_el1l0"]
+[ext_resource type="Script" path="res://networking/FPS/ddeeee.gd" id="4_yjd8c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgisj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq823"]
+albedo_color = Color(0.498039, 0.301961, 0.654902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_armnl"]
+size = Vector2(50, 50)
+
+[sub_resource type="Environment" id="Environment_erl0c"]
+ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
+sdfgi_enabled = true
+
+[node name="FPS" type="Node3D"]
+script = ExtResource("1_j1v2d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgisj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+button_pressed = true
+text = "|||"
+flat = true
+
+[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("1_7ff6j")]
+unique_name_in_owner = true
+layout_mode = 2
+multiplayer_settings = NodePath("../../../MultiplayerSettings")
+
+[node name="MultiplayerSettings" type="Node" parent="CanvasLayer"]
+unique_name_in_owner = true
+script = ExtResource("3_el1l0")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer"]
+_spawnable_scenes = PackedStringArray("res://networking/FPS/player_body.tscn")
+spawn_path = NodePath("../..")
+
+[node name="GroundMeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_nq823")
+mesh = SubResource("PlaneMesh_armnl")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("4_yjd8c")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_erl0c")

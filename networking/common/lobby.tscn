@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfr3fim1m82gs"]
+
+[ext_resource type="Script" path="res://networking/common/lobby.gd" id="1_tox0e"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rio3c"]
+
+[node name="Lobby" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_tox0e")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+text = "Nickname"
+
+[node name="NickLineEdit" type="LineEdit" parent="HFlowContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "Your desired nick"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="PlayerColorPickerButton" type="ColorPickerButton" parent="HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "color"
+edit_alpha = false
+
+[node name="HBoxContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HFlowContainer/HBoxContainer"]
+layout_mode = 2
+text = "IP"
+
+[node name="AddressLineEdit" type="LineEdit" parent="HBoxContainer/HFlowContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "localhost"
+placeholder_text = "localhost"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/HFlowContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Port"
+
+[node name="PortLineEdit" type="LineEdit" parent="HBoxContainer/HFlowContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "8910"
+placeholder_text = "8910"
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="IsServerCheckButton" type="CheckButton" parent="HBoxContainer/HFlowContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "server"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "status:"
+vertical_alignment = 1
+
+[node name="StatusOptionButton" type="OptionButton" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_icons/arrow = SubResource("ImageTexture_rio3c")
+disabled = true
+button_mask = 0
+flat = true
+alignment = 1
+item_count = 1
+selected = 0
+popup/item_0/text = "none"
+popup/item_0/id = 0
+
+[node name="ConnectButton" type="Button" parent="HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join"
