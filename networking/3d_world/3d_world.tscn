@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d15h07ftljmgk"]
+[gd_scene load_steps=8 format=3 uid="uid://cw6u2njm5yyle"]
 
-[ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="1_7ff6j"]
-[ext_resource type="Script" path="res://networking/FPS/fps.gd" id="1_j1v2d"]
-[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_el1l0"]
-[ext_resource type="Script" path="res://networking/FPS/ddeeee.gd" id="4_yjd8c"]
+[ext_resource type="Script" path="res://networking/3d_world/3d_world.gd" id="1_p3hjv"]
+[ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_apuly"]
+[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_nodws"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgisj"]
 content_margin_left = 10.0
@@ -22,7 +21,7 @@ ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
 sdfgi_enabled = true
 
 [node name="FPS" type="Node3D"]
-script = ExtResource("1_j1v2d")
+script = ExtResource("1_p3hjv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -43,25 +42,21 @@ button_pressed = true
 text = "|||"
 flat = true
 
-[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("1_7ff6j")]
+[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("2_apuly")]
 unique_name_in_owner = true
 layout_mode = 2
 multiplayer_settings = NodePath("../../../MultiplayerSettings")
 
 [node name="MultiplayerSettings" type="Node" parent="CanvasLayer"]
 unique_name_in_owner = true
-script = ExtResource("3_el1l0")
+script = ExtResource("3_nodws")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer"]
-_spawnable_scenes = PackedStringArray("res://networking/FPS/player_body.tscn")
 spawn_path = NodePath("../..")
 
 [node name="GroundMeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_nq823")
 mesh = SubResource("PlaneMesh_armnl")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("4_yjd8c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_erl0c")
