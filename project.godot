@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
+[gui]
+
+theme/custom="res://interface/theme.tres"
+
 [input]
 
 move_up={
