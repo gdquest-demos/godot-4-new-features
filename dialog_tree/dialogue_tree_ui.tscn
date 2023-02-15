@@ -15,6 +15,52 @@ offset_top = 231.0
 offset_right = 1114.0
 offset_bottom = 295.0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
+offset_right = 300.0
+offset_bottom = 61.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="FontSizeLabel" type="Label" parent="TopUI/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Font size: 000"
+
+[node name="FontSizeSlider" type="HSlider" parent="TopUI/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 8.0
+value = 18.0
+rounded = true
+
+[node name="LanguagesRow" type="HBoxContainer" parent="TopUI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopUI/VBoxContainer/LanguagesRow"]
+layout_mode = 2
+text = "Language"
+
+[node name="EN" type="Button" parent="TopUI/VBoxContainer/LanguagesRow"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "En"
+
+[node name="RO" type="Button" parent="TopUI/VBoxContainer/LanguagesRow"]
+layout_mode = 2
+toggle_mode = true
+text = "Ro"
+
+[node name="ActionButtons" type="VBoxContainer" parent="TopUI"]
+unique_name_in_owner = true
+offset_left = 1300.0
+offset_top = 650.0
+offset_right = 1340.0
+offset_bottom = 690.0
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="PinkHairCharacter" parent="World" instance=ExtResource("1_dk2d5")]
@@ -25,6 +71,7 @@ scale = Vector2(0.95, 0.95)
 layer = -1
 
 [node name="BackgroundColor" type="ColorRect" parent="Background"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

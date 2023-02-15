@@ -102,7 +102,7 @@ func show_line(id: int) -> void:
 func set_text(font_size: int) -> void:
 	var text: String = _dialogue[_line_id][_language].text
 	font_size_label.text = "%s: %03d" % [_font_size_text[_language], font_size]
-	rich_text_label.bbcode_text = "[font_size={0}]{1}[/font_size]".format([font_size, text])
+	rich_text_label.text = "[font_size={0}]{1}[/font_size]".format([font_size, text])
 
 
 func set_expression(expression: String) -> void:
