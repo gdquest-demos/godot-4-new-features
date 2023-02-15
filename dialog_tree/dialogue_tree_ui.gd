@@ -19,24 +19,24 @@ var _dialogue := [
 	{
 		"expression": "neutral",
 		"en": {
-			"text": "Hey, [i]wake up![/i] It's time to make video games.",
+			"text": "[i]Hey, wake up![/i]\nIt's time to make video games.",
 			"buttons": {
 				"Let me sleep a little longer": 2,
 				"Let's do it!": 1,
 			},
 		},
 		"ro": {
-			"text": "Hei, [i]trezește-te![/i] A venit timpul pentru a face jocuri video.",
+			"text": "[i]Hei, trezește-te![/i]\nA venit timpul pentru a face jocuri video.",
 			"buttons": {
 				"Lasă-mă să dorm încă puțin": 2,
 				"Hai s-o facem!": 1,
 			},
 		},
 		"ja": {
-			"text": "もう起きてよおまえ！ゲームを作る時間だ。",
+			"text": "[i]ねえ、もう起きて！[/i]\nゲームを作る時間だよ。",
 			"buttons": {
 				"もう少し寝かせて": 2,
-				"やってみよう！": 1,
+				"オッケー、やりましょう！": 1,
 			},
 		},
 	},
@@ -59,8 +59,8 @@ var _dialogue := [
 		"ja": {
 			"text": "よし！最初のタスクは対話システムを開発する。",
 			"buttons": {
-				"できるかなけど頑張るぞ": 2,
-				"いいえ、寝かせてよ": 1,
+				"できるかどうかわからないけど頑張るよ": 3,
+				"やっぱりもうちょっと寝たいよ": 2,
 			},
 		},
 	},
@@ -81,25 +81,25 @@ var _dialogue := [
 			}
 		},
 		"ja": {
-			"text": "楽しくなるよ。",
+			"text": "ほら、楽しくなるよ。",
 			"buttons": {
-				"嫌だ！寝かさせて！": 2,
-				"よし、やってみる": 1,
+				"嫌だ！寝たいよ": 0,
+				"よし、やってみよう": 3,
 			},
 		},
 	},
 	{
 		"expression": "happy",
 		"en": {
-			"text": "That's the spirit! You can do it!\n[wave][b]YOU WIN[/b][/wave]",
+			"text": "That's the spirit! [wave]You can do it![/wave]",
 			"buttons": {"Quit": -1},
 		},
 		"ro": {
-			"text": "Ăsta-i spiritul! Hai că poți!\n[wave][b]AI CÂȘTIGAT[/b][/wave]",
+			"text": "Ăsta-i spiritul! [wave]Hai că poți![/wave]",
 			"buttons": {"Ieși": -1}
 		},
 		"ja": {
-			"text": "それは精神だ！君ならできるよ！\n[wave][b]勝[/b][/wave]",
+			"text": "その意気だ！[wave]君ならできるよ！[/wave]",
 			"buttons": {"終了": -1,},
 		},
 	},
