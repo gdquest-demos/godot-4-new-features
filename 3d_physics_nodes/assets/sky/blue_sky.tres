@@ -1,0 +1,21 @@
+[gd_resource type="Sky" load_steps=5 format=3 uid="uid://jonn5eom7asv"]
+
+[ext_resource type="Shader" path="res://3d_physics_nodes/assets/sky/sky.gdshader" id="1_elwhp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p7i03"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bkjhb"]
+seamless = true
+noise = SubResource("FastNoiseLite_p7i03")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gu028"]
+shader = ExtResource("1_elwhp")
+shader_parameter/top_color = Color(0.164706, 0.541176, 0.823529, 1)
+shader_parameter/bottom_color = Color(0.160784, 0.117647, 0.0705882, 1)
+shader_parameter/sun_scatter = Color(0.898039, 0.745098, 0.788235, 1)
+shader_parameter/star_stength = 0.0
+shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_bkjhb")
+
+[resource]
+sky_material = SubResource("ShaderMaterial_gu028")

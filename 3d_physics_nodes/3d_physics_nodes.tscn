@@ -1,29 +1,30 @@
-[gd_scene load_steps=12 format=3 uid="uid://dy1hyu4jpc8nf"]
+[gd_scene load_steps=18 format=3 uid="uid://diyo8boss2ps"]
 
+[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="1_1kc25"]
 [ext_resource type="PackedScene" path="res://shared/sophie_character_controller/sophie_character_controller.tscn" id="1_l0g8y"]
-[ext_resource type="PackedScene" uid="uid://bxwdkerxhac3h" path="res://3d_physics_nodes/ball.tscn" id="2_qmsx2"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_712ij"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_3wuw6"]
-sky_material = SubResource("ProceduralSkyMaterial_712ij")
+[ext_resource type="PackedScene" path="res://3d_physics_nodes/marble_ball.tscn" id="2_qmsx2"]
+[ext_resource type="PackedScene" uid="uid://ch1mif52w8u2i" path="res://3d_physics_nodes/godot_doll/godot_rag_doll.tscn" id="3_0ulap"]
+[ext_resource type="Material" uid="uid://b8xivapgmplt3" path="res://3d_physics_nodes/assets/materials/cardboard_top/cadboard_top_paint.tres" id="3_likqa"]
+[ext_resource type="PackedScene" path="res://3d_physics_nodes/beach_ball.tscn" id="4_eu54y"]
+[ext_resource type="PackedScene" path="res://3d_physics_nodes/rubber_ball.tscn" id="5_8frvf"]
+[ext_resource type="PackedScene" path="res://3d_physics_nodes/yarn_ball.tscn" id="6_ibxmb"]
+[ext_resource type="PackedScene" path="res://3d_physics_nodes/billiard_ball.tscn" id="7_g0vt4"]
+[ext_resource type="ArrayMesh" uid="uid://r62edxnms6ut" path="res://3d_physics_nodes/assets/cardboard_castle.obj" id="10_45nvv"]
 
 [sub_resource type="Environment" id="Environment_dt45g"]
 background_mode = 2
-sky = SubResource("Sky_3wuw6")
+sky = ExtResource("1_1kc25")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x70l"]
-albedo_color = Color(0.466667, 0.768627, 0.537255, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_841wc"]
+size = Vector3(30, 0.6, 30)
 
-[sub_resource type="BoxMesh" id="BoxMesh_nb0s6"]
-size = Vector3(30, 4, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_gke7h"]
+size = Vector3(1, 10, 22)
 
-[sub_resource type="BoxMesh" id="BoxMesh_77d7e"]
-size = Vector3(28, 5, 18)
+[sub_resource type="BoxShape3D" id="BoxShape3D_38ebn"]
+size = Vector3(20, 10, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6wsp6"]
 top_radius = 0.2
@@ -43,101 +44,130 @@ subdivide_depth = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-light_angular_distance = 0.8
 shadow_enabled = true
-shadow_blur = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dt45g")
 
 [node name="Player" parent="." instance=ExtResource("1_l0g8y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17589, 1.90447, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44064, 0)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2053, 0, 0)
-material_override = SubResource("StandardMaterial3D_6x70l")
-use_collision = true
-mesh = SubResource("BoxMesh_nb0s6")
+[node name="CardboardCastle" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, 0, 0)
+material_override = ExtResource("3_likqa")
+mesh = ExtResource("10_45nvv")
 
-[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGMesh3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789169, 0)
-operation = 2
-mesh = SubResource("BoxMesh_77d7e")
+[node name="StaticBody3D" type="StaticBody3D" parent="CardboardCastle"]
 
-[node name="Ball" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.498, 0.557281, 4.84256)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+shape = SubResource("BoxShape3D_841wc")
 
-[node name="Ball2" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.05794, 0.490026, 5.27904)
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+shape = SubResource("BoxShape3D_841wc")
 
-[node name="Ball3" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8971, 0.490024, 5.45028)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 5, 0)
+shape = SubResource("BoxShape3D_gke7h")
 
-[node name="Ball4" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2831, 0.490025, 2.80945)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5333, 5, -1.84753e-06)
+shape = SubResource("BoxShape3D_gke7h")
 
-[node name="Ball5" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4627, 0.490025, -6.90725)
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07974e-08, 5, 10.4667)
+shape = SubResource("BoxShape3D_38ebn")
 
-[node name="Ball6" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.7307, 0.490025, -0.956017)
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80674e-06, 5, -10.6667)
+shape = SubResource("BoxShape3D_38ebn")
 
-[node name="Ball10" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1169, 0.490025, 2.9299)
+[node name="Objects" type="Node3D" parent="."]
 
-[node name="Ball11" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2574, 0.490025, -3.90926)
+[node name="Ball2" parent="Objects" instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54734, 5.75837, 5.27904)
 
-[node name="Ball12" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8973, 0.490025, -0.657287)
+[node name="Ball6" parent="Objects" instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.12541, 5.75837, -0.956017)
 
-[node name="Ball7" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2629, 0.490025, 1.48434)
+[node name="Ball8" parent="Objects" instance=ExtResource("2_qmsx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20718, 5.75837, -7.25788)
 
-[node name="Ball8" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3981, 0.490025, -7.25788)
+[node name="Ball15" parent="Objects" instance=ExtResource("4_eu54y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00881, 3.03372, 4.35832)
 
-[node name="Ball9" parent="." instance=ExtResource("2_qmsx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.48823, 0.490025, -1.35947)
+[node name="Ball17" parent="Objects" instance=ExtResource("4_eu54y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.86078, 6.49255, -4.92181)
 
-[node name="MetalBar" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3391, 2.62138, 0)
+[node name="Ball18" parent="Objects" instance=ExtResource("5_8frvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82388, 2.93171, -4.30639)
+
+[node name="Ball19" parent="Objects" instance=ExtResource("5_8frvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487786, 2.16851, 5.71827)
+
+[node name="Ball" parent="Objects" instance=ExtResource("6_ibxmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38221, 9.31219, 6.41687)
+
+[node name="Ball7" parent="Objects" instance=ExtResource("6_ibxmb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.41551, 7.31332, -2.95319)
+
+[node name="Ball9" parent="Objects" instance=ExtResource("7_g0vt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.92071, 5.78141, -3.5632)
+
+[node name="Ball10" parent="Objects" instance=ExtResource("7_g0vt4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.29123, 5.78141, 7.19699)
+
+[node name="GodotRagDoll" parent="Objects" instance=ExtResource("3_0ulap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 0.5, 3.9)
+
+[node name="GodotRagDoll2" parent="Objects" instance=ExtResource("3_0ulap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.5, 0.6)
+
+[node name="GodotRagDoll3" parent="Objects" instance=ExtResource("3_0ulap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2, 0.5, -2.8)
+
+[node name="Goals" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.7618, -10.6887)
+
+[node name="MetalBar" type="StaticBody3D" parent="Goals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62138, 0)
 collision_layer = 3
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CylinderMesh_6wsp6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_3nxqv")
 
-[node name="MetalBar3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3391, -4.23864, 6.76256)
+[node name="MetalBar3" type="StaticBody3D" parent="Goals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.23864, 6.76256)
 collision_layer = 3
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar3"]
 mesh = SubResource("CylinderMesh_6wsp6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar3"]
 shape = SubResource("CylinderShape3D_3nxqv")
 
-[node name="MetalBar4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.339, -4.239, -6.763)
+[node name="MetalBar4" type="StaticBody3D" parent="Goals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.239, -6.763)
 collision_layer = 3
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MetalBar4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar4"]
 mesh = SubResource("CylinderMesh_6wsp6")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MetalBar4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar4"]
 shape = SubResource("CylinderShape3D_3nxqv")
 
-[node name="SoftBody3D" type="SoftBody3D" parent="."]
-transform = Transform3D(-3.95603e-08, -0.425337, -0.905035, -1.85921e-08, 0.905035, -0.425337, 1, 1.27769e-15, -4.37114e-08, 27.4555, 0.367323, 0)
+[node name="SoftBody3D" type="SoftBody3D" parent="Goals"]
+transform = Transform3D(-3.95603e-08, -0.425337, -0.905035, -1.85921e-08, 0.905035, -0.425337, 1, 1.27769e-15, -4.37114e-08, 1, 0.367, 0)
 mesh = SubResource("QuadMesh_i4i6l")
+skeleton = NodePath("../..")
 collision_layer = 2
 collision_mask = 2
 pinned_points = [132, 143, 141, 139, 137, 135, 131, 129, 127, 125, 123, 121, 10, 8, 6, 4, 2, 0]
