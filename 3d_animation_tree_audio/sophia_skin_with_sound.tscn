@@ -5825,9 +5825,23 @@ tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_neruu"]
+streams_count = 5
+stream_0/stream = ExtResource("7_gsia5")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("8_thbky")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_8mf5u")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_q8h4q")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_3jorg")
+stream_4/weight = 1.0
+
 [sub_resource type="Animation" id="Animation_ov7aj"]
 resource_name = "happy_run"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -6549,6 +6563,25 @@ tracks/102/path = NodePath("Armature/Skeleton3D:mouth_texture_id")
 tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/103/type = "audio"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("../FootSteps")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_neruu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_neruu")
+}],
+"times": PackedFloat32Array(0.1, 0.5)
+}
+tracks/103/use_blend = true
 
 [sub_resource type="Animation" id="Animation_k5kqq"]
 resource_name = "idle"
@@ -8000,22 +8033,10 @@ tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_neruu"]
-streams_count = 5
-stream_0/stream = ExtResource("7_gsia5")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("8_thbky")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("8_8mf5u")
-stream_2/weight = 1.0
-stream_3/stream = ExtResource("9_q8h4q")
-stream_3/weight = 1.0
-stream_4/stream = ExtResource("10_3jorg")
-stream_4/weight = 1.0
-
 [sub_resource type="Animation" id="Animation_bnche"]
 resource_name = "walk"
 length = 0.8
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -8748,8 +8769,12 @@ tracks/103/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": SubResource("AudioStreamRandomizer_neruu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_neruu")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.1, 0.5)
 }
 tracks/103/use_blend = true
 
@@ -9601,7 +9626,7 @@ transitions = ["StateMachine", "WallSlide", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-19, -46)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0cs6v"]
-graph_offset = Vector2(-402.306, -122.722)
+graph_offset = Vector2(-100, -15)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sx10c")
 nodes/StateMachine/position = Vector2(-80, 40)
 nodes/output/position = Vector2(420, 40)
@@ -9702,7 +9727,7 @@ anim_player = NodePath("../mini_sophia/AnimationPlayer")
 active = true
 parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_7wk21")
 parameters/StateMachine/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_c40bs")
-parameters/StateMachine/StateMachine/Walk/blend_position = 0
+parameters/StateMachine/StateMachine/Walk/blend_position = -0.000843882
 
 [node name="BlinkTimer" type="Timer" parent="."]
 one_shot = true
