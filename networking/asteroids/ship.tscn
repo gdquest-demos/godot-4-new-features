@@ -7,12 +7,18 @@
 properties/0/path = NodePath(".:color")
 properties/0/spawn = true
 properties/0/sync = true
-properties/1/path = NodePath(".:position")
+properties/1/path = NodePath(".:nickname")
 properties/1/spawn = true
 properties/1/sync = true
-properties/2/path = NodePath(".:nickname")
+properties/2/path = NodePath(".:position")
 properties/2/spawn = true
 properties/2/sync = true
+properties/3/path = NodePath(".:angle")
+properties/3/spawn = true
+properties/3/sync = true
+properties/4/path = NodePath(".:is_multiplayer")
+properties/4/spawn = true
+properties/4/sync = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3xw2m"]
 radius = 14.0357

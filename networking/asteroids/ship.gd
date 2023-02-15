@@ -2,7 +2,13 @@ extends CharacterBody2D
 
 var speed := 600.0
 var drag_factor := 0.1
-@export var local_handling := false
+
+@export var is_multiplayer := false
+
+@export var angle := 0.0:
+	set(value):
+		angle = value
+		_apply_angle()
 
 @export var color: Color:
 	set(value):
@@ -24,7 +30,7 @@ var drag_factor := 0.1
 
 
 func _process(_delta: float) -> void:
-	if not local_handling:
+	if is_multiplayer == true:
 		return
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var shoot_request := Input.is_action_pressed("ui_accept")
@@ -35,29 +41,33 @@ func move(direction: Vector2, shoot_request: bool) -> void:
 	var desired_velocity := speed * direction
 	var steering_vector := desired_velocity - velocity
 	velocity += steering_vector * drag_factor
-	collision_shape_2d.rotation = velocity.angle()
+	angle = velocity.angle()
 	if shoot_request and cool_down_timer.is_stopped():
 		shoot()
 		cool_down_timer.start()
 	move_and_slide()
 
 
-
 func shoot() -> void:
 	var laser: Area2D = preload("laser.tscn").instantiate()
 	laser.color = color
-	add_child(laser)
+	add_child(laser, true)
 	laser.global_transform = cannon_marker_2d.global_transform
 
 
 func _apply_color() -> void:
 	if not is_inside_tree():
 		await ready
-	#label.add_theme_color_override("font_color", color)
-	#sprite_2d.modulate = color
+	label.add_theme_color_override("font_color", color)
+	sprite_2d.modulate = color
 
 
 func _apply_nickname() -> void:
 	if not is_inside_tree():
 		await ready
-	#label.text = nickname
+	label.text = nickname
+
+func _apply_angle() -> void:
+	if not is_inside_tree():
+		await ready
+	collision_shape_2d.rotation = angle
