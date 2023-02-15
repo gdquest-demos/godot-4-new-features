@@ -52,6 +52,7 @@ unique_name_in_owner = true
 script = ExtResource("3_nodws")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer"]
+unique_name_in_owner = true
 _spawnable_scenes = PackedStringArray("res://networking/3d_world/player_body.tscn")
 spawn_path = NodePath("../..")
 

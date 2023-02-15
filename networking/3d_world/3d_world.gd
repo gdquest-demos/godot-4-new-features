@@ -8,6 +8,7 @@ const PlayerBodyScene = preload("player_body.tscn")
 @onready var toggle_button: Button = %ToggleButton
 @onready var lobby: VBoxContainer = %Lobby
 @onready var multiplayer_settings: Node = %MultiplayerSettings
+@onready var spawner : MultiplayerSpawner = %MultiplayerSpawner
 
 
 func _ready() -> void:
@@ -15,6 +16,26 @@ func _ready() -> void:
 	lobby.visible = toggle_button.button_pressed
 	multiplayer_settings.player_added.connect(_on_player_added)
 	multiplayer_settings.player_removed.connect(_on_player_removed)
+	# This function will run on the network
+	spawner.spawn_function = func spawn_player_custom(data: Array) -> PlayerBody:
+		if typeof(data) != TYPE_ARRAY or data.size() != 3 \
+		or typeof(data[0]) != TYPE_INT \
+		or typeof(data[1]) != TYPE_STRING \
+		or typeof(data[2]) != TYPE_COLOR:
+			push_error("Invalid spawn")
+			return null
+		var id: int = data[0]
+		var nickname: String = data[1]
+		var color: Color = data[2]
+		var player_body: PlayerBody = PlayerBodyScene.instantiate()
+		player_body.nickname = nickname
+		player_body.name = "player_%s"%[id]
+		player_body.color = color
+		player_body.position = Vector3(randf_range(-25, 25), 0, randf_range(-25, 25))
+		var multiplayer_synchronizer: MultiplayerSynchronizer = player_body.get_node("MultiplayerSynchronizer")
+		multiplayer_synchronizer.set_multiplayer_authority(id)
+		return player_body
+
 
 func _on_menu_toggled(is_toggled: bool) -> void:
 	lobby.visible = is_toggled
@@ -22,14 +43,11 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 
 func _on_player_added(player: MultiplayerSettings.Player) -> void:
 	if multiplayer.is_server():
-		var player_body: PlayerBody = PlayerBodyScene.instantiate()
-		player_body.id = player.id
-		player_body.name = "player_%s_%s"%[player.nickname, player.id]
-		add_child(player_body, true)
+		# this uses the custom function `spawn_player_custom`
+		spawner.spawn([player.id, player.nickname, player.color])
 
 
-func _on_player_removed(player: MultiplayerSettings.Player) -> void:
-	var player_name = "player_%s_%s"%[player.nickname, player.id]
-	var player_body = get_node(player_name)
+func _on_player_removed(player_id: int) -> void:
+	var player_body = get_node("player_%s"%[player_id])
 	if player_body != null:
 		player_body.queue_free()

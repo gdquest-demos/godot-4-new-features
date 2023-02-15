@@ -1,29 +1,28 @@
 extends CharacterBody3D
 
-
 var speed := 10
 var turning_speed := 5
 var mouse_sensitivity := 0.5
 
-@export var id := 0:
-	set(value):
-		id = value
-		_apply_id()
-		
 @export var color := Color():
 	set(value):
 		color = value
 		_apply_color()
 
+@export var nickname := "":
+	set(value):
+		nickname = value
+		_apply_nickname()
 
 @onready var camera_3d: Camera3D = %Camera3D
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = %MultiplayerSynchronizer
 @onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
+@onready var label_3d: Label3D = %Label3D
 
 
 func _ready() -> void:
-	_apply_id()
-	_apply_color()
+	camera_3d.current = multiplayer_synchronizer.is_multiplayer_authority()
+	label_3d.visible = not multiplayer_synchronizer.is_multiplayer_authority()
 
 
 func _physics_process(delta: float) -> void:
@@ -31,16 +30,13 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var input_dir := Input.get_vector("ui_right", "ui_left", "ui_down", "ui_up")
-	var direction := (transform.basis * Vector3(0, 0, input_dir.y)).normalized()
+	var alt_is_pressed := Input.is_key_pressed(KEY_ALT)
+	var dir_forward := input_dir.y
+	var dir_sides := input_dir.x if alt_is_pressed else 0.0
+	var direction := (transform.basis * Vector3(dir_sides, 0, dir_forward)).normalized()
 	global_position += direction * speed * delta
-	global_rotation.y += input_dir.x * turning_speed * delta
-
-
-func _apply_id() -> void:
-	if not is_inside_tree():
-		await ready
-	multiplayer_synchronizer.set_multiplayer_authority(id)
-	camera_3d.current = multiplayer_synchronizer.is_multiplayer_authority()
+	if not alt_is_pressed:
+		global_rotation.y += input_dir.x * turning_speed * delta
 
 
 func _apply_color() -> void:
@@ -48,3 +44,9 @@ func _apply_color() -> void:
 		await ready
 	var material: StandardMaterial3D = mesh_instance_3d.material_override
 	material.albedo_color = color
+
+
+func _apply_nickname() -> void:
+	if not is_inside_tree():
+		await ready
+	label_3d.text = nickname
