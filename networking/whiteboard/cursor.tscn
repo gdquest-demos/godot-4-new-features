@@ -5,13 +5,13 @@
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_55e7h"]
 properties/0/path = NodePath(".:color")
-properties/0/spawn = true
+properties/0/spawn = false
 properties/0/sync = true
 properties/1/path = NodePath(".:position")
-properties/1/spawn = true
+properties/1/spawn = false
 properties/1/sync = true
 properties/2/path = NodePath(".:nickname")
-properties/2/spawn = true
+properties/2/spawn = false
 properties/2/sync = true
 
 [node name="Cursor" type="CharacterBody2D"]

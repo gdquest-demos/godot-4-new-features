@@ -20,6 +20,15 @@ var mouse_sensitivity := 0.5
 @onready var label_3d: Label3D = %Label3D
 
 
+func _enter_tree() -> void:
+	# We need to set the authority before entering the tree, because by then,
+	# we already have started sending data.
+	if str(name).is_valid_int():
+		var id := str(name).to_int()
+		# Before ready, the variable `multiplayer_synchronizer` is not set yet
+		%MultiplayerSynchronizer.set_multiplayer_authority(id)
+
+
 func _ready() -> void:
 	camera_3d.current = multiplayer_synchronizer.is_multiplayer_authority()
 	label_3d.visible = not multiplayer_synchronizer.is_multiplayer_authority()
@@ -42,7 +51,7 @@ func _physics_process(delta: float) -> void:
 func _apply_color() -> void:
 	if not is_inside_tree():
 		await ready
-	prints("_apply_color", multiplayer_synchronizer.get_multiplayer_authority(), color)
+	#prints("_apply_color", multiplayer_synchronizer.get_multiplayer_authority(), color)
 	var material: StandardMaterial3D = mesh_instance_3d.material_override
 	material.albedo_color = color
 

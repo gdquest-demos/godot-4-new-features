@@ -5,14 +5,17 @@
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pcmc8"]
 properties/0/path = NodePath("..:color")
-properties/0/spawn = true
+properties/0/spawn = false
 properties/0/sync = true
 properties/1/path = NodePath("..:position")
-properties/1/spawn = true
+properties/1/spawn = false
 properties/1/sync = true
 properties/2/path = NodePath("..:rotation")
-properties/2/spawn = true
+properties/2/spawn = false
 properties/2/sync = true
+properties/3/path = NodePath("..:nickname")
+properties/3/spawn = false
+properties/3/sync = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5retp"]
 resource_local_to_scene = true
