@@ -15,6 +15,7 @@ properties/2/spawn = true
 properties/2/sync = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5retp"]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_j62hy")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8udrq"]

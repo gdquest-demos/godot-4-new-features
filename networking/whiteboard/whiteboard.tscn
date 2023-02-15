@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://coouhq4b8puhp"]
+[gd_scene load_steps=6 format=3 uid="uid://coouhq4b8puhp"]
 
 [ext_resource type="Script" path="res://networking/whiteboard/whiteboard.gd" id="1_6xbdw"]
 [ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="2_l2rpa"]
@@ -14,11 +14,6 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0.0901961, 0.0901961, 0.0901961, 0.741176)
 shadow_size = 20
 shadow_offset = Vector2(5, 5)
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pknjf"]
-properties/0/path = NodePath(".:points_list")
-properties/0/spawn = true
-properties/0/sync = true
 
 [node name="Whiteboard" type="MarginContainer"]
 anchors_preset = 15
@@ -51,6 +46,3 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_igwky")
 script = ExtResource("4_umxun")
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="VBoxContainer/PaintCanvas"]
-replication_config = SubResource("SceneReplicationConfig_pknjf")

@@ -30,6 +30,7 @@ func _ready() -> void:
 		var player_body: PlayerBody = PlayerBodyScene.instantiate()
 		player_body.nickname = nickname
 		player_body.name = "player_%s"%[id]
+		prints("spawn_player_custom", id, color)
 		player_body.color = color
 		player_body.position = Vector3(randf_range(-25, 25), 0, randf_range(-25, 25))
 		var multiplayer_synchronizer: MultiplayerSynchronizer = player_body.get_node("MultiplayerSynchronizer")
@@ -44,6 +45,7 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 func _on_player_added(player: MultiplayerSettings.Player) -> void:
 	if multiplayer.is_server():
 		# this uses the custom function `spawn_player_custom`
+		prints("_on_player_added", player.id, player.color)
 		spawner.spawn([player.id, player.nickname, player.color])
 
 

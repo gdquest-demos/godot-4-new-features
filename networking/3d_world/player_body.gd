@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 func _apply_color() -> void:
 	if not is_inside_tree():
 		await ready
+	prints("_apply_color", multiplayer_synchronizer.get_multiplayer_authority(), color)
 	var material: StandardMaterial3D = mesh_instance_3d.material_override
 	material.albedo_color = color
 
