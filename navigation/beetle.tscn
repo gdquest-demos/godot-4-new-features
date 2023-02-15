@@ -141,6 +141,10 @@ transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 
 path_desired_distance = 0.2
 target_desired_distance = 0.2
 agent_height_offset = 0.5
+avoidance_enabled = true
+radius = 0.6
+debug_enabled = true
 
 [connection signal="link_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_link_reached"]
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

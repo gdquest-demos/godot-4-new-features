@@ -30,8 +30,12 @@ func _physics_process(delta: float) -> void:
 	look_at(global_look_position)
 
 	var direction := (next_location - global_position).normalized()
-	velocity = direction * SPEED
-	move_and_slide()
+	_navigation_agent.set_velocity(direction * SPEED)
 	if _navigation_agent.is_navigation_finished():
 		_beetle_skin.idle()
 		set_physics_process(false)
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	velocity = safe_velocity
+	move_and_slide()
