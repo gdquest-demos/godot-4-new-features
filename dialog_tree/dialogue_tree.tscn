@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://fgigdyx1edm2"]
+
+[ext_resource type="Script" path="res://dialog_tree/dialogue_tree.gd" id="1_41q10"]
+[ext_resource type="Texture2D" uid="uid://b1iu6o2f5v7k1" path="res://dialog_tree/portraits/sophia_neutral.png" id="2_604ps"]
+
+[node name="DialogueTree" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -595.0
+offset_top = -155.0
+offset_right = 595.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41q10")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_604ps")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Dialogue line"
+
+[node name="ButtonsColumn" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="LanguagesRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EN" type="Button" parent="MarginContainer/VBoxContainer/LanguagesRow"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "EN"
+
+[node name="RO" type="Button" parent="MarginContainer/VBoxContainer/LanguagesRow"]
+layout_mode = 2
+toggle_mode = true
+text = "RO"
+
+[node name="SlidersRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FontSizeLabel" type="Label" parent="MarginContainer/VBoxContainer/SlidersRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SlidersRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 999.0
+value = 18.0
+rounded = true
+tick_count = 10
+ticks_on_borders = true

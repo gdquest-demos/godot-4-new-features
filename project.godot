@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="New features in Godot 4.0 (GDQuest)"
+run/main_scene="res://main/ui_scene_selector.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -109,3 +110,7 @@ pause={
 [layer_names]
 
 2d_physics/layer_1="Player"
+
+[physics]
+
+3d/solver/solver_iterations=8

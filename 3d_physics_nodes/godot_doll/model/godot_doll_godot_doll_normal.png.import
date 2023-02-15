@@ -1,0 +1,36 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bxcd205dkyn6o"
+path.bptc="res://.godot/imported/godot_doll_godot_doll_normal.png-ef7a5fff6125bdafaa3e5ba5267631e9.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={}
+
+[deps]
+
+source_file="res://3d_physics_nodes/godot_doll/model/godot_doll_godot_doll_normal.png"
+dest_files=["res://.godot/imported/godot_doll_godot_doll_normal.png-ef7a5fff6125bdafaa3e5ba5267631e9.bptc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://3d_physics_nodes/godot_doll/model/godot_doll_godot_doll_normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

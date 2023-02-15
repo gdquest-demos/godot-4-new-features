@@ -1,35 +1,89 @@
-[gd_scene load_steps=9 format=3 uid="uid://jq7h64i1ln0o"]
+[gd_scene load_steps=18 format=3 uid="uid://cv3avlivauw0p"]
 
 [ext_resource type="PackedScene" uid="uid://cd7otm4lflmtx" path="res://animation_retargeting/models/gdbot-noik.glb" id="1_241xh"]
 [ext_resource type="PackedScene" uid="uid://bbtd6s8t8dnum" path="res://animation_retargeting/models/mini_sophia_noik.glb" id="1_d2w5j"]
 [ext_resource type="PackedScene" uid="uid://ct55ii5h0dbf2" path="res://animation_retargeting/models/RobotDanceModel.glb" id="1_i8uby"]
+[ext_resource type="Script" path="res://animation_retargeting/scripts/camera_control.gd" id="1_tix1y"]
 [ext_resource type="AnimationLibrary" uid="uid://ckcknbqn7xbcn" path="res://animation_retargeting/models/RobotDanceLibrary.glb" id="2_4y8rl"]
-[ext_resource type="Material" path="res://shared/models/gdbot/materials/gdbot_face_mat.tres" id="4_4qd0u"]
+[ext_resource type="Material" uid="uid://qhxccuxoos56" path="res://shared/models/gdbot/materials/gdbot_face_mat.tres" id="4_4qd0u"]
+[ext_resource type="Script" path="res://animation_retargeting/scripts/bob.gd" id="6_h0syc"]
+[ext_resource type="Shader" path="res://animation_retargeting/assets/shader/giant_screen_shader.gdshader" id="7_7y4fq"]
+[ext_resource type="Script" path="res://animation_retargeting/scripts/look_at_target.gd" id="7_qcifm"]
+[ext_resource type="AudioStream" uid="uid://cuhb10fbjgmyq" path="res://animation_retargeting/assets/music/Gang$tazz.mp3" id="7_uyuc6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m5tua"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_10kuu"]
-sky_material = SubResource("ProceduralSkyMaterial_m5tua")
+[sub_resource type="Sky" id="Sky_8t4nh"]
 
 [sub_resource type="Environment" id="Environment_57wsp"]
-background_mode = 2
-sky = SubResource("Sky_10kuu")
+background_mode = 1
+sky = SubResource("Sky_8t4nh")
 tonemap_mode = 2
+ssil_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_y_scale = 0
+sdfgi_energy = 0.1
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.2
+glow_bloom = 0.5
+volumetric_fog_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sikh4"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 6.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tn1i2"]
+size = Vector2(20, 10)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gpseb"]
+viewport_path = NodePath("GiantScreenViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tgrwk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_7y4fq")
+shader_parameter/camera_sampler = SubResource("ViewportTexture_gpseb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fva8d"]
+size = Vector2(10, 5)
 
 [node name="AnimatonRetargeting" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_57wsp")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-shadow_enabled = true
+[node name="GiantScreenViewport" type="SubViewport" parent="."]
+size = Vector2i(512, 256)
+script = ExtResource("1_tix1y")
+
+[node name="GeneralCameraAnchor" type="Node3D" parent="GiantScreenViewport"]
+transform = Transform3D(0.573576, -0.0571412, 0.817157, 0, 0.997564, 0.0697565, -0.819152, -0.0400107, 0.572179, 0, 1, 0)
+
+[node name="Camera" type="Camera3D" parent="GiantScreenViewport/GeneralCameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+current = true
+fov = 25.0
+size = 4.0
+
+[node name="SideCamera" type="Node3D" parent="GiantScreenViewport"]
+transform = Transform3D(0.619094, -0.203255, 0.758558, 1.6577e-08, 0.965926, 0.258819, -0.785317, -0.160233, 0.597999, 0, 0.8, 0.3)
+
+[node name="Camera" type="Camera3D" parent="GiantScreenViewport/SideCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 5.96046e-08, 6)
+current = true
+fov = 25.0
+size = 4.0
+
+[node name="TopCamera" type="Node3D" parent="GiantScreenViewport"]
+transform = Transform3D(0.684547, 0.313829, -0.657956, 0, 0.902585, 0.430511, 0.728969, -0.294705, 0.617862, 0, 0.8, 0.3)
+
+[node name="Camera" type="Camera3D" parent="GiantScreenViewport/TopCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 8)
+current = true
+fov = 25.0
+size = 4.0
 
 [node name="mini_sophia_noik" parent="." instance=ExtResource("1_d2w5j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37285, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, -0.4)
 
 [node name="GeneralSkeleton" parent="mini_sophia_noik/Armature" index="0"]
 bones/0/position = Vector3(-0.000666389, 0.138061, 0.00218195)
@@ -60,7 +114,7 @@ libraries = {
 }
 
 [node name="gdbot-noik" parent="." instance=ExtResource("1_241xh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339202, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 
 [node name="GeneralSkeleton" parent="gdbot-noik/Armature" index="0"]
 bones/0/position = Vector3(-0.00193779, 0.401465, 0.00634487)
@@ -97,7 +151,7 @@ libraries = {
 }
 
 [node name="RobotDanceModel" parent="." instance=ExtResource("1_i8uby")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.910798, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.4)
 
 [node name="GeneralSkeleton" parent="RobotDanceModel/Armature" index="0"]
 bones/0/position = Vector3(-0.00499328, 1.03449, 0.0163494)
@@ -177,9 +231,99 @@ bones/63/rotation = Quaternion(-1.49215e-07, 0.999962, 0.00869405, -5.93121e-09)
 [node name="AnimationPlayer" parent="RobotDanceModel" index="1"]
 autoplay = "Robot Hip Hop Dance"
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraAnchor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="Camera3D" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
+attributes = SubResource("CameraAttributesPractical_sikh4")
 fov = 40.0
+script = ExtResource("6_h0syc")
+
+[node name="RobotDancerHips" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.982832, 0.0561321, -0.175756, -0.0564842, 0.998399, 0.0030031, 0.175643, 0.00697589, 0.984429, -1.00499, 1.03449, -0.383651)
+bone_name = "Hips"
+bone_idx = 0
+use_external_skeleton = true
+external_skeleton = NodePath("../RobotDanceModel/Armature/GeneralSkeleton")
+
+[node name="GdBotHips" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.982832, 0.0561321, -0.175756, -0.0564842, 0.998399, 0.0030031, 0.175643, 0.00697589, 0.984429, -0.00193779, 0.401465, 0.406345)
+bone_name = "Hips"
+bone_idx = 0
+use_external_skeleton = true
+external_skeleton = NodePath("../gdbot-noik/Armature/GeneralSkeleton")
+
+[node name="SophiaHips" type="BoneAttachment3D" parent="."]
+transform = Transform3D(1.96566, 0.112264, -0.351512, -0.112968, 1.9968, 0.00600621, 0.351287, 0.0139518, 1.96886, 0.998667, 0.276122, -0.395636)
+bone_name = "Hips"
+bone_idx = 0
+use_external_skeleton = true
+external_skeleton = NodePath("../mini_sophia_noik/Armature/GeneralSkeleton")
+
+[node name="MainSpotLight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.246153, 0.969231, 0, -0.969231, -0.246153, 0, 4.5516, -0.26339)
+light_color = Color(0.439216, 0.717647, 1, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 10.0
+shadow_enabled = true
+spot_range = 5.9
+spot_angle = 48.6056
+
+[node name="GdbotLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.498488, 0.866897, 0, -0.866897, 0.498488, 0, 3.9, 2.5)
+light_color = Color(0.764706, 0.917647, 1, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+spot_range = 6.0
+spot_attenuation = 0.5
+spot_angle = 12.0
+script = ExtResource("7_qcifm")
+target = NodePath("../GdBotHips")
+
+[node name="RobotDancerLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(0.906308, 0.366366, -0.21067, 0, 0.498488, 0.866897, 0.422618, -0.785675, 0.451783, -2, 3.9, 1.5)
+light_color = Color(0.764706, 0.917647, 1, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+spot_range = 6.0
+spot_attenuation = 0.5
+spot_angle = 12.0
+script = ExtResource("7_qcifm")
+target = NodePath("../RobotDancerHips")
+
+[node name="SophiaLight" type="SpotLight3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(0.906308, -0.366366, 0.21067, 0, 0.498488, 0.866897, -0.422618, -0.785675, 0.451783, 2, 3.9, 1.5)
+light_color = Color(0.764706, 0.917647, 1, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 2.0
+shadow_enabled = true
+spot_range = 6.0
+spot_attenuation = 0.5
+spot_angle = 12.0
+script = ExtResource("7_qcifm")
+target = NodePath("../SophiaHips")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_tn1i2")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, -5.1)
+mesh = SubResource("PlaneMesh_tn1i2")
+
+[node name="GiantScreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 2.9, -5)
+material_override = SubResource("ShaderMaterial_tgrwk")
+mesh = SubResource("PlaneMesh_fva8d")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, -2.4)
+stream = ExtResource("7_uyuc6")
+volume_db = -20.0
+max_db = 0.0
+autoplay = true
 
 [editable path="mini_sophia_noik"]
 [editable path="gdbot-noik"]

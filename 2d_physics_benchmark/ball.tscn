@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg2hsvffr5y5p"]
+
+[ext_resource type="Script" path="res://2d_physics_benchmark/ball.gd" id="1_g5mgu"]
+[ext_resource type="Texture2D" uid="uid://lt6nepwa1ma3" path="res://2d_physics_benchmark/assets/cannon_ball_green.png" id="2_n702w"]
+
+[sub_resource type="CircleShape2D" id="5"]
+
+[node name="Ball" type="RigidBody2D"]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_g5mgu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_n702w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("5")
