@@ -1,12 +1,19 @@
 extends Node
 
+
+@export_enum("en", "ro", "ja") var language := "en"
+
 var _languages_button_group := ButtonGroup.new()
 var _line_id := 0
-var _language := "ja"
 var _font_size_text := {
 	"en": "Font Size",
 	"ro": "Mărimea Font-ului",
-	"ja": "文字サイズ"
+	"ja": "文字サイズ",
+}
+var _language_text := {
+	"en": "Language",
+	"ro": "Limba",
+	"ja": "言語",
 }
 var _dialogue := [
 	{
@@ -102,6 +109,7 @@ var _dialogue := [
 @onready var speech_bubble = $TopUI/SpeechBubble
 @onready var action_buttons := %ActionButtons
 @onready var languages_row := %LanguagesRow
+@onready var language_label := %LanguageLabel
 @onready var font_size_label := %FontSizeLabel
 @onready var slider := %FontSizeSlider
 
@@ -112,21 +120,8 @@ func _ready() -> void:
 	for node in languages_row.get_children():
 		if node is Button:
 			node.button_group = _languages_button_group
+			node.button_pressed = node.text.to_lower() == language
 	show_line(_line_id)
-
-
-func _input(_event):
-	var sentences = [
-		"Nulla a dui nec orci dictum aliquet.",
-		" Suspendisse luctus magna mi, non iaculis neque viverra a.
-Integer ut tortor eget neque sagittis pellentesque in sed felis.",
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Curabitur porta, leo et luctus interdum, nisl sapien
-pretium lorem, id sagittis tellus nisi eget felis."
-	]
-	if Input.is_action_just_pressed("ui_accept"):
-		var s = sentences.pick_random()
-		speech_bubble.write(s)
 
 
 func show_line(id: int) -> void:
@@ -135,25 +130,26 @@ func show_line(id: int) -> void:
 	set_text(slider.value)
 	for button in action_buttons.get_children():
 		button.queue_free()
-	create_buttons(line_data[_language].buttons)
+	create_buttons(line_data[language].buttons)
 
 
 func set_font_size(new_size: int) -> void:
-	font_size_label.text = "%s: %03d" % [_font_size_text[_language], new_size]
+	font_size_label.text = "%s (%02d)" % [_font_size_text[language], new_size]
 	speech_bubble.set_font_size(new_size)
 
 
 func set_text(font_size: int) -> void:
 	set_font_size(font_size)
-	var text: String = _dialogue[_line_id][_language].text
+	language_label.text = _language_text[language]
+	var text: String = _dialogue[_line_id][language].text
 	speech_bubble.write(text)
 
 
 func set_language(_button: Button) -> void:
-	_language = _languages_button_group.get_pressed_button().text.to_lower()
+	language = _languages_button_group.get_pressed_button().text.to_lower()
 	set_text(slider.value)
 	for idx in range(action_buttons.get_children().size()):
-		action_buttons.get_child(idx).text = _dialogue[_line_id][_language].buttons.keys()[idx]
+		action_buttons.get_child(idx).text = _dialogue[_line_id][language].buttons.keys()[idx]
 
 
 func create_buttons(buttons_data: Dictionary) -> void:
