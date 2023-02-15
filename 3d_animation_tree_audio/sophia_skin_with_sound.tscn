@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bnqwh1dx6yxk6"]
+[gd_scene load_steps=64 format=3 uid="uid://bnqwh1dx6yxk6"]
 
 [ext_resource type="Script" path="res://shared/models/sophia/sophia_skin.gd" id="1_ikvdg"]
 [ext_resource type="PackedScene" uid="uid://douscbe20506q" path="res://shared/models/sophia/mini_sophia.glb" id="2_l0msm"]
@@ -11,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://dtyn3mjfhc6wf" path="res://3d_animation_tree_audio/sound/footstep_dirt02.wav" id="8_thbky"]
 [ext_resource type="AudioStream" uid="uid://pveotr063ykk" path="res://3d_animation_tree_audio/sound/footstep_dirt04.wav" id="9_q8h4q"]
 [ext_resource type="AudioStream" uid="uid://bona2qo3e5tn8" path="res://3d_animation_tree_audio/sound/footstep_dirt05.wav" id="10_3jorg"]
+[ext_resource type="AudioStream" uid="uid://dmmrx4d3wx6wl" path="res://3d_animation_tree_audio/sound/swoosh01.wav" id="12_loeyi"]
+[ext_resource type="AudioStream" uid="uid://dhkkd6btxvq1y" path="res://3d_animation_tree_audio/sound/swoosh02.wav" id="13_4uc07"]
+[ext_resource type="AudioStream" uid="uid://mr7qoguj7mvm" path="res://3d_animation_tree_audio/sound/swoosh03.wav" id="14_i1fhr"]
+[ext_resource type="AudioStream" uid="uid://b7vbrsy2io623" path="res://3d_animation_tree_audio/sound/swoosh04.wav" id="15_5ph1n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r7u4"]
 resource_local_to_scene = true
@@ -6566,7 +6570,7 @@ tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 tracks/103/type = "audio"
 tracks/103/imported = false
 tracks/103/enabled = true
-tracks/103/path = NodePath("../FootSteps")
+tracks/103/path = NodePath("../AudioStreamPlayer3D")
 tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = {
@@ -7308,6 +7312,17 @@ tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6fck1"]
+streams_count = 4
+stream_0/stream = ExtResource("12_loeyi")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("13_4uc07")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("14_i1fhr")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("15_5ph1n")
+stream_3/weight = 1.0
+
 [sub_resource type="Animation" id="Animation_d4opw"]
 resource_name = "jump_up"
 length = 0.533333
@@ -8032,6 +8047,21 @@ tracks/102/path = NodePath("Armature/Skeleton3D:mouth_texture_id")
 tracks/102/interp = 1
 tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/103/type = "audio"
+tracks/103/imported = false
+tracks/103/enabled = true
+tracks/103/path = NodePath("../AudioStreamPlayer3D")
+tracks/103/interp = 1
+tracks/103/loop_wrap = true
+tracks/103/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_6fck1")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/103/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bnche"]
 resource_name = "walk"
@@ -8761,7 +8791,7 @@ tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 tracks/103/type = "audio"
 tracks/103/imported = false
 tracks/103/enabled = true
-tracks/103/path = NodePath("../FootSteps")
+tracks/103/path = NodePath("../AudioStreamPlayer3D")
 tracks/103/interp = 1
 tracks/103/loop_wrap = true
 tracks/103/keys = {
@@ -9626,7 +9656,7 @@ transitions = ["StateMachine", "WallSlide", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-19, -46)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0cs6v"]
-graph_offset = Vector2(-100, -15)
+graph_offset = Vector2(-145, -51)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sx10c")
 nodes/StateMachine/position = Vector2(-80, 40)
 nodes/output/position = Vector2(420, 40)
@@ -9735,6 +9765,7 @@ one_shot = true
 [node name="ClosedTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="FootSteps" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = 10.0
 
 [editable path="mini_sophia"]
