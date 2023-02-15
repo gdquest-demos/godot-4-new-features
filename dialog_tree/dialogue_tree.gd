@@ -25,6 +25,13 @@ var _dialogue := [
 				"Hai s-o facem!": 1,
 			},
 		},
+		"ja": {
+			"text": "もう起きてよおまえ！ゲームを作る時間だ。",
+			"buttons": {
+				"もう少し寝かせて": 2,
+				"やってみよう！": 1,
+			},
+		},
 	},
 	{
 		"expression": "neutral",
@@ -40,6 +47,13 @@ var _dialogue := [
 			"buttons": {
 				"Nu știu dacă sunt gata, dar voi face tot ce pot": 3,
 				"Nu, lasă-mă să dorm mai mult": 2,
+			},
+		},
+		"ja": {
+			"text": "よし！最初のタスクは対話システムを開発する。",
+			"buttons": {
+				"できるかなけど頑張るぞ": 2,
+				"いいえ、寝かせてよ": 1,
 			},
 		},
 	},
@@ -59,6 +73,13 @@ var _dialogue := [
 				"Bine, voi încerca": 3,
 			}
 		},
+		"ja": {
+			"text": "楽しくなるよ。",
+			"buttons": {
+				"嫌だ！寝かさせて！": 2,
+				"よし、やってみる": 1,
+			},
+		},
 	},
 	{
 		"expression": "happy",
@@ -69,6 +90,10 @@ var _dialogue := [
 		"ro": {
 			"text": "Ăsta-i spiritul! Hai că poți!\n[wave][b]AI CÂȘTIGAT[/b][/wave]",
 			"buttons": {"Ieși": -1}
+		},
+		"ja": {
+			"text": "それは精神だ！君ならできるよ！\n[wave][b]勝[/b][/wave]",
+			"buttons": {"終了": -1,},
 		},
 	},
 ]
