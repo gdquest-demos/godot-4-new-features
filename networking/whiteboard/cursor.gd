@@ -21,17 +21,12 @@ const MIN_BRUSH_SIZE = 5.0
 		nickname = value
 		_apply_nickname()
 
-@export var id: int:
-	set(value):
-		id = value
-		_apply_id()
-
 
 var control_scheme: CONTROL_SCHEME = CONTROL_SCHEME.NONE
 var _is_pressed := false
 var _brush_size := 0.0
 var _wetness := 10.0
-var _mouse_is_over_window := true
+var _mouse_is_over_window := false
 
 @onready var sprite_2d: Sprite2D = %Sprite2D
 @onready var label: Label = %Label
@@ -83,12 +78,6 @@ func _apply_nickname() -> void:
 	if not is_inside_tree():
 		await ready
 	label.text = nickname
-
-
-func _apply_id() -> void:
-	if not is_inside_tree():
-		await  ready
-	multiplayer_synchronizer.set_multiplayer_authority(id)
 
 
 func _notification(what: int):

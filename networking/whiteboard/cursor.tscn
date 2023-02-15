@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://crv32vbpvrotr"]
 
 [ext_resource type="Texture2D" uid="uid://bhbkrluba1ro8" path="res://networking/whiteboard/cursor.svg" id="1_j8yrg"]
 [ext_resource type="Script" path="res://networking/whiteboard/cursor.gd" id="1_q014o"]

@@ -3,12 +3,25 @@ extends Panel
 const Cursor = preload("cursor.gd")
 const MultiplayerSettings = preload("../common/multiplayer_settings.gd")
 
-var points_list: Array[Array] = []
+var points_list: Array[Point] = []
 
 func add_point(point_position: Vector2, point_color: Color, point_size: float) -> void:
 	if get_rect().has_point(point_position):
-		points_list.append([point_position, point_size, point_color])
-		queue_redraw()
+		_add_point.rpc([point_position, point_size, point_color])
+
+
+@rpc("any_peer", "call_local")
+func _add_point(data: Array) -> void:
+	if typeof(data) != TYPE_ARRAY or data.size() != 3 \
+	or typeof(data[0]) != TYPE_VECTOR2 \
+	or typeof(data[1]) != TYPE_FLOAT \
+	or typeof(data[2]) != TYPE_COLOR:
+		push_error("Invalid spawn")
+		return
+	var point := Point.new()
+	point.setup.callv(data)
+	points_list.append(point)
+	queue_redraw()
 
 
 func add_player(player: MultiplayerSettings.Player) -> void:
@@ -16,15 +29,16 @@ func add_player(player: MultiplayerSettings.Player) -> void:
 		cursor.nickname = player.nickname
 		cursor.color = player.color
 		cursor.control_scheme = cursor.CONTROL_SCHEME.CURSOR
-		cursor.id = player.id
 		cursor.name = str(player.id)
+		var multiplayer_synchronizer: MultiplayerSynchronizer = cursor.get_node("MultiplayerSynchronizer")
+		multiplayer_synchronizer.set_multiplayer_authority(player.id)
 		add_child(cursor, true)
 		cursor.point_requested.connect(add_point)
 
 
 func _draw() -> void:
 	for point in points_list:
-		draw_circle.callv(point)
+		draw_circle(point.position, point.size, point.color)
 
 
 ## TODO: REMOVE
@@ -33,7 +47,7 @@ class Point:
 	var color := Color.BLACK
 	var size := 2.0
 	
-	func setup(initial_position: Vector2, initial_color: Color, initial_size: float = 2.0) -> Point:
+	func setup(initial_position: Vector2, initial_size: float, initial_color: Color) -> Point:
 		position = initial_position
 		color = initial_color
 		size = initial_size
