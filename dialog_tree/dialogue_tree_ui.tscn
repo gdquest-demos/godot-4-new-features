@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://wakla3y4v08f"]
+
+[ext_resource type="Script" path="res://dialog_tree/dialogue_tree_ui.gd" id="1_3u7u7"]
+[ext_resource type="PackedScene" uid="uid://dyg166mu47c1" path="res://dialog_tree/assets/pink_hair_character/pink_hair_character.tscn" id="1_dk2d5"]
+[ext_resource type="PackedScene" uid="uid://bem0by55gabcj" path="res://dialog_tree/assets/bubble/speech_bubble.tscn" id="2_l4qmv"]
+
+[node name="Dialogue" type="Node"]
+script = ExtResource("1_3u7u7")
+
+[node name="TopUI" type="CanvasLayer" parent="."]
+
+[node name="SpeechBubble" parent="TopUI" instance=ExtResource("2_l4qmv")]
+offset_left = 1050.0
+offset_top = 231.0
+offset_right = 1114.0
+offset_bottom = 295.0
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="PinkHairCharacter" parent="World" instance=ExtResource("1_dk2d5")]
+position = Vector2(611, 769)
+scale = Vector2(0.95, 0.95)
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundColor" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.890196, 0.996078, 1)
+
+[connection signal="speech_end" from="TopUI/SpeechBubble" to="World/PinkHairCharacter" method="_reset_mouth"]
+[connection signal="vowel" from="TopUI/SpeechBubble" to="World/PinkHairCharacter" method="_random_mouth"]
