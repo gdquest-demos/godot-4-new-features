@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://byuw8qf1cgbw0"]
+[gd_scene load_steps=10 format=3 uid="uid://btkjvs4pjpbqo"]
 
 [ext_resource type="Script" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
 [ext_resource type="PackedScene" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
@@ -100,7 +100,8 @@ radius = 0.489449
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm81s"]
 size = Vector3(1.4, 0.2, 1.4)
 
-[node name="Beetle" type="CharacterBody3D"]
+[node name="Beetle" type="CharacterBody3D" groups=["damageables", "targeteables"]]
+collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -126,15 +127,20 @@ collision_layer = 0
 shape = SubResource("SphereShape3D_h03f6")
 
 [node name="CollisionShapeBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.0858798, -0.189352)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.596143, -0.00465555)
 shape = SubResource("CapsuleShape3D_g3iuo")
 
 [node name="CollisionShapeHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.460848, -0.382635)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.971111, -0.197939)
 shape = SubResource("BoxShape3D_bm81s")
 
 [node name="BeetlebotSkin" parent="." instance=ExtResource("2_1wpkj")]
-transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 0, -0.43203, -0.147412)
+transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 0, 0.0782327, 0.0372844)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.2
 target_desired_distance = 0.2
+agent_height_offset = 0.5
+
+[connection signal="link_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_link_reached"]
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]

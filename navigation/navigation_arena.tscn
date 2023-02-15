@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dpessuha23jra"]
 
 [ext_resource type="Script" path="res://navigation/navigation_arena.gd" id="1_p0re4"]
-[ext_resource type="PackedScene" uid="uid://byuw8qf1cgbw0" path="res://navigation/beetle.tscn" id="2_m547n"]
+[ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_m547n"]
 [ext_resource type="Script" path="res://navigation/beetle_move_to_position.gd" id="3_g41jl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
@@ -39,7 +39,7 @@ transform = Transform3D(0.93358, 0.358368, 1.56648e-08, -0.054955, 0.143163, 0.9
 shadow_enabled = true
 
 [node name="Beetle" parent="." instance=ExtResource("2_m547n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933386, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 collision_layer = 0
 script = ExtResource("3_g41jl")
 
