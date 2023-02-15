@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://o7qyt01n7x0k"]
+
+[ext_resource type="Texture2D" uid="uid://undwtaref5js" path="res://outdoor_environment/thumbnail.jpg" id="1_dh4jt"]
+[ext_resource type="Script" path="res://main/ui_scene_entry.gd" id="1_jal72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05s8j"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.290196, 0.329412, 0.470588, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkqba"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.117647, 0.137255, 0.211765, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="UISceneEntry" type="Button"]
+custom_minimum_size = Vector2(260, 200)
+theme_override_styles/normal = SubResource("StyleBoxFlat_05s8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05s8j")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kkqba")
+script = ExtResource("1_jal72")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 2
+texture = ExtResource("1_dh4jt")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Outdoor scene"
+horizontal_alignment = 1
