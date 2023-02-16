@@ -27,9 +27,9 @@ func _physics_process(delta: float) -> void:
 	# Wait for the next location to be accessible, for example, a moving platform.
 	var next_location := _navigation_agent.get_next_path_position()
 
-	var global_look_position: Vector3 = next_location
-	global_look_position.y = global_position.y
-	look_at(global_look_position)
+#	var global_look_position: Vector3 = target_global_position
+#	global_look_position.y = global_position.y
+	look_at(target_global_position)
 
 	var direction := (next_location - global_position).normalized()
 	_navigation_agent.set_velocity(direction * SPEED)

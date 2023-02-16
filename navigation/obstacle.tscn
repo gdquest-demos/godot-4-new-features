@@ -13,6 +13,6 @@ script = ExtResource("1_obtb1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_id3s4")
 
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="CollisionShape3D"]
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
 estimate_radius = false
 radius = 0.5

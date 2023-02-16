@@ -1,10 +1,9 @@
 extends CharacterBody3D
 
+
 signal path_end_reached
 
-const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 const SPEED := 3.0
-
 
 ## This array represents a queue of the locations the agent will move towards.
 ## As the scene has moving platforms, some locations aren't reachable until the
@@ -22,14 +21,10 @@ var move_targets := []:
 			set_movement_target(move_targets[0].global_position)
 			_beetle_skin.walk()
 
-
 @onready var _reaction_animation_player: AnimationPlayer = $ReactionLabel/AnimationPlayer
 @onready var _detection_area: Area3D = $PlayerDetectionArea
 @onready var _beetle_skin: Node3D = $BeetlebotSkin
 @onready var _navigation_agent: NavigationAgent3D = $NavigationAgent3D
-
-
-
 
 var agent_state_label: Label3D
 

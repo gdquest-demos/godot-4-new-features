@@ -142,5 +142,5 @@ path_desired_distance = 0.2
 target_desired_distance = 0.2
 agent_height_offset = 0.5
 avoidance_enabled = true
-time_horizon = 7.0
+time_horizon = 0.75
 debug_enabled = true
