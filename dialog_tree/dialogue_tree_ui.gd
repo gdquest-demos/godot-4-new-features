@@ -113,6 +113,7 @@ var _dialogue := [
 @onready var font_size_label := %FontSizeLabel
 @onready var slider := %FontSizeSlider
 
+@export var round_button_scene : PackedScene
 
 func _ready() -> void:
 	_languages_button_group.connect("pressed", set_language)
@@ -129,12 +130,14 @@ func show_line(id: int) -> void:
 	var line_data: Dictionary = _dialogue[id]
 	set_text(slider.value)
 	for button in action_buttons.get_children():
-		button.queue_free()
+		button.destroy()
+	await speech_bubble.speech_end
 	create_buttons(line_data[language].buttons)
 
 
 func set_font_size(new_size: int) -> void:
-	font_size_label.text = "%s (%02d)" % [_font_size_text[language], new_size]
+	# font_size_label.text = "%s (%02d)" % [_font_size_text[language], new_size]
+	font_size_label.text = "%s" % [_font_size_text[language]]
 	speech_bubble.set_font_size(new_size)
 
 
@@ -154,7 +157,8 @@ func set_language(_button: Button) -> void:
 
 func create_buttons(buttons_data: Dictionary) -> void:
 	for text in buttons_data:
-		var button := Button.new()
+		await get_tree().create_timer(0.25).timeout
+		var button : Button = round_button_scene.instantiate()
 		button.text = text
 		action_buttons.add_child(button)
 		var target_line_id = buttons_data[text]
