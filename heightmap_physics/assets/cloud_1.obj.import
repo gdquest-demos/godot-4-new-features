@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://boc744m8lf7n1"
+path="res://.godot/imported/cloud_1.obj-14ec602d1332df31bc3ae2a5b16a4834.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cloud_1.obj-14ec602d1332df31bc3ae2a5b16a4834.mesh"]
+
+source_file="res://heightmap_physics/assets/cloud_1.obj"
+dest_files=["res://.godot/imported/cloud_1.obj-14ec602d1332df31bc3ae2a5b16a4834.mesh", "res://.godot/imported/cloud_1.obj-14ec602d1332df31bc3ae2a5b16a4834.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
