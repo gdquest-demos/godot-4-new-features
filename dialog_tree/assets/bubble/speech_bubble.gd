@@ -74,9 +74,9 @@ func _on_resized():
 
 	tail.polygon[0].y = half_size.y
 	tail.polygon[1].y = half_size.y
-	tail.polygon[2].y = half_size.y + 128.0
+	tail.polygon[2].y = half_size.y + margin.size.y * 0.8
 
-	var tail_width = margin.size.x * 0.1
+	var tail_width = margin.size.x * 0.05
 
 	tail.polygon[0].x = -tail_width
 	tail.polygon[1].x = tail_width

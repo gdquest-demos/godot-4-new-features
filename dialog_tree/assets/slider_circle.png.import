@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc0ij375utxg6"
-path="res://.godot/imported/pink_hair_character_preview.png-aab86abb652fbbf156c2657d6df1de8d.ctex"
+uid="uid://c6j8tx83eeukc"
+path="res://.godot/imported/slider_circle.png-a30de119f09394f5bc3b6e059d8fe2ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/assets/pink_hair_character/pink_hair_character_preview.png"
-dest_files=["res://.godot/imported/pink_hair_character_preview.png-aab86abb652fbbf156c2657d6df1de8d.ctex"]
+source_file="res://dialog_tree/assets/slider_circle.png"
+dest_files=["res://.godot/imported/slider_circle.png-a30de119f09394f5bc3b6e059d8fe2ef.ctex"]
 
 [params]
 

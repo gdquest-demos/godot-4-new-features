@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dyg166mu47c1"]
 
 [ext_resource type="Script" path="res://dialog_tree/assets/pink_hair_character/pink_hair_character.gd" id="1_bman8"]
-[ext_resource type="Texture2D" uid="uid://cov4h6vh32ta1" path="res://dialog_tree/assets/pink_hair_character/pink_hair_character_preview.png" id="1_fwdcm"]
+[ext_resource type="Texture2D" uid="uid://cc0ij375utxg6" path="res://dialog_tree/assets/pink_hair_character/pink_hair_character_preview.png" id="1_fwdcm"]
 [ext_resource type="Texture2D" uid="uid://b3cfhdl2kkrxf" path="res://dialog_tree/assets/pink_hair_character/parts/BackHair.PNG" id="2_w4vtk"]
 [ext_resource type="Texture2D" uid="uid://de80gjojee3cf" path="res://dialog_tree/assets/pink_hair_character/parts/Bang.PNG" id="3_4so5s"]
 [ext_resource type="Texture2D" uid="uid://btb7at8qevnph" path="res://dialog_tree/assets/pink_hair_character/parts/Body.PNG" id="4_ouc4s"]
@@ -80,7 +80,6 @@ _data = {
 animation = &"Idle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c2qio"]
-graph_offset = Vector2(-482, 0)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_tq6ip")
 nodes/Animation/position = Vector2(100, 120)
 node_connections = [&"output", 0, &"Animation"]
@@ -92,27 +91,27 @@ script = ExtResource("1_bman8")
 [node name="PinkHairCharacterPreview" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(0, 7)
 texture = ExtResource("1_fwdcm")
-metadata/_edit_lock_ = true
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 position = Vector2(0, 3)
 
 [node name="Bang" type="Polygon2D" parent="Skeleton2D"]
 z_index = 10
-position = Vector2(-9, -260)
+position = Vector2(-8, -264)
 offset = Vector2(-273, -164)
 texture = ExtResource("3_4so5s")
 skeleton = NodePath("..")
-polygon = PackedVector2Array(109.877, 11.1111, 230.864, -11.1111, 307.407, 74.6913, 263.58, 250.617, 127.16, 369.753, 40.7408, 373.457, -14.8148, 296.296, 30.8642, 124.074, 129.932, 174.15)
-uv = PackedVector2Array(109.877, 11.1111, 230.864, -11.1111, 307.407, 74.6913, 263.58, 250.617, 127.16, 369.753, 40.7408, 373.457, -14.8148, 296.296, 30.8642, 124.074, 129.932, 174.15)
+polygon = PackedVector2Array(146.269, -32.8358, 251.492, -51.4925, 328.358, 38.0597, 279.104, 250.746, 132.836, 381.343, 34.3283, 385.075, -29.8507, 285.075, 5.9701, 122.388, 129.932, 174.15)
+uv = PackedVector2Array(146.269, -32.8358, 251.492, -51.4925, 328.358, 38.0597, 279.104, 250.746, 132.836, 381.343, 34.3283, 385.075, -29.8507, 285.075, 5.9701, 122.388, 129.932, 174.15)
 polygons = [PackedInt32Array(0, 1, 8, 7), PackedInt32Array(1, 2, 3, 8), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(8, 3, 4, 5)]
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head/BangStart", PackedFloat32Array(1, 1, 1, 0.5, 0, 0, 0, 0.5, 0.5), "Body/Neck/Head/BangStart/BangEnd", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0.5), "Body/Neck/Head/BackHair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
 [node name="BackHair" type="Polygon2D" parent="Skeleton2D"]
 z_index = -10
-position = Vector2(-248, -84)
+position = Vector2(-248, -76)
 texture = ExtResource("2_w4vtk")
 skeleton = NodePath("..")
 polygon = PackedVector2Array(144.444, -6.79012, 70.9877, -3.7037, 11.1111, 56.0185, -13.5803, 150.617, 58.0247, 230.247, 188.272, 266.049, 224.691, 154.938, 200, 36.4197, 102.469, 108.025)
@@ -124,7 +123,7 @@ internal_vertex_count = 1
 [node name="Body" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(0, 355)
 rotation = 0.0349066
-scale = Vector2(0.999999, 0.999999)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, 355)
 
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Body"]
@@ -133,7 +132,7 @@ rest = Transform2D(1, 0, 0, 1, 0, -184)
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Body/Neck"]
 position = Vector2(0, -61)
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, -61)
 
 [node name="BangStart" type="Bone2D" parent="Skeleton2D/Body/Neck/Head"]
