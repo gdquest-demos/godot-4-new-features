@@ -58,9 +58,8 @@ var status: STATUS = STATUS.NONE :
 
 
 func _ready() -> void:
-	# we're setting the same multiplayer for the entire tree, but you could set it
-	# on any branch
-	var multiplayer_api := get_tree().root.multiplayer
+	get_tree().set_multiplayer(MultiplayerAPI.create_default_interface(), get_viewport().get_path())
+	var multiplayer_api := get_viewport().multiplayer
 
 	# You can save bandwith by disabling server relay and player notifications.
 	multiplayer_api.server_relay = false
@@ -96,9 +95,7 @@ func start_session() -> void:
 		status_message_emitted.emit("Failed to start multiplayer server", MESSAGE_TYPE.ERROR)
 		return
 	
-	# we're setting the same multiplayer for the entire tree, but you could set it
-	# on any branch
-	var multiplayer_api := get_tree().root.multiplayer
+	var multiplayer_api := get_viewport().multiplayer
 	multiplayer_api.multiplayer_peer = multiplayer_peer
 
 	status = STATUS.CONNECTING
@@ -110,7 +107,7 @@ func start_session() -> void:
 
 ## Disconnects the player from the network, or stops a server
 func end_session() -> void:
-	var multiplayer_api := get_tree().root.multiplayer
+	var multiplayer_api := get_viewport().multiplayer
 	multiplayer_api.multiplayer_peer.close()
 	disconnected.emit()
 

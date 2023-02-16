@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtcc6x3j4b4or"]
 
 [ext_resource type="Script" path="res://networking/robot_war/gdbot.gd" id="1_qdc2h"]
-[ext_resource type="PackedScene" path="res://shared/models/gdbot/gdbot_skin.tscn" id="2_wj78v"]
+[ext_resource type="PackedScene" uid="uid://cgfsv8ytljo6r" path="res://shared/models/gdbot/gdbot_skin.tscn" id="2_wj78v"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pcmc8"]
 properties/0/path = NodePath("..:color")
@@ -16,6 +16,9 @@ properties/2/sync = true
 properties/3/path = NodePath("..:nickname")
 properties/3/spawn = false
 properties/3/sync = true
+properties/4/path = NodePath("..:forward_speed")
+properties/4/spawn = true
+properties/4/sync = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8un"]
 height = 1.60428
