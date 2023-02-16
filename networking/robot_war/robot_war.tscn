@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dldw8dlliascs"]
+[gd_scene load_steps=10 format=3 uid="uid://dldw8dlliascs"]
 
 [ext_resource type="Script" path="res://networking/robot_war/robot_war.gd" id="1_k07rl"]
 [ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_o5qh8"]
 [ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_ynlgj"]
+[ext_resource type="PackedScene" uid="uid://b1av8dpn3l2cn" path="res://networking/robot_war/player_ui.tscn" id="4_f8iq0"]
 [ext_resource type="PackedScene" uid="uid://dfg1tiyyqcs8r" path="res://networking/robot_war/assets/models/block_A.gltf.glb" id="4_lxbsp"]
 [ext_resource type="MeshLibrary" uid="uid://cyfh7louw3ree" path="res://networking/robot_war/assets/mesh_library.tres" id="5_rcd4g"]
 
@@ -54,6 +55,23 @@ script = ExtResource("3_ynlgj")
 unique_name_in_owner = true
 spawn_path = NodePath("../..")
 
+[node name="GameUI" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerUI" parent="CanvasLayer/GameUI" instance=ExtResource("4_f8iq0")]
+layout_mode = 2
+
+[node name="PlayerUI2" parent="CanvasLayer/GameUI" instance=ExtResource("4_f8iq0")]
+layout_mode = 2
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_erl0c")
 
@@ -67,7 +85,6 @@ transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 14, 0, -1, 0)
 [node name="StaticBody3D" type="StaticBody3D" parent="block_Agltf/block_A" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="block_Agltf/block_A/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yblaq")
 
 [node name="GridMap" type="GridMap" parent="."]

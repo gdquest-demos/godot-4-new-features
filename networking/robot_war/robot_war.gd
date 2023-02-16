@@ -1,5 +1,7 @@
 extends Node3D
 
+var _player_uis = {}
+
 const MultiplayerSettings = preload("../common/multiplayer_settings.gd")
 const Lobby = preload("../common/lobby.gd")
 const PlayerBody = preload("gdbot.gd")
@@ -9,6 +11,7 @@ const PlayerBodyScene = preload("gdbot.tscn")
 @onready var lobby: VBoxContainer = %Lobby
 @onready var multiplayer_settings: Node = %MultiplayerSettings
 @onready var spawner : MultiplayerSpawner = %MultiplayerSpawner
+@onready var game_ui : HBoxContainer = %GameUI
 
 
 func _ready() -> void:
@@ -32,6 +35,7 @@ func _ready() -> void:
 		player_body.name = str(id)
 		player_body.color = color
 		player_body.position = Vector3(randf_range(-10, 10), 5, randf_range(-10, 10))
+		
 		return player_body
 
 
@@ -40,6 +44,12 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 
 
 func _on_player_added(player: MultiplayerSettings.Player) -> void:
+	game_ui.show()
+	
+	var player_ui = game_ui.get_child(0) if player.is_host else game_ui.get_child(1)
+	player_ui.set_player_name(player.nickname)
+	_player_uis[str(player.id)] = player_ui
+	
 	if multiplayer.is_server():
 		# this uses the custom function `spawn_player_custom`
 		spawner.spawn([player.id, player.nickname, player.color])
@@ -49,3 +59,10 @@ func _on_player_removed(player_id: int) -> void:
 	var player_body := get_node_or_null("player_%s"%[player_id])
 	if player_body != null:
 		player_body.queue_free()
+
+
+func register_player(player: PlayerBody) -> void:
+	player.damage_updated.connect(
+		func():
+			_player_uis[player.name].update_damage(player.damage_amount)
+	)

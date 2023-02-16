@@ -19,6 +19,9 @@ properties/3/sync = true
 properties/4/path = NodePath("..:forward_speed")
 properties/4/spawn = true
 properties/4/sync = true
+properties/5/path = NodePath("..:is_attacking")
+properties/5/spawn = true
+properties/5/sync = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8un"]
 height = 1.60428
@@ -49,3 +52,7 @@ visible = false
 offset = Vector2(0, 230)
 billboard = 2
 text = "Example text"
+
+[node name="DamageRayCast" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
