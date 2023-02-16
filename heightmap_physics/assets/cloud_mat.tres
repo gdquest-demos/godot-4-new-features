@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bjrjat1nexdul"]
+
+[ext_resource type="Shader" path="res://heightmap_physics/assets/cloud.gdshader" id="1_qytrt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wtcbp"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x1osg"]
+seamless = true
+noise = SubResource("FastNoiseLite_wtcbp")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qytrt")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_x1osg")

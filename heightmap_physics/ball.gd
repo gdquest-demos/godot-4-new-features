@@ -5,3 +5,5 @@ extends RigidBody3D
 
 func _ready():
 	mesh_instance.material_override.set("albedo_color", gradient.sample(randf()))
+	var t = create_tween()
+	t.tween_property(mesh_instance, "scale", Vector3.ONE, 0.25).from(Vector3.ONE * 0.1)
