@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bnqwh1dx6yxk6"]
+[gd_scene load_steps=75 format=3 uid="uid://bnqwh1dx6yxk6"]
 
 [ext_resource type="Script" path="res://shared/models/sophia/sophia_skin.gd" id="1_ikvdg"]
 [ext_resource type="PackedScene" uid="uid://douscbe20506q" path="res://shared/models/sophia/mini_sophia.glb" id="2_l0msm"]
@@ -6,15 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://bhraucuo8k2yp" path="res://shared/models/sophia/textures/eyes_diffuse_map.png" id="4_2n3yc"]
 [ext_resource type="Texture2D" uid="uid://b02thoifvyg4r" path="res://shared/models/sophia/textures/eyes_normal_map.png" id="5_cv73a"]
 [ext_resource type="Material" path="res://shared/models/sophia/materials/sophia_mouth.tres" id="6_7acnd"]
-[ext_resource type="AudioStream" uid="uid://cu7jnhn6rtilk" path="res://3d_animation_tree_audio/sound/footstep_dirt01.wav" id="7_gsia5"]
-[ext_resource type="AudioStream" uid="uid://bbew1gt0v46c7" path="res://3d_animation_tree_audio/sound/footstep_dirt03.wav" id="8_8mf5u"]
-[ext_resource type="AudioStream" uid="uid://dtyn3mjfhc6wf" path="res://3d_animation_tree_audio/sound/footstep_dirt02.wav" id="8_thbky"]
-[ext_resource type="AudioStream" uid="uid://pveotr063ykk" path="res://3d_animation_tree_audio/sound/footstep_dirt04.wav" id="9_q8h4q"]
-[ext_resource type="AudioStream" uid="uid://bona2qo3e5tn8" path="res://3d_animation_tree_audio/sound/footstep_dirt05.wav" id="10_3jorg"]
-[ext_resource type="AudioStream" uid="uid://dmmrx4d3wx6wl" path="res://3d_animation_tree_audio/sound/swoosh01.wav" id="12_loeyi"]
-[ext_resource type="AudioStream" uid="uid://dhkkd6btxvq1y" path="res://3d_animation_tree_audio/sound/swoosh02.wav" id="13_4uc07"]
-[ext_resource type="AudioStream" uid="uid://mr7qoguj7mvm" path="res://3d_animation_tree_audio/sound/swoosh03.wav" id="14_i1fhr"]
-[ext_resource type="AudioStream" uid="uid://b7vbrsy2io623" path="res://3d_animation_tree_audio/sound/swoosh04.wav" id="15_5ph1n"]
+[ext_resource type="AudioStream" uid="uid://dh45axrecqobe" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_01.wav" id="7_lv3d0"]
+[ext_resource type="AudioStream" uid="uid://bu5wf83gcyxex" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_02.wav" id="8_w4n1d"]
+[ext_resource type="AudioStream" uid="uid://dgenr6ueopdy2" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_03.wav" id="9_qkqav"]
+[ext_resource type="AudioStream" uid="uid://dc8ieasw0sby4" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_04.wav" id="10_apoan"]
+[ext_resource type="AudioStream" uid="uid://b10abbts8s5q3" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_05.wav" id="11_6inem"]
+[ext_resource type="AudioStream" uid="uid://bcll7siv01q8w" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_06.wav" id="12_ce471"]
+[ext_resource type="AudioStream" uid="uid://hat133akuesw" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_07.wav" id="13_3djf5"]
+[ext_resource type="AudioStream" uid="uid://pejut3vs8ddb" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_08.wav" id="14_pyn8a"]
+[ext_resource type="AudioStream" uid="uid://crkxcbga3ddpx" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_09.wav" id="15_78mjx"]
+[ext_resource type="AudioStream" uid="uid://d2fx8vy3ucwsj" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Run_10.wav" id="16_eqdti"]
+[ext_resource type="AudioStream" uid="uid://cysuf445pqenw" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_01.wav" id="17_u47hv"]
+[ext_resource type="AudioStream" uid="uid://bet57b6l6pb4g" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_02.wav" id="18_ruiev"]
+[ext_resource type="AudioStream" uid="uid://cbmf8hqhf0ma0" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_03.wav" id="19_himxj"]
+[ext_resource type="AudioStream" uid="uid://bt5f8shg6wu7k" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_04.wav" id="20_ktmxj"]
+[ext_resource type="AudioStream" uid="uid://cb1mqllfx7qxn" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_05.wav" id="21_v6pl3"]
+[ext_resource type="AudioStream" uid="uid://b1o10e8vq3noa" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_06.wav" id="22_nw0ep"]
+[ext_resource type="AudioStream" uid="uid://c8dfujhm6untq" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_07.wav" id="23_biht0"]
+[ext_resource type="AudioStream" uid="uid://bb75kg30th5hy" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_08.wav" id="24_jen2q"]
+[ext_resource type="AudioStream" uid="uid://cooyjgupt6uhv" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_09.wav" id="25_utmc7"]
+[ext_resource type="AudioStream" uid="uid://chkyffn78xn2q" path="res://3d_animation_tree_audio/sound/Footsteps_Grass_Jump_Start_10.wav" id="26_4l1ri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r7u4"]
 resource_local_to_scene = true
@@ -5830,17 +5841,27 @@ tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_neruu"]
-streams_count = 5
-stream_0/stream = ExtResource("7_gsia5")
+streams_count = 10
+stream_0/stream = ExtResource("7_lv3d0")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("8_thbky")
+stream_1/stream = ExtResource("8_w4n1d")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("8_8mf5u")
+stream_2/stream = ExtResource("9_qkqav")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("9_q8h4q")
+stream_3/stream = ExtResource("10_apoan")
 stream_3/weight = 1.0
-stream_4/stream = ExtResource("10_3jorg")
+stream_4/stream = ExtResource("11_6inem")
 stream_4/weight = 1.0
+stream_5/stream = ExtResource("12_ce471")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("13_3djf5")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("14_pyn8a")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("15_78mjx")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("16_eqdti")
+stream_9/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_ov7aj"]
 resource_name = "happy_run"
@@ -7313,15 +7334,27 @@ tracks/102/loop_wrap = true
 tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6fck1"]
-streams_count = 4
-stream_0/stream = ExtResource("12_loeyi")
+streams_count = 10
+stream_0/stream = ExtResource("17_u47hv")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("13_4uc07")
+stream_1/stream = ExtResource("18_ruiev")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("14_i1fhr")
+stream_2/stream = ExtResource("19_himxj")
 stream_2/weight = 1.0
-stream_3/stream = ExtResource("15_5ph1n")
+stream_3/stream = ExtResource("20_ktmxj")
 stream_3/weight = 1.0
+stream_4/stream = ExtResource("21_v6pl3")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("22_nw0ep")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("23_biht0")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("24_jen2q")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("25_utmc7")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("26_4l1ri")
+stream_9/weight = 1.0
 
 [sub_resource type="Animation" id="Animation_d4opw"]
 resource_name = "jump_up"
@@ -8804,7 +8837,7 @@ tracks/103/keys = {
 "start_offset": 0.0,
 "stream": SubResource("AudioStreamRandomizer_neruu")
 }],
-"times": PackedFloat32Array(0.1, 0.5)
+"times": PackedFloat32Array(0, 0.4)
 }
 tracks/103/use_blend = true
 
@@ -9626,7 +9659,7 @@ states/Start/position = Vector2(591, 6)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_3evyl")
 states/Walk/position = Vector2(677, 113)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_odecw"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_gya5w"), "Fall", "Jump", SubResource("AnimationNodeStateMachineTransition_yhoyv"), "Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_5buat"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_ftmml"), "Jump", "Idle", SubResource("AnimationNodeStateMachineTransition_d7qu3"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_tw4mq"), "Fall", "Walk", SubResource("AnimationNodeStateMachineTransition_ahfq5"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_b7x4s"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_lktcr"), "Jump", "Walk", SubResource("AnimationNodeStateMachineTransition_mmm8y"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_5us0l")]
-graph_offset = Vector2(-23, -33)
+graph_offset = Vector2(31, 19)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m5ht5"]
 animation = &"wall_slide"
@@ -9656,7 +9689,7 @@ transitions = ["StateMachine", "WallSlide", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-19, -46)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0cs6v"]
-graph_offset = Vector2(-145, -51)
+graph_offset = Vector2(-163, -35)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sx10c")
 nodes/StateMachine/position = Vector2(-80, 40)
 nodes/output/position = Vector2(420, 40)
