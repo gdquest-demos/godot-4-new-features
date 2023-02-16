@@ -115,6 +115,7 @@ var _dialogue := [
 
 @export var round_button_scene : PackedScene
 
+
 func _ready() -> void:
 	_languages_button_group.connect("pressed", set_language)
 	slider.connect("value_changed", set_font_size)
@@ -131,12 +132,11 @@ func show_line(id: int) -> void:
 	set_text(slider.value)
 	for button in action_buttons.get_children():
 		button.destroy()
-	await speech_bubble.speech_end
+	await speech_bubble.speech_ended
 	create_buttons(line_data[language].buttons)
 
 
 func set_font_size(new_size: int) -> void:
-	# font_size_label.text = "%s (%02d)" % [_font_size_text[language], new_size]
 	font_size_label.text = "%s" % [_font_size_text[language]]
 	speech_bubble.set_font_size(new_size)
 

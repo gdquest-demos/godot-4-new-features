@@ -9,6 +9,14 @@
 [ext_resource type="Script" path="res://dialog_tree/bg_color.gd" id="6_acm6y"]
 [ext_resource type="PackedScene" uid="uid://rnkextuo28jc" path="res://dialog_tree/round_button/round_button.tscn" id="7_gdnf1"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
+shader = ExtResource("4_0i5mg")
+shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
+shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/pattern_sampler = ExtResource("5_ykfj4")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6ewq"]
 bg_color = Color(0, 0, 0, 0.470588)
 corner_radius_top_left = 8
@@ -51,17 +59,22 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
-shader = ExtResource("4_0i5mg")
-shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
-shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
-shader_parameter/scale = 4.0
-shader_parameter/ratio = 0.56
-shader_parameter/pattern_sampler = ExtResource("5_ykfj4")
-
 [node name="Dialogue" type="Node"]
 script = ExtResource("1_3u7u7")
 round_button_scene = ExtResource("7_gdnf1")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundColor" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_c7tyd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.890196, 0.996078, 1)
+script = ExtResource("6_acm6y")
 
 [node name="TopUI" type="CanvasLayer" parent="."]
 
@@ -71,7 +84,7 @@ offset_top = 231.0
 offset_right = 1114.0
 offset_bottom = 295.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TopUI"]
+[node name="VBoxContainer" type="HBoxContainer" parent="TopUI"]
 custom_minimum_size = Vector2(150, 0)
 offset_left = 40.0
 offset_top = 40.0
@@ -79,22 +92,36 @@ offset_right = 361.0
 offset_bottom = 101.0
 theme_override_constants/separation = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TopUI/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 22
 
-[node name="FontSizeLabel" type="Label" parent="TopUI/VBoxContainer/HBoxContainer"]
+[node name="FontSizeLabel" type="Label" parent="TopUI/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "Font size (00)"
 
-[node name="FontSizeSlider" type="HSlider" parent="TopUI/VBoxContainer/HBoxContainer"]
+[node name="LanguageLabel" type="Label" parent="TopUI/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Language"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TopUI/VBoxContainer"]
+layout_mode = 2
+
+[node name="FontSizeSlider" type="HSlider" parent="TopUI/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme_override_icons/grabber = ExtResource("4_aa0ky")
 theme_override_icons/grabber_highlight = ExtResource("4_aa0ky")
 theme_override_styles/slider = SubResource("StyleBoxFlat_f6ewq")
@@ -102,47 +129,49 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_76pa2")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_76pa2")
 min_value = 8.0
 max_value = 99.0
-value = 18.0
+value = 40.0
 rounded = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TopUI/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="LanguageLabel" type="Label" parent="TopUI/VBoxContainer/HBoxContainer2"]
+[node name="LanguagesRow" type="HBoxContainer" parent="TopUI/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
-text = "Language"
+size_flags_vertical = 3
 
-[node name="LanguagesRow" type="HBoxContainer" parent="TopUI/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
+[node name="EN" type="Button" parent="TopUI/VBoxContainer/VBoxContainer2/LanguagesRow"]
 layout_mode = 2
-
-[node name="EN" type="Button" parent="TopUI/VBoxContainer/HBoxContainer2/LanguagesRow"]
-layout_mode = 2
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_fdi2o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d1rjy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_d1rjy")
 toggle_mode = true
 text = "En"
 
-[node name="RO" type="Button" parent="TopUI/VBoxContainer/HBoxContainer2/LanguagesRow"]
+[node name="RO" type="Button" parent="TopUI/VBoxContainer/VBoxContainer2/LanguagesRow"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_fdi2o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d1rjy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_d1rjy")
 toggle_mode = true
 text = "Ro"
 
-[node name="JA" type="Button" parent="TopUI/VBoxContainer/HBoxContainer2/LanguagesRow"]
+[node name="JA" type="Button" parent="TopUI/VBoxContainer/VBoxContainer2/LanguagesRow"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_fdi2o")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d1rjy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_d1rjy")
 toggle_mode = true
 text = "Ja"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TopUI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
 
 [node name="ActionButtons" type="VBoxContainer" parent="TopUI"]
 unique_name_in_owner = true
@@ -163,19 +192,3 @@ theme_override_constants/separation = 22
 [node name="PinkHairCharacter" parent="World" instance=ExtResource("1_dk2d5")]
 position = Vector2(611, 769)
 scale = Vector2(0.95, 0.95)
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="BackgroundColor" type="ColorRect" parent="Background"]
-material = SubResource("ShaderMaterial_c7tyd")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.890196, 0.996078, 1)
-script = ExtResource("6_acm6y")
-
-[connection signal="speech_end" from="TopUI/SpeechBubble" to="World/PinkHairCharacter" method="_reset_mouth"]
-[connection signal="vowel" from="TopUI/SpeechBubble" to="World/PinkHairCharacter" method="_random_mouth"]

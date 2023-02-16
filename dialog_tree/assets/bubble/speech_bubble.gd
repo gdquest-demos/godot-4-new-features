@@ -1,5 +1,7 @@
 extends Control
 
+signal vowel_appeared
+signal speech_ended
 
 @onready var panel = $Panel
 @onready var margin = $Margin
@@ -8,17 +10,14 @@ extends Control
 
 @onready var audio_stream_player = $AudioStreamPlayer
 
-
 var _is_open = false
 var _text_tween : Tween = null
 var _last_pos = -1
 
-signal vowel
-signal speech_end
 
 
 func _ready():
-	margin.connect("resized", _on_resized)
+	margin.connect("resized", _resize_buble_tail)
 	scale = Vector2.ZERO
 	modulate.a = 0.0
 
@@ -36,11 +35,18 @@ func write(text : String):
 
 	_text_tween = create_tween()
 	_text_tween.tween_method(_tween_text, 0.0, 1.0, text.length() / 30.0)
-	_text_tween.tween_callback(emit_signal.bind("speech_end"))
+	_text_tween.tween_callback(emit_signal.bind("speech_ended"))
 
 
 func set_font_size(new_size: int) -> void:
-	rich_text_label.text = "[font_size={0}]{1}[/font_size]".format([new_size, rich_text_label.get_parsed_text()])
+	const font_size_properties := [
+		"normal_font_size",
+		"bold_font_size",
+		"italics_font_size",
+		"bold_italics_font_size",
+	]
+	for property in font_size_properties:
+		rich_text_label.add_theme_font_size_override(property, new_size)
 
 
 func _tween_text(progress):
@@ -50,8 +56,9 @@ func _tween_text(progress):
 	if pos == _last_pos: return
 	var letter = rich_text_label.text.substr(pos, 1)
 	if ["a","e","i","o","u"].has(letter):
-		emit_signal("vowel")
+		emit_signal("vowel_appeared")
 	_last_pos = pos
+
 
 func open():
 	_is_open = true
@@ -59,13 +66,15 @@ func open():
 	open_tween.tween_property(self, "scale", Vector2.ONE, 0.1)
 	open_tween.tween_property(self, "modulate:a", 1.0, 0.1)
 
+
 func close():
 	_is_open = false
 	var close_tween = create_tween().set_parallel(true)
 	close_tween.tween_property(self, "scale", Vector2.ONE * 0.8, 0.1)
 	close_tween.tween_property(self, "modulate:a", 0.0, 0.1)
 
-func _on_resized():
+
+func _resize_buble_tail():
 	var half_size = (margin.size / 2.0)
 	margin.pivot_offset = half_size
 	panel.pivot_offset = half_size
