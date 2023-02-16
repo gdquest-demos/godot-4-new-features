@@ -31,7 +31,7 @@ func _ready() -> void:
 		player_body.nickname = nickname
 		player_body.name = str(id)
 		player_body.color = color
-		player_body.position = Vector3(randf_range(-25, 25), 0, randf_range(-25, 25))
+		player_body.position = Vector3(randf_range(-10, 10), 5, randf_range(-10, 10))
 		return player_body
 
 
@@ -43,7 +43,6 @@ func _on_player_added(player: MultiplayerSettings.Player) -> void:
 	if multiplayer.is_server():
 		# this uses the custom function `spawn_player_custom`
 		spawner.spawn([player.id, player.nickname, player.color])
-
 
 
 func _on_player_removed(player_id: int) -> void:

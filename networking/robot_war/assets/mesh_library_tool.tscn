@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf44wlyl3675a"]
+
+[ext_resource type="Script" path="res://networking/robot_war/assets/mesh_library_tool.gd" id="1_4q788"]
+
+[node name="MeshLibraryTool" type="Node3D"]
+script = ExtResource("1_4q788")

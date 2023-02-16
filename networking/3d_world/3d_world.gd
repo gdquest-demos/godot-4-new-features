@@ -45,7 +45,6 @@ func _on_player_added(player: MultiplayerSettings.Player) -> void:
 		spawner.spawn([player.id, player.nickname, player.color])
 
 
-
 func _on_player_removed(player_id: int) -> void:
 	var player_body := get_node_or_null("player_%s"%[player_id])
 	if player_body != null:

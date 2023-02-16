@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dldw8dlliascs"]
+[gd_scene load_steps=9 format=3 uid="uid://dldw8dlliascs"]
 
 [ext_resource type="Script" path="res://networking/robot_war/robot_war.gd" id="1_k07rl"]
 [ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_o5qh8"]
 [ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_ynlgj"]
+[ext_resource type="PackedScene" uid="uid://dfg1tiyyqcs8r" path="res://networking/robot_war/assets/models/block_A.gltf.glb" id="4_lxbsp"]
+[ext_resource type="MeshLibrary" uid="uid://cyfh7louw3ree" path="res://networking/robot_war/assets/mesh_library.tres" id="5_rcd4g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgisj"]
 content_margin_left = 10.0
@@ -10,15 +12,12 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq823"]
-albedo_color = Color(0.498039, 0.301961, 0.654902, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_armnl"]
-size = Vector2(50, 50)
-
 [sub_resource type="Environment" id="Environment_erl0c"]
 ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
 sdfgi_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yblaq"]
+points = PackedVector3Array(1, 1.99961, 1, -1, 0.000391586, -1, -1, 0.000391586, 1, 1, 0.000391586, -1, -0.898886, 1.99151, -0.991901, -1, 1.99961, 1, 1, 0.000391586, 1, 1, 1.99961, -1, -0.991901, 1.99151, -0.898886, -0.991828, 1.89864, -0.991828)
 
 [node name="FPS" type="Node3D"]
 script = ExtResource("1_k07rl")
@@ -55,9 +54,28 @@ script = ExtResource("3_ynlgj")
 unique_name_in_owner = true
 spawn_path = NodePath("../..")
 
-[node name="GroundMeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_nq823")
-mesh = SubResource("PlaneMesh_armnl")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_erl0c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="block_Agltf" parent="." instance=ExtResource("4_lxbsp")]
+transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 14, 0, -1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block_Agltf/block_A" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_Agltf/block_A/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_yblaq")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
+mesh_library = ExtResource("5_rcd4g")
+data = {
+"cells": PackedInt32Array(-1, 1, 10, -65536, 1, 10, -1, 0, 3, -1, 65535, 3, -65536, 65535, 3, -65536, 0, 3, -65536, 65534, 655370, -1, 65534, 655370, -65534, 0, 1441804, -3, 65533, 1441812, 65533, 65533, 1441793, -3, 2, 1441808)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[editable path="block_Agltf"]
