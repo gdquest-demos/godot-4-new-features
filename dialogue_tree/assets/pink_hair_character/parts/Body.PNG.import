@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw8jso1xndyww"
-path="res://.godot/imported/Neck.PNG-d424c352d7d92946542dd843f7edddeb.ctex"
+uid="uid://btb7at8qevnph"
+path="res://.godot/imported/Body.PNG-bcf95c70994c0405aa24e8baad11db6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/assets/pink_hair_character/parts/Neck.PNG"
-dest_files=["res://.godot/imported/Neck.PNG-d424c352d7d92946542dd843f7edddeb.ctex"]
+source_file="res://dialogue_tree/assets/pink_hair_character/parts/Body.PNG"
+dest_files=["res://.godot/imported/Body.PNG-bcf95c70994c0405aa24e8baad11db6d.ctex"]
 
 [params]
 

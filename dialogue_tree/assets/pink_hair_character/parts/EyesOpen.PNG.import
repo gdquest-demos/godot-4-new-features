@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bscc087nexc2r"
-path="res://.godot/imported/EyesClosed.PNG-744998684473cff22a095cdd788b6d4e.ctex"
+uid="uid://miws8vh4a7r7"
+path="res://.godot/imported/EyesOpen.PNG-425369b412f566686861b601885c6b9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/assets/pink_hair_character/parts/EyesClosed.PNG"
-dest_files=["res://.godot/imported/EyesClosed.PNG-744998684473cff22a095cdd788b6d4e.ctex"]
+source_file="res://dialogue_tree/assets/pink_hair_character/parts/EyesOpen.PNG"
+dest_files=["res://.godot/imported/EyesOpen.PNG-425369b412f566686861b601885c6b9c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pf23ur6ue5v0"
-path="res://.godot/imported/sophia_happy.png-04dfdff08b88f61f983b48388fb08ffe.ctex"
+uid="uid://bscc087nexc2r"
+path="res://.godot/imported/EyesClosed.PNG-7b34e483cf338bf5fe92bf1702c97176.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/portraits/sophia_happy.png"
-dest_files=["res://.godot/imported/sophia_happy.png-04dfdff08b88f61f983b48388fb08ffe.ctex"]
+source_file="res://dialogue_tree/assets/pink_hair_character/parts/EyesClosed.PNG"
+dest_files=["res://.godot/imported/EyesClosed.PNG-7b34e483cf338bf5fe92bf1702c97176.ctex"]
 
 [params]
 

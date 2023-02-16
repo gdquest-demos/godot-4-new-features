@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1iu6o2f5v7k1"
-path="res://.godot/imported/sophia_neutral.png-ccb5390b74c20e6307ed42410c93fdd7.ctex"
+uid="uid://bspu5xr165rmj"
+path="res://.godot/imported/MouthWide.PNG-b8b4a932b3f45603982953f9ec51d90f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/portraits/sophia_neutral.png"
-dest_files=["res://.godot/imported/sophia_neutral.png-ccb5390b74c20e6307ed42410c93fdd7.ctex"]
+source_file="res://dialogue_tree/assets/pink_hair_character/parts/MouthWide.PNG"
+dest_files=["res://.godot/imported/MouthWide.PNG-b8b4a932b3f45603982953f9ec51d90f.ctex"]
 
 [params]
 

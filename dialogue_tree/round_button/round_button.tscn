@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://rnkextuo28jc"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://dialog_tree/round_button/round_button.gd" id="1_nerdr"]
+[ext_resource type="Script" path="res://dialogue_tree/round_button/round_button.gd" id="1_nerdr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60o5y"]
 content_margin_left = 22.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc0ij375utxg6"
-path="res://.godot/imported/pink_hair_character_preview.png-aab86abb652fbbf156c2657d6df1de8d.ctex"
+uid="uid://crsckxpasqf4p"
+path="res://.godot/imported/sophia_sad.png-398a6cf99e31c40d3a632e1f68bcf266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/assets/pink_hair_character/pink_hair_character_preview.png"
-dest_files=["res://.godot/imported/pink_hair_character_preview.png-aab86abb652fbbf156c2657d6df1de8d.ctex"]
+source_file="res://dialogue_tree/portraits/sophia_sad.png"
+dest_files=["res://.godot/imported/sophia_sad.png-398a6cf99e31c40d3a632e1f68bcf266.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bem0by55gabcj"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://dialog_tree/assets/bubble/speech_bubble.gd" id="1_qj6td"]
-[ext_resource type="AudioStream" uid="uid://bs0taliapop1k" path="res://dialog_tree/assets/boop_1.wav" id="2_e4253"]
+[ext_resource type="Script" path="res://dialogue_tree/assets/bubble/speech_bubble.gd" id="1_qj6td"]
+[ext_resource type="AudioStream" uid="uid://bs0taliapop1k" path="res://dialogue_tree/assets/boop_1.wav" id="2_e4253"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp5v3"]
 bg_color = Color(1, 1, 1, 1)

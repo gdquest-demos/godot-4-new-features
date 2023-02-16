@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cadrpc7lj1ju8"
-path="res://.godot/imported/Head.PNG-ea7b8c1f10444ff9ac238fc4ca459f4d.ctex"
+uid="uid://dnmrsvvnjvayu"
+path="res://.godot/imported/MouthO.PNG-a1a67f61408e15a96d93e0497bf10435.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dialog_tree/assets/pink_hair_character/parts/Head.PNG"
-dest_files=["res://.godot/imported/Head.PNG-ea7b8c1f10444ff9ac238fc4ca459f4d.ctex"]
+source_file="res://dialogue_tree/assets/pink_hair_character/parts/MouthO.PNG"
+dest_files=["res://.godot/imported/MouthO.PNG-a1a67f61408e15a96d93e0497bf10435.ctex"]
 
 [params]
 
