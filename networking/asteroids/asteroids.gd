@@ -40,8 +40,8 @@ func _spawn_player(id: int):
 	ship.name = str(id)
 	ship.color = Color.ORANGE_RED if id == 1 else Color.GREEN
 	ship.nickname = "Host" if id == 1 else "Player"
-	var area := get_viewport_rect()
-	ship.position = Vector2(randf_range(32, area.size.x - 32), randf_range(32, area.size.y - 32))
+	var area := get_viewport_rect().size - (Vector2.ZERO * 32)
+	ship.position = Vector2(randf_range(32, area.x), randf_range(32, area.y))
 	add_child(ship)
 
 
@@ -49,14 +49,21 @@ func _process(_delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var shoot_request := Input.is_action_pressed("ui_accept")
 	if direction != Vector2.ZERO or shoot_request:
-		_move_ship.rpc(direction, shoot_request)
+		_request_ship_action.rpc(direction, shoot_request)
 
 
 @rpc("any_peer", "call_local")
-func _move_ship(direction, shoot_request) -> void:
+func _request_ship_action(direction, shoot_request) -> void:
+	# This method is called from anywhere, including the server, but runs only
+	# on the server. The server puppets all the nodes, and they are replicated
+	# on player's machines
+	if not multiplayer.is_server():
+		return
 	var id = multiplayer.get_remote_sender_id()
 	var ship: Ship = get_node(str(id))
 	if ship == null:
-		push_error("id %s not found"%[id])
+		push_error("moving ship %s not found"%[id])
 		return
-	ship.move(direction, shoot_request)
+	ship.move(direction)
+	if shoot_request:
+		ship.shoot()

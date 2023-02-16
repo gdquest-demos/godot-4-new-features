@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci2iyu2edn6xg"]
+[gd_scene load_steps=5 format=3 uid="uid://ci2iyu2edn6xg"]
 
 [ext_resource type="Script" path="res://networking/asteroids/laser.gd" id="1_esgrw"]
 [ext_resource type="Texture2D" uid="uid://c3qtfmidu0eo" path="res://networking/asteroids/laser.svg" id="2_3wgoa"]
@@ -6,6 +6,17 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6ka8"]
 radius = 2.0
 height = 22.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_btqc3"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:color")
+properties/1/spawn = true
+properties/1/sync = false
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/sync = false
 
 [node name="Laser" type="Area2D"]
 script = ExtResource("1_esgrw")
@@ -19,3 +30,6 @@ shape = SubResource("CapsuleShape2D_t6ka8")
 unique_name_in_owner = true
 rotation = -1.57079
 texture = ExtResource("2_3wgoa")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_btqc3")
