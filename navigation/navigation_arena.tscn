@@ -41,6 +41,7 @@ shadow_enabled = true
 
 [node name="Beetle" parent="." instance=ExtResource("2_m547n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 8)
+top_level = true
 collision_layer = 0
 script = ExtResource("3_g41jl")
 

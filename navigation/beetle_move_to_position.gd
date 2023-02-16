@@ -17,6 +17,8 @@ var target_global_position := Vector3.INF:
 
 
 func _ready() -> void:
+	_navigation_agent.connect("velocity_computed", _on_navigation_agent_3d_velocity_computed)
+	_navigation_agent.max_speed = SPEED
 	_beetle_skin.idle()
 	set_physics_process(false)
 

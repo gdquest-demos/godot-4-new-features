@@ -67,6 +67,8 @@ enum {
 
 
 func _ready() -> void:
+	_navigation_agent.connect("link_reached", _on_navigation_agent_3d_link_reached)
+	_navigation_agent.connect("navigation_finished", _on_navigation_agent_3d_navigation_finished)
 	_beetle_skin.idle()
 	set_physics_process(false)
 
