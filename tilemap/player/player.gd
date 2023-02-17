@@ -11,7 +11,7 @@ var _state: States = States.MOVE
 var _direction := Vector2.DOWN
 var _input_direction := Vector2.ZERO
 
-@onready var _skin: PlayerSkin = $PlayerSkin
+@onready var _skin: PlayerSkin = %PlayerSkin
 
 
 func _ready() -> void:

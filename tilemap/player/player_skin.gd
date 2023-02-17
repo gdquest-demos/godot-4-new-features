@@ -4,9 +4,9 @@ class_name PlayerSkin
 var _current_state := "Idle" : get = get_current_state
 var _treshhold := 0.01
 
-@onready var _player_sprite: AnimatedSprite2D = $PlayerSprite
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
-@onready var _animation_tree: AnimationTree = $AnimationTree
+@onready var _player_sprite: AnimatedSprite2D = %PlayerSprite
+@onready var _animation_player: AnimationPlayer = %AnimationPlayer
+@onready var _animation_tree: AnimationTree = %AnimationTree
 @onready var _playback: AnimationNodeStateMachinePlayback = _animation_tree.get("parameters/playback")
 
 

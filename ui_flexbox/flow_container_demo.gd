@@ -1,28 +1,30 @@
 extends Control
 
+const Item = preload("item.gd")
+
 @export var items: Array[Texture] = []
 
 var current_item := 0
 
-@onready var add_item_button := $"%AddItemButton"
-@onready var remove_item_button := $"%RemoveItemButton"
-@onready var h_flow_container := $"%HFlowContainer"
-@onready var vslider := $"%VSlider"
+@onready var add_item_button := %AddItemButton
+@onready var remove_item_button := %RemoveItemButton
+@onready var h_flow_container := %HFlowContainer
+@onready var vslider := %VSlider
 
 
 func _ready() -> void:
-	add_item_button.connect("pressed", add_item)
-	remove_item_button.connect("pressed", remove_item)
+	add_item_button.pressed.connect(_add_item)
+	remove_item_button.pressed.connect(_remove_item)
 	
 	vslider.value = theme.get_constant("hseparation", "HFlowContainer")
-	vslider.connect("value_changed", set_margins)
+	vslider.value_changed.connect(_set_margins)
 	
 	for _i in 6:
-		add_item()
+		_add_item()
 
 
-func add_item() -> void:
-	var item = preload("item.tscn").instantiate()
+func _add_item() -> void:
+	var item: Item = preload("item.tscn").instantiate()
 	item.set_deferred("texture", items[current_item])
 	current_item = (current_item + 1) % items.size()
 	h_flow_container.add_child(item)
@@ -34,13 +36,13 @@ func add_item() -> void:
 	tween.tween_property(item, "scale", Vector2.ONE, 0.3)
 
 
-func remove_item() -> void:
+func _remove_item() -> void:
 	if h_flow_container.get_child_count() > 0:
-		var last: Node = h_flow_container.get_child(h_flow_container.get_child_count() - 1)
+		var last: Item = h_flow_container.get_child(h_flow_container.get_child_count() - 1)
 		if last:
 			h_flow_container.remove_child(last)
 
 
-func set_margins(new_value: int) -> void:
+func _set_margins(new_value: int) -> void:
 	h_flow_container.add_theme_constant_override("v_separation", new_value)
 	h_flow_container.add_theme_constant_override("h_separation", new_value)

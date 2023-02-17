@@ -12,11 +12,19 @@ extends Node3D
 @onready var texture_size := heightmap_texture.get_size()
 @onready var texture_image : Image
 
+
 var mdt := MeshDataTool.new()
 
 
 func _ready() -> void:
 	_generate()
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.is_pressed():
+		_generate()
 
 
 func _generate() -> void:
@@ -30,17 +38,8 @@ func _generate() -> void:
 	target_mesh_instance.material_override.set_shader_parameter("base_color", base_colors.sample(color_offset))
 
 
-func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton 
-	and 
-	event.button_index == MOUSE_BUTTON_LEFT
-	and
-	event.is_pressed()):
-		_generate()
-
-
-func _sample_xy(uv) -> void:
-	var pixel : Color = texture_image.get_pixel(
+func _sample_xy(uv: Vector2) -> float:
+	var pixel: Color = texture_image.get_pixel(
 		clamp(uv.x * texture_size.x, 0.0, texture_size.x - 1.0),
 		clamp(uv.y * texture_size.y, 0.0, texture_size.y - 1.0)
 	)
@@ -52,18 +51,18 @@ func _sample_xy(uv) -> void:
 
 func _compute_heightmap() -> void:
 	
-	var base_resolution = 46
+	var base_resolution := 46
 	
-	var heightmap_shape = HeightMapShape3D.new()
+	var heightmap_shape := HeightMapShape3D.new()
 	heightmap_shape.map_width = base_resolution
 	heightmap_shape.map_depth = base_resolution
 	
 	for p_index in base_resolution * base_resolution:
-		var x = (p_index % base_resolution) / float(base_resolution - 1.0)
-		var y = floor(p_index / float(base_resolution)) / float(base_resolution - 1.0)
-		var uv = Vector2(x,y)
-		var uv_distance = uv.distance_to(Vector2(0.5, 0.5))
-		var uv_mask = smoothstep(0.45, 1.0, uv_distance)
+		var x := (p_index % base_resolution) / float(base_resolution - 1.0)
+		var y: float = floor(p_index / float(base_resolution)) / float(base_resolution - 1.0)
+		var uv := Vector2(x,y)
+		var uv_distance := uv.distance_to(Vector2(0.5, 0.5))
+		var uv_mask := smoothstep(0.45, 1.0, uv_distance)
 		
 		heightmap_shape.map_data[p_index] += base_resolution * _sample_xy(uv)
 		heightmap_shape.map_data[p_index] -= uv_mask * 100.0   
@@ -74,21 +73,21 @@ func _compute_heightmap() -> void:
 	collision_shape_3d.shape = heightmap_shape
 	
 
-	var mesh = ArrayMesh.new()
+	var mesh := ArrayMesh.new()
 	
 	mdt.create_from_surface(source_mesh, 0)
 	
 	for vertex_index in mdt.get_vertex_count():
-		var vertex_normal = mdt.get_vertex_normal(vertex_index)
+		var vertex_normal := mdt.get_vertex_normal(vertex_index)
 		if vertex_normal.dot(Vector3.UP) < 0.1: continue
-		var vertex_uv = mdt.get_vertex_uv(vertex_index)
-		var vertex = mdt.get_vertex(vertex_index)
-		var sample = _sample_xy(vertex_uv)
+		var vertex_uv := mdt.get_vertex_uv(vertex_index)
+		var vertex := mdt.get_vertex(vertex_index)
+		var sample := _sample_xy(vertex_uv)
 		vertex.y += sample 
 		mdt.set_vertex(vertex_index, vertex)
 		
 	mdt.commit_to_surface(mesh)
-	var surface_tool = SurfaceTool.new()
+	var surface_tool := SurfaceTool.new()
 	surface_tool.create_from(mesh, 0)
 	surface_tool.generate_normals()
 

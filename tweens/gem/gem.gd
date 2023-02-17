@@ -10,9 +10,10 @@ var is_collected := false
 
 func _ready() -> void:
 	animate_appearing()
-	area_2d.area_entered.connect(func (area: Area2D) -> void:
-		if not is_collected:
-			collect()
+	area_2d.area_entered.connect(
+		func (_area: Area2D) -> void:
+			if not is_collected:
+				collect()
 	)
 
 

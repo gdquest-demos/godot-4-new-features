@@ -14,8 +14,8 @@ const DEMOS := [
 ]
 const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 
-@onready var grid_container : GridContainer = $SelectorRoot/GridContainer
-@onready var selector_root : Control = $SelectorRoot
+@onready var selector_root : Control = %SelectorRoot
+@onready var grid_container : GridContainer = %GridContainer
 
 @onready var scene_tree := get_tree()
 

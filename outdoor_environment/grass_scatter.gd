@@ -1,23 +1,23 @@
 @tool
 extends MultiMeshInstance3D
 
-@export var count = 600
+@export var count := 600
 @export_node_path var target_mesh_path
-@onready var target_mesh_node = get_node(target_mesh_path) as MeshInstance3D
+@onready var target_mesh_node := get_node(target_mesh_path) as MeshInstance3D
 
-var triangles = []
+var triangles: Array[int] = []
 var mdt : MeshDataTool
 var cumulated_triangle_areas : Array
 var rand : RandomNumberGenerator
 
 func _ready():
-	var mesh = target_mesh_node.mesh
+	var mesh := target_mesh_node.mesh
 	mdt = MeshDataTool.new()
 	mdt.create_from_surface(mesh, 0)
 	
 	triangles = []
 	
-	for i in range(mdt.get_face_count()):
+	for i in mdt.get_face_count():
 		var normal = mdt.get_face_normal(i)
 		if normal.dot(Vector3.UP) < 0.95: continue
 		
@@ -42,22 +42,27 @@ func _ready():
 	
 	
 	for i in count:
-		var t = Transform3D(Basis(Vector3.UP, 0.0), get_random_point() + to_local(target_mesh_node.global_position))
+		var t := Transform3D(Basis(Vector3.UP, 0.0), get_random_point() + to_local(target_mesh_node.global_position))
 		t = t.scaled_local(Vector3.ONE * randfn(0.6, 0.1))
 		multimesh.set_instance_transform(i, t)
 
-func get_random_point():
-	var choosen_triangle = get_triangle_verteces(triangles.pick_random())
+
+func get_random_point() -> Vector3:
+	var choosen_triangle := get_triangle_verteces(triangles.pick_random())
 	return callv("random_triangle_point", choosen_triangle)
 
-func get_triangle_verteces(triangle_index):
+
+func get_triangle_verteces(triangle_index: int) -> Array[Vector3]:
 	var a: Vector3 = mdt.get_vertex(mdt.get_face_vertex(triangle_index, 0))
 	var b: Vector3 = mdt.get_vertex(mdt.get_face_vertex(triangle_index, 1))
 	var c: Vector3 = mdt.get_vertex(mdt.get_face_vertex(triangle_index, 2))
-	return [a, b, c]
+	var ret: Array[Vector3] = [a, b, c]
+	return ret
 
-func triangle_area(p1 : Vector3, p2 : Vector3, p3 : Vector3):
+
+func triangle_area(p1 : Vector3, p2 : Vector3, p3 : Vector3) -> float:
 	return (p2 - p1).cross( p3 - p1 ).length() / 2.0
 
-func random_triangle_point(a: Vector3, b: Vector3, c: Vector3):
+
+func random_triangle_point(a: Vector3, b: Vector3, c: Vector3) -> Vector3:
 	return a + sqrt(randf()) * (-a + b + randf() * (c - b))

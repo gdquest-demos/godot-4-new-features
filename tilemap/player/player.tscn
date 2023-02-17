@@ -518,15 +518,18 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_0pjn5")
 
 [node name="PlayerSkin" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_nbx8u")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerSkin"]
+unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_hguhg")
 animation = &"MoveDown"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSkin"]
+unique_name_in_owner = true
 root_node = NodePath("../..")
 playback_process_mode = 0
 libraries = {
@@ -534,6 +537,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="PlayerSkin"]
+unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeStateMachine_f3eox")
 anim_player = NodePath("../AnimationPlayer")
 active = true
