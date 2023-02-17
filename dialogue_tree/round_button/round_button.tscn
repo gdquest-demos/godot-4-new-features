@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://b0h7vr1fjoatw"]
 
 [ext_resource type="Script" path="res://dialogue_tree/round_button/round_button.gd" id="1_nerdr"]
 
@@ -32,5 +32,6 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_60o5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lt2bq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_60o5y")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_60o5y")
 text = "Text"
 script = ExtResource("1_nerdr")

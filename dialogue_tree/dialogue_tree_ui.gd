@@ -160,7 +160,6 @@ func set_language(_button: Button) -> void:
 
 func create_buttons(buttons_data: Dictionary) -> void:
 	for text in buttons_data:
-		await get_tree().create_timer(0.25).timeout
 		var button : Button = round_button_scene.instantiate()
 		button.text = text
 		action_buttons.add_child(button)
