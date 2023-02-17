@@ -40,6 +40,7 @@ transform = Transform3D(0.93358, 0.358368, 1.56648e-08, -0.054955, 0.143163, 0.9
 shadow_enabled = true
 
 [node name="Beetle" parent="." instance=ExtResource("2_m547n")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 8)
 top_level = true
 collision_layer = 0
@@ -74,15 +75,18 @@ shape = SubResource("BoxShape3D_10yuj")
 [node name="Obstacle" parent="Obstacles" instance=ExtResource("4_r7rs1")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33301e-08, 1.35501e-07, 10, 5.52794, -1.43847)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+unique_name_in_owner = true
 transform = Transform3D(1.49012e-07, 1.29048e-08, -1, -0.5, 0.866025, -6.33301e-08, 0.866025, 0.5, 1.35501e-07, 0, 0, 0)
 visible = false
 collision_mask = 3
 debug_shape_custom_color = Color(0.298039, 0.2, 0.952941, 0.207843)
 
 [node name="Sphere" type="MeshInstance3D" parent="Camera3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 4.26326e-14, 0, 1, -8.58127e-15, 0, -8.58127e-15, 1, 0, -3.86904, -2.81114)
 mesh = SubResource("SphereMesh_45l3o")
 skeleton = NodePath("../..")

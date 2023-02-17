@@ -168,15 +168,19 @@ script = ExtResource("1_avpy2")
 [node name="Beetles" type="Node3D" parent="."]
 
 [node name="Beetle1" parent="Beetles" instance=ExtResource("2_2uwum")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, 3)
 
 [node name="Beetle2" parent="Beetles" instance=ExtResource("2_2uwum")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, -25)
 
 [node name="Beetle3" parent="Beetles" instance=ExtResource("2_2uwum")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.500352, -20)
 
 [node name="Beetle4" parent="Beetles" instance=ExtResource("2_2uwum")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.500352, -2)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -193,6 +197,7 @@ skeleton = NodePath("StaticBody3D")
 shape = SubResource("BoxShape3D_kwrk7")
 
 [node name="Ground2" type="MeshInstance3D" parent="NavigationRegion3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 mesh = SubResource("BoxMesh_cckqs")
 skeleton = NodePath("StaticBody3D")
@@ -223,10 +228,12 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
 
 [node name="PatrolPointA" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_kifhs")
 
 [node name="PatrolPointB" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -22)
 mesh = SubResource("SphereMesh_kifhs")
 
@@ -237,6 +244,7 @@ environment = SubResource("Environment_7dks7")
 transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
 
 [node name="MovingPlatformHandler" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 script = ExtResource("3_k6sl3")
 

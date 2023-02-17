@@ -12,8 +12,9 @@ var target_global_position := Vector3.INF:
 			_navigation_agent.target_position = target_global_position
 			_beetle_skin.walk()
 
-@onready var _beetle_skin: Node3D = $BeetlebotSkin
-@onready var _navigation_agent: NavigationAgent3D = $NavigationAgent3D
+
+@onready var _beetle_skin: Node3D = %BeetlebotSkin
+@onready var _navigation_agent: NavigationAgent3D = %NavigationAgent3D
 
 
 func _ready() -> void:
@@ -23,7 +24,7 @@ func _ready() -> void:
 	set_physics_process(false)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Wait for the next location to be accessible, for example, a moving platform.
 	var next_location := _navigation_agent.get_next_path_position()
 

@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 signal path_end_reached
 
+
 const SPEED := 3.0
 
 ## This array represents a queue of the locations the agent will move towards.
@@ -21,10 +22,12 @@ var move_targets := []:
 			set_movement_target(move_targets[0].global_position)
 			_beetle_skin.walk()
 
-@onready var _reaction_animation_player: AnimationPlayer = $ReactionLabel/AnimationPlayer
-@onready var _detection_area: Area3D = $PlayerDetectionArea
-@onready var _beetle_skin: Node3D = $BeetlebotSkin
-@onready var _navigation_agent: NavigationAgent3D = $NavigationAgent3D
+# TODO: remove?
+#@onready var _reaction_animation_player: AnimationPlayer = %AnimationPlayer
+#@onready var _detection_area: Area3D = %PlayerDetectionArea
+@onready var _beetle_skin: Node3D = %BeetlebotSkin
+@onready var _navigation_agent: NavigationAgent3D = %NavigationAgent3D
+
 
 var agent_state_label: Label3D
 
@@ -169,7 +172,7 @@ func is_using_platform(delta: float):
 	return platform_travel_stage !=  PLATFORMTRAVELSTAGE_NONE
 
 
-func wait_for_platform_enter(delta: float):
+func wait_for_platform_enter(_delta: float):
 	_beetle_skin.idle()
 	if platform_handler.is_disabled():
 		cancel_platform_use()

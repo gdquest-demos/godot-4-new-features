@@ -36,6 +36,7 @@ func _ready() -> void:
 func is_enabled():
 	return _is_enabled
 
+
 func is_disabled():
 	return !_is_enabled
 
@@ -52,7 +53,7 @@ func toggle():
 		moving_platform_visual_mesh.material_override.albedo_color = Color.RED
 
 
-func is_platform_ready_to_enter(platform_user : Node3D, enter_position) -> bool:
+func is_platform_ready_to_enter(_platform_user : Node3D, enter_position: Vector3) -> bool:
 	# 'platform_user' is not in use here but can be used for e.g. different enter conditions depending on the actor
 	var platform_user_waits_on_a : bool = enter_position.distance_to(moving_platform_enter_a.global_position) < enter_position.distance_to(moving_platform_enter_b.global_position)
 
@@ -62,7 +63,7 @@ func is_platform_ready_to_enter(platform_user : Node3D, enter_position) -> bool:
 		return platform_connected_to_b
 
 
-func is_platform_ready_to_exit(platform_user : Node3D, exit_position) -> bool:
+func is_platform_ready_to_exit(_platform_user : Node3D, exit_position: Vector3) -> bool:
 	# 'platform_user' is not in use here but can be used for e.g. different exit conditions depending on the actor
 	var platform_user_exits_on_b : bool = exit_position.distance_to(moving_platform_exit_a.global_position) < exit_position.distance_to(moving_platform_exit_b.global_position)
 
@@ -72,12 +73,12 @@ func is_platform_ready_to_exit(platform_user : Node3D, exit_position) -> bool:
 		return platform_connected_to_a
 
 
-func get_attachment_point(platform_user : Node3D) -> Node3D:
+func get_attachment_point(_platform_user : Node3D) -> Node3D:
 	# 'platform_user' is not in use here but can be used for e.g. assigning different positions depending on current users
 	return moving_platform_attachment_point
 
 
-func can_user_leave_platform(platform_user : Node3D) -> bool:
+func can_user_leave_platform(_platform_user : Node3D) -> bool:
 	return platform_connected_to_a or platform_connected_to_b
 
 
@@ -93,7 +94,7 @@ func get_user_closest_exit_position(platform_user : Node3D) -> Vector3:
 	return _closest_exit_position
 
 
-func wait_for_platform_user(platform_user : Node3D) -> void:
+func wait_for_platform_user(_platform_user : Node3D) -> void:
 	# This is a friendly platform, it waits while a user tries to enter / exit
 	moving_platform_animation_player.pause()
 	moving_platform_wait_for_user_timer.start(0.15)

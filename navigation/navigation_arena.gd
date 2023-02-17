@@ -1,10 +1,12 @@
 extends Node3D
 
+const Beetle = preload("beetle_move_to_position.gd")
 
-@onready var camera_3d: Camera3D = $Camera3D
-@onready var ray_cast_3d: RayCast3D = $Camera3D/RayCast3D
-@onready var sphere: MeshInstance3D = $Camera3D/Sphere
-@onready var beetle: CharacterBody3D = $Beetle
+
+@onready var camera_3d: Camera3D = %Camera3D
+@onready var ray_cast_3d: RayCast3D = %RayCast3D
+@onready var sphere: MeshInstance3D = %Sphere
+@onready var beetle: Beetle = %Beetle
 
 
 func _unhandled_input(event: InputEvent) -> void:

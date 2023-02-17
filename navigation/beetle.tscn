@@ -116,11 +116,13 @@ font_size = 192
 outline_size = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel"]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_sqtu2")
 }
 
 [node name="PlayerDetectionArea" type="Area3D" parent="."]
+unique_name_in_owner = true
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
@@ -135,9 +137,11 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.9
 shape = SubResource("BoxShape3D_bm81s")
 
 [node name="BeetlebotSkin" parent="." instance=ExtResource("2_1wpkj")]
+unique_name_in_owner = true
 transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 0, 0.0782327, 0.0372844)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+unique_name_in_owner = true
 path_desired_distance = 0.2
 target_desired_distance = 0.2
 agent_height_offset = 0.5

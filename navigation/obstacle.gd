@@ -2,7 +2,7 @@ extends AnimatableBody3D
 
 
 var _rng := RandomNumberGenerator.new()
-var _tween
+var _tween: Tween
 
 #@onready var navigation_obstacle := $NavigationObstacle3D
 
@@ -18,7 +18,8 @@ func move() -> void:
 
 	var duration :=_rng.randf_range(0.8, 1.6)
 	var new_position := Vector3(_rng.randf_range(-0.5, 4), 0.95, _rng.randf_range(-2.5, 5))
-	var velocity := (new_position - position) / duration
+	# Todo: remove?
+	#var velocity := (new_position - position) / duration
 #	var obstacle_rid: RID = navigation_obstacle.get_rid()
 #	NavigationServer3D.agent_set_velocity(obstacle_rid, velocity)
 #	NavigationServer3D.agent_set_target_velocity(obstacle_rid, velocity)
