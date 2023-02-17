@@ -33,12 +33,12 @@ func _on_blink_timer_timeout():
 	eyes_open.show()
 	eyes_closed.hide()
 
-func _random_mouth():
+func random_mouth():
 	var possible = ["o", "closed", "wide"]
 	possible.erase(current_mouth)
 	_change_mouth(possible.pick_random())
 
-func _reset_mouth():
+func reset_mouth():
 	_change_mouth("closed")
 	
 func _change_mouth(mouth_name):

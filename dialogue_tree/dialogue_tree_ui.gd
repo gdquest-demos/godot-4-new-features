@@ -112,19 +112,22 @@ var _dialogue := [
 @onready var language_label := %LanguageLabel
 @onready var font_size_label := %FontSizeLabel
 @onready var slider := %FontSizeSlider
-
+@onready var pink_hair_character = $World/PinkHairCharacter
 @export var round_button_scene : PackedScene
 
 
 func _ready() -> void:
 	_languages_button_group.connect("pressed", set_language)
 	slider.connect("value_changed", set_font_size)
+	
+	speech_bubble.connect("vowel_appeared", pink_hair_character.random_mouth)
+	speech_bubble.connect("speech_ended", pink_hair_character.reset_mouth)
+	
 	for node in languages_row.get_children():
 		if node is Button:
 			node.button_group = _languages_button_group
 			node.button_pressed = node.text.to_lower() == language
 	show_line(_line_id)
-
 
 func show_line(id: int) -> void:
 	_line_id = id
