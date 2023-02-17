@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
 	_tilt_input = 0.0
 
 
-func _look_at_anchor(_seek) -> void:
+func _look_at_anchor(_seek: float) -> void:
 	_camera.transform = _camera.transform.interpolate_with(_camera.transform.looking_at(_anchor.global_position), _seek)
 
 
