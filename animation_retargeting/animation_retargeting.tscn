@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ct55ii5h0dbf2" path="res://animation_retargeting/models/RobotDanceModel.glb" id="1_i8uby"]
 [ext_resource type="Script" path="res://animation_retargeting/scripts/camera_control.gd" id="1_tix1y"]
 [ext_resource type="AnimationLibrary" uid="uid://ckcknbqn7xbcn" path="res://animation_retargeting/models/RobotDanceLibrary.glb" id="2_4y8rl"]
-[ext_resource type="Material" uid="uid://qhxccuxoos56" path="res://shared/models/gdbot/materials/gdbot_face_mat.tres" id="4_4qd0u"]
+[ext_resource type="Material" path="res://shared/models/gdbot/materials/gdbot_face_mat.tres" id="4_4qd0u"]
 [ext_resource type="Script" path="res://animation_retargeting/scripts/bob.gd" id="6_h0syc"]
 [ext_resource type="Shader" path="res://animation_retargeting/assets/shader/giant_screen_shader.gdshader" id="7_7y4fq"]
 [ext_resource type="Script" path="res://animation_retargeting/scripts/look_at_target.gd" id="7_qcifm"]
@@ -56,9 +56,11 @@ size = Vector2i(512, 256)
 script = ExtResource("1_tix1y")
 
 [node name="GeneralCameraAnchor" type="Node3D" parent="GiantScreenViewport"]
+unique_name_in_owner = true
 transform = Transform3D(0.573576, -0.0571412, 0.817157, 0, 0.997564, 0.0697565, -0.819152, -0.0400107, 0.572179, 0, 1, 0)
 
-[node name="Camera" type="Camera3D" parent="GiantScreenViewport/GeneralCameraAnchor"]
+[node name="GeneralCamera" type="Camera3D" parent="GiantScreenViewport/GeneralCameraAnchor"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 current = true
 fov = 25.0
@@ -67,7 +69,8 @@ size = 4.0
 [node name="SideCamera" type="Node3D" parent="GiantScreenViewport"]
 transform = Transform3D(0.619094, -0.203255, 0.758558, 1.6577e-08, 0.965926, 0.258819, -0.785317, -0.160233, 0.597999, 0, 0.8, 0.3)
 
-[node name="Camera" type="Camera3D" parent="GiantScreenViewport/SideCamera"]
+[node name="SideCamera" type="Camera3D" parent="GiantScreenViewport/SideCamera"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 5.96046e-08, 6)
 current = true
 fov = 25.0
@@ -76,7 +79,8 @@ size = 4.0
 [node name="TopCamera" type="Node3D" parent="GiantScreenViewport"]
 transform = Transform3D(0.684547, 0.313829, -0.657956, 0, 0.902585, 0.430511, 0.728969, -0.294705, 0.617862, 0, 0.8, 0.3)
 
-[node name="Camera" type="Camera3D" parent="GiantScreenViewport/TopCamera"]
+[node name="TopCamera" type="Camera3D" parent="GiantScreenViewport/TopCamera"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 8)
 current = true
 fov = 25.0

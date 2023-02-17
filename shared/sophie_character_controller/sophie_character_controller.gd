@@ -37,16 +37,17 @@ extends CharacterBody3D
 ## Minimum speed for the walking animation
 @export var walk_anim_threshold := 0.5
 
-@onready var camera_controller: CameraController = $CameraController
-@onready var _rotation_root: Node3D = $CharacterRotationRoot
-@onready var _ground_shapecast: ShapeCast3D = $GroundShapeCast
-@onready var _character_skin: MiniSophiaSkin = $CharacterRotationRoot/CharacterSkin
-@onready var _floor_slide_particles: GPUParticles3D = $FloorSlideParticles
-@onready var _step_sound: AudioStreamPlayer3D = $StepSounds
+@onready var camera_controller: CameraController = %CameraController
+@onready var _rotation_root: Node3D = %CharacterRotationRoot
+@onready var _ground_shapecast: ShapeCast3D = %GroundShapeCast
+@onready var _character_skin: MiniSophiaSkin = %CharacterSkin
+@onready var _floor_slide_particles: GPUParticles3D = %FloorSlideParticles
+@onready var _step_sound: AudioStreamPlayer3D = %StepSounds
 
 @onready var _ground_height: float = 0.0
 @onready var _start_position := global_transform.origin
-@onready var _coins := 0
+# TODO: remove
+#@onready var _coins := 0
 
 # States we have to store to control the character
 @onready var _sliding_buffer := false
@@ -79,12 +80,14 @@ func _physics_process(delta: float) -> void:
 	# Get input and movement state
 	var move_direction := _get_camera_oriented_input()
 	var angle_to_move := velocity.signed_angle_to(move_direction, Vector3.UP)
-	var is_moving_towards_wall := not move_direction.is_zero_approx() and move_direction.dot(get_wall_normal()) < -0.70
+	# TODO: remove
+	#var is_moving_towards_wall := not move_direction.is_zero_approx() and move_direction.dot(get_wall_normal()) < -0.70
 	
 	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
 	var is_air_boosting := Input.is_action_pressed("jump") and not is_on_floor() and y_velocity > 0.0
 	var is_sliding: bool = is_on_floor() and abs(angle_to_move) > (PI/2) * 1.01 and (velocity.length() > sliding_threshold_velocity or _sliding_buffer)
-	var is_just_on_floor: bool = is_on_floor() && !_is_on_floor_buffer
+	# TODO: remove
+	#var is_just_on_floor: bool = is_on_floor() && !_is_on_floor_buffer
 	
 	_sliding_buffer = is_sliding
 	_is_on_floor_buffer = is_on_floor()
@@ -254,7 +257,7 @@ func _orient_character_to_direction(direction: Vector3, delta: float) -> void:
 	if direction.is_zero_approx():
 		var euler := _rotation_root.transform.basis.get_euler(2)
 		euler.z = lerp(euler.z, 0.0, 0.1)
-		_rotation_root.transform.basis = _rotation_root.transform.basis.from_euler(euler)
+		_rotation_root.transform.basis = Basis.from_euler(euler)
 	else:
 		var inclined_angle: float = clampf(angle_diff, -0.05, 0.05)
 		_rotation_root.transform.basis = _rotation_root.transform.basis.rotated(forward_axis, inclined_angle)

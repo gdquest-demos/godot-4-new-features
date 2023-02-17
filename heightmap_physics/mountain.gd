@@ -6,18 +6,20 @@ extends Node3D
 @export var heightmap_texture : NoiseTexture2D
 @export var source_mesh : Mesh
 @export var target_mesh_instance : MeshInstance3D
-@onready var collision_shape_3d = $StaticBody3D/CollisionShape3D
-@onready var static_body_3d = $StaticBody3D
+@onready var collision_shape_3d: CollisionShape3D= %StaticBody3D/CollisionShape3D
+@onready var static_body_3d: StaticBody3D = %StaticBody3D
 
-@onready var texture_size = heightmap_texture.get_size()
+@onready var texture_size := heightmap_texture.get_size()
 @onready var texture_image : Image
 
-var mdt = MeshDataTool.new()
+var mdt := MeshDataTool.new()
 
-func _ready():
+
+func _ready() -> void:
 	_generate()
 
-func _generate():
+
+func _generate() -> void:
 	heightmap_texture.noise.frequency = randfn(0.0035, 0.0025)
 	heightmap_texture.noise.seed = randi()
 	await heightmap_texture.changed
@@ -27,15 +29,17 @@ func _generate():
 	target_mesh_instance.material_override.set_shader_parameter("top_color", top_colors.sample(color_offset))
 	target_mesh_instance.material_override.set_shader_parameter("base_color", base_colors.sample(color_offset))
 
-func _input(event):
+
+func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton 
 	and 
 	event.button_index == MOUSE_BUTTON_LEFT
 	and
 	event.is_pressed()):
 		_generate()
-		
-func _sample_xy(uv):
+
+
+func _sample_xy(uv) -> void:
 	var pixel : Color = texture_image.get_pixel(
 		clamp(uv.x * texture_size.x, 0.0, texture_size.x - 1.0),
 		clamp(uv.y * texture_size.y, 0.0, texture_size.y - 1.0)
@@ -44,8 +48,9 @@ func _sample_xy(uv):
 	var uv_distance = uv.distance_to(Vector2(0.5, 0.5))
 	uv_distance = smoothstep(0.5, 0.0, uv_distance)
 	return pixel_luminance * uv_distance * 0.6
-	
-func _compute_heightmap():
+
+
+func _compute_heightmap() -> void:
 	
 	var base_resolution = 46
 	

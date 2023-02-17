@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=16 format=3 uid="uid://c16aelv8g37ck"]
 
 [ext_resource type="Script" path="res://shared/sophie_character_controller/sophie_character_controller.gd" id="1_rvo1c"]
 [ext_resource type="AudioStream" uid="uid://bx0t7f2nuk2lr" path="res://shared/sophie_character_controller/Sounds/03_Step_grass_03.wav" id="2_0k6pv"]
@@ -63,6 +63,7 @@ floor_snap_length = 0.2
 script = ExtResource("1_rvo1c")
 
 [node name="StepSounds" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("2_0k6pv")
 
 [node name="CapsuleCollisionShape" type="CollisionShape3D" parent="."]
@@ -74,6 +75,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3
 shape = SubResource("SeparationRayShape3D_0gixm")
 
 [node name="CameraController" type="Node3D" parent="."]
+unique_name_in_owner = true
 top_level = true
 script = ExtResource("3_qrkly")
 invert_mouse_y = true
@@ -100,6 +102,7 @@ collision_mask = 2
 debug_shape_custom_color = Color(0, 0, 0, 0)
 
 [node name="GroundShapeCast" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978282, 0)
 shape = SubResource("CylinderShape3D_s5n07")
 target_position = Vector3(0, -2.4, 0)
@@ -107,11 +110,14 @@ max_results = 1
 debug_shape_custom_color = Color(0.658824, 1, 0, 1)
 
 [node name="CharacterRotationRoot" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="CharacterSkin" parent="CharacterRotationRoot" instance=ExtResource("4_i7dnh")]
+unique_name_in_owner = true
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="FloorSlideParticles" type="GPUParticles3D" parent="."]
+unique_name_in_owner = true
 cast_shadow = 0
 emitting = false
 amount = 2

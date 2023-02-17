@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://x2sjgn85dgll"]
 
 [ext_resource type="Script" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.gd" id="1_bman8"]
 [ext_resource type="Texture2D" uid="uid://cc0ij375utxg6" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character_preview.png" id="1_fwdcm"]
@@ -123,7 +123,6 @@ internal_vertex_count = 1
 [node name="Body" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(0, 355)
 rotation = 0.0349066
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 0, 355)
 
 [node name="Neck" type="Bone2D" parent="Skeleton2D/Body"]

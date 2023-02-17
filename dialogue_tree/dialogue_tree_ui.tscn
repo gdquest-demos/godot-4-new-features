@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bjt5tsl8twogf"]
 
 [ext_resource type="Script" path="res://dialogue_tree/dialogue_tree_ui.gd" id="1_3u7u7"]
-[ext_resource type="PackedScene" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.tscn" id="1_dk2d5"]
+[ext_resource type="PackedScene" uid="uid://x2sjgn85dgll" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.tscn" id="1_dk2d5"]
 [ext_resource type="PackedScene" path="res://dialogue_tree/assets/bubble/speech_bubble.tscn" id="2_l4qmv"]
 [ext_resource type="Shader" path="res://dialogue_tree/assets/bubble_background.gdshader" id="4_0i5mg"]
 [ext_resource type="Texture2D" uid="uid://c6j8tx83eeukc" path="res://dialogue_tree/assets/slider_circle.png" id="4_aa0ky"]
@@ -79,6 +79,7 @@ script = ExtResource("6_acm6y")
 [node name="TopUI" type="CanvasLayer" parent="."]
 
 [node name="SpeechBubble" parent="TopUI" instance=ExtResource("2_l4qmv")]
+unique_name_in_owner = true
 offset_left = 1050.0
 offset_top = 231.0
 offset_right = 1114.0
@@ -190,5 +191,6 @@ theme_override_constants/separation = 22
 [node name="World" type="Node2D" parent="."]
 
 [node name="PinkHairCharacter" parent="World" instance=ExtResource("1_dk2d5")]
+unique_name_in_owner = true
 position = Vector2(611, 769)
 scale = Vector2(0.95, 0.95)

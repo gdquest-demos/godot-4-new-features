@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	euler_rotation.y += _rotation_input * delta
 	euler_rotation.z = 0
 
-	basis = basis.from_euler(euler_rotation)
+	basis = Basis.from_euler(euler_rotation)
 	
 	_camera.global_transform = _camera.global_transform.interpolate_with(_pivot.global_transform, 0.5)
 	_camera.rotation.z = 0

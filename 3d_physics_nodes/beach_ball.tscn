@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://d1bohelx7terf"]
 
-[ext_resource type="Script" path="res://3d_physics_nodes/ball.gd" id="1_7jy8b"]
 [ext_resource type="PackedScene" uid="uid://ceprg2ftqpk8m" path="res://3d_physics_nodes/assets/beach_ball/beach_ball.glb" id="2_25lbm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ostvg"]
@@ -14,7 +13,6 @@ collision_layer = 2
 collision_mask = 3
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_ostvg")
-script = ExtResource("1_7jy8b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_rqdwh")

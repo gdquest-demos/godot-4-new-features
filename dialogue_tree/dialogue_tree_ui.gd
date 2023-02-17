@@ -105,14 +105,13 @@ var _dialogue := [
 	},
 ]
 
-
-@onready var speech_bubble = $TopUI/SpeechBubble
-@onready var action_buttons := %ActionButtons
-@onready var languages_row := %LanguagesRow
-@onready var language_label := %LanguageLabel
-@onready var font_size_label := %FontSizeLabel
-@onready var slider := %FontSizeSlider
-@onready var pink_hair_character = $World/PinkHairCharacter
+@onready var speech_bubble: Control = %SpeechBubble
+@onready var action_buttons: VBoxContainer = %ActionButtons
+@onready var languages_row: HBoxContainer = %LanguagesRow
+@onready var language_label: Label = %LanguageLabel
+@onready var font_size_label: Label = %FontSizeLabel
+@onready var slider: HSlider = %FontSizeSlider
+@onready var pink_hair_character: Node2D = %PinkHairCharacter
 @export var round_button_scene : PackedScene
 
 
@@ -129,10 +128,11 @@ func _ready() -> void:
 			node.button_pressed = node.text.to_lower() == language
 	show_line(_line_id)
 
+
 func show_line(id: int) -> void:
 	_line_id = id
 	var line_data: Dictionary = _dialogue[id]
-	set_text(slider.value)
+	set_text(int(slider.value))
 	for button in action_buttons.get_children():
 		button.destroy()
 	await speech_bubble.speech_ended
@@ -153,7 +153,7 @@ func set_text(font_size: int) -> void:
 
 func set_language(_button: Button) -> void:
 	language = _languages_button_group.get_pressed_button().text.to_lower()
-	set_text(slider.value)
+	set_text(int(slider.value))
 	for idx in range(action_buttons.get_children().size()):
 		action_buttons.get_child(idx).text = _dialogue[_line_id][language].buttons.keys()[idx]
 

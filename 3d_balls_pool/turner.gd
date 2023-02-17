@@ -12,7 +12,7 @@ extends Node3D
 var _is_grabbing = false
 
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	var wheel_direction = 0.0
 	if (event is InputEventMouseButton): 
 		if event.button_index == MOUSE_BUTTON_RIGHT: _is_grabbing = event.pressed

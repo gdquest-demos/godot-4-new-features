@@ -29,6 +29,7 @@ script = ExtResource("1_gen3q")
 gradient = SubResource("Gradient_24am5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 material_override = SubResource("StandardMaterial3D_4awk6")
 mesh = SubResource("SphereMesh_6png3")
 

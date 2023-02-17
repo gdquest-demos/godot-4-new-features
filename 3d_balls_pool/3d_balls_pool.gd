@@ -1,11 +1,11 @@
 extends Node3D
 
-const BALL_SCENE := preload("res://3d_balls_pool/ball.tscn")
+const BALL_SCENE := preload("ball.tscn")
 
-@onready var _spawn_position = $SpawnPosition
-@onready var _balls_holder = $BallsHolder
+@onready var _spawn_position: Marker3D = %SpawnPosition
+@onready var _balls_holder: Node3D = %BallsHolder
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 
 		var ball := BALL_SCENE.instantiate()

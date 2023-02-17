@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var angle := 0
+var angle := 0.0
 
 @onready var _face_sprite: Sprite2D = $Mask/Sprite2D
 @onready var _initial_position := _face_sprite.position

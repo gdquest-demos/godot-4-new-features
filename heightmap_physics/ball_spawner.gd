@@ -4,7 +4,8 @@ const BALL_SCENE = preload("res://heightmap_physics/ball.tscn")
 @export var _spawn_position : Marker3D
 @export var _random_sound_player : Node
 
-func _physics_process(_delta):
+
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("jump"):
 		var ball := BALL_SCENE.instantiate()
 		add_child(ball)

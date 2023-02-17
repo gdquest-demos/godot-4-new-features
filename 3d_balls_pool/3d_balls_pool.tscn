@@ -167,9 +167,11 @@ attributes = SubResource("CameraAttributesPractical_a4gso")
 fov = 35.0
 
 [node name="SpawnPosition" type="Marker3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3, 0)
 
 [node name="BallsHolder" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Pipes" type="Node3D" parent="."]
 
