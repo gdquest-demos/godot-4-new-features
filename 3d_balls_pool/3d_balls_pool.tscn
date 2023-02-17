@@ -162,6 +162,7 @@ max_zoom = 30.0
 metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Turner"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 0, 1, 0, 0, 28)
 attributes = SubResource("CameraAttributesPractical_a4gso")
 fov = 35.0

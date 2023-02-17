@@ -2,6 +2,7 @@ extends Node
 
 var _previous_mouse_mode: Input.MouseMode = Input.mouse_mode
 
+
 func _init() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 

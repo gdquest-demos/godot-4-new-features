@@ -35,7 +35,7 @@ func _on_blink_timer_timeout() -> void:
 
 
 func random_mouth() -> void:
-	var possible = ["o", "closed", "wide"]
+	var possible: Array[String] = ["o", "closed", "wide"]
 	possible.erase(current_mouth)
 	_change_mouth(possible.pick_random())
 
@@ -51,7 +51,7 @@ func _change_mouth(mouth_name: String) -> void:
 
 
 func _process(_delta: float) -> void:
-	var t = Time.get_ticks_msec() / 150.0
+	var t := Time.get_ticks_msec() / 150.0
 	bang_start.rotation = sin(t) * 0.01
 	bang_end.rotation = sin(t + 10.0) * 0.025
 

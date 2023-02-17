@@ -9568,7 +9568,7 @@ transitions = ["StateMachine", "WallSlide", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-19, -46)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0cs6v"]
-graph_offset = Vector2(-659.306, 14.2778)
+graph_offset = Vector2(-659.306, 12)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sx10c")
 nodes/StateMachine/position = Vector2(-80, 40)
 nodes/output/position = Vector2(420, 40)
@@ -9664,6 +9664,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_0cs6v")
 anim_player = NodePath("../mini_sophia/AnimationPlayer")
 active = true
@@ -9672,9 +9673,11 @@ parameters/StateMachine/StateMachine/playback = SubResource("AnimationNodeStateM
 parameters/StateMachine/StateMachine/Walk/blend_position = 0
 
 [node name="BlinkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="ClosedTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 
 [editable path="mini_sophia"]

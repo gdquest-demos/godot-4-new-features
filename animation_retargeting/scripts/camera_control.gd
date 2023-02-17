@@ -8,7 +8,7 @@ extends SubViewport
 var current_camera: Camera3D = null
 
 func _ready() -> void:
-	var t = create_tween().set_loops(0)
+	var t := create_tween().set_loops(0)
 	t.tween_callback(switch_camera.bind(_general_camera))
 	t.tween_property(_general_camera_anchor, "rotation_degrees:y", -55.0, 8.0).from(55.0)
 	t.tween_callback(switch_camera.bind(_side_camera))

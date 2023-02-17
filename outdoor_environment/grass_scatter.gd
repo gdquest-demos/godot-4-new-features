@@ -10,7 +10,7 @@ var mdt : MeshDataTool
 var cumulated_triangle_areas : Array
 var rand : RandomNumberGenerator
 
-func _ready():
+func _ready() -> void:
 	var mesh := target_mesh_node.mesh
 	mdt = MeshDataTool.new()
 	mdt.create_from_surface(mesh, 0)
@@ -18,24 +18,24 @@ func _ready():
 	triangles = []
 	
 	for i in mdt.get_face_count():
-		var normal = mdt.get_face_normal(i)
+		var normal := mdt.get_face_normal(i)
 		if normal.dot(Vector3.UP) < 0.95: continue
 		
-		var v1 = mdt.get_vertex_color(mdt.get_face_vertex(i, 0))
-		var v2 = mdt.get_vertex_color(mdt.get_face_vertex(i, 1))
-		var v3 = mdt.get_vertex_color(mdt.get_face_vertex(i, 2))
-		var redness = (v1.r + v2.r + v3.r) / 3.0
+		var v1 := mdt.get_vertex_color(mdt.get_face_vertex(i, 0))
+		var v2 := mdt.get_vertex_color(mdt.get_face_vertex(i, 1))
+		var v3 := mdt.get_vertex_color(mdt.get_face_vertex(i, 2))
+		var redness := (v1.r + v2.r + v3.r) / 3.0
 		if redness > 0.25: continue
 		triangles.append(i)
 	
-	var triangle_count = triangles.size()
+	var triangle_count := triangles.size()
 	
 	cumulated_triangle_areas.resize(triangle_count)
 	cumulated_triangle_areas[-1] = 0
 	
 	for i in range(triangle_count):
-		var triangle = get_triangle_verteces(triangles[i])
-		var t_area = callv("triangle_area", triangle)
+		var triangle := get_triangle_verteces(triangles[i])
+		var t_area: float = callv("triangle_area", triangle)
 		cumulated_triangle_areas[i] = cumulated_triangle_areas[i - 1] + t_area
 		
 	multimesh.instance_count = count

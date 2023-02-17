@@ -2,13 +2,14 @@ extends Node
 
 @export var sounds : Array[AudioStream]
 
-var available_player = []
-var busy_player = []
+var available_player: Array[AudioStreamPlayer3D] = []
+var busy_player: Array[AudioStreamPlayer3D] = []
 var max_player : int = 16
 
-func _ready():
+
+func _ready() -> void:
 	for i in max_player:
-		var stream_player = AudioStreamPlayer3D.new()
+		var stream_player := AudioStreamPlayer3D.new()
 		stream_player.max_db = 2.0
 		stream_player.unit_size = 2.0
 		
@@ -16,11 +17,13 @@ func _ready():
 		available_player.append(stream_player)
 		add_child(stream_player)
 
-func _on_player_finished(stream_player : AudioStreamPlayer3D):
+
+func _on_player_finished(stream_player : AudioStreamPlayer3D) -> void:
 	busy_player.erase(stream_player)
 	available_player.append(stream_player)
 
-func play_random_at(at_position : Vector3, intensity : float = 1.0):
+
+func play_random_at(at_position : Vector3, intensity : float = 1.0) -> void:
 	if available_player.is_empty(): return
 	var stream_player : AudioStreamPlayer3D = available_player.pop_front()
 	busy_player.append(stream_player)

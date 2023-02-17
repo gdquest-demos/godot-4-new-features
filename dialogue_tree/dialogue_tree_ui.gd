@@ -163,5 +163,5 @@ func create_buttons(buttons_data: Dictionary) -> void:
 		var button : Button = round_button_scene.instantiate()
 		button.text = text
 		action_buttons.add_child(button)
-		var target_line_id = buttons_data[text]
+		var target_line_id := buttons_data[text]
 		button.connect("pressed", show_line.bind(target_line_id) if target_line_id >= 0 else get_tree().quit)

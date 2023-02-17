@@ -23,7 +23,7 @@ const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 @onready var _current_scene_index : int
 
 
-func _ready():
+func _ready() -> void:
 	if scene_tree.current_scene == self:
 		scene_tree.current_scene = null
 	

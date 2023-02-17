@@ -32,6 +32,6 @@ func move_to_mouse(mouse_position:Vector2) -> void:
 	tween_motion.tween_property(self, "global_position", mouse_position, 1.0)
 	tween_motion.parallel().tween_property(self, "rotation", target_rotation, 0.25)
 	
-	var tween_color = create_tween().set_trans(Tween.TRANS_CUBIC)
+	var tween_color := create_tween().set_trans(Tween.TRANS_CUBIC)
 	tween_color.tween_property(particles, "modulate", Color.RED, 0.5).set_ease(Tween.EASE_IN)
 	tween_color.tween_property(particles, "modulate", Color.WHITE, 0.5).set_ease(Tween.EASE_IN)

@@ -31,6 +31,7 @@ func get_command_line_arguments() -> Dictionary:
 			arguments[key] = value
 	return arguments
 
+
 ## The scene selected from the command line with `-- --scene="name", if any
 func get_selected_scene(command_line_arguments: Dictionary) -> PackedScene:
 	var scene_name: String = command_line_arguments["scene"]

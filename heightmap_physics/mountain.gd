@@ -33,7 +33,7 @@ func _generate() -> void:
 	await heightmap_texture.changed
 	texture_image = heightmap_texture.get_image()
 	_compute_heightmap()
-	var color_offset = randf()
+	var color_offset := randf()
 	target_mesh_instance.material_override.set_shader_parameter("top_color", top_colors.sample(color_offset))
 	target_mesh_instance.material_override.set_shader_parameter("base_color", base_colors.sample(color_offset))
 
@@ -43,8 +43,8 @@ func _sample_xy(uv: Vector2) -> float:
 		clamp(uv.x * texture_size.x, 0.0, texture_size.x - 1.0),
 		clamp(uv.y * texture_size.y, 0.0, texture_size.y - 1.0)
 	)
-	var pixel_luminance = pixel.get_luminance()
-	var uv_distance = uv.distance_to(Vector2(0.5, 0.5))
+	var pixel_luminance := pixel.get_luminance()
+	var uv_distance := uv.distance_to(Vector2(0.5, 0.5))
 	uv_distance = smoothstep(0.5, 0.0, uv_distance)
 	return pixel_luminance * uv_distance * 0.6
 

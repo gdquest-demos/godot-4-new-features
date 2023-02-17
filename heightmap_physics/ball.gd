@@ -13,15 +13,15 @@ func _ready() -> void:
 	add_to_group("destroyable")
 	mesh_instance.material_override.set("albedo_color", gradient.sample(randf()))
 	mesh_instance.material_override.set("emission", gradient.sample(randf()))
-	var t = create_tween()
+	var t := create_tween()
 	t.tween_property(mesh_instance, "scale", Vector3.ONE, 0.25).from(Vector3.ONE * 0.1)
 
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if state.get_contact_count() == 0: return
-	var collision_normal = state.get_contact_local_normal(0).normalized()
-	var velocity = state.linear_velocity.normalized()
-	var direction = velocity.dot(collision_normal)
+	var collision_normal := state.get_contact_local_normal(0).normalized()
+	var velocity := state.linear_velocity.normalized()
+	var direction := velocity.dot(collision_normal)
 	if direction > 0.0:
 		_request_impact()
 

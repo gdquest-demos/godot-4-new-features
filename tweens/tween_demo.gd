@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func spawn_gems(count := 1) -> void:
 	for i in count:
-		var gem = GEM_SCENE.instantiate()
+		var gem := GEM_SCENE.instantiate()
 		gem.position = Vector2(
 			randf_range(256.0, size.x - 256.0),
 			randf_range(256.0, size.y - 256.0)

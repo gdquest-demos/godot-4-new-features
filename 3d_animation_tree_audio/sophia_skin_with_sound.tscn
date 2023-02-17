@@ -9785,6 +9785,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
 tree_root = SubResource("AnimationNodeBlendTree_0cs6v")
 anim_player = NodePath("../mini_sophia/AnimationPlayer")
 active = true
@@ -9793,9 +9794,11 @@ parameters/StateMachine/StateMachine/playback = SubResource("AnimationNodeStateM
 parameters/StateMachine/StateMachine/Walk/blend_position = -0.000843882
 
 [node name="BlinkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="ClosedTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
