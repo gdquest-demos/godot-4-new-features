@@ -13,6 +13,9 @@ colors = PackedColorArray(1, 0.557014, 0.826407, 1, 1, 0.642363, 0.336072, 1, 0.
 resource_local_to_scene = true
 albedo_color = Color(0.776471, 0.494118, 0, 1)
 roughness = 0.45
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_6png3"]
 radius = 0.1
@@ -25,6 +28,8 @@ radius = 0.1
 
 [node name="Ball" type="RigidBody3D" groups=["balls"]]
 physics_material_override = SubResource("PhysicsMaterial_m86km")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_q16fs")
 gradient = SubResource("Gradient_cqa1s")
 

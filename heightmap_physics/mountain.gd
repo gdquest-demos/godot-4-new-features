@@ -28,7 +28,11 @@ func _generate():
 	target_mesh_instance.material_override.set_shader_parameter("base_color", base_colors.sample(color_offset))
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if (event is InputEventMouseButton 
+	and 
+	event.button_index == MOUSE_BUTTON_LEFT
+	and
+	event.is_pressed()):
 		_generate()
 		
 func _sample_xy(uv):
@@ -54,10 +58,10 @@ func _compute_heightmap():
 		var y = floor(p_index / float(base_resolution)) / float(base_resolution - 1.0)
 		var uv = Vector2(x,y)
 		var uv_distance = uv.distance_to(Vector2(0.5, 0.5))
-		var uv_mask = smoothstep(0.5, 1.0, uv_distance)
+		var uv_mask = smoothstep(0.45, 1.0, uv_distance)
 		
 		heightmap_shape.map_data[p_index] += base_resolution * _sample_xy(uv)
-		heightmap_shape.map_data[p_index] -= uv_mask * 20.0  
+		heightmap_shape.map_data[p_index] -= uv_mask * 100.0   
 		
 		
 		

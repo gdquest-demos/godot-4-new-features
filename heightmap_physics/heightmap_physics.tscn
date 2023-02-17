@@ -1,30 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb1khyn51vqjx"]
+[gd_scene load_steps=22 format=3 uid="uid://bb1khyn51vqjx"]
 
+[ext_resource type="Script" path="res://heightmap_physics/random_sound_player.gd" id="1_0408y"]
+[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://heightmap_physics/assets/sky/blue_sky.tres" id="1_uccei"]
 [ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://heightmap_physics/assets/mountain_source_mesh_2.obj" id="2_1w5vu"]
 [ext_resource type="Script" path="res://heightmap_physics/death_plane.gd" id="3_ebjdu"]
+[ext_resource type="AudioStream" uid="uid://bq2c4kxtij52u" path="res://heightmap_physics/assets/small_impact/small_impact_1.wav" id="3_ucfob"]
+[ext_resource type="AudioStream" uid="uid://vnf2wmlctf31" path="res://heightmap_physics/assets/small_impact/small_impact_2.wav" id="4_aexha"]
 [ext_resource type="Script" path="res://heightmap_physics/camera_root.gd" id="4_om45k"]
+[ext_resource type="AudioStream" uid="uid://dxjy4eo6dfmvb" path="res://heightmap_physics/assets/small_impact/small_impact_3.wav" id="5_m0mso"]
 [ext_resource type="Shader" path="res://heightmap_physics/mountain_normal.gdshader" id="5_n6vki"]
 [ext_resource type="Script" path="res://heightmap_physics/ball_spawner.gd" id="5_s1575"]
 [ext_resource type="Script" path="res://heightmap_physics/mountain.gd" id="6_8i3u7"]
+[ext_resource type="AudioStream" uid="uid://dfvcjqhqhg75d" path="res://heightmap_physics/assets/small_impact/small_impact_4.wav" id="6_woiys"]
 [ext_resource type="ArrayMesh" uid="uid://boc744m8lf7n1" path="res://heightmap_physics/assets/cloud_1.obj" id="7_06v0e"]
 [ext_resource type="Material" uid="uid://bjrjat1nexdul" path="res://heightmap_physics/assets/cloud_mat.tres" id="7_lo74o"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l4v1l"]
-sky_top_color = Color(0.752941, 0.796078, 0.858824, 1)
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_bottom_color = Color(0.74902, 0.301961, 0.160784, 1)
-
-[sub_resource type="Sky" id="Sky_e83cp"]
-sky_material = SubResource("ProceduralSkyMaterial_l4v1l")
-
 [sub_resource type="Environment" id="Environment_6klb1"]
 background_mode = 2
-sky = SubResource("Sky_e83cp")
+sky = ExtResource("1_uccei")
+ambient_light_color = Color(0.862745, 0.45098, 0.101961, 1)
+ambient_light_sky_contribution = 0.5
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.627451, 0.85098, 0.960784, 1)
+fog_light_color = Color(0.670588, 0.788235, 0.968627, 1)
 fog_density = 0.005
+fog_sky_affect = 0.0
 fog_height_density = 1.0
 
 [sub_resource type="Gradient" id="Gradient_7om1h"]
@@ -90,9 +91,14 @@ fov = 45.0
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.8863, 0)
 
-[node name="Balls" type="Node3D" parent="." node_paths=PackedStringArray("_spawn_position")]
+[node name="Balls" type="Node3D" parent="." node_paths=PackedStringArray("_spawn_position", "_random_sound_player")]
 script = ExtResource("5_s1575")
 _spawn_position = NodePath("../Marker3D")
+_random_sound_player = NodePath("../RandomSoundPlayer")
+
+[node name="RandomSoundPlayer" type="Node" parent="."]
+script = ExtResource("1_0408y")
+sounds = Array[AudioStream]([ExtResource("3_ucfob"), ExtResource("4_aexha"), ExtResource("5_m0mso"), ExtResource("6_woiys")])
 
 [node name="SpawnPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.74597, 0)
