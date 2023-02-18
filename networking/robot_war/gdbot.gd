@@ -1,13 +1,12 @@
 extends CharacterBody3D
 
-signal damage_updated
+const INVULNERABILITY_TICK_DURATION := 10
 
 var speed := 10
 var turning_speed := 5
-var mouse_sensitivity := 0.5
+var damage_tick := INVULNERABILITY_TICK_DURATION
 
 @export var forward_speed := 0.0
-@export var deaths := 0
 @export var damage_amount := 0.0
 @export var is_attacking := false
 
@@ -52,14 +51,14 @@ func _physics_process(delta: float) -> void:
 	
 	if global_position.y < -1:
 		damage_amount = 0.0
-		damage_updated.emit()
 		if is_authority:
 			global_position = Vector3(randf_range(-10, 10), 5, randf_range(-10, 10))
 	
 	if not is_authority:
 		return
 	
-	is_attacking = Input.is_key_pressed(KEY_A)
+	damage_tick += 1
+	is_attacking = Input.is_action_pressed("punch")
 	
 	var vel_y = velocity.y
 	velocity.y = 0.0
@@ -73,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			if collider.has_method("damage"):
 				collider.damage.rpc(global_position)
 	
-	elif is_on_floor():
+	elif is_on_floor() and damage_tick >= INVULNERABILITY_TICK_DURATION:
 		var input_dir := Input.get_vector("ui_right", "ui_left", "ui_down", "ui_up")
 		var alt_is_pressed := Input.is_key_pressed(KEY_ALT)
 		forward_speed = input_dir.y
@@ -90,16 +89,18 @@ func _physics_process(delta: float) -> void:
 
 @rpc("any_peer", "call_local")
 func damage(origin: Vector3) -> void:
-	damage_amount += 1.0
+	if damage_tick < INVULNERABILITY_TICK_DURATION:
+		return
+	
+	damage_tick = 0
+	damage_amount += 5.0
 	
 	var punch_direction := global_position - origin
 	punch_direction.y = 0.0
 	var cross := punch_direction.normalized().cross(Vector3.UP)
 	punch_direction = punch_direction.rotated(cross, PI/4.0)
 	punch_direction = punch_direction.normalized()
-	
-	damage_updated.emit()
-	
+	print(punch_direction)
 	velocity = punch_direction * damage_amount
 
 

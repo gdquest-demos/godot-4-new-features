@@ -17,11 +17,14 @@ properties/3/path = NodePath("..:nickname")
 properties/3/spawn = false
 properties/3/sync = true
 properties/4/path = NodePath("..:forward_speed")
-properties/4/spawn = true
+properties/4/spawn = false
 properties/4/sync = true
 properties/5/path = NodePath("..:is_attacking")
-properties/5/spawn = true
+properties/5/spawn = false
 properties/5/sync = true
+properties/6/path = NodePath("..:damage_amount")
+properties/6/spawn = false
+properties/6/sync = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8un"]
 height = 1.60428
@@ -43,7 +46,7 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="GDbotSkin"]
 unique_name_in_owner = true
-transform = Transform3D(-1, 1.17286e-08, -8.66325e-08, 0, 0.99096, 0.134159, 8.74228e-08, 0.134159, -0.99096, 0, 2.01982, -1.02085)
+transform = Transform3D(-1, 1.17286e-08, -8.66325e-08, -1.72124e-08, 0.945149, 0.32664, 8.57116e-08, 0.32664, -0.945149, -4.76837e-07, 4.62597, -3.71356)
 
 [node name="Label3D" type="Label3D" parent="GDbotSkin"]
 unique_name_in_owner = true

@@ -45,6 +45,7 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 
 func _on_player_added(player: MultiplayerSettings.Player) -> void:
 	game_ui.show()
+	lobby.visible = false
 	
 	var player_ui = game_ui.get_child(0) if player.is_host else game_ui.get_child(1)
 	player_ui.set_player_name(player.nickname)
@@ -62,7 +63,7 @@ func _on_player_removed(player_id: int) -> void:
 
 
 func register_player(player: PlayerBody) -> void:
-	player.damage_updated.connect(
+	get_tree().process_frame.connect(
 		func():
 			_player_uis[player.name].update_damage(player.damage_amount)
 	)
