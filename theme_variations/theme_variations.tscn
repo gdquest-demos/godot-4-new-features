@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://i6dbyqls66e2"]
+
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_4cxgv"]
+[ext_resource type="Texture2D" uid="uid://g0bii467ocxd" path="res://shared/background.png" id="2_pocru"]
+[ext_resource type="Texture2D" uid="uid://b60ypr482ns73" path="res://theme_variations/assets/mark_yes.png" id="3_simt3"]
+[ext_resource type="Texture2D" uid="uid://isunovujq3w" path="res://theme_variations/assets/mark_no.png" id="4_jd6v5"]
+
+[node name="Background" type="TextureRect"]
+texture = ExtResource("2_pocru")
+
+[node name="ThemeVariations" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -79.0
+offset_right = 220.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ThemeVariations"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ThemeVariations/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ThemeVariations/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+text = "All changes will be lost. Are you sure you want to exit?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeVariations/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="ThemeVariations/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_4cxgv")
+theme_type_variation = &"ButtonSuccess"
+text = "Yes"
+icon = ExtResource("3_simt3")
+
+[node name="Button2" type="Button" parent="ThemeVariations/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ButtonCancel"
+text = "No"
+icon = ExtResource("4_jd6v5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=26]Select the [code]Button[/code] nodes in the [i]Scene[/i] dock and from the [i]Inspector > Theme > Type Variation[/i] choose the provided variations: [code]ButtonCancel[/code] or [code]ButtonSuccess[/code].
+
+[b]Note[/b] that these varations appear in the [i]Inspector[/i] dropw-down because we set the theme with these variations as a project-wise theme. You can see this [i]Project Settings... > GUI > Theme[/i] options. You have to toggle on [i]Advanced Settings[/i] for [i]GUI > Theme[/i] to be shown. Otherwise we'd have to write the name of the [i]Theme Variation[/i] manually in the [i]Inspector[/i].[/font_size]"

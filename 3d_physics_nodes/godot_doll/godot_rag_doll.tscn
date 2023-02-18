@@ -1,0 +1,220 @@
+[gd_scene load_steps=11 format=3 uid="uid://ch1mif52w8u2i"]
+
+[ext_resource type="Script" path="res://3d_physics_nodes/godot_doll/godot_rag_doll.gd" id="1_4v4py"]
+[ext_resource type="PackedScene" uid="uid://bqayvqm2d8s0m" path="res://3d_physics_nodes/godot_doll/model/godot_doll.glb" id="1_tvbsi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v2spr"]
+radius = 0.496196
+height = 1.22541
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnv76"]
+radius = 0.375096
+height = 1.0915
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41rti"]
+radius = 0.122416
+height = 0.284418
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_26sun"]
+radius = 0.0896016
+height = 0.23654
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hhn5"]
+radius = 0.0875913
+height = 0.203797
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkkmy"]
+size = Vector3(0.10658, 0.0881841, 0.1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvjw2"]
+radius = 0.094019
+height = 0.249921
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6s4mu"]
+radius = 0.0750823
+height = 0.241581
+
+[node name="GodotRagDoll" type="Node3D"]
+script = ExtResource("1_4v4py")
+
+[node name="godot_doll" parent="." instance=ExtResource("1_tvbsi")]
+
+[node name="Skeleton3D" parent="godot_doll/Armature" index="0"]
+bones/3/scale = Vector3(1, 1, 1)
+
+[node name="Physical Bone Head" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52, 0)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+bone_name = "Head"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone Head"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.493631, 0)
+shape = SubResource("CapsuleShape3D_v2spr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone Head"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.93178e-09, 0.335051, 0.216348)
+shape = SubResource("CapsuleShape3D_hnv76")
+
+[node name="Physical Bone Body" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.38, 0)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.14)
+body_offset = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.14, 0)
+bone_name = "Body"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone Body"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_41rti")
+
+[node name="Physical Bone UpperArmL" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -6.63505e-11, -2.23517e-08, -1.60713e-09, 0.997388, -1.00187e-12, 2.23517e-08, -3.55271e-15, 1, 0.275412, 0.454952, -0.00516546)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118166, 8.7844e-08, 0.00516568)
+body_offset = Transform3D(0.0436702, -7.79134e-09, 0.999046, 0.999046, -1.78243e-07, -0.0436702, 2.39187e-07, 0.997388, 4.9135e-08, -4.08385e-07, 0.118279, -5.96046e-08)
+bone_name = "UpperArm.L"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone UpperArmL"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_26sun")
+
+[node name="Physical Bone LowerArmL" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.996186, -7.04433e-09, -0.0872579, 4.9303e-09, 0.999344, 3.15225e-08, 0.0872579, -2.68551e-08, 0.996186, 0.511737, 0.454951, -0.00516406)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118176, 8.77865e-08, 0.00516603)
+body_offset = Transform3D(0.0436707, -7.79132e-09, 0.999046, 0.999046, -1.78242e-07, -0.0436707, 2.40124e-07, 0.999344, 4.89076e-08, -2.64496e-07, 0.118289, -5.96046e-08)
+bone_name = "LowerArm.L"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone LowerArmL"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 3.51719e-13, -3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0hhn5")
+
+[node name="Physical Bone UpperArmR" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.0436702, -2.24452e-07, 0.999046, 5.92219e-08, 0.997356, 2.22238e-07, -0.999046, 4.97638e-08, 0.0436702, -0.275412, 0.454952, -0.00516546)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07063e-07, 6.16815e-08, 0.118279)
+body_offset = Transform3D(1, -5.173e-08, -1.11759e-08, -1.11759e-08, 4.38933e-08, -1, -3.82752e-10, 0.997356, -1.61805e-08, 4.08385e-07, 0.118279, -5.96046e-08)
+bone_name = "UpperArm.R"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone UpperArmR"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_26sun")
+
+[node name="Physical Bone LowerArmR" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="6"]
+transform = Transform3D(-1, 7.72346e-09, -2.38419e-07, 7.34343e-09, 0.999352, 8.67506e-08, -5.62519e-07, -1.12878e-08, -1, -0.511737, 0.454951, -0.005163)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118176, 8.77856e-08, 0.0051666)
+body_offset = Transform3D(0.0436711, -7.79096e-09, 0.999046, 0.999046, -1.78242e-07, -0.0436703, 2.40123e-07, 0.999352, 4.89094e-08, -7.89762e-07, 0.118289, -5.96046e-08)
+bone_name = "LowerArm.R"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone LowerArmR"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 3.51719e-13, -3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_0hhn5")
+
+[node name="Physical Bone Hips" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, 0, -1.98952e-13, 0, 1, 0, 1.98952e-13, 0, 1, 0, 0.181743, 0)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0582571, 0)
+body_offset = Transform3D(1, 0, -1.50996e-07, 0, -1, 0, -1.50996e-07, 0, -1, 0, 0.0582571, 0)
+bone_name = "Hips"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone Hips"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0136198, 0)
+shape = SubResource("BoxShape3D_pkkmy")
+
+[node name="Physical Bone UpperLegL" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="8"]
+transform = Transform3D(0.997328, 1.41721e-10, 2.50829e-10, 5.86056e-11, 1, -2.08616e-07, 3.25684e-10, -6.70552e-08, 1, 0.121553, -0.00177473, 0.0106462)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.24539e-09, 0.130595, -0.0106461)
+body_offset = Transform3D(-9.44956e-08, -0.0812514, -0.996694, -3.33597e-08, -0.996694, 0.0812517, -0.997328, 3.9571e-08, 8.77052e-08, 1.45286e-07, 0.131028, 0)
+bone_name = "UpperLeg.L"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone UpperLegL"]
+transform = Transform3D(1, -1.52989e-13, -3.05971e-13, -3.56451e-14, 1, 1.18585e-20, -2.63442e-13, 1.3976e-20, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_cvjw2")
+
+[node name="Physical Bone LowerLegL" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="9"]
+transform = Transform3D(0.997422, 6.50822e-11, -2.55795e-13, 5.15783e-11, 1, 3.72529e-08, -4.00206e-10, -7.4506e-09, 1, 0.121553, -0.263295, 0.0160685)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01925e-09, 0.130924, 0.00522419)
+body_offset = Transform3D(3.87763e-07, 0.0398697, -0.999205, -3.20155e-08, -0.999205, -0.0398697, -0.997422, 4.61904e-08, -3.9021e-07, 1.49012e-07, 0.131028, 0)
+bone_name = "LowerLeg.L"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone LowerLegL"]
+shape = SubResource("CapsuleShape3D_6s4mu")
+
+[node name="Physical Bone UpperLegR" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="10"]
+transform = Transform3D(1, 2.03251e-10, 1.77636e-14, -5.93303e-13, 1, -2.23517e-08, 6.50147e-13, -5.96046e-08, 1, -0.121553, -0.0017767, 0.0106465)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00347e-09, 0.130597, -0.0106463)
+body_offset = Transform3D(2.77471e-08, 0.0812514, 0.996694, 5.0852e-08, -0.996694, 0.0812515, 1, 5.07319e-08, -3.55102e-08, -3.35276e-08, 0.13103, 0)
+bone_name = "UpperLeg.R"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone UpperLegR"]
+shape = SubResource("CapsuleShape3D_cvjw2")
+
+[node name="Physical Bone LowerLegR" type="PhysicalBone3D" parent="godot_doll/Armature/Skeleton3D" index="11"]
+transform = Transform3D(1, 2.13163e-14, -1.42109e-13, 3.55982e-11, 1, 2.98023e-08, -3.29067e-10, -3.72531e-09, 1, -0.121557, -0.26329, 0.0160689)
+collision_layer = 2
+collision_mask = 3
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.10079e-06, 0.130919, 0.00522378)
+body_offset = Transform3D(4.46691e-07, -0.0398697, 0.999205, 3.21987e-08, -0.999205, -0.0398697, 1, 5.2118e-08, -4.49105e-07, 6.33299e-08, 0.131023, -4.10527e-06)
+bone_name = "LowerLeg.R"
+joint_constraints/bias = 0.2
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="godot_doll/Armature/Skeleton3D/Physical Bone LowerLegR"]
+shape = SubResource("CapsuleShape3D_6s4mu")
+
+[editable path="godot_doll"]
