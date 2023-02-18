@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3px5kg4uupvj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uhi3c"]
+emission_shape = 3
+emission_box_extents = Vector3(960, 100, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 5.0
+gravity = Vector3(0, 980, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(1, 1, 1, 0.337255)
+collision_mode = 1
+collision_friction = 0.76
+collision_bounce = 0.47
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bm8yc"]
+polygon = PackedVector2Array(1929, 464, 1319, 652, 1323, 686, 1938, 659)
+
+[node name="2DParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(960, -100)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_uhi3c")
+lifetime = 2.0
+preprocess = 2.0
+visibility_rect = Rect2(-967.059, -98.818, 1924.75, 1320.51)
+trail_enabled = true
+trail_lifetime = 0.1
+trail_sections = 4
+trail_section_subdivisions = 2
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_bm8yc")
