@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://diyo8boss2ps"]
+[gd_scene load_steps=19 format=3 uid="uid://diyo8boss2ps"]
 
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="1_1kc25"]
 [ext_resource type="PackedScene" uid="uid://c16aelv8g37ck" path="res://shared/sophie_character_controller/sophie_character_controller.tscn" id="1_l0g8y"]
@@ -25,6 +25,10 @@ size = Vector3(1, 10, 22)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38ebn"]
 size = Vector3(20, 10, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4gsut"]
+height = 14.6028
+radius = 1.87842
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6wsp6"]
 top_radius = 0.2
@@ -81,6 +85,14 @@ shape = SubResource("BoxShape3D_38ebn")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80674e-06, 5, -10.6667)
 shape = SubResource("BoxShape3D_38ebn")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0935, 5, -10.5195)
+shape = SubResource("CylinderShape3D_4gsut")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="CardboardCastle/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09351, 5, -10.5195)
+shape = SubResource("CylinderShape3D_4gsut")
 
 [node name="Objects" type="Node3D" parent="."]
 
