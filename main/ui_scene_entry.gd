@@ -1,7 +1,7 @@
 extends Button
 
 @onready var texture_rect : TextureRect = %TextureRect
-@onready var label : Label = $Label
+@onready var label : Label = %Label
 
 
 func _ready() -> void:
