@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 const INVULNERABILITY_TICK_DURATION := 10
+const JUMP_FORCE := 20.0
+const GRAVITY_FORCE := 1.0
 
 var speed := 10
 var turning_speed := 5
@@ -59,12 +61,15 @@ func _physics_process(delta: float) -> void:
 	
 	damage_tick += 1
 	is_attacking = Input.is_action_pressed("punch")
+	var is_just_jumping = Input.is_action_just_pressed("jump")
 	
 	var vel_y = velocity.y
 	velocity.y = 0.0
 	
 	if not is_on_floor():
-		vel_y -= 1.0
+		vel_y -= GRAVITY_FORCE
+	elif is_just_jumping:
+		vel_y = JUMP_FORCE
 	
 	if is_attacking:
 		var collider := damage_ray_cast.get_collider()
