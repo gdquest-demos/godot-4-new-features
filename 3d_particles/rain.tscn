@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://bps7rlmprc1vv"]
+
+[ext_resource type="Script" path="res://3d_balls_pool/turner.gd" id="1_4wbfw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ltu02"]
+sky_top_color = Color(0.905882, 0.921569, 0.94902, 1)
+sky_horizon_color = Color(0.780392, 0.788235, 0.8, 1)
+ground_bottom_color = Color(0.847059, 0.556863, 0.509804, 1)
+ground_horizon_color = Color(0.631373, 0.643137, 0.658824, 1)
+
+[sub_resource type="Sky" id="Sky_e1rb0"]
+sky_material = SubResource("ProceduralSkyMaterial_ltu02")
+
+[sub_resource type="Environment" id="Environment_p6rxl"]
+background_mode = 2
+sky = SubResource("Sky_e1rb0")
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.235294, 0.309804, 0.341176, 1)
+fog_density = 0.0025
+fog_height_density = 0.25
+volumetric_fog_density = 0.01
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_oi2uk"]
+dof_blur_far_distance = 35.0
+dof_blur_far_transition = 10.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvfcg"]
+emission_shape = 3
+emission_box_extents = Vector3(2, 0.1, 2)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+collision_mode = 1
+collision_friction = 0.37
+collision_bounce = 0.07
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2cdj"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.643137)
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_3bs0b"]
+material = SubResource("StandardMaterial3D_t2cdj")
+radius = 0.02
+radial_steps = 3
+
+[node name="Rain" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p6rxl")
+
+[node name="Turner" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 3, 0)
+script = ExtResource("1_4wbfw")
+max_zoom = 35.0
+metadata/_edit_group_ = true
+
+[node name="Camera3D" type="Camera3D" parent="Turner"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.99228, 0.124017, 0, -0.124017, 0.992281, 0, -0.103166, 12.212)
+attributes = SubResource("CameraAttributesPractical_oi2uk")
+fov = 35.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.854025, 0.402329, 0.329806, -0.426174, 0.904641, 0, -0.298356, -0.140555, 0.944049, 0.0782873, 0.203888, 0.0319578)
+operation = 1
+size = Vector3(8, 1, 8)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.64065, 0.177104)
+amount = 100
+fixed_fps = 0
+interpolate = false
+collision_base_size = 0.1
+visibility_aabb = AABB(-3.01766, -2.11071, -2.74438, 6.03532, 4.22141, 5.48875)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_vvfcg")
+draw_pass_1 = SubResource("TubeTrailMesh_3bs0b")
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.957726, 0)
+size = Vector3(6, 4, 6)
