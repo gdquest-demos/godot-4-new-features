@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpessuha23jra"]
+
+[ext_resource type="Script" path="res://navigation/navigation_arena.gd" id="1_p0re4"]
+[ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_m547n"]
+[ext_resource type="Script" path="res://navigation/beetle_move_to_position.gd" id="3_g41jl"]
+[ext_resource type="PackedScene" uid="uid://c0qm7kpfs8hcr" path="res://navigation/obstacle.tscn" id="4_r7rs1"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
+vertices = PackedVector3Array(-9.5, 1.53649, -9.5, -9.5, 1.53649, -8.5, 0, 1.53649, -8.5, 0, 1.53649, -9.5, 9.5, 1.53649, -9.5, 0, 1.53649, -9.5, 0, 1.53649, -8.5, 9.5, 1.53649, -8.5, -9.25, -0.46351, -9.25, -9.25, -0.46351, -8.5, 0, -0.46351, -8.5, 0, -0.46351, -9.25, 0, -0.46351, -8.5, 9.5, -0.46351, -8.5, 9.5, -0.46351, -9.25, 0, -0.46351, -9.25, 9.5, -0.46351, 1, 9.5, -0.46351, -7.25, 0, -0.46351, -7.25, -9.5, -0.46351, 1, -9.5, -0.46351, 9.5, 0, -0.46351, 9.5, 0, -0.46351, -7.25, -9.5, -0.46351, -7.25, -9.5, -0.46351, 1, 0, -0.46351, 9.5, 9.5, -0.46351, 9.5, 9.5, -0.46351, 1)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 21), PackedInt32Array(18, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(24, 23, 22), PackedInt32Array(27, 26, 25)]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cckqs"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwrk7"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3k4a"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10yuj"]
+size = Vector3(20, 3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxlw5"]
+shading_mode = 0
+albedo_color = Color(0.388235, 0.168627, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_45l3o"]
+material = SubResource("StandardMaterial3D_jxlw5")
+radius = 0.2
+height = 0.4
+radial_segments = 16
+rings = 8
+
+[node name="Navigation" type="Node3D"]
+script = ExtResource("1_p0re4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.93358, 0.358368, 1.56648e-08, -0.054955, 0.143163, 0.988172, 0.354129, -0.922538, 0.153348, 0, 8.62493, 0)
+shadow_enabled = true
+
+[node name="Beetle" parent="." instance=ExtResource("2_m547n")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 8)
+top_level = true
+collision_layer = 0
+script = ExtResource("3_g41jl")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46351, 0)
+navigation_mesh = SubResource("NavigationMesh_f1mbg")
+
+[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.46351, 0)
+mesh = SubResource("BoxMesh_cckqs")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
+shape = SubResource("BoxShape3D_kwrk7")
+
+[node name="Ground2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46351, -9)
+mesh = SubResource("BoxMesh_y3k4a")
+skeleton = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground2/StaticBody3D"]
+shape = SubResource("BoxShape3D_10yuj")
+
+[node name="Obstacles" type="Node3D" parent="."]
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource("4_r7rs1")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33301e-08, 1.35501e-07, 10, 5.52794, -1.43847)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1.49012e-07, 1.29048e-08, -1, -0.5, 0.866025, -6.33301e-08, 0.866025, 0.5, 1.35501e-07, 0, 0, 0)
+visible = false
+collision_mask = 3
+debug_shape_custom_color = Color(0.298039, 0.2, 0.952941, 0.207843)
+
+[node name="Sphere" type="MeshInstance3D" parent="Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 4.26326e-14, 0, 1, -8.58127e-15, 0, -8.58127e-15, 1, 0, -3.86904, -2.81114)
+mesh = SubResource("SphereMesh_45l3o")
+skeleton = NodePath("../..")
