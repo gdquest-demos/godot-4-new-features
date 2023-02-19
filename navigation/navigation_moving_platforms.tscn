@@ -1,24 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://da551o3yjocf3"]
+[gd_scene load_steps=19 format=3 uid="uid://da551o3yjocf3"]
 
 [ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
 [ext_resource type="Script" path="res://navigation/moving_platform_handler.gd" id="3_k6sl3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
-vertices = PackedVector3Array(-6.5, 1, -20.5, -6.5, 1, -19.5, -4.75, 1, -19.5, -4.5, 1, -20.75, 4.5, 1, -26.5, -4.5, 1, -26.5, -4.5, 1, -20.75, 4.5, 1, -17.5, -4.5, 1, -20.75, -4.75, 1, -19.5, -4.5, 1, -17.5, 4.5, 1, -17.5, -6.5, 1, -1.5, -6.5, 1, -2.5, -15.5, 1, -2.75, -18.5, 1, -1.5, -6.5, 1, -20.5, -18.5, 1, -20.5, -15.5, 1, -19.25, -6.5, 1, -19.5, -18.5, 1, -11, -18.5, 1, -1.5, -15.5, 1, -2.75, -15.5, 1, -11, -15.5, 1, -19.25, -18.5, 1, -20.5, -18.5, 1, -11, -15.5, 1, -11, -4.75, 1, -2.5, -6.5, 1, -2.5, -6.5, 1, -1.5, -4.5, 1, -1.25, -4.5, 1, -1.25, -4.5, 1, 4.5, 4.5, 1, 4.5, 4.5, 1, -4.5, -4.5, 1, -4.5, -4.75, 1, -2.5, -4.5, 1, -1.25, 4.5, 1, -4.5)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(33, 32, 34), PackedInt32Array(34, 32, 35), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39)]
+vertices = PackedVector3Array(-4.5, 1, -26.5, -4.5, 1, -17.5, 4.5, 1, -17.5, 4.5, 1, -26.5, -4.5, 1, -4.5, -4.5, 1, 4.5, 4.5, 1, 4.5, 4.5, 1, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cckqs"]
 size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwrk7"]
 size = Vector3(10, 1, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_b6cyr"]
-size = Vector3(4, 1, 20)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n388i"]
-size = Vector3(10, 1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxlw5"]
 shading_mode = 0
@@ -175,14 +169,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, 3)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, -25)
 
-[node name="Beetle3" parent="Beetles" instance=ExtResource("2_2uwum")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.500352, -20)
-
-[node name="Beetle4" parent="Beetles" instance=ExtResource("2_2uwum")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0.500352, -2)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_f1mbg")
 navigation_layers = 3
@@ -209,20 +195,6 @@ shape = SubResource("BoxShape3D_kwrk7")
 
 [node name="AlternativeSolidPath" type="Node3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -11)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/AlternativeSolidPath"]
-mesh = SubResource("BoxMesh_b6cyr")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/AlternativeSolidPath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9)
-mesh = SubResource("BoxMesh_n388i")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/AlternativeSolidPath"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -9)
-mesh = SubResource("BoxMesh_n388i")
-skeleton = NodePath("../../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)

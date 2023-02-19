@@ -8,8 +8,6 @@ const Beetle = preload("beetle_moving_platforms.gd")
 @onready var patrol_points_reverse := [%PatrolPointB, %PatrolPointA]
 @onready var beetle1: Beetle = %Beetle1
 @onready var beetle2: Beetle = %Beetle2
-@onready var beetle3: Beetle = %Beetle3
-@onready var beetle4: Beetle = %Beetle4
 @onready var moving_platform_handler: Node3D = %MovingPlatformHandler
 
 
@@ -17,8 +15,6 @@ func _ready() -> void:
 	# If our navigation mesh setup works correctly we do not need inbetween points, only the final position
 	beetle1.move_targets = patrol_points_reverse
 	beetle2.move_targets = patrol_points
-	beetle3.move_targets = patrol_points_reverse
-	beetle4.move_targets = patrol_points
 
 	# for bettle 1 & 2 add the navigation layer 2 so they can use the NavigationLink3D that uses navigation layer 2
 	beetle1._navigation_agent.set_navigation_layer_value(2, true)
