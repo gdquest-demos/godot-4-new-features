@@ -509,6 +509,7 @@ graph_offset = Vector2(10, -66)
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sb0lv"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_o04l8")
