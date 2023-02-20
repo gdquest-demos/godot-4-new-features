@@ -6,6 +6,7 @@ uniform vec3 bottom_color : source_color = vec3(1.0);
 const float sun_radius = 0.08;
 uniform vec3 sun_scatter : source_color = vec3(1.0);
 uniform float star_stength : hint_range(0.0, 5.0, 0.1) = 0.0;
+uniform vec3 clouds_tint : source_color = vec3(1.0);
 
 // Voronoi method credit:
 // The MIT License
@@ -63,7 +64,7 @@ void sky() {
 
 	COLOR.rgb = mix(
 		COLOR.rgb,
-		vec3(1.0),
-		smoothstep(0.75, 0.85, cloud_mask)
+		clouds_tint,
+		cloud_mask
 	);
 }
