@@ -9,7 +9,7 @@ extends CanvasLayer
 
 @onready var card_selector = %CardSelector
 
-var _is_open = false : set = _set_is_open
+var _is_open = false : set = set_is_open
 
 func _ready():
 	hide()
@@ -17,7 +17,8 @@ func _ready():
 	card_selector.connect("cards_index_changed", func(): arrow_button_sound.play())
 	card_selector.connect("card_selected", _on_card_selected)
 
-func _set_is_open(state : bool):
+
+func set_is_open(state : bool):
 	_is_open = state
 	if _is_open:
 		jingle_open.play()
@@ -29,6 +30,7 @@ func _set_is_open(state : bool):
 		animation_player.play_backwards("appear")
 		await animation_player.animation_finished
 		if !_is_open and visible: hide()
-		
+
+
 func _on_card_selected(card_index : int):
 	jingle_select.play()

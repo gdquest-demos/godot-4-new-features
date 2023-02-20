@@ -16,10 +16,10 @@ shader_parameter/gradient_color = Color(1, 1, 1, 1)
 shader_parameter/gradient_opacity = 0.0
 
 [node name="Card" type="VBoxContainer"]
+custom_minimum_size = Vector2(320, 320)
 offset_right = 320.0
 offset_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+focus_mode = 2
 script = ExtResource("1_m2mqc")
 
 [node name="Thumbnail" type="TextureRect" parent="."]

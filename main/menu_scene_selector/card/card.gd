@@ -15,12 +15,17 @@ func _ready():
 	connect("resized", _on_resized)
 	connect("mouse_entered", _set_focus.bind(true))
 	connect("mouse_exited", _set_focus.bind(false))
+	connect("focus_entered", _set_focus.bind(true))
+	connect("focus_exited", _set_focus.bind(false))
 
 func _gui_input(event):
-	if !(event is InputEventMouseButton): return
-	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		emit_signal("pressed")
-	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			pressed.emit()
+	if event.is_action_pressed("ui_accept"):
+		pressed.emit()
+
+
 func _set_active(state : bool):
 	active = state
 	if state:
@@ -35,6 +40,7 @@ func _set_active(state : bool):
 		thumbnail.current_gradient_opacity = 0.0
 		title.modulate.a = 0.75
 
+
 func _set_focus(state : bool):
 	if active: return
 	focused = state
@@ -45,8 +51,10 @@ func _set_focus(state : bool):
 		thumbnail.current_zoom = default_zoom
 		title.modulate.a = 0.75
 
+
 func set_title(value : String):
 	title.text = value
+
 
 func _on_resized():
 	pivot_offset = size / 2.0

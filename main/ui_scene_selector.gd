@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 const DEMOS := [
 	{"path": "res://2d_clipping/2d_clipping.tscn", "name": "2D Clipping"},
@@ -12,11 +12,8 @@ const DEMOS := [
 	{"path": "res://tweens/tween_demo.tscn", "name": "Tween Demo"},
 	{"path": "res://ui_flexbox/flow_container_demo.tscn", "name": "Flow Container"}
 ]
-const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 
-@onready var selector_root : Control = %SelectorRoot
-@onready var grid_container : GridContainer = %GridContainer
-
+@onready var main_menu : CanvasLayer = %MainMenu
 @onready var scene_tree := get_tree()
 
 @onready var _cached_mouse_mode : int
@@ -26,15 +23,12 @@ const UI_SCENE_ENTRY_SCENE := preload("res://main/ui_scene_entry.tscn")
 func _ready() -> void:
 	if scene_tree.current_scene == self:
 		scene_tree.current_scene = null
+	main_menu.set_is_open(true)
+	main_menu.card_selector.card_selected.connect(_on_entry_pressed)
 	
-	for i in range(DEMOS.size()):
-		var entry : Button = UI_SCENE_ENTRY_SCENE.instantiate()
-		grid_container.add_child(entry)
-		entry = grid_container.get_child(i)
-		entry.label.text = DEMOS[i]["name"]
-		entry.pressed.connect(_on_entry_pressed.bind(i))
-
-	grid_container.get_child(0).grab_focus()
+	for demo in DEMOS:
+		main_menu.card_selector.create_card(demo["name"])
+	main_menu.card_selector.grid.get_child(0).grab_focus()
 
 
 func _on_entry_pressed(demo_id: int) -> void:
@@ -49,18 +43,17 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if scene_tree.current_scene == null:
 			return
-		if visible:
-			resume()
-		else:
+		if not main_menu._is_open:
 			pause()
-			grid_container.get_child(_current_scene_index).grab_focus()
+			main_menu.card_selector.focus_current_card()
+		else:
+			resume()
+	if event.is_action_pressed("menu_quit"):
+		get_tree().quit()
 
 
 func pause() -> void:
-	visible = true
-	selector_root.modulate = Color.TRANSPARENT
-	var tween := create_tween()
-	tween.tween_property(selector_root, "modulate", Color.WHITE, 0.2)
+	main_menu.set_is_open(true)
 	
 	if scene_tree.current_scene != null:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED
@@ -69,10 +62,7 @@ func pause() -> void:
 
 
 func resume() -> void:
-	selector_root.modulate = Color.WHITE
-	var tween := create_tween()
-	tween.tween_property(selector_root, "modulate", Color.TRANSPARENT, 0.2)
-	tween.tween_callback(set_visible.bind(false))
+	main_menu.set_is_open(false)
 	
 	if scene_tree.current_scene:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_ALWAYS

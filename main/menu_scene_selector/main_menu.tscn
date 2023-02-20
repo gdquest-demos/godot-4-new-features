@@ -215,6 +215,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+focus_mode = 2
 script = ExtResource("6_pncb4")
 
 [node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/LeftArrow"]
@@ -245,6 +246,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
+focus_mode = 2
 script = ExtResource("6_pncb4")
 
 [node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/RightArrow"]
