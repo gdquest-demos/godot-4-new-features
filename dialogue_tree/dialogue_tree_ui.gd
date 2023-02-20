@@ -1,7 +1,7 @@
 extends Node
 
 
-@export_enum("en", "ro", "ja") var language := "en"
+@export_enum("en", "ro", "ja", "ar") var language := "en"
 
 var _languages_button_group := ButtonGroup.new()
 var _line_id := 0
@@ -9,12 +9,16 @@ var _font_size_text := {
 	"en": "Font Size",
 	"ro": "Mărimea Font-ului",
 	"ja": "文字サイズ",
+	"ar": "حجم الخط",
 }
+
 var _language_text := {
 	"en": "Language",
 	"ro": "Limba",
 	"ja": "言語",
+	"ar": "اللغة",
 }
+
 var _dialogue := [
 	{
 		"expression": "neutral",
@@ -39,6 +43,13 @@ var _dialogue := [
 				"オッケー、やりましょう！": 1,
 			},
 		},
+		"ar":{
+			"text": "حان وقت عمل ألعاب الفيديو. مرحبًا ، استيقظ!",
+			"buttons": {
+				"واسمحوا لي أن أنام لفترة أطول قليلا": 2,
+				"أنا مستعد!": 1,
+			},
+		}
 	},
 	{
 		"expression": "neutral",
@@ -61,6 +72,13 @@ var _dialogue := [
 			"buttons": {
 				"できるかどうかわからないけど頑張るよ": 3,
 				"やっぱりもうちょっと寝たいよ": 2,
+			},
+		},
+		"ar": {
+			"text": "عظيم! ستكون مهمتك الأولى هي كتابة شجرة حوار",
+			"buttons": {
+				"لست متأكدًا مما إذا كنت مستعدًا ، لكنني سأبذل قصارى جهدي": 3,
+				"لا ، دعني أعود للنوم": 2,
 			},
 		},
 	},
@@ -87,6 +105,13 @@ var _dialogue := [
 				"よし、やってみよう": 3,
 			},
 		},
+		"ar": {
+			"text": "اووه تعال! سيكون الأمر ممتعًا",
+			"buttons": {
+				"لا ، حقًا ، دعني أعود للنوم": 0,
+				"حسنًا ، سأحاول": 3,
+			},
+		},
 	},
 	{
 		"expression": "happy",
@@ -102,6 +127,10 @@ var _dialogue := [
 			"text": "その意気だ！[wave]君ならできるよ！[/wave]",
 			"buttons": {"終了": -1,},
 		},
+		"ar": {
+			"text": "هذه هى الروح! يمكنك أن تفعل ذلك!",
+			"buttons": {"إنهاء": -1},
+		},
 	},
 ]
 
@@ -116,11 +145,11 @@ var _dialogue := [
 
 
 func _ready() -> void:
-	_languages_button_group.connect("pressed", set_language)
-	slider.connect("value_changed", set_font_size)
+	_languages_button_group.pressed.connect(set_language)
+	slider.value_changed.connect(set_font_size)
 	
-	speech_bubble.connect("vowel_appeared", pink_hair_character.random_mouth)
-	speech_bubble.connect("speech_ended", pink_hair_character.reset_mouth)
+	speech_bubble.vowel_appeared.connect(pink_hair_character.random_mouth)
+	speech_bubble.speech_ended.connect(pink_hair_character.reset_mouth)
 	
 	for node in languages_row.get_children():
 		if node is Button:

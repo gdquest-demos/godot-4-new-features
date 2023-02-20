@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://dialogue_tree/dialogue_tree_ui.gd" id="1_3u7u7"]
 [ext_resource type="PackedScene" uid="uid://x2sjgn85dgll" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.tscn" id="1_dk2d5"]
-[ext_resource type="PackedScene" path="res://dialogue_tree/assets/bubble/speech_bubble.tscn" id="2_l4qmv"]
+[ext_resource type="PackedScene" uid="uid://7lcamjh3amdn" path="res://dialogue_tree/assets/bubble/speech_bubble.tscn" id="2_l4qmv"]
 [ext_resource type="Shader" path="res://dialogue_tree/assets/bubble_background.gdshader" id="4_0i5mg"]
 [ext_resource type="Texture2D" uid="uid://c6j8tx83eeukc" path="res://dialogue_tree/assets/slider_circle.png" id="4_aa0ky"]
 [ext_resource type="Texture2D" uid="uid://4f8gvseynjd" path="res://dialogue_tree/assets/bubble_pattern.png" id="5_ykfj4"]
@@ -165,6 +165,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_d1rjy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_d1rjy")
 toggle_mode = true
 text = "Ja"
+
+[node name="AR" type="Button" parent="TopUI/VBoxContainer/VBoxContainer2/LanguagesRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdi2o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d1rjy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_d1rjy")
+toggle_mode = true
+text = "Ar"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopUI/VBoxContainer"]
 layout_mode = 2
