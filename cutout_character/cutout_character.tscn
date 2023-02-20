@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlxy2225fdmeo"]
+[gd_scene load_steps=18 format=3 uid="uid://dlxy2225fdmeo"]
 
 [ext_resource type="Texture2D" uid="uid://b01xlbl80r3nm" path="res://cutout_character/samurai_fox_parts/body.PNG" id="1_k5ksc"]
 [ext_resource type="Texture2D" uid="uid://bjuoqmxd2xgtq" path="res://cutout_character/samurai_fox_parts/arm.L.PNG" id="2_i32ej"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://din6efpmr8e48" path="res://cutout_character/samurai_fox_parts/tail.PNG" id="6_ki5iv"]
 [ext_resource type="Texture2D" uid="uid://qgljop7ju1np" path="res://cutout_character/samurai_fox_parts/ear.R.PNG" id="7_hfw4e"]
 [ext_resource type="Texture2D" uid="uid://gcgl638ox07x" path="res://cutout_character/samurai_fox_parts/ear.L.PNG" id="8_8axq2"]
+[ext_resource type="Material" uid="uid://clg7w7xpuudta" path="res://cutout_character/assets/group_background.tres" id="10_3lqeb"]
+[ext_resource type="Script" path="res://cutout_character/assets/background_ratio.gd" id="12_lejrc"]
 
 [sub_resource type="Animation" id="Animation_ux7ra"]
 length = 0.001
@@ -305,7 +307,8 @@ _data = {
 [node name="CutoutCharacter" type="Node2D"]
 
 [node name="NoCanvasGroup" type="Node2D" parent="."]
-position = Vector2(416, 848)
+position = Vector2(455, 759)
+scale = Vector2(0.75, 0.75)
 
 [node name="Body" type="Sprite2D" parent="NoCanvasGroup"]
 rotation = -0.178908
@@ -372,7 +375,8 @@ libraries = {
 }
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
-position = Vector2(1352, 848)
+position = Vector2(1391, 759)
+scale = Vector2(0.75, 0.75)
 
 [node name="Body" type="Sprite2D" parent="CanvasGroup"]
 rotation = -0.178908
@@ -443,3 +447,15 @@ autoplay = "animate"
 libraries = {
 "": SubResource("AnimationLibrary_et2ky")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("10_3lqeb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_lejrc")

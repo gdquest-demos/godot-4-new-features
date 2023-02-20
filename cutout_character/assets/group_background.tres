@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://clg7w7xpuudta"]
+
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="1_mgqei"]
+[ext_resource type="Texture2D" uid="uid://t1rnfvaixned" path="res://cutout_character/assets/group_pattern.png" id="2_m5uko"]
+
+[resource]
+shader = ExtResource("1_mgqei")
+shader_parameter/bg_color = Color(0.764706, 0.709804, 1, 1)
+shader_parameter/pattern_color = Color(0.627451, 0.501961, 1, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("2_m5uko")
