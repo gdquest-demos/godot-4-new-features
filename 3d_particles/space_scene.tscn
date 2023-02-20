@@ -64,18 +64,18 @@ radial_steps = 3
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_000e4"]
 direction = Vector3(0, 0, -1)
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 1.0
-initial_velocity_max = 1.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
 scale_min = 5.0
 scale_max = 5.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7gpd"]
 shading_mode = 0
 albedo_color = Color(0.384314, 1, 0.811765, 1)
-use_particle_trails = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_cg2nn"]
 material = SubResource("StandardMaterial3D_i7gpd")
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="Animation" id="Animation_4oach"]
 resource_name = "move"
