@@ -60,8 +60,8 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	damage_tick += 1
-	is_attacking = Input.is_action_pressed("punch")
-	var is_just_jumping = Input.is_action_just_pressed("jump")
+	is_attacking = Input.is_action_pressed("punch") and get_window().has_focus()
+	var is_just_jumping = Input.is_action_just_pressed("jump") and get_window().has_focus()
 	
 	var vel_y = velocity.y
 	velocity.y = 0.0
@@ -78,7 +78,9 @@ func _physics_process(delta: float) -> void:
 				collider.damage.rpc(global_position)
 	
 	elif is_on_floor() and damage_tick >= INVULNERABILITY_TICK_DURATION:
-		var input_dir := Input.get_vector("ui_right", "ui_left", "ui_down", "ui_up")
+		var input_dir := Vector2.ZERO
+		if get_window().has_focus():
+			input_dir = Input.get_vector("ui_right", "ui_left", "ui_down", "ui_up")
 		var alt_is_pressed := Input.is_key_pressed(KEY_ALT)
 		forward_speed = input_dir.y
 		var dir_sides := input_dir.x if alt_is_pressed else 0.0
@@ -105,7 +107,6 @@ func damage(origin: Vector3) -> void:
 	var cross := punch_direction.normalized().cross(Vector3.UP)
 	punch_direction = punch_direction.rotated(cross, PI/4.0)
 	punch_direction = punch_direction.normalized()
-	print(punch_direction)
 	velocity = punch_direction * damage_amount
 
 

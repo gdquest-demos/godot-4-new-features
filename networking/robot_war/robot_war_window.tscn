@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb5cjjdwg26q0"]
+
+[ext_resource type="Script" path="res://networking/robot_war/robot_war_window.gd" id="1_dky47"]
+[ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_0oitf"]
+[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_6n5h6"]
+[ext_resource type="PackedScene" uid="uid://b1av8dpn3l2cn" path="res://networking/robot_war/player_ui.tscn" id="4_5whv3"]
+[ext_resource type="PackedScene" uid="uid://dfg1tiyyqcs8r" path="res://networking/robot_war/assets/models/block_A.gltf.glb" id="5_uxeiy"]
+[ext_resource type="MeshLibrary" uid="uid://cyfh7louw3ree" path="res://networking/robot_war/assets/mesh_library.tres" id="6_ykis2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgisj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="Environment" id="Environment_erl0c"]
+ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
+sdfgi_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yblaq"]
+points = PackedVector3Array(1, 1.99961, 1, -1, 0.000391586, -1, -1, 0.000391586, 1, 1, 0.000391586, -1, -0.898886, 1.99151, -0.991901, -1, 1.99961, 1, 1, 0.000391586, 1, 1, 1.99961, -1, -0.991901, 1.99151, -0.898886, -0.991828, 1.89864, -0.991828)
+
+[node name="RobotWarWindow" type="Window"]
+own_world_3d = true
+size = Vector2i(800, 600)
+script = ExtResource("1_dky47")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgisj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="ToggleButton" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+toggle_mode = true
+button_pressed = true
+text = "|||"
+flat = true
+
+[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("2_0oitf")]
+unique_name_in_owner = true
+layout_mode = 2
+multiplayer_settings = NodePath("../../../MultiplayerSettings")
+
+[node name="MultiplayerSettings" type="Node" parent="CanvasLayer"]
+unique_name_in_owner = true
+script = ExtResource("3_6n5h6")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer"]
+unique_name_in_owner = true
+spawn_path = NodePath("../..")
+
+[node name="GameUI" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -136.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerUI" parent="CanvasLayer/GameUI" instance=ExtResource("4_5whv3")]
+layout_mode = 2
+
+[node name="PlayerUI2" parent="CanvasLayer/GameUI" instance=ExtResource("4_5whv3")]
+layout_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_erl0c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="block_Agltf" parent="." instance=ExtResource("5_uxeiy")]
+transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 14, 0, -1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="block_Agltf/block_A" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_Agltf/block_A/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_yblaq")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3, 0)
+mesh_library = ExtResource("6_ykis2")
+data = {
+"cells": PackedInt32Array(-1, 1, 10, -65536, 1, 10, -1, 0, 3, -1, 65535, 3, -65536, 65535, 3, -65536, 0, 3, -65536, 65534, 655370, -1, 65534, 655370, -65534, 0, 1441804, -3, 65533, 1441812, 65533, 65533, 1441793, -3, 2, 1441808)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[editable path="block_Agltf"]
