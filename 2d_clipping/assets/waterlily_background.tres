@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dgvw565jrsyux"]
+
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="1_7gma2"]
+[ext_resource type="Texture2D" uid="uid://b8jsel2pho415" path="res://2d_clipping/assets/waterlily_pattern.png" id="2_udt0u"]
+
+[resource]
+shader = ExtResource("1_7gma2")
+shader_parameter/bg_color = Color(0.858824, 0.8, 0.611765, 1)
+shader_parameter/pattern_color = Color(0.737255, 0.666667, 0.447059, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("2_udt0u")
