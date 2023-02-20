@@ -47,7 +47,7 @@ color = Color(1, 0.345098, 0.509804, 1)
 sub_emitter_mode = 3
 sub_emitter_amount_at_collision = 1
 collision_mode = 1
-collision_friction = 0.9
+collision_friction = 1.0
 collision_bounce = 0.06
 collision_use_scale = true
 
@@ -77,6 +77,33 @@ albedo_color = Color(0.384314, 1, 0.811765, 1)
 material = SubResource("StandardMaterial3D_i7gpd")
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="Animation" id="Animation_5muq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootingShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.08544, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetShip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.36563, 0, 23.807)]
+}
+
 [sub_resource type="Animation" id="Animation_4oach"]
 resource_name = "move"
 length = 30.0
@@ -104,33 +131,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-3.36563, 0, 23.807), Vector3(2.18851, 0, 23.807)]
-}
-
-[sub_resource type="Animation" id="Animation_5muq1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ShootingShip:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-7.08544, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TargetShip:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-3.36563, 0, 23.807)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yftl1"]
@@ -176,7 +176,7 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 cone = true
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="TargetShip"]
-size = Vector3(4, 4, 4)
+size = Vector3(2, 1, 1)
 
 [node name="ShootingShip" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08544, 0, 0)
@@ -190,9 +190,7 @@ cone = true
 [node name="ProjectileGPUParticles3D" type="GPUParticles3D" parent="ShootingShip"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.332211)
 sub_emitter = NodePath("ShootingGPUParticles2D")
-fixed_fps = 0
-interpolate = false
-visibility_aabb = AABB(-1.52401, -0.928911, -1.50131, 3.04801, 1.85782, 3.00262)
+visibility_aabb = AABB(-2.02552, -0.780716, -0.117562, 5.08254, 1.4491, 9.68977)
 process_material = SubResource("ParticleProcessMaterial_3h623")
 draw_pass_1 = SubResource("SphereMesh_qq5vv")
 
@@ -200,17 +198,13 @@ draw_pass_1 = SubResource("SphereMesh_qq5vv")
 unique_name_in_owner = true
 emitting = false
 sub_emitter = NodePath("SmokeGPUParticles2D")
-fixed_fps = 0
-interpolate = false
-visibility_aabb = AABB(-1.52401, -0.928911, -1.50131, 3.04801, 1.85782, 3.00262)
+visibility_aabb = AABB(-6.37075, -3.13341, -1.00001, 11.8253, 6.47806, 35.9632)
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_7nrvb")
 draw_pass_1 = SubResource("TubeTrailMesh_n111r")
 
 [node name="SmokeGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D/ShootingGPUParticles2D"]
 emitting = false
-fixed_fps = 0
-interpolate = false
 visibility_aabb = AABB(-1.52401, -0.928911, -1.50131, 3.04801, 1.85782, 3.00262)
 process_material = SubResource("ParticleProcessMaterial_000e4")
 draw_pass_1 = SubResource("BoxMesh_cg2nn")
