@@ -1,51 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqnswebsqiujo"]
+[gd_scene load_steps=13 format=3 uid="uid://bqnswebsqiujo"]
 
 [ext_resource type="Script" path="res://2d_lighting_normal_map/2d_lighting_normal_map.gd" id="1_cjskf"]
-[ext_resource type="Texture2D" uid="uid://dbojlvq3xv2ab" path="res://2d_lighting_normal_map/assets/spritesheet.png" id="1_dcsnb"]
-[ext_resource type="Texture2D" uid="uid://1h4nltw7tr4n" path="res://2d_lighting_normal_map/assets/spritesheet_n.png" id="2_o4fl8"]
-[ext_resource type="Texture2D" uid="uid://cngtsvgjd34my" path="res://2d_dynamic_lights/assets/gem/0000.png" id="3_jk8hr"]
+[ext_resource type="Texture2D" uid="uid://52owc7ggfoef" path="res://2d_lighting_normal_map/assets/dog.png" id="2_rxchn"]
+[ext_resource type="Texture2D" uid="uid://djebcop0tgdes" path="res://2d_lighting_normal_map/assets/dog_normal.png" id="3_yucla"]
+[ext_resource type="Texture2D" uid="uid://dr0s2xv81jkpy" path="res://2d_lighting_normal_map/assets/sun_icon.png" id="4_kngsb"]
+[ext_resource type="Script" path="res://2d_lighting_normal_map/wiggle.gd" id="4_vlpcx"]
+[ext_resource type="Script" path="res://2d_lighting_normal_map/spin.gd" id="5_7mrh3"]
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="7_e8ris"]
+[ext_resource type="Texture2D" uid="uid://b3x32i7av8vb2" path="res://2d_lighting_normal_map/assets/sun_pattern.png" id="8_6x13y"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_eo82y"]
-diffuse_texture = ExtResource("1_dcsnb")
-normal_texture = ExtResource("2_o4fl8")
-
-[sub_resource type="Animation" id="Animation_7go2l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_7fw6e"]
-resource_name = "default"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 10]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xj7e"]
-_data = {
-"RESET": SubResource("Animation_7go2l"),
-"default": SubResource("Animation_7fw6e")
-}
+diffuse_texture = ExtResource("2_rxchn")
+normal_texture = ExtResource("3_yucla")
+specular_color = Color(1, 0.87451, 0.768627, 1)
+specular_shininess = 0.1
 
 [sub_resource type="Gradient" id="Gradient_8kjhw"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -58,99 +26,69 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="Animation" id="Animation_rxbnc"]
-resource_name = "default"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4, 2.7, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(856, 549), Vector2(985, 691), Vector2(1150, 493), Vector2(920, 303)]
-}
-
-[sub_resource type="Animation" id="Animation_ud8an"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(856, 549)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5y81a"]
-_data = {
-"RESET": SubResource("Animation_ud8an"),
-"default": SubResource("Animation_rxbnc")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88cbl"]
+shader = ExtResource("7_e8ris")
+shader_parameter/bg_color = Color(0.176471, 0.192157, 0.270588, 1)
+shader_parameter/pattern_color = Color(0.282353, 0.282353, 0.45098, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("8_6x13y")
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_cjskf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(978, 529)
-scale = Vector2(1.30233, 1.30233)
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Dog" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.5, 0.5)
 texture = SubResource("CanvasTexture_eo82y")
-hframes = 11
+offset = Vector2(0, -28)
+script = ExtResource("4_vlpcx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-autoplay = "default"
-libraries = {
-"": SubResource("AnimationLibrary_4xj7e")
-}
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+self_modulate = Color(1, 0.756863, 0.254902, 1)
+light_mask = 0
+position = Vector2(256, 0)
+texture = ExtResource("4_kngsb")
+script = ExtResource("5_7mrh3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/Sprite2D"]
 unique_name_in_owner = true
-position = Vector2(856, 549)
-scale = Vector2(2.39062, 2.39062)
 texture = SubResource("GradientTexture2D_02qvk")
+texture_scale = 4.5
 height = 50.0
 
-[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
-light_mask = 0
-scale = Vector2(1.46405, 1.46405)
-texture = ExtResource("3_jk8hr")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D"]
-autoplay = "default"
-libraries = {
-"": SubResource("AnimationLibrary_5y81a")
-}
-
-[node name="UIRoot" type="Control" parent="."]
+[node name="UIRoot" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
-offset_left = 20.0
-offset_top = 56.0
-offset_right = 289.0
-offset_bottom = 138.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/UIRoot"]
+offset_left = 30.0
+offset_top = 34.0
+offset_right = 299.0
+offset_bottom = 116.0
 
-[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Light energy"
 
-[node name="EnergySlider" type="HSlider" parent="VBoxContainer3/VBoxContainer"]
+[node name="EnergySlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -158,16 +96,27 @@ size_flags_vertical = 3
 max_value = 5.0
 step = 0.01
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Light height"
 
-[node name="HeightSlider" type="HSlider" parent="VBoxContainer3/VBoxContainer2"]
+[node name="HeightSlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_88cbl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
