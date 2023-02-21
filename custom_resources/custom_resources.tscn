@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ynpkrrpe5jo"]
+
+[ext_resource type="Script" path="res://custom_resources/inventory_item_node.gd" id="1_lcxqm"]
+[ext_resource type="Resource" uid="uid://d1r54yxb6v0ja" path="res://custom_resources/sword.tres" id="2_iys2x"]
+[ext_resource type="Resource" uid="uid://da4jlk1fhyshk" path="res://custom_resources/shield.tres" id="3_oxnij"]
+
+[node name="custom_resources" type="Window"]
+initial_position = 1
+title = "Inventory"
+size = Vector2i(800, 500)
+transient = true
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="item" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
+item = ExtResource("2_iys2x")
+
+[node name="item2" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
+item = ExtResource("3_oxnij")
+
+[node name="item3" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
+
+[node name="item4" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
+
+[node name="item5" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
+
+[node name="item6" type="PanelContainer" parent="HFlowContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+script = ExtResource("1_lcxqm")
