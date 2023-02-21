@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm8ddlh0p6bt2"
-path.s3tc="res://.godot/imported/2d_ball_atlas.png-643f267641e59bd51ea913998fcdca05.s3tc.ctex"
+uid="uid://clk62vd2sdxd"
+path.s3tc="res://.godot/imported/auto_tile_normal.png-9d74eaa820ad36f722e3069c6437f5b9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://2d_physics_benchmark/assets/2d_ball_atlas.png"
-dest_files=["res://.godot/imported/2d_ball_atlas.png-643f267641e59bd51ea913998fcdca05.s3tc.ctex"]
+source_file="res://2d_physics_benchmark/assets/auto_tile_normal.png"
+dest_files=["res://.godot/imported/auto_tile_normal.png-9d74eaa820ad36f722e3069c6437f5b9.s3tc.ctex"]
 
 [params]
 
