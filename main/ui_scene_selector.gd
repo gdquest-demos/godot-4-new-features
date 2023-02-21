@@ -4,7 +4,7 @@ extends Node
 @onready var main_menu : CanvasLayer = %MainMenu
 @onready var scene_tree := get_tree()
 
-@onready var _cached_mouse_mode : int
+@onready var _cached_mouse_mode : Input.MouseMode
 @onready var _current_scene_index : int
 
 
