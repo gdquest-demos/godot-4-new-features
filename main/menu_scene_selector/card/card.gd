@@ -12,11 +12,12 @@ var zoomed_in = 1.15
 signal pressed
 
 func _ready():
-	connect("resized", _on_resized)
+	connect("resized", _set_pivot)
 	connect("mouse_entered", _set_focus.bind(true))
 	connect("mouse_exited", _set_focus.bind(false))
 	connect("focus_entered", _set_focus.bind(true))
 	connect("focus_exited", _set_focus.bind(false))
+	_set_pivot()
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
@@ -55,6 +56,9 @@ func _set_focus(state : bool):
 func set_title(value : String):
 	title.text = value
 
+func set_thumbnail(value : Texture2D):
+	thumbnail.texture = value
+	thumbnail.set_texture_ratio()
 
-func _on_resized():
+func _set_pivot():
 	pivot_offset = size / 2.0

@@ -12,6 +12,7 @@ shader = ExtResource("1_goa7o")
 shader_parameter/zoom = 1.0
 shader_parameter/radius = 0.1
 shader_parameter/ratio = Vector2(1, 1)
+shader_parameter/texture_ratio = Vector2(1, 1)
 shader_parameter/gradient_color = Color(1, 1, 1, 1)
 shader_parameter/gradient_opacity = 0.0
 

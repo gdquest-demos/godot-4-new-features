@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DemoData" load_steps=3 format=3 uid="uid://drht6iicmq1hw"]
+
+[ext_resource type="Script" path="res://resources/demo_data/demo_data_builder.gd" id="1_1dblf"]
+[ext_resource type="Texture2D" uid="uid://dx05efr2wg5a0" path="res://resources/demo_data/thumbnails/voxelgi_thumbnail.png" id="2_1w8u8"]
+
+[resource]
+script = ExtResource("1_1dblf")
+title = "VoxelGI"
+thumbnail = ExtResource("2_1w8u8")
+scene_path = "res://interior-diorama/interior_diorama.tscn"
