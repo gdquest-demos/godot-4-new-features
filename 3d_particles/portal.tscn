@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cth3g0aqydj3m"]
+[gd_scene load_steps=19 format=3 uid="uid://cth3g0aqydj3m"]
 
 [sub_resource type="Gradient" id="Gradient_yi7ce"]
 offsets = PackedFloat32Array(0.656863, 1)
-colors = PackedColorArray(0.0140867, 0.238473, 0.454902, 1, 1, 0.243137, 0.372549, 1)
+colors = PackedColorArray(0.405249, 0.890059, 1.78, 1, 5.33, 0, 1.01228, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wv4cf"]
 gradient = SubResource("Gradient_yi7ce")
@@ -17,7 +17,7 @@ curve = SubResource("Curve_qqdtv")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_drv3k"]
 emission_shape = 6
 emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 2.0
+emission_ring_height = 0.1
 emission_ring_radius = 2.0
 emission_ring_inner_radius = 2.0
 gravity = Vector3(0, 0, 0)
@@ -40,6 +40,80 @@ radial_steps = 4
 sections = 2
 curve = SubResource("Curve_pidse")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_anrij"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.1
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 2.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -5.0
+radial_accel_max = -5.0
+scale_curve = SubResource("CurveTexture_nenfb")
+color_ramp = SubResource("GradientTexture1D_wv4cf")
+attractor_interaction_enabled = false
+
+[sub_resource type="Gradient" id="Gradient_qfw0i"]
+offsets = PackedFloat32Array(0, 0.769231)
+colors = PackedColorArray(0, 1.52941, 1, 1, 0.265142, 0.222014, 1.37647, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m0kxd"]
+frequency = 0.004
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 0.0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 18.525
+domain_warp_frequency = 0.007
+domain_warp_fractal_gain = 0.269
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bgwoj"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_qfw0i")
+noise = SubResource("FastNoiseLite_m0kxd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pesn"]
+emission_enabled = true
+emission_energy_multiplier = 1.49
+emission_texture = SubResource("NoiseTexture2D_bgwoj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_pllbn"]
+material = SubResource("StandardMaterial3D_0pesn")
+size = Vector2(4, 4)
+
+[sub_resource type="Environment" id="Environment_axyme"]
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_tftg0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:material:emission_texture:noise:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1cqej"]
 resource_name = "move"
 length = 10.0
@@ -56,20 +130,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
 }
-
-[sub_resource type="Animation" id="Animation_tftg0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:mesh:material:emission_texture:noise:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 200)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j88cq"]
@@ -80,10 +151,17 @@ _data = {
 
 [node name="Portal" type="Node3D"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="SuckedGPUParticles3D" type="GPUParticles3D" parent="."]
 amount = 300
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_drv3k")
+draw_pass_1 = SubResource("TubeTrailMesh_1euwh")
+
+[node name="RingGPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 500
+lifetime = 0.3
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_anrij")
 draw_pass_1 = SubResource("TubeTrailMesh_1euwh")
 
 [node name="Node3D" type="Node3D" parent="."]
@@ -94,11 +172,27 @@ strength = 10.0
 attenuation = 1.31951
 radius = 3.0
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_pllbn")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.45559e-08, -1, 0, 0.333, -4.37114e-08, 0, 0, 0)
+inner_radius = 2.0
+outer_radius = 3.0
+sides = 32
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.957186, 0.030757, -0.287836, 0.0349726, 0.974769, 0.220459, 0.287355, -0.221087, 0.931959, -1.27352, 1.1644, 3.53261)
+transform = Transform3D(0.957186, 0.0307571, -0.287837, 0.0349726, 0.974769, 0.220459, 0.287355, -0.221087, 0.931959, -1.64743, 1.45079, 4.74327)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_axyme")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "move"
 libraries = {
 "": SubResource("AnimationLibrary_j88cq")
 }
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.899321, 0.0396326, 0.435489, -0.339616, 0.690654, 0.638481, -0.275467, -0.722099, 0.634579, 0, 0, 0)
+light_energy = 0.3
