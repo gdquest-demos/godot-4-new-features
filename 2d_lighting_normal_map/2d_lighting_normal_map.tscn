@@ -1,0 +1,173 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqnswebsqiujo"]
+
+[ext_resource type="Script" path="res://2d_lighting_normal_map/2d_lighting_normal_map.gd" id="1_cjskf"]
+[ext_resource type="Texture2D" uid="uid://dbojlvq3xv2ab" path="res://2d_lighting_normal_map/assets/spritesheet.png" id="1_dcsnb"]
+[ext_resource type="Texture2D" uid="uid://1h4nltw7tr4n" path="res://2d_lighting_normal_map/assets/spritesheet_n.png" id="2_o4fl8"]
+[ext_resource type="Texture2D" uid="uid://cngtsvgjd34my" path="res://2d_dynamic_lights/assets/gem/0000.png" id="3_jk8hr"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_eo82y"]
+diffuse_texture = ExtResource("1_dcsnb")
+normal_texture = ExtResource("2_o4fl8")
+
+[sub_resource type="Animation" id="Animation_7go2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7fw6e"]
+resource_name = "default"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xj7e"]
+_data = {
+"RESET": SubResource("Animation_7go2l"),
+"default": SubResource("Animation_7fw6e")
+}
+
+[sub_resource type="Gradient" id="Gradient_8kjhw"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_02qvk"]
+gradient = SubResource("Gradient_8kjhw")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_rxbnc"]
+resource_name = "default"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 2.7, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(856, 549), Vector2(985, 691), Vector2(1150, 493), Vector2(920, 303)]
+}
+
+[sub_resource type="Animation" id="Animation_ud8an"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(856, 549)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5y81a"]
+_data = {
+"RESET": SubResource("Animation_ud8an"),
+"default": SubResource("Animation_rxbnc")
+}
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_cjskf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(978, 529)
+scale = Vector2(1.30233, 1.30233)
+texture = SubResource("CanvasTexture_eo82y")
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_4xj7e")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(856, 549)
+scale = Vector2(2.39062, 2.39062)
+texture = SubResource("GradientTexture2D_02qvk")
+height = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="PointLight2D"]
+light_mask = 0
+scale = Vector2(1.46405, 1.46405)
+texture = ExtResource("3_jk8hr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PointLight2D"]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_5y81a")
+}
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 289.0
+offset_bottom = 138.0
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Light energy"
+
+[node name="EnergySlider" type="HSlider" parent="VBoxContainer3/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 5.0
+step = 0.01
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer3/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Light height"
+
+[node name="HeightSlider" type="HSlider" parent="VBoxContainer3/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
