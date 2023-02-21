@@ -1,18 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg2hsvffr5y5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dg2hsvffr5y5p"]
 
 [ext_resource type="Script" path="res://2d_physics_benchmark/ball.gd" id="1_g5mgu"]
-[ext_resource type="Texture2D" uid="uid://lt6nepwa1ma3" path="res://2d_physics_benchmark/assets/cannon_ball_green.png" id="2_n702w"]
+[ext_resource type="Shader" path="res://2d_physics_benchmark/assets/volume_tilemap.gdshader" id="2_maahj"]
+[ext_resource type="Texture2D" uid="uid://dm8ddlh0p6bt2" path="res://2d_physics_benchmark/assets/2d_ball_atlas.png" id="2_ro2u6"]
+[ext_resource type="Texture2D" uid="uid://b2yjwfm52qe6r" path="res://2d_physics_benchmark/assets/2d_ball.png" id="4_4f3y2"]
+
+[sub_resource type="Gradient" id="Gradient_bishi"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.188172, 0.4, 0.6, 0.8)
+colors = PackedColorArray(0.174408, 0.439312, 0.894752, 1, 0.98948, 0.364543, 0, 1, 0.986628, 0.624127, 0, 1, 0, 0.568875, 0.200903, 1, 0.822847, 0.508196, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujyj3"]
+resource_local_to_scene = true
+shader = ExtResource("2_maahj")
+shader_parameter/color = Color(0.898039, 0.419608, 0, 1)
+shader_parameter/normal_map = ExtResource("2_ro2u6")
 
 [sub_resource type="CircleShape2D" id="5"]
 
 [node name="Ball" type="RigidBody2D"]
-scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_g5mgu")
+gradient = SubResource("Gradient_bishi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ujyj3")
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_n702w")
+scale = Vector2(0.161082, 0.161082)
+texture = ExtResource("4_4f3y2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("5")
