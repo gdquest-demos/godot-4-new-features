@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AutodocExampleItem" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://additional/snippets/070-autodoc.gd" id="1_pol8m"]
+
+[resource]
+script = ExtResource("1_pol8m")
+item_type = 2
+value = 0
+item_name = "Pouch"
+item_weight = 10
+status_name = "Magical"
+is_container = true
+maximum_countenance = 10
+contents = Array[ExtResource("1_pol8m")]([])

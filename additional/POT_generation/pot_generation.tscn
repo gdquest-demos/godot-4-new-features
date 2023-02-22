@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0oo2o8h0ljs"]
+
+[ext_resource type="FontFile" uid="uid://cexxvyj54f4oj" path="res://interface/fonts/OpenSans-Bold.ttf" id="1_0u3bi"]
+
+[sub_resource type="Theme" id="Theme_6lijm"]
+default_font = ExtResource("1_0u3bi")
+default_font_size = 24
+
+[node name="HBoxContainer5" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6lijm")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "Go to Project > Project Settings > Localisation
+Then go to \"POT Generation\", and generate a POT file.
+
+The file won't show in the editor, you need to open the project's directory in your file browser to see it."
+autowrap_mode = 3
+
+[node name="pot_generation" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="pot_generation"]
+layout_mode = 2
+text = "Game Options"
+
+[node name="Title2" type="Label" parent="pot_generation"]
+layout_mode = 2
+text = "Screen"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="pot_generation"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="pot_generation/HBoxContainer2"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pot_generation"]
+layout_mode = 2
+
+[node name="Screen Size" type="Label" parent="pot_generation/HBoxContainer"]
+layout_mode = 2
+text = "Screen Size"
+
+[node name="OptionButton" type="OptionButton" parent="pot_generation/HBoxContainer"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "640x480"
+popup/item_0/id = 1
+popup/item_1/text = "1920x1080"
+popup/item_1/id = 0
+
+[node name="Title3" type="Label" parent="pot_generation"]
+layout_mode = 2
+text = "Sound"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="pot_generation"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="pot_generation/HBoxContainer3"]
+layout_mode = 2
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="pot_generation/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="pot_generation"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="pot_generation/HBoxContainer4"]
+layout_mode = 2
+text = "FX"
+
+[node name="HSlider" type="HSlider" parent="pot_generation/HBoxContainer4"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
