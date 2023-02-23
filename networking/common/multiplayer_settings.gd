@@ -28,11 +28,11 @@ signal connected
 ## Emitted when disconnected from the server (includes the server itself)
 signal disconnected
 ## Emitted when a player enters the network (includes self)
-signal player_added(player: Player)
+signal player_added(player: PeerPlayer)
 ## Emitted when a player exits the network (includes self)
 signal player_removed(player_id: int)
 ## Emitted when a player sends a message to everyone
-signal player_sent_text(player: Player, message: String)
+signal player_sent_text(player: PeerPlayer, message: String)
 
 
 ## The server's public IP
@@ -46,8 +46,8 @@ var nickname: String = ["Brave", "Horrific", "Courageous", "Terrific", "Fair", "
 ## A generated color for the player
 var color: Color = Color.from_hsv((randi() % 12) / 12.0, 1, 1)
 ## All connected players will be listed here
-## Matches a player id with a Player instance
-## @type Dictionary[Int, Player]
+## Matches a player id with a PeerPlayer instance
+## @type Dictionary[Int, PeerPlayer]
 var players := {}
 ## Tracks the current status
 var status: STATUS = STATUS.NONE :
@@ -116,7 +116,7 @@ func end_session() -> void:
 func _register_player(player_nickname: String, player_color: Color) -> void:
 	var id := multiplayer.get_remote_sender_id()
 	assert(is_a_peer(id), "this method should only be called from an RPC context")
-	var player := Player.new()
+	var player := PeerPlayer.new()
 	player.id = id
 	player.nickname = player_nickname
 	player.color = player_color
@@ -180,14 +180,14 @@ func is_a_peer(peer_id: int) -> bool:
 	return peer_id != 0
 
 
-func get_player_by_id(player_id: int) -> Player:
+func get_player_by_id(player_id: int) -> PeerPlayer:
 	if not players.has(player_id):
 		return
-	var player: Player = players[player_id]
+	var player: PeerPlayer = players[player_id]
 	return player
 
 
-class Player:
+class PeerPlayer:
 	var id := 0
 	var nickname := ""
 	var color := Color.BLACK
@@ -197,4 +197,4 @@ class Player:
 			return "@" if is_host else ""
 	
 	func _to_string() -> String:
-		return "Player(%s:%s)"%[id, nickname]
+		return "PeerPlayer(%s:%s)"%[id, nickname]

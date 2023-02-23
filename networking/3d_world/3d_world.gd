@@ -39,7 +39,7 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 	lobby.visible = is_toggled
 
 
-func _on_player_added(player: MultiplayerSettings.Player) -> void:
+func _on_player_added(player: MultiplayerSettings.PeerPlayer) -> void:
 	if multiplayer.is_server():
 		# this uses the custom function `spawn_player_custom`
 		spawner.spawn([player.id, player.nickname, player.color])

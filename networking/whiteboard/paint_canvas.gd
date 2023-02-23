@@ -24,7 +24,7 @@ func _add_point(data: Array) -> void:
 	queue_redraw()
 
 
-func add_player(player: MultiplayerSettings.Player) -> void:
+func add_player(player: MultiplayerSettings.PeerPlayer) -> void:
 		var cursor: Cursor = preload("cursor.tscn").instantiate()
 		cursor.nickname = player.nickname
 		cursor.color = player.color

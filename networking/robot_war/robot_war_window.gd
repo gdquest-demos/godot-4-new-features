@@ -42,7 +42,7 @@ func _on_menu_toggled(is_toggled: bool) -> void:
 	lobby.visible = is_toggled
 
 
-func _on_player_added(player: MultiplayerSettings.Player) -> void:
+func _on_player_added(player: MultiplayerSettings.PeerPlayer) -> void:
 	game_ui.show()
 	lobby.visible = false
 	

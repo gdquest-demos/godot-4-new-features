@@ -66,7 +66,7 @@ func _on_disconnected():
 	send_message_button.disabled = true
 
 
-func _on_player_added(player: MultiplayerSettings.Player) -> void:
+func _on_player_added(player: MultiplayerSettings.PeerPlayer) -> void:
 	var label := Label.new()
 	label.text = player.prefix + player.nickname
 	label.add_theme_color_override("font_color", player.color)
