@@ -1,8 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://da551o3yjocf3"]
+[gd_scene load_steps=24 format=3 uid="uid://da551o3yjocf3"]
 
 [ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
 [ext_resource type="Script" path="res://navigation/moving_platform_handler.gd" id="3_k6sl3"]
+[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="4_xs3fr"]
+[ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
+[ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="6_1qom3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
 vertices = PackedVector3Array(-4.5, 1, -26.5, -4.5, 1, -17.5, 4.5, 1, -17.5, 4.5, 1, -26.5, -4.5, 1, -4.5, -4.5, 1, 4.5, 4.5, 1, 4.5, 4.5, 1, -4.5)
@@ -24,15 +27,6 @@ radius = 0.25
 height = 0.5
 radial_segments = 16
 rings = 8
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ui7ej"]
-
-[sub_resource type="Sky" id="Sky_eaf47"]
-sky_material = SubResource("ProceduralSkyMaterial_ui7ej")
-
-[sub_resource type="Environment" id="Environment_7dks7"]
-background_mode = 2
-sky = SubResource("Sky_eaf47")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_txvch"]
 vertices = PackedVector3Array(-1.5, 1, -1.5, -1.5, 1, 1.5, 1.5, 1, 1.5, 1.5, 1, -1.5)
@@ -111,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -2, 0), Vector3(0, 0, 4), Vector3(0, 0, 4), Vector3(0, -2, 0), Vector3(0, 0, -4), Vector3(0, 0, -4), Vector3(0, -2, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 4), Vector3(0, 0, 4), Vector3(0, 0, 0), Vector3(0, 0, -4), Vector3(0, 0, -4), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -155,6 +149,44 @@ _data = {
 "RESET": SubResource("Animation_215et"),
 "platform_loop": SubResource("Animation_mxhwk")
 }
+
+[sub_resource type="Environment" id="Environment_ah0wc"]
+background_mode = 2
+sky = ExtResource("4_xs3fr")
+ambient_light_color = Color(0.705882, 0.337255, 0, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+tonemap_exposure = 0.93
+tonemap_white = 0.95
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 1.25
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0032
+volumetric_fog_emission = Color(0.682353, 0.627451, 0.619608, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rcl0u"]
+seamless = true
+noise = SubResource("FastNoiseLite_c510s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsun8"]
+render_priority = 0
+shader = ExtResource("5_kh450")
+shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
+shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
+shader_parameter/water_edge_distance = 0.5
+shader_parameter/water_depth_distance = 4.0
+shader_parameter/water_texture_scale = 40.0
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_rcl0u")
+shader_parameter/caustic_sampler = ExtResource("6_1qom3")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uso6y"]
+size = Vector2(400, 400)
+subdivide_width = 40
+subdivide_depth = 40
 
 [node name="Navigation" type="Node3D"]
 script = ExtResource("1_avpy2")
@@ -209,11 +241,9 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -22)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7dks7")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
+shadow_enabled = true
 
 [node name="MovingPlatformHandler" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -285,6 +315,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Button" type="Button" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -295,6 +326,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 text = "Toggle Platform"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ah0wc")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
+material_override = SubResource("ShaderMaterial_wsun8")
+mesh = SubResource("PlaneMesh_uso6y")
 
 [connection signal="timeout" from="MovingPlatformHandler/MovingPlatformWaitForUserTimer" to="MovingPlatformHandler" method="_on_moving_platform_wait_for_user_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

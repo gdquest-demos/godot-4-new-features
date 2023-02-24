@@ -20,7 +20,6 @@ func _ready() -> void:
 	beetle1._navigation_agent.set_navigation_layer_value(2, true)
 	beetle2._navigation_agent.set_navigation_layer_value(2, true)
 
-
 	# add debug labels to see platform state
 	for bettle in $Beetles.get_children():
 		var new_label_3d : Label3D = Label3D.new()
@@ -29,8 +28,10 @@ func _ready() -> void:
 		new_label_3d.no_depth_test = true
 		bettle.add_child(new_label_3d)
 		new_label_3d.position.y = 1.7
+		new_label_3d.scale *= 2.0
 		new_label_3d.name = "PlatformUsageStateLabel"
 		bettle.agent_state_label = new_label_3d
+		new_label_3d.hide()
 
 
 func _on_button_pressed() -> void:

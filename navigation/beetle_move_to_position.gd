@@ -30,7 +30,7 @@ func _physics_process(_delta: float) -> void:
 
 #	var global_look_position: Vector3 = target_global_position
 #	global_look_position.y = global_position.y
-	look_at(target_global_position)
+	look_at(next_location)
 
 	var direction := (next_location - global_position).normalized()
 	_navigation_agent.set_velocity(direction * SPEED)

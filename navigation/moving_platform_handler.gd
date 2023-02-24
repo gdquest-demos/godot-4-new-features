@@ -29,10 +29,6 @@ extends Node3D
 var _is_enabled : bool = true
 
 
-func _ready() -> void:
-	moving_platform_visual_mesh.material_override.albedo_color = Color.GREEN
-
-
 func is_enabled():
 	return _is_enabled
 
