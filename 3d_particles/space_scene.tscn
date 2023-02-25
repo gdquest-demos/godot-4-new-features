@@ -1,0 +1,225 @@
+[gd_scene load_steps=18 format=3 uid="uid://spxdx6fynt25"]
+
+[ext_resource type="Script" path="res://3d_particles/ship.gd" id="1_wqxjo"]
+
+[sub_resource type="Curve" id="Curve_kwb40"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.364372, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7eeab"]
+curve = SubResource("Curve_kwb40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3h623"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 0.1)
+direction = Vector3(0, 0, 1)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+linear_accel_min = -2.0
+linear_accel_max = -2.0
+tangential_accel_min = -5.0
+tangential_accel_max = 5.0
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_7eeab")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="SphereMesh" id="SphereMesh_qq5vv"]
+radius = 0.01
+height = 0.02
+radial_segments = 8
+rings = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nrvb"]
+direction = Vector3(0, 0, 1)
+spread = 5.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+linear_accel_min = 50.0
+linear_accel_max = 50.0
+scale_min = 5.0
+scale_max = 5.0
+color = Color(1, 0.345098, 0.509804, 1)
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.06
+collision_use_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvl1f"]
+shading_mode = 0
+albedo_color = Color(1, 0.211765, 0.392157, 1)
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_n111r"]
+material = SubResource("StandardMaterial3D_gvl1f")
+radius = 0.01
+radial_steps = 3
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_000e4"]
+direction = Vector3(0, 0, -1)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_min = 5.0
+scale_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i7gpd"]
+shading_mode = 0
+albedo_color = Color(0.384314, 1, 0.811765, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg2nn"]
+material = SubResource("StandardMaterial3D_i7gpd")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_5muq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootingShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.08544, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetShip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.36563, 0, 23.807)]
+}
+
+[sub_resource type="Animation" id="Animation_4oach"]
+resource_name = "move"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShootingShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-7.08544, 0, 0), Vector3(12.2571, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetShip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.36563, 0, 23.807), Vector3(2.18851, 0, 23.807)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yftl1"]
+_data = {
+"RESET": SubResource("Animation_5muq1"),
+"move": SubResource("Animation_4oach")
+}
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_72x23"]
+sky_top_color = Color(0.368627, 0.423529, 0.482353, 1)
+sky_horizon_color = Color(0.0784314, 0.0784314, 0.0823529, 1)
+sky_energy_multiplier = 0.49
+ground_bottom_color = Color(0.054902, 0.0901961, 0.12549, 1)
+ground_horizon_color = Color(0.0784314, 0.0784314, 0.0823529, 1)
+ground_curve = 0.0565685
+sun_angle_max = 41.9
+sun_curve = 0.424264
+
+[sub_resource type="Sky" id="Sky_rwbvs"]
+sky_material = SubResource("ProceduralSkyMaterial_72x23")
+
+[sub_resource type="Environment" id="Environment_1xk8j"]
+background_mode = 2
+sky = SubResource("Sky_rwbvs")
+fog_light_color = Color(0.0705882, 0.0666667, 0.0745098, 1)
+fog_light_energy = 1.41
+fog_sun_scatter = 0.08
+fog_density = 0.0242
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0175
+volumetric_fog_albedo = Color(0.517647, 0.615686, 0.584314, 1)
+volumetric_fog_anisotropy = -0.37
+volumetric_fog_detail_spread = 1.06066
+volumetric_fog_ambient_inject = 0.6
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TargetShip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.36563, 0, 23.807)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TargetShip"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+cone = true
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="TargetShip"]
+size = Vector3(2, 1, 1)
+
+[node name="ShootingShip" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08544, 0, 0)
+script = ExtResource("1_wqxjo")
+target_path = NodePath("../TargetShip")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ShootingShip"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+cone = true
+
+[node name="ProjectileGPUParticles3D" type="GPUParticles3D" parent="ShootingShip"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.332211)
+sub_emitter = NodePath("ShootingGPUParticles2D")
+visibility_aabb = AABB(-2.02552, -0.780716, -0.117562, 5.08254, 1.4491, 9.68977)
+process_material = SubResource("ParticleProcessMaterial_3h623")
+draw_pass_1 = SubResource("SphereMesh_qq5vv")
+
+[node name="ShootingGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D"]
+unique_name_in_owner = true
+emitting = false
+sub_emitter = NodePath("SmokeGPUParticles2D")
+visibility_aabb = AABB(-6.37075, -3.13341, -1.00001, 11.8253, 6.47806, 35.9632)
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_7nrvb")
+draw_pass_1 = SubResource("TubeTrailMesh_n111r")
+
+[node name="SmokeGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D/ShootingGPUParticles2D"]
+emitting = false
+visibility_aabb = AABB(-1.52401, -0.928911, -1.50131, 3.04801, 1.85782, 3.00262)
+process_material = SubResource("ParticleProcessMaterial_000e4")
+draw_pass_1 = SubResource("BoxMesh_cg2nn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.810916, 0.113474, -0.574054, 0.0241186, 0.973702, 0.226544, 0.584665, -0.197553, 0.786854, -18.1027, 7.17755, 38.5076)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move"
+libraries = {
+"": SubResource("AnimationLibrary_yftl1")
+}
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, 0.103945, 0.237029, -0.12941, -0.599151, 0.790109, 0.224144, -0.79386, -0.565284, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1xk8j")
