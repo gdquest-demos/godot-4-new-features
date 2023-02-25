@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://coouhq4b8puhp"]
+
+[ext_resource type="Script" path="res://networking/whiteboard/whiteboard.gd" id="1_6xbdw"]
+[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="2_l2rpa"]
+[ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="3_ub8ts"]
+[ext_resource type="Script" path="res://networking/whiteboard/paint_canvas.gd" id="4_umxun"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igwky"]
+bg_color = Color(0.760784, 0.760784, 0.760784, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.0901961, 0.0901961, 0.0901961, 0.741176)
+shadow_size = 20
+shadow_offset = Vector2(5, 5)
+
+[node name="Whiteboard" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_6xbdw")
+
+[node name="MultiplayerSettings" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_l2rpa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Lobby" parent="VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("3_ub8ts")]
+unique_name_in_owner = true
+layout_mode = 2
+multiplayer_settings = NodePath("../../MultiplayerSettings")
+
+[node name="PaintCanvas" type="Panel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_igwky")
+script = ExtResource("4_umxun")

@@ -2583,6 +2583,9 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3ki4"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e7608"]
+animation = &"simple_punch"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jnddq"]
 animation = &"run"
 
@@ -2631,6 +2634,10 @@ xfade_time = 0.1
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pvlmb"]
 xfade_time = 0.1
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fo0vq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mqlbg"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pu2xo"]
 states/End/position = Vector2(855, 100)
 states/Fall/node = SubResource("AnimationNodeAnimation_v0kkf")
@@ -2638,22 +2645,24 @@ states/Fall/position = Vector2(619, 211)
 states/GroundImpact/node = SubResource("AnimationNodeAnimation_uap82")
 states/GroundImpact/position = Vector2(767, 211)
 states/Idle/node = SubResource("AnimationNodeAnimation_5hj5e")
-states/Idle/position = Vector2(549, 100)
+states/Idle/position = Vector2(541, 100)
 states/Jump/node = SubResource("AnimationNodeAnimation_l3ki4")
 states/Jump/position = Vector2(489, 211)
+states/Punch/node = SubResource("AnimationNodeAnimation_e7608")
+states/Punch/position = Vector2(532, 25)
 states/Start/position = Vector2(419, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_xd5tt")
 states/Walk/position = Vector2(716, 100)
-transitions = ["Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_g1ve6"), "Fall", "GroundImpact", SubResource("AnimationNodeStateMachineTransition_uw3s0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_1c8yj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0gith"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_56gx2"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g2g34"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_r5wub"), "GroundImpact", "Walk", SubResource("AnimationNodeStateMachineTransition_ujnev"), "GroundImpact", "Idle", SubResource("AnimationNodeStateMachineTransition_ilpop"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_ate5f"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_pvlmb")]
+transitions = ["Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_g1ve6"), "Fall", "GroundImpact", SubResource("AnimationNodeStateMachineTransition_uw3s0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_1c8yj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0gith"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_56gx2"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g2g34"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_r5wub"), "GroundImpact", "Walk", SubResource("AnimationNodeStateMachineTransition_ujnev"), "GroundImpact", "Idle", SubResource("AnimationNodeStateMachineTransition_ilpop"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_ate5f"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_pvlmb"), "Idle", "Punch", SubResource("AnimationNodeStateMachineTransition_fo0vq"), "Punch", "Idle", SubResource("AnimationNodeStateMachineTransition_mqlbg")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_q32ex"]
 nodes/Add2/node = SubResource("AnimationNodeAdd2_yodjs")
-nodes/Add2/position = Vector2(80, 160)
+nodes/Add2/position = Vector2(140, 220)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_3ls4x")
 "nodes/Animation 2/position" = Vector2(-280, 280)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_pu2xo")
-nodes/StateMachine/position = Vector2(-220, 40)
-nodes/output/position = Vector2(300, 160)
+nodes/StateMachine/position = Vector2(-120, 480)
+nodes/output/position = Vector2(360, 220)
 node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation 2"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wvioj"]

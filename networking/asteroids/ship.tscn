@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://6tmuhrrojwry"]
+
+[ext_resource type="Script" path="res://networking/asteroids/ship.gd" id="1_cf3ks"]
+[ext_resource type="Texture2D" uid="uid://crabhsu8chalp" path="res://networking/asteroids/ship.svg" id="2_tx04u"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_55e7h"]
+properties/0/path = NodePath(".:color")
+properties/0/spawn = true
+properties/0/sync = false
+properties/1/path = NodePath(".:nickname")
+properties/1/spawn = true
+properties/1/sync = false
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/sync = true
+properties/3/path = NodePath(".:angle")
+properties/3/spawn = true
+properties/3/sync = true
+properties/4/path = NodePath(".:is_multiplayer")
+properties/4/spawn = true
+properties/4/sync = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xw2m"]
+radius = 14.0357
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_cf3ks")
+color = Color(0.92549, 0.490196, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 24.0
+offset_right = 22.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "name"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
+replication_config = SubResource("SceneReplicationConfig_55e7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_3xw2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+unique_name_in_owner = true
+texture = ExtResource("2_tx04u")
+
+[node name="CannonMarker2D" type="Marker2D" parent="CollisionShape2D"]
+unique_name_in_owner = true
+position = Vector2(32, 0)
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://networking/asteroids/laser.tscn")
+spawn_path = NodePath("..")
