@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl8gdu23wa6ho"
-path="res://.godot/imported/checkbox_disabled_checked.png-4203b153af0cc0ea4844a2c43ec903a5.ctex"
+uid="uid://djwl4i3hagejd"
+path="res://.godot/imported/checkbox_disabled_empty.png-ff70918e664240db2abca0ad94e9e1e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://text-to-speech/interface/checkbox_disabled_checked.png"
-dest_files=["res://.godot/imported/checkbox_disabled_checked.png-4203b153af0cc0ea4844a2c43ec903a5.ctex"]
+source_file="res://audio_text_to_speech/interface/checkbox_disabled_empty.png"
+dest_files=["res://.godot/imported/checkbox_disabled_empty.png-ff70918e664240db2abca0ad94e9e1e7.ctex"]
 
 [params]
 
