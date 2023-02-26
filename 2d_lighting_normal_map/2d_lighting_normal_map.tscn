@@ -75,6 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/UIRoot"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 34.0
 offset_right = 299.0
