@@ -117,6 +117,11 @@ var DEMOS : Array[DemoData] = [
 		preload("./thumbnails/flow_container.png"), 
 		preload("res://ui_flexbox/flow_container_demo.tscn").resource_path
 	),
+	DemoData.setup(
+		"Info & Credits", 
+		preload("./thumbnails/thanks.png"), 
+		preload("res://main/thanks/thanks.tscn").resource_path
+	),
 ]
 
 func _ready() -> void:
