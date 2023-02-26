@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf6lgckyosgxo"
-path="res://.godot/imported/canvas_group_thumbnail.png-e17b55082b62b483205be8384dc532fa.ctex"
+uid="uid://dx05efr2wg5a0"
+path="res://.godot/imported/voxelgi_thumbnail.png-1149fe6dbfc139fb8202a106666775e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/demo_data/thumbnails/canvas_group_thumbnail.png"
-dest_files=["res://.godot/imported/canvas_group_thumbnail.png-e17b55082b62b483205be8384dc532fa.ctex"]
+source_file="res://main/thumbnails/voxelgi_thumbnail.png"
+dest_files=["res://.godot/imported/voxelgi_thumbnail.png-1149fe6dbfc139fb8202a106666775e5.ctex"]
 
 [params]
 

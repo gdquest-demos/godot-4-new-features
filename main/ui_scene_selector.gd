@@ -1,12 +1,20 @@
 extends Node
 
-@export var DEMOS : Array[Resource]
 @onready var main_menu : CanvasLayer = %MainMenu
 @onready var scene_tree := get_tree()
 
 @onready var _cached_mouse_mode : Input.MouseMode
 @onready var _current_scene_index : int
 
+var DEMOS : Array[DemoData] = [
+	DemoData.setup("2d_clipping", preload("./thumbnails/2d_clipping_thumbnail.png"), preload("res://2d_clipping/2d_clipping.tscn").resource_path),
+	DemoData.setup("animation_retargeting", preload("./thumbnails/animation_retargeting_thumbnail.png"), preload("res://animation_retargeting/animation_retargeting.tscn").resource_path),
+	DemoData.setup("Ball Pool", preload("./thumbnails/ball_pool_thumbnail.png"), preload("res://3d_balls_pool/3d_balls_pool.tscn").resource_path),
+	DemoData.setup("canvas_group", preload("./thumbnails/canvas_group_thumbnail.png"), preload("res://cutout_character/cutout_character.tscn").resource_path),
+	DemoData.setup("heightmap", preload("./thumbnails/heightmap_thumbnail.png"), preload("res://heightmap_physics/heightmap_physics.tscn").resource_path),
+	DemoData.setup("multilingual", preload("./thumbnails/multilingual_thumbnail.png"), preload("res://dialogue_tree/dialogue_tree_ui.tscn").resource_path),
+	DemoData.setup("voxelgi", preload("./thumbnails/voxelgi_thumbnail.png"), preload("res://interior-diorama/interior_diorama.tscn").resource_path),
+]
 
 func _ready() -> void:
 	if scene_tree.current_scene == self:

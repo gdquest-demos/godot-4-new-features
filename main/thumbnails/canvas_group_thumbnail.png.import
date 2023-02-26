@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc0rxlnuspcln"
-path="res://.godot/imported/ball_pool_thumbnail.png-8797626750f6dcb8d859dd8e2838e68e.ctex"
+uid="uid://bf6lgckyosgxo"
+path="res://.godot/imported/canvas_group_thumbnail.png-c3c862fcff7494c3641a77ffececbae5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/demo_data/thumbnails/ball_pool_thumbnail.png"
-dest_files=["res://.godot/imported/ball_pool_thumbnail.png-8797626750f6dcb8d859dd8e2838e68e.ctex"]
+source_file="res://main/thumbnails/canvas_group_thumbnail.png"
+dest_files=["res://.godot/imported/canvas_group_thumbnail.png-c3c862fcff7494c3641a77ffececbae5.ctex"]
 
 [params]
 

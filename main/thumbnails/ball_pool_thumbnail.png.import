@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be1alsrbqb4o3"
-path="res://.godot/imported/heightmap_thumbnail.png-440fb8945838b34446b5875a9ff29a19.ctex"
+uid="uid://bc0rxlnuspcln"
+path="res://.godot/imported/ball_pool_thumbnail.png-792119202793707040bb04f291d6ea87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/demo_data/thumbnails/heightmap_thumbnail.png"
-dest_files=["res://.godot/imported/heightmap_thumbnail.png-440fb8945838b34446b5875a9ff29a19.ctex"]
+source_file="res://main/thumbnails/ball_pool_thumbnail.png"
+dest_files=["res://.godot/imported/ball_pool_thumbnail.png-792119202793707040bb04f291d6ea87.ctex"]
 
 [params]
 
