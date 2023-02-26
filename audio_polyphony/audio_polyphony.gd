@@ -24,7 +24,7 @@ func _ready():
 	
 	play_button.pressed.connect(
 		func():
-			audio_stream_player.max_polyphony = polyphony_slider.value
+			audio_stream_player.max_polyphony = int(polyphony_slider.value)
 			for i in range(playback_slider.value):
 				audio_stream_player.play()
 				await get_tree().create_timer(burst_slider.value/playback_slider.value).timeout

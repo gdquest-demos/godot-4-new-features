@@ -4,8 +4,6 @@ class_name PlayerSkin
 var _current_state := "Idle" : get = get_current_state
 var _treshhold := 0.01
 
-@onready var _player_sprite: AnimatedSprite2D = %PlayerSprite
-@onready var _animation_player: AnimationPlayer = %AnimationPlayer
 @onready var _animation_tree: AnimationTree = %AnimationTree
 @onready var _playback: AnimationNodeStateMachinePlayback = _animation_tree.get("parameters/playback")
 
@@ -25,7 +23,7 @@ func set_blend_position(blend_position: Vector2, speed: float = 1.0) -> void:
 		_animation_tree.set("parameters/Movement/7/TimeScale/scale", speed)
 
 
-func play_animation(anim_name: String, from_position: Vector2 = Vector2.ZERO) -> void:
+func play_animation(anim_name: String, _from_position: Vector2 = Vector2.ZERO) -> void:
 	if anim_name == _current_state:
 		return
 

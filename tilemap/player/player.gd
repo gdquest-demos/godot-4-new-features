@@ -7,7 +7,7 @@ enum States { MOVE }
 @export var decceleration := 1000.0
 @export var aim_deadzone := 0.2
 
-var _state: States = States.MOVE
+
 var _direction := Vector2.DOWN
 var _input_direction := Vector2.ZERO
 
