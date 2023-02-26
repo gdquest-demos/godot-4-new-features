@@ -1,6 +1,8 @@
 extends HBoxContainer
 
-@export var card_scene : PackedScene
+const Card := preload("res://main/menu_scene_selector/card/card.gd")
+const CardScene := preload("res://main/menu_scene_selector/card/card.tscn")
+
 
 @onready var grid = %Grid
 @onready var left_arrow = %LeftArrow
@@ -27,7 +29,7 @@ func focus_current_card() -> void:
 
 
 func create_card(card_title: String, thumbnail : Texture2D) -> void:
-	var card = card_scene.instantiate()
+	var card: Card = CardScene.instantiate()
 	grid.add_child(card)
 	card.set_title(card_title)
 	card.set_thumbnail(thumbnail)

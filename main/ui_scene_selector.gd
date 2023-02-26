@@ -1,6 +1,8 @@
 extends Node
 
-@onready var main_menu : CanvasLayer = %MainMenu
+const MainMenu := preload("res://main/menu_scene_selector/main_menu.gd")
+
+@onready var main_menu: MainMenu = %MainMenu
 @onready var scene_tree := get_tree()
 
 @onready var _cached_mouse_mode : Input.MouseMode
@@ -10,7 +12,7 @@ var DEMOS : Array[DemoData] = [
 	DemoData.setup(
 		"2d_clipping", 
 		preload("./thumbnails/2d_clipping_thumbnail.png"), 
-		preload("res://2d_clipping/2d_clipping.tscn").resource_path
+		preload("res://2d_clipping/2d_clipping_background.tscn").resource_path
 	),
 	DemoData.setup(
 		"2D Dynamic Lighting", 
@@ -124,14 +126,14 @@ func _ready() -> void:
 	main_menu.card_selector.card_selected.connect(_on_entry_pressed)
 	
 	for demo in DEMOS:
-		main_menu.card_selector.create_card(demo["title"], demo["thumbnail"])
+		main_menu.card_selector.create_card(demo.title, demo.thumbnail)
 	main_menu.card_selector.grid.get_child(0).grab_focus()
 
 
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
-	scene_tree.change_scene_to_file(DEMOS[demo_id]["scene_path"])
+	scene_tree.change_scene_to_file(DEMOS[demo_id].scene_path)
 	_current_scene_index = demo_id
 	resume()
 
