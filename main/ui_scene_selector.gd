@@ -150,6 +150,7 @@ func _ready() -> void:
 		main_menu.card_selector.create_card(demo.title, demo.thumbnail, demo.description)
 	main_menu.card_selector.grid.get_child(0).grab_focus()
 
+
 const HintText = preload("res://main/menu_scene_selector/hint_text.gd")
 const HintTextScene = preload("res://main/menu_scene_selector/hint_text.tscn")
 

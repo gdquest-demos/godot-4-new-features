@@ -45,7 +45,5 @@ text = "Demo Title"
 [node name="HintText" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("5_o074x")]
 unique_name_in_owner = true
 positioning = 4
-disabled = false
 parent = NodePath("..")
 text = "test text"
-logo_visible = false
