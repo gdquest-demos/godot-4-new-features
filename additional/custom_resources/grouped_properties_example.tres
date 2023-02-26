@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="GroupedProperties" load_steps=2 format=3 uid="uid://5wgtkum0vv7h"]
+[gd_resource type="Resource" script_class="GroupedProperties" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://custom_resources/grouped_properties.gd" id="1_bxqpw"]
+[ext_resource type="Script" path="res://additional/custom_resources/grouped_properties.gd" id="1_bxqpw"]
 
 [resource]
 script = ExtResource("1_bxqpw")

@@ -1,3 +1,5 @@
+## Demonstrates how to create groups of exports
+## open the file "grouped_properties_example.tres
 class_name GroupedProperties extends Resource
 
 enum ELEMENT{ FIRE, WATER, EARTH, WIND }

@@ -1,3 +1,6 @@
+## A status effect for the items
+## It's extended to verify that all the subclasses do show
+## in the inspector
 class_name InventoryStatusEffect extends Resource
 
 var expression := Expression.new()

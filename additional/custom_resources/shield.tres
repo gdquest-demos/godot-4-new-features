@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://da4jlk1fhyshk"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://custom_resources/inventory_item.gd" id="1_4asou"]
+[ext_resource type="Script" path="res://additional/custom_resources/inventory_item.gd" id="1_4asou"]
 [ext_resource type="Texture2D" uid="uid://cuxnttwdfup1q" path="res://ui_flexbox/assets/pickup_shield.png" id="2_fed70"]
 
 [resource]

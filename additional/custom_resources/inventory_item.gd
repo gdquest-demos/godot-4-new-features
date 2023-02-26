@@ -1,6 +1,10 @@
 @tool
-## Used as a base class for all items in the game
+## Used as a base class for items.
+## Demonstrates custom exports and custom resource exports
 ## Can itself contain items, and so is also the base class for all container
+## Check "shield.tres" and "sword.tres" as well as the "custom resources.tscn" scene
+## for a demonstration
+## This file also serves to illustrate auto-generated documentation
 class_name InventoryItem extends Resource
 
 
