@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://q0elnm5woxkb"]
+[gd_scene load_steps=18 format=3 uid="uid://q0elnm5woxkb"]
 
-[ext_resource type="PackedScene" uid="uid://bbvp62b5avjq8" path="res://main/menu_scene_selector/card/card.tscn" id="1_gkwpn"]
 [ext_resource type="Script" path="res://main/menu_scene_selector/main_menu.gd" id="1_r1nxt"]
 [ext_resource type="Texture2D" uid="uid://cr3g4o8nehftb" path="res://main/menu_scene_selector/assets/menu_arrow.png" id="2_ihupv"]
 [ext_resource type="Texture2D" uid="uid://bc6p2rpclbbwj" path="res://main/menu_scene_selector/assets/full-logo-White-no-bg.png" id="3_0o1jb"]
@@ -208,7 +207,6 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 64
 script = ExtResource("6_oo536")
-card_scene = ExtResource("1_gkwpn")
 
 [node name="LeftArrow" type="Control" parent="Main/Control/CardSelector"]
 unique_name_in_owner = true

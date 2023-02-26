@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbo3x6ub57x8j"]
+
+[ext_resource type="Script" path="res://main/menu_scene_selector/hint_text.gd" id="1_ti2mh"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="2_iq1y8"]
+[ext_resource type="Texture2D" uid="uid://cdek32l7bdxt2" path="res://main/gdquest-logo.svg" id="3_6jojq"]
+
+[node name="HintText" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_ti2mh")
+positioning = null
+disabled = null
+logo_visible = null
+
+[node name="Panel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 197.0
+offset_bottom = 105.0
+mouse_filter = 2
+theme = ExtResource("2_iq1y8")
+theme_type_variation = &"hint_text_bg"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"hint_text_title"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_type_variation = &"hint_text"
+bbcode_enabled = true
+fit_content = true
+
+[node name="LogoTextureRect" type="TextureRect" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_6jojq")
+expand_mode = 1
+stretch_mode = 5

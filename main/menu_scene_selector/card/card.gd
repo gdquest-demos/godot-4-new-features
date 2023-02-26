@@ -1,7 +1,10 @@
 extends VBoxContainer
 
+const HintText = preload("res://main/menu_scene_selector/hint_text.gd")
+
 @onready var thumbnail = %Thumbnail
 @onready var title = %Title
+@onready var hint_text: HintText = %HintText
 
 var active = false : set = _set_active
 var focused = false : set = _set_focus
@@ -59,6 +62,9 @@ func set_title(value : String):
 func set_thumbnail(value : Texture2D):
 	thumbnail.texture = value
 	thumbnail.set_texture_ratio()
+
+func set_description(value: String):
+	hint_text.text = value
 
 func _set_pivot():
 	pivot_offset = size / 2.0
