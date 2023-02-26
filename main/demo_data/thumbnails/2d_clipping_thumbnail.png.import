@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf6lgckyosgxo"
-path="res://.godot/imported/canvas_group_thumbnail.png-42249f4d79d5e4ef6ec88daa268b5fe4.ctex"
+uid="uid://174o3rsb6mok"
+path="res://.godot/imported/2d_clipping_thumbnail.png-ddf7e7f47c103ebfa0aa18fc836e00ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/demo_data/thumbnails/canvas_group_thumbnail.png"
-dest_files=["res://.godot/imported/canvas_group_thumbnail.png-42249f4d79d5e4ef6ec88daa268b5fe4.ctex"]
+source_file="res://main/demo_data/thumbnails/2d_clipping_thumbnail.png"
+dest_files=["res://.godot/imported/2d_clipping_thumbnail.png-ddf7e7f47c103ebfa0aa18fc836e00ef.ctex"]
 
 [params]
 

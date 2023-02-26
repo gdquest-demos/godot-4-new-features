@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://d4mjp57jai7ya"]
 
 [ext_resource type="Script" path="res://main/ui_scene_selector.gd" id="1_x13la"]
-[ext_resource type="Resource" uid="uid://brsu33cswdnyg" path="res://resources/demo_data/data/2d_clipping.tres" id="2_2d0ry"]
+[ext_resource type="Resource" path="res://main/demo_data/data/2d_clipping.tres" id="2_2d0ry"]
 [ext_resource type="PackedScene" uid="uid://q0elnm5woxkb" path="res://main/menu_scene_selector/main_menu.tscn" id="2_aoh2w"]
-[ext_resource type="Resource" uid="uid://bj4ymd0ci8ub2" path="res://resources/demo_data/data/animation_retargeting.tres" id="3_q5lkc"]
-[ext_resource type="Resource" uid="uid://dmi6uuh3lmhhe" path="res://resources/demo_data/data/ball_pool.tres" id="4_46ofe"]
-[ext_resource type="Resource" uid="uid://ds2qi4qsnpacn" path="res://resources/demo_data/data/canvas_group.tres" id="5_fwpk7"]
-[ext_resource type="Resource" uid="uid://7ymumgpqy2ss" path="res://resources/demo_data/data/heightmap.tres" id="6_6blfo"]
-[ext_resource type="Resource" uid="uid://bnggfxwnp0uo" path="res://resources/demo_data/data/multilingual.tres" id="7_1ca3p"]
-[ext_resource type="Resource" uid="uid://drht6iicmq1hw" path="res://resources/demo_data/data/voxelgi.tres" id="8_uakx5"]
+[ext_resource type="Resource" path="res://main/demo_data/data/animation_retargeting.tres" id="3_q5lkc"]
+[ext_resource type="Resource" path="res://main/demo_data/data/ball_pool.tres" id="4_46ofe"]
+[ext_resource type="Resource" path="res://main/demo_data/data/canvas_group.tres" id="5_fwpk7"]
+[ext_resource type="Resource" path="res://main/demo_data/data/heightmap.tres" id="6_6blfo"]
+[ext_resource type="Resource" path="res://main/demo_data/data/multilingual.tres" id="7_1ca3p"]
+[ext_resource type="Resource" path="res://main/demo_data/data/voxelgi.tres" id="8_uakx5"]
 
 [node name="UISceneSelector" type="Node"]
 script = ExtResource("1_x13la")

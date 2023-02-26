@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be1alsrbqb4o3"
-path="res://.godot/imported/heightmap_thumbnail.png-53ddd0c73e5b1b946d6496062024671b.ctex"
+uid="uid://bf6lgckyosgxo"
+path="res://.godot/imported/canvas_group_thumbnail.png-e17b55082b62b483205be8384dc532fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/demo_data/thumbnails/heightmap_thumbnail.png"
-dest_files=["res://.godot/imported/heightmap_thumbnail.png-53ddd0c73e5b1b946d6496062024671b.ctex"]
+source_file="res://main/demo_data/thumbnails/canvas_group_thumbnail.png"
+dest_files=["res://.godot/imported/canvas_group_thumbnail.png-e17b55082b62b483205be8384dc532fa.ctex"]
 
 [params]
 
