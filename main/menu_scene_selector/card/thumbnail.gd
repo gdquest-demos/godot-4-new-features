@@ -8,6 +8,8 @@ func _ready():
 
 func _set_current_zoom(value : float):
 	current_zoom = value
+	if not is_inside_tree():
+		await ready
 	var t = create_tween().set_ease(Tween.EASE_OUT)
 	t.tween_property(material, "shader_parameter/zoom", current_zoom, 0.1)
 
