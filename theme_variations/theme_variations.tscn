@@ -6,7 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://isunovujq3w" path="res://theme_variations/assets/mark_no.png" id="4_jd6v5"]
 
 [node name="Background" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_pocru")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="ThemeVariations" type="PanelContainer" parent="."]
 layout_mode = 1

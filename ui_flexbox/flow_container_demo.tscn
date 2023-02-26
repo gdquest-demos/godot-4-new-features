@@ -29,6 +29,7 @@ layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("2")
+stretch_mode = 6
 
 [node name="FlowContainerDemo" type="PanelContainer" parent="."]
 layout_mode = 1

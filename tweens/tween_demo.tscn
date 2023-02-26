@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0qttr")
-stretch_mode = 4
+stretch_mode = 6
 script = ExtResource("1_0jyno")
 
 [node name="Player" parent="." instance=ExtResource("3_1l8h0")]
