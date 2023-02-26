@@ -32,5 +32,5 @@ func set_is_open(state : bool):
 		if !_is_open and visible: hide()
 
 
-func _on_card_selected(card_index : int):
+func _on_card_selected(_card_index : int):
 	jingle_select.play()
