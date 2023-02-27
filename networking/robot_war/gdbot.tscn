@@ -8,11 +8,23 @@ height = 1.60428
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yni4b"]
 properties/0/path = NodePath(".:forward_speed")
-properties/0/spawn = true
+properties/0/spawn = false
 properties/0/sync = true
 properties/1/path = NodePath(".:color")
-properties/1/spawn = true
+properties/1/spawn = false
 properties/1/sync = true
+properties/2/path = NodePath(".:damage_amount")
+properties/2/spawn = false
+properties/2/sync = true
+properties/3/path = NodePath(".:is_attacking")
+properties/3/spawn = false
+properties/3/sync = true
+properties/4/path = NodePath(".:position")
+properties/4/spawn = true
+properties/4/sync = true
+properties/5/path = NodePath(".:rotation")
+properties/5/spawn = true
+properties/5/sync = true
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player_characters"]]
 script = ExtResource("1_qdc2h")

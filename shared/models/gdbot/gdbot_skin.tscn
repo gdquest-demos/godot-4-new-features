@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b4j5hjsa4tm1k"]
+[gd_scene load_steps=45 format=3 uid="uid://b4j5hjsa4tm1k"]
 
 [ext_resource type="Script" path="res://shared/models/gdbot/gdbot_skin.gd" id="1_dt082"]
 [ext_resource type="PackedScene" uid="uid://c4fba1hyqkstw" path="res://shared/models/gdbot/gdbot.glb" id="1_no8yw"]
@@ -2656,6 +2656,7 @@ states/Walk/position = Vector2(716, 100)
 transitions = ["Jump", "Fall", SubResource("AnimationNodeStateMachineTransition_g1ve6"), "Fall", "GroundImpact", SubResource("AnimationNodeStateMachineTransition_uw3s0"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_1c8yj"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_0gith"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_56gx2"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_g2g34"), "Idle", "Fall", SubResource("AnimationNodeStateMachineTransition_r5wub"), "GroundImpact", "Walk", SubResource("AnimationNodeStateMachineTransition_ujnev"), "GroundImpact", "Idle", SubResource("AnimationNodeStateMachineTransition_ilpop"), "Walk", "Jump", SubResource("AnimationNodeStateMachineTransition_ate5f"), "Walk", "Fall", SubResource("AnimationNodeStateMachineTransition_pvlmb"), "Idle", "Punch", SubResource("AnimationNodeStateMachineTransition_fo0vq"), "Punch", "Idle", SubResource("AnimationNodeStateMachineTransition_mqlbg")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_q32ex"]
+graph_offset = Vector2(-448.036, 413.398)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_yodjs")
 nodes/Add2/position = Vector2(140, 220)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_3ls4x")
