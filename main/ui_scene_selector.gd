@@ -51,18 +51,11 @@ var DEMOS : Array[DemoData] = [
 		preload("res://3d_balls_pool/3d_balls_pool.tscn").resource_path,
 		"Click to spawn 3D balls in this 3D physics benchmark"
 	),
-	# TODO: set up 3D particles scene
-	#DemoData.setup(
-	#	"3D Particles",
-	#	preload("./thumbnails/.png"),
-	#	preload("res://3d_balls_pool/3d_balls_pool.tscn").resource_path,
-	#	"blah blah description"
-	#),
 	DemoData.setup(
 		"3D Physics Nodes",
-		preload("./thumbnails/3d_physics_nodes.png"),
-		preload("res://3d_physics_nodes/3d_physics_nodes.tscn").resource_path,
-		"Control Sofia with WASD and move balls around"
+		preload("./thumbnails/3d_particles_thumbnail.png"),
+		preload("res://3d_particles/rain.tscn").resource_path,
+		"A simple scene showing the new 3D particle physics"
 	),
 	DemoData.setup(
 		"Animation retargeting",
@@ -101,13 +94,12 @@ var DEMOS : Array[DemoData] = [
 		preload("res://interior-diorama/interior_diorama.tscn").resource_path,
 		"Rotate the room around. A simple setup to demonstrate the results that can be obtained using VoxelGI"
 	),
-	# TODO: verify why this isn't working
-	# DemoData.setup(
-	# 	"Networking",
-	# 	preload("./thumbnails/.png"),
-	# 	preload("res://networking/robot_war/robot_war.tscn").resource_path,
-	# "test test test"
-	# ),
+	DemoData.setup(
+		"Networking",
+		preload("./thumbnails/networking_robot_war_thumbnails.png"),
+		preload("res://networking/robot_war/robot_war.tscn").resource_path,
+		"A local multiplayer demo. Control the robot with [WASD] keys, jump with [SPACE] and punch with the Left Mouse button"
+	),
 	DemoData.setup(
 		"Environment",
 		preload("./thumbnails/environment.png"),
