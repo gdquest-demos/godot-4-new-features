@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brhbpdmco1p2g"]
+[gd_scene load_steps=21 format=3 uid="uid://brhbpdmco1p2g"]
 
 [ext_resource type="Script" path="res://3d_balls_pool/3d_balls_pool.gd" id="1_iilj0"]
 [ext_resource type="Script" path="res://3d_balls_pool/DeathPlane.gd" id="2_lnerr"]
@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://co4lw7nmvvgl" path="res://3d_balls_pool/assets/pipe_1.obj" id="8_mga4t"]
 [ext_resource type="Material" uid="uid://clae0tlnax6hg" path="res://3d_balls_pool/assets/metal_mat.tres" id="8_rdn14"]
 [ext_resource type="Script" path="res://3d_balls_pool/teleporter.gd" id="12_rdkp1"]
+[ext_resource type="PackedScene" uid="uid://dbr5xy0ghpeiv" path="res://3d_balls_pool/assets/ball_spinner_collider.glb" id="13_afi71"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_66v01"]
 sky_top_color = Color(0.905882, 0.921569, 0.94902, 1)
@@ -131,29 +132,6 @@ shape = SubResource("BoxShape3D_ol647")
 [node name="TeleporterOut" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8, 6.5, -0.2)
 
-[node name="Collision" type="CSGCombiner3D" parent="."]
-visible = false
-use_collision = true
-
-[node name="CSGMesh3D" type="CSGCylinder3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-radius = 4.8
-height = 8.6
-sides = 16
-
-[node name="CSGMesh3D2" type="CSGCylinder3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, 0)
-operation = 2
-radius = 4.0
-height = 3.6
-sides = 16
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 2.7)
-operation = 2
-radius = 0.8
-height = 4.2
-
 [node name="Turner" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 3, 0)
 script = ExtResource("5_c025w")
@@ -211,5 +189,9 @@ transform = Transform3D(-0.573576, 0, -0.819152, 0, 1, 0, 0.819152, 0, -0.573576
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
+
+[node name="ball_spinner_collider" parent="." instance=ExtResource("13_afi71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1622, 0)
+visible = false
 
 [editable path="ball_spinner"]
