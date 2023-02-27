@@ -47,5 +47,6 @@ layout_mode = 2
 
 [node name="HintText" parent="Node" groups=["card_hints"] instance=ExtResource("5_o074x")]
 z_index = 100
+layout_mode = 0
 offset_top = 123.0
 offset_bottom = 320.0
