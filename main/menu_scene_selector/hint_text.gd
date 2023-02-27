@@ -43,6 +43,8 @@ extends PanelContainer
 func popup(immediate := false) -> void:
 	if not is_inside_tree():
 		await ready
+	
+	size = Vector2.ZERO
 	show()
 	if immediate == true:
 		modulate.a = 1
