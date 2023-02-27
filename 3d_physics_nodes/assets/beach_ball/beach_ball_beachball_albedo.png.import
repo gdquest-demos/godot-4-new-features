@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biysl3hu2aybu"
-path.s3tc="res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.s3tc.ctex"
+uid="uid://bsvabixooy3d5"
+path="res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://3d_physics_nodes/assets/beach_ball/beach_ball_beachball_albedo.png"
-dest_files=["res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.s3tc.ctex"]
+dest_files=["res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

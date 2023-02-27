@@ -2,22 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dulea443v68s5"
-path.s3tc="res://.godot/imported/beach_ball_beachball_normal.png-07b6082b91d3dad528f875ed3ee2f296.s3tc.ctex"
+uid="uid://cby8x84k812cp"
+path="res://.godot/imported/beach_ball_beachball_normal.png-07b6082b91d3dad528f875ed3ee2f296.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://3d_physics_nodes/assets/beach_ball/beach_ball_beachball_normal.png"
-dest_files=["res://.godot/imported/beach_ball_beachball_normal.png-07b6082b91d3dad528f875ed3ee2f296.s3tc.ctex"]
+dest_files=["res://.godot/imported/beach_ball_beachball_normal.png-07b6082b91d3dad528f875ed3ee2f296.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -26,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://3d_physics_nodes/assets/beach_ball_beachball_normal.png"
+roughness/src_normal="res://3d_physics_nodes/assets/beach_ball/beach_ball_beachball_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

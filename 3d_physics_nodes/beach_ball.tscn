@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1bohelx7terf"]
 
-[ext_resource type="PackedScene" uid="uid://ceprg2ftqpk8m" path="res://3d_physics_nodes/assets/beach_ball/beach_ball.glb" id="2_25lbm"]
+[ext_resource type="PackedScene" uid="uid://cc4qoawv2rpnc" path="res://3d_physics_nodes/assets/beach_ball/beach_ball.glb" id="2_25lbm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ostvg"]
 bounce = 0.5
