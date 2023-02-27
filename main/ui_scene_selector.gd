@@ -25,9 +25,9 @@ var DEMOS : Array[DemoData] = [
 		preload("res://2d_lighting_normal_map/2d_lighting_normal_map.tscn").resource_path
 	),
 	DemoData.setup(
-		"2D Particles", 
-		preload("./thumbnails/2d_particles.png"), 
-		preload("res://2d_particles/rain.tscn").resource_path
+		"2D Particles Collision", 
+		preload("./thumbnails/2d_particles_thumbnail.png"), 
+		preload("res://2d_particles/rainy_night.tscn").resource_path
 	),
 	DemoData.setup(
 		"2D Physics Benchmark", 
