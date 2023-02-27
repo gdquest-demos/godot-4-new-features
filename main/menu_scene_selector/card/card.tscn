@@ -42,8 +42,6 @@ theme_override_fonts/font = ExtResource("4_a7wvw")
 theme_override_font_sizes/font_size = 20
 text = "Demo Title"
 
-[node name="HintText" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("5_o074x")]
+[node name="HintText" parent="." groups=["card_hints"] instance=ExtResource("5_o074x")]
 unique_name_in_owner = true
-positioning = 4
-parent = NodePath("..")
 text = "test text"

@@ -157,6 +157,9 @@ const HintTextScene = preload("res://main/menu_scene_selector/hint_text.tscn")
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
+	for hint in get_tree().get_nodes_in_group("card_hints"):
+		var hint_text: HintText = hint as HintText
+		hint_text.popout(true)
 	var demo: DemoData = DEMOS[demo_id]
 	var scene: PackedScene = load(demo.scene_path)
 	var node := scene.instantiate()
@@ -170,8 +173,12 @@ func _on_entry_pressed(demo_id: int) -> void:
 	node.add_child(hint)
 	hint.title = demo.title
 	hint.text = demo.description
-	hint.positioning = HintText.POSITION.TOP_RIGHT
+	hint.logo_visible = true
+	hint.panel.custom_minimum_size = Vector2(420, 0)
 	resume()
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	hint.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT, Control.PRESET_MODE_KEEP_WIDTH, 20)
 
 
 func _input(event: InputEvent) -> void:

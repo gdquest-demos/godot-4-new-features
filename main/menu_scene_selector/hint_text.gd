@@ -1,48 +1,7 @@
 @tool
 extends CanvasLayer
 
-enum POSITION{
-	TOP_LEFT,
-	TOP_RIGHT,
-	BOTTOM_RIGHT,
-	BOTTOM_LEFT,
-	FOLLOWS_MOUSE
-}
-
-@export var positioning: POSITION = POSITION.TOP_LEFT:
-	set(value):
-		positioning = value
-		if not is_inside_tree():
-			await ready
-		match positioning:
-			POSITION.TOP_RIGHT:
-				panel.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-			POSITION.BOTTOM_RIGHT:
-				panel.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-			POSITION.BOTTOM_LEFT:
-				panel.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-			_:
-				panel.set_anchors_preset(Control.PRESET_TOP_LEFT)
-
 @export var disabled := false
-
-
-@export var parent: Control:
-	set(value):
-		parent = value
-		if Engine.is_editor_hint():
-			return
-		if not parent.is_inside_tree():
-			await parent.ready
-		if parent != null:
-			panel.hide()
-		parent.mouse_entered.connect(popup)
-		parent.mouse_exited.connect(popout)
-		parent.visibility_changed.connect(
-			func on_visibility_changed():
-				visible = parent.visible
-		)
-
 
 @export var title := "":
 	set(value):
@@ -69,19 +28,28 @@ enum POSITION{
 		logo_texture_rect.visible = logo_visible
 
 
+@export var global_position := Vector2.ZERO:
+	set(value):
+		global_position = value
+		if not is_inside_tree():
+			await ready
+		panel.global_position = global_position
+
+
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
 @onready var panel: PanelContainer = %Panel
 @onready var title_label: Label = %TitleLabel
 @onready var logo_texture_rect: TextureRect = %LogoTextureRect
 
-var _is_over_parent := false
+var _is_active := false
 
-
-func popup() -> void:
-	if disabled == true:
-		return
-	_is_over_parent = true
+func popup(immediate := false) -> void:
+	if not is_inside_tree():
+		await ready
 	panel.show()
+	if immediate == true:
+		panel.modulate.a = 1
+	_is_active = true
 	var tween := create_tween()
 	tween\
 		.tween_property(panel, "modulate:a", 1.0, 0.6)\
@@ -90,10 +58,15 @@ func popup() -> void:
 		.set_trans(Tween.TRANS_CUBIC)
 
 
-func popout() -> void:
-	if disabled == true:
+func popout(immediate := false) -> void:
+	if not is_inside_tree():
+		await ready
+	if immediate == true:
+		panel.hide()
 		return
-	_is_over_parent = false
+	if _is_active == false:
+		return
+	_is_active = false
 	var tween := create_tween()
 	tween\
 		.tween_property(panel, "modulate:a", 0.0, 0.2)\
@@ -103,16 +76,15 @@ func popout() -> void:
 	tween.finished.connect(panel.hide)
 
 
+func set_anchors_and_offsets_preset(
+		preset: Control.LayoutPreset, 
+		resize_mode: Control.LayoutPresetMode = Control.PRESET_MODE_MINSIZE,
+		margin := 0
+	) -> void:
+		if not is_inside_tree():
+			await ready
+		panel.set_anchors_and_offsets_preset(preset, resize_mode, margin)
+
+
 func _ready() -> void:
 	title_label.visible = title != ""
-	if Engine.is_editor_hint():
-		set_physics_process(false)
-
-
-func _physics_process(_delta: float) -> void:
-	if positioning != POSITION.FOLLOWS_MOUSE \
-	or visible == false \
-	or panel.visible == false \
-	or (parent != null and _is_over_parent == false):
-		return
-	panel.global_position = panel.get_global_mouse_position()

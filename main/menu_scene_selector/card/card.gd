@@ -14,25 +14,33 @@ var zoomed_in = 1.15
 
 signal pressed
 
-func _ready():
-	connect("resized", _set_pivot)
-	connect("mouse_entered", _set_focus.bind(true))
-	connect("mouse_exited", _set_focus.bind(false))
-	connect("focus_entered", _set_focus.bind(true))
-	connect("focus_exited", _set_focus.bind(false))
+func _ready() -> void:
+	resized.connect(_set_pivot)
+	mouse_entered.connect(_set_mouse_over.bind(true))
+	mouse_exited.connect(_set_mouse_over.bind(false))
+	focus_entered.connect(_set_focus.bind(true))
+	focus_exited.connect(_set_focus.bind(false))
 	_set_pivot()
+	hint_text.popout(true)
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	hint_text.global_position = global_position + size / 2
 
-func _gui_input(event):
+
+func _gui_input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			pressed.emit()
 	if event.is_action_pressed("ui_accept"):
 		pressed.emit()
+	elif event is InputEventMouseMotion:
+		hint_text.global_position = event.global_position
 
 
-func _set_active(state : bool):
+func _set_active(state : bool) -> void:
 	active = state
 	if state:
+		hint_text.popout()
 		var t = create_tween()
 		t.tween_property(self, "scale", Vector2.ONE * 1.025, 0.1)
 		t.tween_property(self, "scale", Vector2.ONE, 0.1)
@@ -45,8 +53,20 @@ func _set_active(state : bool):
 		title.modulate.a = 0.75
 
 
-func _set_focus(state : bool):
-	if active: return
+func _set_mouse_over(state : bool) -> void:
+	if active:
+		hint_text.popout()
+		return
+	_set_focus(state)
+	if state:
+		hint_text.popup()
+	else:
+		hint_text.popout()
+
+
+func _set_focus(state : bool) -> void:
+	if active:
+		return
 	focused = state
 	if state:
 		thumbnail.current_zoom = zoomed_in
@@ -56,15 +76,18 @@ func _set_focus(state : bool):
 		title.modulate.a = 0.75
 
 
-func set_title(value : String):
+func set_title(value : String) -> void:
 	title.text = value
 
-func set_thumbnail(value : Texture2D):
+
+func set_thumbnail(value : Texture2D) -> void:
 	thumbnail.texture = value
 	thumbnail.set_texture_ratio()
 
-func set_description(value: String):
+
+func set_description(value: String) -> void:
 	hint_text.text = value
 
-func _set_pivot():
+
+func _set_pivot() -> void:
 	pivot_offset = size / 2.0

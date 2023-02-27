@@ -45,8 +45,10 @@ func create_card(card_title: String, thumbnail : Texture2D, description: String)
 
 
 func _set_active_card_index(card_index : int):
-	grid.get_child(active_card_index).active = false
-	grid.get_child(card_index).active = true
+	var card: Card  = grid.get_child(active_card_index) as Card
+	card.active = false
+	card.active = true
+	card.hint_text.popout(true)
 	active_card_index = card_index
 	card_selected.emit(card_index)
 
