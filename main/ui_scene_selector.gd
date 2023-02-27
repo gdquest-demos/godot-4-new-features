@@ -159,6 +159,7 @@ func pause() -> void:
 	main_menu.set_is_open(true)
 	
 	if scene_tree.current_scene != null:
+		main_menu.card_selector.grid.get_child(_current_scene_index).grab_focus()
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_cached_mouse_mode = Input.mouse_mode
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
