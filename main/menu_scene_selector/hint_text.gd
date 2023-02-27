@@ -44,7 +44,9 @@ func popup(immediate := false) -> void:
 	if not is_inside_tree():
 		await ready
 	
+	# Force container to be its smallest size possibles
 	size = Vector2.ZERO
+	
 	show()
 	if immediate == true:
 		modulate.a = 1
