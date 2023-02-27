@@ -109,7 +109,7 @@ var DEMOS : Array[DemoData] = [
 	),
 	DemoData.setup(
 		"Tweens", 
-		preload("./thumbnails/tween.png"), 
+		preload("./thumbnails/tweens_thumbnail.png"), 
 		preload("res://tweens/tween_demo.tscn").resource_path
 	),
 	DemoData.setup(
