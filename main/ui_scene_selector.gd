@@ -56,7 +56,7 @@ var DEMOS : Array[DemoData] = [
 		preload("res://3d_physics_nodes/3d_physics_nodes.tscn").resource_path
 	),
 	DemoData.setup(
-		"animation_retargeting", 
+		"Animation retargeting", 
 		preload("./thumbnails/animation_retargeting_thumbnail.png"), 
 		preload("res://animation_retargeting/animation_retargeting.tscn").resource_path
 	),
