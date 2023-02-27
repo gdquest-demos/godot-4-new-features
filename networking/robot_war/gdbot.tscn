@@ -1,18 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtcc6x3j4b4or"]
 
 [ext_resource type="Script" path="res://networking/robot_war/gdbot.gd" id="1_qdc2h"]
-[ext_resource type="PackedScene" uid="uid://cgfsv8ytljo6r" path="res://shared/models/gdbot/gdbot_skin.tscn" id="2_wj78v"]
+[ext_resource type="PackedScene" uid="uid://b4j5hjsa4tm1k" path="res://shared/models/gdbot/gdbot_skin.tscn" id="2_wj78v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8un"]
 height = 1.60428
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_yni4b"]
 properties/0/path = NodePath(".:forward_speed")
-properties/0/spawn = true
+properties/0/spawn = false
 properties/0/sync = true
 properties/1/path = NodePath(".:color")
-properties/1/spawn = true
+properties/1/spawn = false
 properties/1/sync = true
+properties/2/path = NodePath(".:damage_amount")
+properties/2/spawn = false
+properties/2/sync = true
+properties/3/path = NodePath(".:is_attacking")
+properties/3/spawn = false
+properties/3/sync = true
+properties/4/path = NodePath(".:position")
+properties/4/spawn = true
+properties/4/sync = true
+properties/5/path = NodePath(".:rotation")
+properties/5/spawn = true
+properties/5/sync = true
 
 [node name="PlayerCharacter" type="CharacterBody3D" groups=["player_characters"]]
 script = ExtResource("1_qdc2h")
@@ -41,4 +53,5 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_yni4b")

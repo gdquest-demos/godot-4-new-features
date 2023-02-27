@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	damage_tick += 1
-	is_attacking = Input.is_action_pressed("punch") and get_window().has_focus()
+	is_attacking = Input.is_action_pressed("attack") and get_window().has_focus()
 	var is_just_jumping = Input.is_action_just_pressed("jump") and get_window().has_focus()
 	
 	var vel_y = velocity.y

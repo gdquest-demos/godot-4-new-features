@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dpuxnh5yejc1i"]
+
+[ext_resource type="Shader" path="res://shared/space_background/assets/star_field.gdshader" id="1_u5ynm"]
+[ext_resource type="Texture2D" uid="uid://dk462tbnxbke8" path="res://shared/space_background/assets/space_pattern.png" id="2_x64ec"]
+[ext_resource type="Texture2D" uid="uid://b05epr78tg6cf" path="res://shared/space_background/assets/star_tileset.png" id="3_6wsqn"]
+
+[sub_resource type="Gradient" id="Gradient_ddiw4"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.3, 0.7)
+colors = PackedColorArray(1, 0.816875, 0.261709, 1, 0.74046, 1, 0.861792, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ufo41"]
+gradient = SubResource("Gradient_ddiw4")
+
+[resource]
+shader = ExtResource("1_u5ynm")
+shader_parameter/background_color = Color(0.141176, 0.129412, 0.376471, 1)
+shader_parameter/seed = 5.962
+shader_parameter/chance = 0.995
+shader_parameter/base_scale = 0.75
+shader_parameter/star_count = 20.0
+shader_parameter/view_offset = Vector2(0, 0)
+shader_parameter/bg_ratio = Vector2(1, 0.563)
+shader_parameter/bg_scale = 2.5
+shader_parameter/space_pattern_sampler = ExtResource("2_x64ec")
+shader_parameter/star_tile_sampler = ExtResource("3_6wsqn")
+shader_parameter/stars_color_gradient = SubResource("GradientTexture1D_ufo41")

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsvabixooy3d5"
-path="res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.ctex"
+uid="uid://b05epr78tg6cf"
+path="res://.godot/imported/star_tileset.png-9bd33d87df524225a22e1f17a7c166a3.ctex"
 metadata={
 "vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://3d_physics_nodes/assets/beach_ball/beach_ball_beachball_albedo.png"
-dest_files=["res://.godot/imported/beach_ball_beachball_albedo.png-a4f63d199bf230812b15229ae88d23a5.ctex"]
+source_file="res://shared/space_background/assets/star_tileset.png"
+dest_files=["res://.godot/imported/star_tileset.png-9bd33d87df524225a22e1f17a7c166a3.ctex"]
 
 [params]
 

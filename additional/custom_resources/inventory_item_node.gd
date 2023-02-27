@@ -1,4 +1,5 @@
 @tool
+## A node that can hold an item
 class_name InventoryItemNode extends PanelContainer
 
 var label := Label.new()

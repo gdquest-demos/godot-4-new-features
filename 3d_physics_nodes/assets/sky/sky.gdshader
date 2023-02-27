@@ -57,6 +57,7 @@ void sky() {
 		COLOR.rgb += smoothstep(0.025 + ((1.0 + sin(TIME + stars.y)) / 2.0) * 0.05, 0.0, stars.x) * star_stength;
 	}
 	// Clouds
+	/*
 	vec2 cloud_uv = EYEDIR.xz / EYEDIR.y;
 	float cloud_mask = texture(clouds_sampler, cloud_uv * 0.05 + TIME * 0.001).x;
 	cloud_mask *= step(SKY_COORDS.y, 0.5);
@@ -66,4 +67,5 @@ void sky() {
 		vec3(1.0),
 		smoothstep(0.75, 0.85, cloud_mask)
 	);
+	*/
 }

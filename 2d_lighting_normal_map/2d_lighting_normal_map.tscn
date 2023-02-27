@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bqnswebsqiujo"]
 
 [ext_resource type="Script" path="res://2d_lighting_normal_map/2d_lighting_normal_map.gd" id="1_cjskf"]
-[ext_resource type="Texture2D" uid="uid://52owc7ggfoef" path="res://2d_lighting_normal_map/assets/dog.png" id="2_rxchn"]
+[ext_resource type="Texture2D" uid="uid://4qq352a1j6m4" path="res://2d_lighting_normal_map/assets/dog_albedo.png" id="2_kp3ns"]
 [ext_resource type="Texture2D" uid="uid://djebcop0tgdes" path="res://2d_lighting_normal_map/assets/dog_normal.png" id="3_yucla"]
 [ext_resource type="Texture2D" uid="uid://dr0s2xv81jkpy" path="res://2d_lighting_normal_map/assets/sun_icon.png" id="4_kngsb"]
 [ext_resource type="Script" path="res://2d_lighting_normal_map/wiggle.gd" id="4_vlpcx"]
@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b3x32i7av8vb2" path="res://2d_lighting_normal_map/assets/sun_pattern.png" id="8_6x13y"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_eo82y"]
-diffuse_texture = ExtResource("2_rxchn")
+diffuse_texture = ExtResource("2_kp3ns")
 normal_texture = ExtResource("3_yucla")
-specular_color = Color(1, 0.87451, 0.768627, 1)
 specular_shininess = 0.1
+texture_filter = 4
 
 [sub_resource type="Gradient" id="Gradient_8kjhw"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -28,8 +28,8 @@ fill_to = Vector2(1, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cbl"]
 shader = ExtResource("7_e8ris")
-shader_parameter/bg_color = Color(0.176471, 0.192157, 0.270588, 1)
-shader_parameter/pattern_color = Color(0.282353, 0.282353, 0.45098, 1)
+shader_parameter/bg_color = Color(0.12549, 0.121569, 0.180392, 1)
+shader_parameter/pattern_color = Color(0.192157, 0.211765, 0.321569, 1)
 shader_parameter/scale = 4.0
 shader_parameter/ratio = 0.56
 shader_parameter/direction = Vector2(0.025, 0.025)
@@ -44,7 +44,7 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Dog" type="Sprite2D" parent="."]
 position = Vector2(-1, -1)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.8, 0.8)
 texture = SubResource("CanvasTexture_eo82y")
 offset = Vector2(0, -28)
 script = ExtResource("4_vlpcx")
@@ -52,7 +52,7 @@ script = ExtResource("4_vlpcx")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-self_modulate = Color(1, 0.756863, 0.254902, 1)
+self_modulate = Color(1, 0.768627, 0.301961, 1)
 light_mask = 0
 position = Vector2(256, 0)
 texture = ExtResource("4_kngsb")
@@ -62,7 +62,7 @@ script = ExtResource("5_7mrh3")
 unique_name_in_owner = true
 texture = SubResource("GradientTexture2D_02qvk")
 texture_scale = 4.5
-height = 50.0
+height = 15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

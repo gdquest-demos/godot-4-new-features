@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=3 uid="uid://vks78qxn4hr8"]
+
+[ext_resource type="Texture2D" uid="uid://g0bii467ocxd" path="res://shared/background.png" id="1_680aw"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_pdjn6"]
+[ext_resource type="Script" path="res://main/thanks/thanks.gd" id="3_ii5h2"]
+
+[node name="Thanks" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pdjn6")
+texture = ExtResource("1_680aw")
+expand_mode = 1
+stretch_mode = 6
+script = ExtResource("3_ii5h2")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 507.0
+offset_right = -507.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="LogoTextureRect" type="TextureRect" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleLabel" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Info, Credits, Licensing"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+text = "[font_size=34]There is More[/font_size]
+[font_size=24]
+We had so many things to show that we couldn't possibly have them all completely ready in time.
+
+So, there's a little more to discover in the project's files!
+
+Here are some additional interesting bits:
+
+- in [b]additional/custom_resources[/b], you'll find demonstration of custom resource exports, grouped exports, auto-generation documentation, and generally the new inspector panel and export features
+- in [b]additional/POT_generation[/b], we explains how to generate POT (translation) files
+- in [b]additional/snippets[/b], you'll find a good number of examples of the new GDScript features and syntax
+- in [b]networking[/b], you'll find no less than 6 different network  architectures, which we tried to keep as simple as we could, demonstrating different possible setups.
+[/font_size]
+
+[font_size=34]Credits[/font_size]
+[font_size=24]
+Those demos were made by the GDQuest team, but we didn't do it alone; were greatly helped by:
+
+- Fales
+- Paulloz
+- Tokage
+- iFire
+- Smix8
+- Calinou
+- Raulsntos
+[/font_size]
+
+[font_size=34]Licenses[/font_size]
+
+[font_size=24]Godot[/font_size]
+
+This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[font_size=24]FreeType[/font_size]
+
+Portions of this software are copyright © 1996-2022 The FreeType Project ([url]https://www.freetype.org[/url]). All rights reserved.
+
+[font_size=24]ENet[/font_size]
+
+Copyright (c) 2002-2020 Lee Salzman
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[font_size=24]Mbed TLS[/font_size]
+
+Copyright The Mbed TLS Contributors
+
+Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+[url]http://www.apache.org/licenses/LICENSE-2.0[/url]
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+
+[font_size=34]Thank you for playing![/font_size]
+
+"
+fit_content = true
+selection_enabled = true
+
+[node name="Spacer" type="TextureRect" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

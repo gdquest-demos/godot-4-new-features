@@ -22,9 +22,6 @@ var move_targets := []:
 			set_movement_target(move_targets[0].global_position)
 			_beetle_skin.walk()
 
-# TODO: remove?
-#@onready var _reaction_animation_player: AnimationPlayer = %AnimationPlayer
-#@onready var _detection_area: Area3D = %PlayerDetectionArea
 @onready var _beetle_skin: Node3D = %BeetlebotSkin
 @onready var _navigation_agent: NavigationAgent3D = %NavigationAgent3D
 

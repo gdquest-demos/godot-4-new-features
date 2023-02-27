@@ -37,5 +37,9 @@ func fall() -> void:
 	_main_state_machine.travel("Fall")
 
 
+func punch() -> void:
+	_main_state_machine.travel("Punch")
+
+
 func set_face(face_name: String) -> void:
 	face.current_face = face_name

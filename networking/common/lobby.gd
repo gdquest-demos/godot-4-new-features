@@ -7,8 +7,6 @@ signal game_start_requested
 
 @export var minimal_amount_of_players := 2
 
-# TODO: why can't this be specified as a MultiplayerSettings node?
-# TODO: why aren't config warnings updated? Why isn't the setter called at all?
 @export var multiplayer_settings: Node = null:
 	set(value):
 		if value is MultiplayerSettings:

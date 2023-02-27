@@ -41,7 +41,6 @@ func _draw() -> void:
 		draw_circle(point.position, point.size, point.color)
 
 
-## TODO: REMOVE
 class Point:
 	var position := Vector2.ZERO
 	var color := Color.BLACK

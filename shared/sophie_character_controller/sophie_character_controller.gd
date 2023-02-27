@@ -46,8 +46,6 @@ extends CharacterBody3D
 
 @onready var _ground_height: float = 0.0
 @onready var _start_position := global_transform.origin
-# TODO: remove
-#@onready var _coins := 0
 
 # States we have to store to control the character
 @onready var _sliding_buffer := false
@@ -80,14 +78,11 @@ func _physics_process(delta: float) -> void:
 	# Get input and movement state
 	var move_direction := _get_camera_oriented_input()
 	var angle_to_move := velocity.signed_angle_to(move_direction, Vector3.UP)
-	# TODO: remove
-	#var is_moving_towards_wall := not move_direction.is_zero_approx() and move_direction.dot(get_wall_normal()) < -0.70
 	
+
 	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
 	var is_air_boosting := Input.is_action_pressed("jump") and not is_on_floor() and y_velocity > 0.0
 	var is_sliding: bool = is_on_floor() and abs(angle_to_move) > (PI/2) * 1.01 and (velocity.length() > sliding_threshold_velocity or _sliding_buffer)
-	# TODO: remove
-	#var is_just_on_floor: bool = is_on_floor() && !_is_on_floor_buffer
 	
 	_sliding_buffer = is_sliding
 	_is_on_floor_buffer = is_on_floor()

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://pe3y7hhxxr5"]
+
+[ext_resource type="Material" uid="uid://dpuxnh5yejc1i" path="res://shared/space_background/assets/space_material.tres" id="1_nxrqc"]
+[ext_resource type="Script" path="res://shared/space_background/space_background.gd" id="2_flsu7"]
+
+[node name="SpaceBackground" type="ColorRect"]
+material = ExtResource("1_nxrqc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_flsu7")

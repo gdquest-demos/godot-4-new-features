@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://d1r54yxb6v0ja"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dopjjsgph4tag"]
 
-[ext_resource type="Script" path="res://custom_resources/inventory_item.gd" id="1_2d8jw"]
+[ext_resource type="Script" path="res://additional/custom_resources/inventory_item.gd" id="1_2d8jw"]
 [ext_resource type="Texture2D" uid="uid://kyuhn5kioyuv" path="res://ui_flexbox/assets/pickup_sword.png" id="2_8447v"]
-[ext_resource type="Script" path="res://custom_resources/inventory_status_effect.gd" id="2_78172"]
+[ext_resource type="Script" path="res://additional/custom_resources/inventory_status_effect.gd" id="2_78172"]
 
 [sub_resource type="Resource" id="Resource_jifyc"]
 script = ExtResource("2_78172")

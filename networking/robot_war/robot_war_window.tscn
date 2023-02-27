@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb5cjjdwg26q0"]
+[gd_scene load_steps=12 format=3 uid="uid://cb5cjjdwg26q0"]
 
 [ext_resource type="Script" path="res://networking/robot_war/robot_war_window.gd" id="1_dky47"]
 [ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_0oitf"]
@@ -13,7 +13,20 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b2st3"]
+sky_top_color = Color(0.760784, 0.611765, 0.964706, 1)
+sky_horizon_color = Color(0.603922, 0.337255, 0.890196, 1)
+sky_curve = 0.819624
+ground_bottom_color = Color(0.462745, 0.196078, 0.717647, 1)
+ground_horizon_color = Color(0.603922, 0.337255, 0.890196, 1)
+ground_curve = 0.815719
+
+[sub_resource type="Sky" id="Sky_prjrk"]
+sky_material = SubResource("ProceduralSkyMaterial_b2st3")
+
 [sub_resource type="Environment" id="Environment_erl0c"]
+background_mode = 2
+sky = SubResource("Sky_prjrk")
 ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
 sdfgi_enabled = true
 
