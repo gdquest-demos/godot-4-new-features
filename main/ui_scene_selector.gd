@@ -154,6 +154,8 @@ func _ready() -> void:
 const HintText = preload("res://main/menu_scene_selector/hint_text.gd")
 const HintTextScene = preload("res://main/menu_scene_selector/hint_text.tscn")
 
+var hint: HintText
+
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -168,9 +170,11 @@ func _on_entry_pressed(demo_id: int) -> void:
 	scene_tree.root.add_child(node)
 	scene_tree.current_scene = node
 	_current_scene_index = demo_id
-	
-	var hint := HintTextScene.instantiate()
+	if hint:
+		hint.queue_free()
+	hint = HintTextScene.instantiate()
 	node.add_child(hint)
+	hint.popout(true)
 	hint.title = demo.title
 	hint.text = demo.description
 	hint.logo_visible = true
@@ -200,6 +204,8 @@ func pause() -> void:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_cached_mouse_mode = Input.mouse_mode
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if hint != null:
+		hint.popout(true)
 
 
 func resume() -> void:
@@ -208,3 +214,5 @@ func resume() -> void:
 	if scene_tree.current_scene:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		Input.mouse_mode = _cached_mouse_mode
+	if hint != null:
+			hint.popup()

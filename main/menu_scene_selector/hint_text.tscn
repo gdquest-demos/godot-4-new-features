@@ -10,6 +10,7 @@ script = ExtResource("1_ti2mh")
 
 [node name="Panel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
 offset_right = 197.0
 offset_bottom = 105.0
 mouse_filter = 2
@@ -23,7 +24,6 @@ theme_override_constants/separation = 0
 
 [node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_type_variation = &"hint_text_title"

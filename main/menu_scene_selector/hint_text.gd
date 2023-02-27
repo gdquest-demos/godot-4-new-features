@@ -88,3 +88,4 @@ func set_anchors_and_offsets_preset(
 
 func _ready() -> void:
 	title_label.visible = title != ""
+	logo_texture_rect.visible = logo_visible
