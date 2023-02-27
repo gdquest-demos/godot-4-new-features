@@ -21,7 +21,7 @@ var DEMOS : Array[DemoData] = [
 	),
 	DemoData.setup(
 		"2D Lighting Normal Map", 
-		preload("./thumbnails/2d_lighting_normal_map.png"), 
+		preload("./thumbnails/2d_lighting_normal_map_thumbnail.png"), 
 		preload("res://2d_lighting_normal_map/2d_lighting_normal_map.tscn").resource_path
 	),
 	DemoData.setup(

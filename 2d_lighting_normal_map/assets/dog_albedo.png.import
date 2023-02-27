@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://52owc7ggfoef"
-path="res://.godot/imported/dog.png-27c5c4e53424574a1f4134850236f5a4.ctex"
+uid="uid://4qq352a1j6m4"
+path="res://.godot/imported/dog_albedo.png-d284efc9cc67ff66be154f4ea90ca72c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2d_lighting_normal_map/assets/dog.png"
-dest_files=["res://.godot/imported/dog.png-27c5c4e53424574a1f4134850236f5a4.ctex"]
+source_file="res://2d_lighting_normal_map/assets/dog_albedo.png"
+dest_files=["res://.godot/imported/dog_albedo.png-d284efc9cc67ff66be154f4ea90ca72c.ctex"]
 
 [params]
 
