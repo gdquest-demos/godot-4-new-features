@@ -23,13 +23,13 @@ var DEMOS : Array[DemoData] = [
 	),
 	DemoData.setup(
 		"2D Lighting Normal Map",
-		preload("./thumbnails/2d_lighting_normal_map.png"),
+		preload("./thumbnails/2d_lighting_normal_map_thumbnail.png"),
 		preload("res://2d_lighting_normal_map/2d_lighting_normal_map.tscn").resource_path,
 		"Demonstrates a directional 2D light creating 2D shadows in real time"
 	),
 	DemoData.setup(
 		"2D Particles",
-		preload("./thumbnails/2d_particles.png"),
+		preload("./thumbnails/2d_particles_thumbnail.png"),
 		preload("res://2d_particles/rain.tscn").resource_path,
 		"Particles used to create rain that falls and bounces on a tilemap level"
 	),
@@ -128,7 +128,7 @@ var DEMOS : Array[DemoData] = [
 	),
 	DemoData.setup(
 		"Tweens",
-		preload("./thumbnails/tween.png"),
+		preload("./thumbnails/tweens_thumbnail.png"),
 		preload("res://tweens/tween_demo.tscn").resource_path,
 		"Click somewhere to move the ship and collect the rupees"
 	),
@@ -141,7 +141,8 @@ var DEMOS : Array[DemoData] = [
 	DemoData.setup(
 		"Info & Credits",
 		preload("./thumbnails/thanks.png"),
-		preload("res://main/thanks/thanks.tscn").resource_path
+		preload("res://main/thanks/thanks.tscn").resource_path,
+		""
 	),
 ]
 
@@ -168,7 +169,6 @@ func _get_card_hints() -> Array[HintText]:
 
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	var demo: DemoData = DEMOS[demo_id]
 	var scene: PackedScene = load(demo.scene_path)
@@ -178,6 +178,7 @@ func _on_entry_pressed(demo_id: int) -> void:
 	scene_tree.root.add_child(node)
 	scene_tree.current_scene = node
 	_current_scene_index = demo_id
+	_cached_mouse_mode = Input.mouse_mode
 	var hint: HintText = HintTextScene.instantiate()
 	var layer := CanvasLayer.new()
 	layer.add_child(hint)
@@ -227,3 +228,4 @@ func resume() -> void:
 	if scene_tree.current_scene:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		Input.mouse_mode = _cached_mouse_mode
+
