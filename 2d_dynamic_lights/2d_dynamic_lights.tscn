@@ -1987,7 +1987,7 @@ grow_vertical = 2
 color = Color(0.0901961, 0.211765, 0.278431, 0.823529)
 
 [node name="ParallaxFront" type="ParallaxBackground" parent="Background"]
-layer = 5
+layer = 1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxFront"]
 motion_scale = Vector2(1.1, 1.025)

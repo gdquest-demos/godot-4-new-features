@@ -42,6 +42,9 @@ theme_override_fonts/font = ExtResource("4_a7wvw")
 theme_override_font_sizes/font_size = 20
 text = "Demo Title"
 
-[node name="HintText" parent="." groups=["card_hints"] instance=ExtResource("5_o074x")]
-unique_name_in_owner = true
-text = "test text"
+[node name="Node" type="Node" parent="."]
+
+[node name="HintText" parent="Node" groups=["card_hints"] instance=ExtResource("5_o074x")]
+offset_top = 123.0
+offset_right = 400.0
+offset_bottom = 320.0

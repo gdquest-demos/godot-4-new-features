@@ -1,7 +1,5 @@
 @tool
-extends CanvasLayer
-
-@export var disabled := false
+extends PanelContainer
 
 @export var title := "":
 	set(value):
@@ -28,31 +26,30 @@ extends CanvasLayer
 		logo_texture_rect.visible = logo_visible
 
 
-@export var global_position := Vector2.ZERO:
+@export var general_instructions_visible := false:
 	set(value):
-		global_position = value
+		general_instructions_visible = value
 		if not is_inside_tree():
 			await ready
-		panel.global_position = global_position
+		instructions_rich_text_label.visible = general_instructions_visible
 
 
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
-@onready var panel: PanelContainer = %Panel
 @onready var title_label: Label = %TitleLabel
 @onready var logo_texture_rect: TextureRect = %LogoTextureRect
+@onready var instructions_rich_text_label: RichTextLabel = %InstructionsRichTextLabel
 
-var _is_active := false
 
 func popup(immediate := false) -> void:
 	if not is_inside_tree():
 		await ready
-	panel.show()
+	show()
 	if immediate == true:
-		panel.modulate.a = 1
-	_is_active = true
+		modulate.a = 1
+		return
 	var tween := create_tween()
 	tween\
-		.tween_property(panel, "modulate:a", 1.0, 0.6)\
+		.tween_property(self, "modulate:a", 1.0, 0.6)\
 		.from(0.0)\
 		.set_ease(Tween.EASE_OUT)\
 		.set_trans(Tween.TRANS_CUBIC)
@@ -62,30 +59,17 @@ func popout(immediate := false) -> void:
 	if not is_inside_tree():
 		await ready
 	if immediate == true:
-		panel.hide()
+		modulate.a = 0
 		return
-	if _is_active == false:
-		return
-	_is_active = false
 	var tween := create_tween()
 	tween\
-		.tween_property(panel, "modulate:a", 0.0, 0.2)\
+		.tween_property(self, "modulate:a", 0.0, 0.2)\
 		.from(1.0)\
 		.set_ease(Tween.EASE_IN)\
 		.set_trans(Tween.TRANS_CUBIC)
-	tween.finished.connect(panel.hide)
-
-
-func set_anchors_and_offsets_preset(
-		preset: Control.LayoutPreset, 
-		resize_mode: Control.LayoutPresetMode = Control.PRESET_MODE_MINSIZE,
-		margin := 0
-	) -> void:
-		if not is_inside_tree():
-			await ready
-		panel.set_anchors_and_offsets_preset(preset, resize_mode, margin)
-
+	tween.finished.connect(hide)
 
 func _ready() -> void:
 	title_label.visible = title != ""
 	logo_texture_rect.visible = logo_visible
+	instructions_rich_text_label.visible = general_instructions_visible

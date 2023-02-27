@@ -154,14 +154,17 @@ func _ready() -> void:
 const HintText = preload("res://main/menu_scene_selector/hint_text.gd")
 const HintTextScene = preload("res://main/menu_scene_selector/hint_text.tscn")
 
-var hint: HintText
+
+func _get_card_hints() -> Array[HintText]:
+	var nodes: Array[HintText] = []
+	nodes.assign(get_tree().get_nodes_in_group("card_hints") as Array[HintText])
+	return nodes
+
 
 func _on_entry_pressed(demo_id: int) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	_cached_mouse_mode = Input.MOUSE_MODE_VISIBLE
-	for hint in get_tree().get_nodes_in_group("card_hints"):
-		var hint_text: HintText = hint as HintText
-		hint_text.popout(true)
+
 	var demo: DemoData = DEMOS[demo_id]
 	var scene: PackedScene = load(demo.scene_path)
 	var node := scene.instantiate()
@@ -170,15 +173,15 @@ func _on_entry_pressed(demo_id: int) -> void:
 	scene_tree.root.add_child(node)
 	scene_tree.current_scene = node
 	_current_scene_index = demo_id
-	if hint:
-		hint.queue_free()
-	hint = HintTextScene.instantiate()
-	node.add_child(hint)
-	hint.popout(true)
+	var hint: HintText = HintTextScene.instantiate()
+	var layer := CanvasLayer.new()
+	layer.add_child(hint)
+	node.add_child(layer)
 	hint.title = demo.title
 	hint.text = demo.description
 	hint.logo_visible = true
-	hint.panel.custom_minimum_size = Vector2(420, 0)
+	hint.general_instructions_visible = true
+	hint.custom_minimum_size = Vector2(420, 0)
 	resume()
 	await get_tree().physics_frame
 	await get_tree().physics_frame
@@ -199,20 +202,16 @@ func _input(event: InputEvent) -> void:
 
 func pause() -> void:
 	main_menu.set_is_open(true)
-	
+	_get_card_hints().map(func(hint_node): hint_node.visible = true)
 	if scene_tree.current_scene != null:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_cached_mouse_mode = Input.mouse_mode
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if hint != null:
-		hint.popout(true)
 
 
 func resume() -> void:
 	main_menu.set_is_open(false)
-	
+	_get_card_hints().map(func(hint_node): hint_node.visible = false)
 	if scene_tree.current_scene:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		Input.mouse_mode = _cached_mouse_mode
-	if hint != null:
-			hint.popup()
