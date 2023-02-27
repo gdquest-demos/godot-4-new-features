@@ -54,14 +54,13 @@ func _set_active(state : bool) -> void:
 
 
 func _set_mouse_over(state : bool) -> void:
-	if active:
-		hint_text.popout()
-		return
-	_set_focus(state)
 	if state:
 		hint_text.popup()
 	else:
 		hint_text.popout()
+	if active:
+		return
+	_set_focus(state)
 
 
 func _set_focus(state : bool) -> void:

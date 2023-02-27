@@ -202,7 +202,10 @@ func _input(event: InputEvent) -> void:
 
 func pause() -> void:
 	main_menu.set_is_open(true)
-	_get_card_hints().map(func(hint_node): hint_node.visible = true)
+	_get_card_hints().map(func(hint_node): 
+		hint_node.visible = true
+		hint_node.popout(true)
+	)
 	if scene_tree.current_scene != null:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_cached_mouse_mode = Input.mouse_mode
@@ -211,7 +214,10 @@ func pause() -> void:
 
 func resume() -> void:
 	main_menu.set_is_open(false)
-	_get_card_hints().map(func(hint_node): hint_node.visible = false)
+	_get_card_hints().map(func(hint_node): 
+		hint_node.visible = false
+		hint_node.popout(true)
+	)
 	if scene_tree.current_scene:
 		scene_tree.current_scene.process_mode = Node.PROCESS_MODE_ALWAYS
 		Input.mouse_mode = _cached_mouse_mode
