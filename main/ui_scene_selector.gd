@@ -37,7 +37,7 @@ var DEMOS : Array[DemoData] = [
 		"2D Physics Benchmark", 
 		preload("./thumbnails/2d_physics_benchmark.png"), 
 		preload("res://2d_physics_benchmark/2d_physics_benchmark.tscn").resource_path,
-		"Spawns plenty of round shapes"
+		"Spawns plenty of round shapes to test physics"
 	),
 	DemoData.setup(
 		"3D Animation Tree Audio", 
@@ -74,32 +74,32 @@ var DEMOS : Array[DemoData] = [
 		"Audio Polyphony", 
 		preload("./thumbnails/audio_polyphony.png"),
 		preload("res://audio_polyphony/audio_polyphony.tscn").resource_path,
-		"test test test"
+		"TODO"
 	),
 	DemoData.setup(
 		"Canvas Group", 
 		preload("./thumbnails/canvas_group_thumbnail.png"), 
 		preload("res://cutout_character/cutout_character.tscn").resource_path,
-		"test test test"
+		"A group of nodes fades out; the one using canvas groups shows no overlaps"
 	),
 	DemoData.setup(
 		"Multilingual", 
 		preload("./thumbnails/multilingual_thumbnail.png"), 
 		preload("res://dialogue_tree/dialogue_tree_ui.tscn").resource_path,
-		"test test test"
+		"Check how unicode characters display properly in UI nodes and buttons; You can also scale the font dynamically"
 	),
 	
 	DemoData.setup(
 		"Heightmap Physics", 
 		preload("./thumbnails/heightmap_thumbnail.png"), 
 		preload("res://heightmap_physics/heightmap_physics.tscn").resource_path,
-		"test test test"
+		"[Click] to generate a random mountain, and press [SPACE] to drop balls. Demonstrates how heightmaps can affect physics"
 	),
 	DemoData.setup(
 		"Voxel GI", 
 		preload("./thumbnails/voxelgi_thumbnail.png"), 
 		preload("res://interior-diorama/interior_diorama.tscn").resource_path,
-		"test test test"
+		"Rotate the room around. A simple setup to demonstrate the results that can be obtained using VoxelGI"
 	),
 	# TODO: verify why this isn't working
 	# DemoData.setup(
@@ -112,13 +112,13 @@ var DEMOS : Array[DemoData] = [
 		"Environment", 
 		preload("./thumbnails/environment.png"), 
 		preload("res://outdoor_environment/outdoor_environment.tscn").resource_path,
-		"test test test"
+		"TODO"
 	),
 	DemoData.setup(
 		"Theme Variations", 
 		preload("./thumbnails/theme_variations.png"), 
 		preload("res://theme_variations/theme_variations.tscn").resource_path,
-		"test test test"
+		"The scene isn't interactive, but you can see how it works by opening it in the editor"
 	),
 	DemoData.setup(
 		"Tilemap", 
@@ -136,7 +136,7 @@ var DEMOS : Array[DemoData] = [
 		"Flow Container", 
 		preload("./thumbnails/flow_container.png"), 
 		preload("res://ui_flexbox/flow_container_demo.tscn").resource_path,
-		"test test test"
+		"Add or remove items and see how they neatly stack next to each other dynamically"
 	),
 ]
 
