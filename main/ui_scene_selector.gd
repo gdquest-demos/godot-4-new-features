@@ -67,7 +67,7 @@ var DEMOS : Array[DemoData] = [
 		"Audio Polyphony",
 		preload("./thumbnails/audio_polyphony.png"),
 		preload("res://audio_polyphony/audio_polyphony.tscn").resource_path,
-		"TODO"
+		"Test the new max polyphony capacity of AudioStreamPlayer nodes"
 	),
 	DemoData.setup(
 		"Canvas Group",
@@ -104,7 +104,7 @@ var DEMOS : Array[DemoData] = [
 		"Environment",
 		preload("./thumbnails/environment.png"),
 		preload("res://outdoor_environment/outdoor_environment.tscn").resource_path,
-		"TODO"
+		"Outdoor scene example showing a full 3D environment and simple character controller"
 	),
 	DemoData.setup(
 		"Theme Variations",
