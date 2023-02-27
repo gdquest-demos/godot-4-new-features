@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbvp62b5avjq8"]
+[gd_scene load_steps=8 format=3 uid="uid://bbvp62b5avjq8"]
 
 [ext_resource type="Shader" path="res://main/menu_scene_selector/card/card.gdshader" id="1_goa7o"]
 [ext_resource type="Script" path="res://main/menu_scene_selector/card/card.gd" id="1_m2mqc"]
 [ext_resource type="Texture2D" uid="uid://cc1ef3hcsedr3" path="res://main/menu_scene_selector/assets/thumbnail_placeholder.png" id="3_td3is"]
 [ext_resource type="Script" path="res://main/menu_scene_selector/card/thumbnail.gd" id="4_5bape"]
 [ext_resource type="FontFile" uid="uid://cexxvyj54f4oj" path="res://interface/fonts/OpenSans-Bold.ttf" id="4_a7wvw"]
+[ext_resource type="PackedScene" uid="uid://cbo3x6ub57x8j" path="res://main/menu_scene_selector/hint_text.tscn" id="5_o074x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pca6m"]
 resource_local_to_scene = true
@@ -40,3 +41,12 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_a7wvw")
 theme_override_font_sizes/font_size = 20
 text = "Demo Title"
+
+[node name="Node" type="Control" parent="."]
+layout_mode = 2
+
+[node name="HintText" parent="Node" groups=["card_hints"] instance=ExtResource("5_o074x")]
+z_index = 100
+layout_mode = 0
+offset_top = 123.0
+offset_bottom = 320.0

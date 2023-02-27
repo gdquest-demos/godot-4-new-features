@@ -28,11 +28,12 @@ func focus_current_card() -> void:
 	grid.get_child(active_card_index).grab_focus()
 
 
-func create_card(card_title: String, thumbnail : Texture2D) -> void:
+func create_card(card_title: String, thumbnail : Texture2D, description: String) -> void:
 	var card: Card = CardScene.instantiate()
 	grid.add_child(card)
 	card.set_title(card_title)
 	card.set_thumbnail(thumbnail)
+	card.set_description(description)
 	card.focused = false
 	var card_index = grid.get_child_count() - 1
 	card.pressed.connect(_set_active_card_index.bind(card_index))
@@ -44,9 +45,12 @@ func create_card(card_title: String, thumbnail : Texture2D) -> void:
 
 
 func _set_active_card_index(card_index : int):
-	grid.get_child(active_card_index).active = false
-	grid.get_child(card_index).active = true
+	var previous_card: Card  = grid.get_child(active_card_index) as Card
+	previous_card.active = false
 	active_card_index = card_index
+	var current_card: Card  = grid.get_child(active_card_index) as Card
+	current_card.active = true
+	current_card.hint_text.popout(true)
 	card_selected.emit(card_index)
 
 

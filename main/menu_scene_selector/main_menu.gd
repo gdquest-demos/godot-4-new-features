@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const CardSelector = preload("res://main/menu_scene_selector/card_selector.gd")
+
 @onready var animation_player = $AnimationPlayer
 
 @onready var jingle_open = $JingleOpen
@@ -7,7 +9,7 @@ extends CanvasLayer
 @onready var jingle_select = $JingleSelect
 @onready var arrow_button_sound = $ArrowButtonSound
 
-@onready var card_selector = %CardSelector
+@onready var card_selector: CardSelector = %CardSelector
 
 var _is_open = false : set = set_is_open
 

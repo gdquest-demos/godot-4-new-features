@@ -12,8 +12,3 @@ func _ready() -> void:
 			add_child(window)
 			window.popup_centered()
 	)
-
-
-func _unhandled_key_input(event):
-	if event.is_pressed() and event.keycode == KEY_F1:
-		print_tree_pretty()
