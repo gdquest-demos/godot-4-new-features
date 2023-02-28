@@ -36,6 +36,8 @@ Additionally to the demos you can run from the menu, we have some examples acces
 
 ## Demos
 
+If you run the demo project, the navigation menu will provide you with a short description for each of these. If you prefer jumping to the code, here is the full list!
+
 - [2d Clipping](./2d_clipping)
 - [2d Dynamic Lights](./2d_dynamic_lights)
 - [2d Lighting](./2d_lighting_normal_map)
