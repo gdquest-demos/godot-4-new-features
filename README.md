@@ -1,6 +1,6 @@
 ---
 cover: static/cover.png
-itchio: 
+itchio: https://gdquest-demos.itch.io/godot-40-new-features
 youtube: 
   - https://youtu.be/chXAjMQrcZk
 tags: demos 2d 3d physics clipping 2d_lighting 2d_particles 2d_physics audio 3d_particles 3d_physics animation audio_polyphony fonts heightmap ui voxelgi navigation networking sdfgi  tilemap tweens
