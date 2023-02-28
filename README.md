@@ -17,7 +17,8 @@ It's here!
 
 After a very long wait (even by Godot standards!), we finally have our hands on Godot 4.
 
-In this project, we've built upwards of 23 demos, trying to demonstrate in the simplest way we could manage some of the most awaited features of Godot 4.0
+In this project, we've built upwards of 20 simple demos you can play with and learn from to try some of Godot 4.0's new features.
+
 
 ![The demos navigation menu](static/navigation.png)
 
