@@ -1,0 +1,115 @@
+{
+  "windowSize": [
+    1920,
+    1080
+  ],
+  "data": {},
+  "date": {
+    "date": "2023-02-28",
+    "unix": 1677619905099
+  },
+  "git": {
+    "remote": "https://github.com/gdquest-demos/godot-4.0-new-features",
+    "commit": "2b988c3a0a15df16a6999022f30545e8a2bc48df",
+    "commitShort": "2b988c3",
+    "branch": "main",
+    "lastMessage": "hide obstacle avoidance UI",
+    "version": "",
+    "submodules": []
+  },
+  "zipDir": "/home/xananax/gdquest-demos/godot-4.0-new-features/exports/builds",
+  "doZipResults": true,
+  "useTempDirs": false,
+  "frontmatter": {
+    "firstHeader": "Godot 4.0: New Features demos",
+    "cover": "static/cover.png",
+    "itchio": "https://gdquest-demos.itch.io/godot-40-new-features",
+    "youtube": [
+      "https://youtu.be/chXAjMQrcZk"
+    ],
+    "tags": [
+      "demos",
+      "2d",
+      "3d",
+      "physics",
+      "clipping",
+      "2d_lighting",
+      "2d_particles",
+      "2d_physics",
+      "audio",
+      "3d_particles",
+      "3d_physics",
+      "animation",
+      "audio_polyphony",
+      "fonts",
+      "heightmap",
+      "ui",
+      "voxelgi",
+      "navigation",
+      "networking",
+      "sdfgi",
+      "",
+      "tilemap",
+      "tweens"
+    ],
+    "description": "A set of more than 20 demos showing the new features of Godot 4.0"
+  },
+  "readme": "<h1>Godot 4.0: New Features demos</h1>\n<img src=\"static/dialogue.png\" alt=\"A demo showing the new font handling: a person with a bubble that says, &#x22;hey, wake up! It&#x27;s time to make video games&#x22;\">\n<p>It's here!</p>\n<p>After a very long wait (even by Godot standards!), we finally have our hands on Godot 4.</p>\n<p>In this project, we've built upwards of 20 simple demos you can play with and learn from to try some of Godot 4.0's new features.</p>\n<img src=\"static/navigation.png\" alt=\"The demos navigation menu\">\n<p>Feel free to run the project and test them out!</p>\n<h2>A Few Things of Note</h2>\n<p>Additionally to the demos you can run from the menu, we have some examples accessible only in the editor.</p>\n<ul>\n<li>in <a href=\"additional/custom_resources\">additional/custom_resources</a>, you'll find a demonstration of custom resource exports, grouped exports, auto-generation documentation, and generally, the new inspector panel and export features</li>\n<li>in <a href=\"additional/POT_generation\">additional/POT_generation</a>, we explain how to generate POT (translation) files</li>\n<li>in <a href=\"additional/snippets\">additional/snippets</a>, you'll find a good number of examples of the new GDScript features and syntax</li>\n<li>in <a href=\"2d_particles\">2d_particles</a>, there's an additional rainy scene</li>\n<li>in <a href=\"networking\">networking</a>, you'll find no less than six different network architectures, which we tried to keep as simple as possible, demonstrating different setups.</li>\n</ul>\n<h2>Demos</h2>\n<p>In the running project, the navigation menu will provide a short description. Here is the full list of relevant directories:</p>\n<ul>\n<li><a href=\"./2d_clipping\">2d Clipping</a></li>\n<li><a href=\"./2d_dynamic_lights\">2d Dynamic Lights</a></li>\n<li><a href=\"./2d_lighting_normal_map\">2d Lighting</a></li>\n<li><a href=\"./2d_particles\">2d Particles</a></li>\n<li><a href=\"./2d_physics_benchmark\">2d Physics Benchmark</a></li>\n<li><a href=\"./3d_animation_tree_audio\">3d Animation Tree Audio</a></li>\n<li><a href=\"./3d_balls_pool\">3d Balls Pool</a></li>\n<li><a href=\"./3d_particles\">3d Particles</a></li>\n<li><a href=\"./3d_physics_nodes\">3d Physics Nodes</a></li>\n<li><a href=\"./animation_retargeting\">Animation Retargeting</a></li>\n<li><a href=\"./audio_polyphony\">Audio Polyphony</a></li>\n<li><a href=\"./cutout_character\">Cutout Character</a></li>\n<li><a href=\"./dialogue_tree\">Dialogue Tree</a></li>\n<li><a href=\"./heightmap_physics\">Heightmap Physics</a></li>\n<li><a href=\"./interface\">Interface</a></li>\n<li><a href=\"interior-./diorama\">Interior</a></li>\n<li><a href=\"./navigation\">Navigation</a></li>\n<li><a href=\"./networking\">Networking</a></li>\n<li><a href=\"./outdoor_environment\">Environment</a></li>\n<li><a href=\"./theme_variations\">Theme Variations</a></li>\n<li><a href=\"./tilemap\">Tilemap</a></li>\n<li><a href=\"./tweens\">Tweens</a></li>\n<li><a href=\"./ui_flexbox\">Flexbox</a></li>\n</ul>\n<img src=\"static/ball_pool.png\" alt=\"A demo showing the new physics benchmark: A pool of balls\">\n\n\n<img src=\"static/lights.png\" alt=\"A demo showing the new dynamic 2D lights\">\n\n\n<img src=\"static/rainy_night.png\" alt=\"A demo showing the new 2D particles: a rainy night scene\">\n\n\n<img src=\"static/voxel.png\" alt=\"A demo showing the new light handling with voxels\">\n\n\n<img src=\"static/balls.png\" alt=\"A demo showing the new physics: an area with balls that can bounce around\">\n<h2>Credits</h2>\n<p>We didn't build those demos alone; We were greatly helped by:</p>\n<ul>\n<li>Fales</li>\n<li>Paulloz</li>\n<li>Tokage</li>\n<li>iFire</li>\n<li>Smix8</li>\n<li>Calinou</li>\n<li>Raulsntos</li>\n</ul>\n<h2>Controls</h2>\n<p>Most demos use:</p>\n<ul>\n<li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></li>\n<li><kbd>🖱 Mouse</kbd></li>\n<li><kbd>Left Mouse</kbd></li>\n<li><kbd>␣ Space</kbd></li>\n</ul>\n<p>Where relevant, we've described the controls.</p>\n<h2>License:</h2>\n<p>All code is MIT-licensed, and assets are CC-By 4.0 <a href=\"https://www.gdquest.com/\">GDQuest</a>.</p>",
+  "debug": false,
+  "verbose": true,
+  "isGodot4": true,
+  "projectDir": ".",
+  "executable": "/home/xananax/gdquest-demos/godot-4.0-new-features/bin/4.0-rc6/Godot_v4.0-rc6_linux.x86_64",
+  "templatesDir": "/home/xananax/gdquest-demos/godot-4.0-new-features/bin/4.0-rc6/templates",
+  "godot_version": [
+    4
+  ],
+  "name": "New features in Godot 4.0 (GDQuest)",
+  "icon": "icon.svg",
+  "exports": [
+    {
+      "type": "web",
+      "index": 0,
+      "isGodot3": false,
+      "name": "Web",
+      "platform": "Web",
+      "runnable": true,
+      "custom_features": "",
+      "export_filter": "all_resources",
+      "include_filter": "",
+      "exclude_filter": "",
+      "export_path": "",
+      "encryption_include_filters": "",
+      "encryption_exclude_filters": "",
+      "encrypt_pck": false,
+      "encrypt_directory": false,
+      "script_export_mode": "1",
+      "script_encryption_key": "",
+      "options": {
+        "custom_template/debug": "",
+        "custom_template/release": "",
+        "variant/extensions_support": false,
+        "vram_texture_compression/for_desktop": true,
+        "vram_texture_compression/for_mobile": false,
+        "html/export_icon": true,
+        "html/custom_html_shell": "",
+        "html/head_include": "",
+        "html/canvas_resize_policy": "2",
+        "html/focus_canvas_on_start": true,
+        "html/experimental_virtual_keyboard": false,
+        "progressive_web_app/enabled": false,
+        "progressive_web_app/offline_page": "",
+        "progressive_web_app/display": "1",
+        "progressive_web_app/orientation": "0",
+        "progressive_web_app/icon_144x144": "",
+        "progressive_web_app/icon_180x180": "",
+        "progressive_web_app/icon_512x512": "",
+        "progressive_web_app/background_color": "Color(0, 0, 0, 1)"
+      }
+    }
+  ],
+  "skipHeadless": false,
+  "cacheDir": "/home/xananax/gdquest-demos/godot-4.0-new-features/bin",
+  "exportsDir": "/home/xananax/gdquest-demos/godot-4.0-new-features/exports",
+  "variant": "rc6"
+}

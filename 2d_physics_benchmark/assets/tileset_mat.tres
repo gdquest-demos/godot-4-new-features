@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dpbefj0doi8wy"]
-
-[ext_resource type="Shader" path="res://2d_physics_benchmark/assets/volume_tilemap.gdshader" id="1_xwv1v"]
-[ext_resource type="Texture2D" uid="uid://clk62vd2sdxd" path="res://2d_physics_benchmark/assets/auto_tile_normal.png" id="2_3oquh"]
-
-[resource]
-shader = ExtResource("1_xwv1v")
-shader_parameter/color = Color(0.25098, 0.635294, 0.917647, 1)
-shader_parameter/normal_map = ExtResource("2_3oquh")
