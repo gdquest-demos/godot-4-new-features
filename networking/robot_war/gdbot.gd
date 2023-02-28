@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 		vel_y = JUMP_FORCE
 	
 	if is_attacking:
+		velocity = Vector3.ZERO
 		var collider := damage_ray_cast.get_collider()
 		if collider != null:
 			if collider.has_method("damage"):
@@ -80,11 +81,10 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor() and damage_tick >= INVULNERABILITY_TICK_DURATION:
 		var input_dir := Vector2.ZERO
 		if get_window().has_focus():
-			input_dir = Input.get_vector("ui_right", "ui_left", "ui_down", "ui_up")
-		var alt_is_pressed := Input.is_key_pressed(KEY_ALT)
+			input_dir = Input.get_vector("move_right", "move_left", "move_down", "move_up")
+
 		forward_speed = input_dir.y
-		var dir_sides := input_dir.x if alt_is_pressed else 0.0
-		var direction := (transform.basis * Vector3(dir_sides, 0, forward_speed)).normalized()
+		var direction := (transform.basis * Vector3(0, 0, forward_speed)).normalized()
 
 		velocity = direction * speed
 		

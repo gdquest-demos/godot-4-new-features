@@ -47,10 +47,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "To play the game:
-1. Spawn a window to be a Server, and click on Host.
-2. Spawn another window to be a Client, and click on Join."
+1. Click \"Spawn game Windows\".
+2. Press \"Host\" on the Server window, and \"Join\" on the Client window."
 
 [node name="SpawnWindowButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Spawn Multiplayer Window"
+text = "Spawn Game Windows"

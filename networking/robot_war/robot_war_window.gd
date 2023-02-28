@@ -15,6 +15,7 @@ const PlayerBodyScene = preload("gdbot.tscn")
 
 
 func _ready() -> void:
+	close_requested.connect(_on_close_requested)
 	toggle_button.toggled.connect(_on_menu_toggled)
 	lobby.visible = toggle_button.button_pressed
 	multiplayer_settings.player_added.connect(_on_player_added)
@@ -38,6 +39,10 @@ func _ready() -> void:
 		return player_body
 
 
+func _on_close_requested() -> void:
+	queue_free()
+
+
 func _on_menu_toggled(is_toggled: bool) -> void:
 	lobby.visible = is_toggled
 
@@ -59,6 +64,11 @@ func _on_player_removed(player_id: int) -> void:
 	var player_body := get_node_or_null("player_%s"%[player_id])
 	if player_body != null:
 		player_body.queue_free()
+
+
+func set_as_host() -> void:
+	lobby.is_server_check_button.button_pressed = true
+	lobby.is_server_check_button.pressed.emit()
 
 
 func register_player(player: PlayerBody) -> void:

@@ -120,7 +120,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uo8a3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rvtas"]
-size = Vector3(2, 2, 2)
+size = Vector3(0.51574, 2, 0.526119)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_id0wk"]
 resource_name = "texture"
@@ -550,7 +550,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7xm3g")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x55hk"]
-size = Vector3(2, 2, 2)
+size = Vector3(2, 2, 0.542195)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phh0l"]
 resource_name = "texture"
@@ -865,7 +865,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yeaxe")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lxt2g"]
-size = Vector3(2, 2, 2)
+size = Vector3(0.542188, 2, 0.571899)
 
 [node name="MeshLibraryScene" type="Node3D"]
 

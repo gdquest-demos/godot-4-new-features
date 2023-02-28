@@ -10,5 +10,10 @@ func _ready() -> void:
 		func():
 			var window := GAME_WINDOW_SCENE.instantiate()
 			add_child(window)
-			window.popup_centered()
+			window.set_as_host()
+			window.position.x = 0.0
+			
+			window = GAME_WINDOW_SCENE.instantiate()
+			add_child(window)
+			window.position.x = window.size.x
 	)
