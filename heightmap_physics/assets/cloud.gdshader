@@ -8,5 +8,5 @@ void vertex(){
 }
 
 void fragment() {
-	ALBEDO = vec3(1.0);
+	ALBEDO = vec3(0.2);
 }

@@ -61,7 +61,7 @@ var DEMOS : Array[DemoData] = [
 		"3D Particles",
 		preload("./thumbnails/3d_particles_thumbnail.png"),
 		preload("res://3d_particles/rain.tscn").resource_path,
-		"A simple scene showing the new 3D particle physics"
+		"A simple scene showing the new 3D particle physics. [Click] to generate a new mountain."
 	),
 	DemoData.setup(
 		"Animation retargeting",

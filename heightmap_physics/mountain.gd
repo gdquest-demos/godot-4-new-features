@@ -67,8 +67,6 @@ func _compute_heightmap() -> void:
 		heightmap_shape.map_data[p_index] += base_resolution * _sample_xy(uv)
 		heightmap_shape.map_data[p_index] -= uv_mask * 100.0   
 		
-		
-		
 	collision_shape_3d.scale = Vector3.ONE * (1.0 / float(base_resolution))
 	collision_shape_3d.shape = heightmap_shape
 	

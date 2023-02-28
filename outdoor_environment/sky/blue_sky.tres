@@ -30,9 +30,9 @@ noise = SubResource("FastNoiseLite_p7i03")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gu028"]
 shader = ExtResource("1_lcdkk")
-shader_parameter/top_color = Color(0.109804, 0.541176, 0.866667, 1)
-shader_parameter/bottom_color = Color(0.215686, 0.109804, 0.0196078, 1)
-shader_parameter/sun_scatter = Color(0.564706, 0.803922, 1, 1)
+shader_parameter/top_color = Color(0.0392157, 0.396078, 0.647059, 1)
+shader_parameter/bottom_color = Color(0.388235, 0.215686, 0.0627451, 1)
+shader_parameter/sun_scatter = Color(0.290196, 0.203922, 0.580392, 1)
 shader_parameter/star_stength = 0.0
 shader_parameter/clouds_tint = Color(1, 1, 1, 1)
 shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_bkjhb")
