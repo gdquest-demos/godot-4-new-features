@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpessuha23jra"]
+[gd_scene load_steps=20 format=3 uid="uid://dpessuha23jra"]
 
 [ext_resource type="Script" path="res://navigation/navigation_arena.gd" id="1_p0re4"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_m547n"]
 [ext_resource type="Script" path="res://navigation/beetle_move_to_position.gd" id="3_g41jl"]
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="5_qta1r"]
 [ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="6_luajm"]
+[ext_resource type="PackedScene" uid="uid://c0qm7kpfs8hcr" path="res://navigation/obstacle.tscn" id="7_a3on2"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="7_y1abr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
@@ -84,7 +85,7 @@ shadow_enabled = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 8)
 top_level = true
-collision_layer = 0
+collision_layer = 1
 script = ExtResource("3_g41jl")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -146,3 +147,6 @@ environment = SubResource("Environment_54smf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
 material_override = SubResource("ShaderMaterial_e6agb")
 mesh = SubResource("PlaneMesh_3tmkq")
+
+[node name="Obstacle" parent="." instance=ExtResource("7_a3on2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71932, 0.95, 0.681051)

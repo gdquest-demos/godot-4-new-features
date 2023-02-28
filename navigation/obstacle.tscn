@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_id3s4"]
 
-[node name="Obstacle" type="AnimatableBody3D"]
+[node name="Obstacle" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28523, 0.95, -2.33882)
 script = ExtResource("1_obtb1")
 
@@ -14,5 +14,3 @@ script = ExtResource("1_obtb1")
 shape = SubResource("SphereShape3D_id3s4")
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
-estimate_radius = false
-radius = 0.5
