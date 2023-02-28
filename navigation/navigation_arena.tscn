@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://navigation/beetle_move_to_position.gd" id="3_g41jl"]
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="5_qta1r"]
 [ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="6_luajm"]
-[ext_resource type="PackedScene" uid="uid://c0qm7kpfs8hcr" path="res://navigation/obstacle.tscn" id="7_a3on2"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="7_vkmm1"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="7_y1abr"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
@@ -148,5 +148,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
 material_override = SubResource("ShaderMaterial_e6agb")
 mesh = SubResource("PlaneMesh_3tmkq")
 
-[node name="Obstacle" parent="." instance=ExtResource("7_a3on2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71932, 0.95, 0.681051)
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = 28.0
+offset_top = 29.0
+offset_right = 354.0
+offset_bottom = 145.0
+
+[node name="AvoidanceSettings" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_vkmm1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/AvoidanceSettings"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/AvoidanceSettings/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/AvoidanceSettings/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Avoidance Toggle"
+
+[node name="AvoidanceToggle" type="CheckButton" parent="Panel/AvoidanceSettings/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+button_pressed = true
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/AvoidanceSettings/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/AvoidanceSettings/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Avoidance Radius"
+
+[node name="RadiusSlider" type="HSlider" parent="Panel/AvoidanceSettings/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 0.5

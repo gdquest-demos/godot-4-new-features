@@ -3,7 +3,6 @@ extends CharacterBody3D
 
 signal path_end_reached
 
-
 const SPEED := 3.0
 
 ## This array represents a queue of the locations the agent will move towards.

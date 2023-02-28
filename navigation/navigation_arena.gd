@@ -7,6 +7,21 @@ const Beetle = preload("beetle_move_to_position.gd")
 @onready var ray_cast_3d: RayCast3D = %RayCast3D
 @onready var sphere: MeshInstance3D = %Sphere
 @onready var beetle: Beetle = %Beetle
+@onready var avoidance_toggle: CheckButton = %AvoidanceToggle
+@onready var radius_slide: HSlider  = %RadiusSlider
+
+
+func _ready():
+	avoidance_toggle.toggled.connect(_on_avoidance_toggled)
+	radius_slide.value_changed.connect(_on_radius_value_changed)
+
+
+func _on_avoidance_toggled(toggled: bool) -> void:
+	beetle.set_avoidance_enabled(toggled)
+
+
+func _on_radius_value_changed(value: float) -> void:
+	beetle.set_avoidance_radius(value)
 
 
 func _unhandled_input(event: InputEvent) -> void:

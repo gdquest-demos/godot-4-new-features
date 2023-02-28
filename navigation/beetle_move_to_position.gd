@@ -24,16 +24,28 @@ func _ready() -> void:
 	set_physics_process(false)
 
 
+func set_avoidance_enabled(enabled: bool) -> void:
+	_navigation_agent.avoidance_enabled = enabled
+
+
+func set_avoidance_radius(radius: float) -> void:
+	_navigation_agent.radius = radius
+
+
 func _physics_process(_delta: float) -> void:
 	# Wait for the next location to be accessible, for example, a moving platform.
 	var next_location := _navigation_agent.get_next_path_position()
 
-#	var global_look_position: Vector3 = target_global_position
-#	global_look_position.y = global_position.y
 	look_at(next_location)
-
+	
 	var direction := (next_location - global_position).normalized()
-	_navigation_agent.set_velocity(direction * SPEED)
+	
+	if _navigation_agent.avoidance_enabled:
+		_navigation_agent.set_velocity(direction * SPEED)
+	else:
+		velocity = direction * SPEED
+		move_and_slide()
+	
 	if _navigation_agent.is_navigation_finished():
 		_beetle_skin.idle()
 		set_physics_process(false)
