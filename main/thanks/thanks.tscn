@@ -60,8 +60,8 @@ So, there's a little more to discover in the project's files!
 
 Here are some additional interesting bits:
 
-- in [b]additional/custom_resources[/b], you'll find demonstration of custom resource exports, grouped exports, auto-generation documentation, and generally the new inspector panel and export features
-- in [b]additional/POT_generation[/b], we explains how to generate POT (translation) files
+- in [b]additional/custom_resources[/b], you'll find a demonstration of custom resource exports, grouped exports, auto-generation documentation, and generally the new inspector panel and export features
+- in [b]additional/POT_generation[/b], we explain how to generate POT (translation) files
 - in [b]additional/snippets[/b], you'll find a good number of examples of the new GDScript features and syntax
 - in [b]2d_particles[/b], there's an additional rainy scene
 - in [b]networking[/b], you'll find no less than 6 different network  architectures, which we tried to keep as simple as we could, demonstrating different possible setups.
@@ -69,7 +69,7 @@ Here are some additional interesting bits:
 
 [font_size=34]Credits[/font_size]
 [font_size=24]
-Those demos were made by the GDQuest team, but we didn't do it alone; were greatly helped by:
+We didn't build those demos alone; We were greatly helped by:
 
 - Fales
 - Paulloz
