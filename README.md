@@ -1,7 +1,7 @@
 ---
-cover: ""
+cover: static/cover.png
 itchio: ""
-tags: ""
+tags: "demos 2d 3d physics navigation"
 description: ""
 ---
 

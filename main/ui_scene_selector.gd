@@ -30,8 +30,8 @@ var DEMOS : Array[DemoData] = [
 	DemoData.setup(
 		"2D Particles",
 		preload("./thumbnails/2d_particles_thumbnail.png"),
-		preload("res://2d_particles/rain.tscn").resource_path,
-		"Particles used to create rain that falls and bounces on a tilemap level"
+		preload("res://2d_particles/rainy_night.tscn").resource_path,
+		"Particles used to create rain that falls and bounces"
 	),
 	DemoData.setup(
 		"2D Physics Benchmark",
@@ -68,6 +68,18 @@ var DEMOS : Array[DemoData] = [
 		preload("./thumbnails/animation_retargeting_thumbnail.png"),
 		preload("res://animation_retargeting/animation_retargeting.tscn").resource_path,
 		"3 completely different meshes dance for you"
+	),
+	DemoData.setup(
+		"Navigation",
+		preload("./thumbnails/navigation_1.png"),
+		preload("res://navigation/navigation_arena.tscn").resource_path,
+		"Click to move the beetles and see them recalculate their navigation mesh in real time"
+	),
+	DemoData.setup(
+		"Navigation with Dynamic Obstacles",
+		preload("./thumbnails/navigation_2.png"),
+		preload("res://navigation/navigation_moving_platforms.tscn").resource_path,
+		"Those beetles patiently wait for their path to clear up to go to their destination"
 	),
 	DemoData.setup(
 		"Audio Polyphony",

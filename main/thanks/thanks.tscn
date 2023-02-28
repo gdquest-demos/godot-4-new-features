@@ -63,6 +63,7 @@ Here are some additional interesting bits:
 - in [b]additional/custom_resources[/b], you'll find demonstration of custom resource exports, grouped exports, auto-generation documentation, and generally the new inspector panel and export features
 - in [b]additional/POT_generation[/b], we explains how to generate POT (translation) files
 - in [b]additional/snippets[/b], you'll find a good number of examples of the new GDScript features and syntax
+- in [b]2d_particles[/b], there's an additional rainy scene
 - in [b]networking[/b], you'll find no less than 6 different network  architectures, which we tried to keep as simple as we could, demonstrating different possible setups.
 [/font_size]
 
