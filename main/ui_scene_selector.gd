@@ -53,6 +53,12 @@ var DEMOS : Array[DemoData] = [
 	),
 	DemoData.setup(
 		"3D Physics Nodes",
+		preload("./thumbnails/3d_physics_nodes.png"),
+		preload("res://3d_physics_nodes/3d_physics_nodes.tscn").resource_path,
+		"Move with WASD and push physics balls around"
+	),
+	DemoData.setup(
+		"3D Particles",
 		preload("./thumbnails/3d_particles_thumbnail.png"),
 		preload("res://3d_particles/rain.tscn").resource_path,
 		"A simple scene showing the new 3D particle physics"
@@ -134,7 +140,7 @@ var DEMOS : Array[DemoData] = [
 		"Info & Credits",
 		preload("./thumbnails/thanks.png"),
 		preload("res://main/thanks/thanks.tscn").resource_path,
-		""
+		"Some things that we couldn't include, credits, licensing"
 	),
 ]
 
