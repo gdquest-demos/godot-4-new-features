@@ -43,6 +43,8 @@ offset_left = 499.0
 offset_top = 238.0
 offset_right = -446.0
 offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_16o6k")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GradientFadeTexture"]
