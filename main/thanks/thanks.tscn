@@ -1,8 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://vks78qxn4hr8"]
+[gd_scene load_steps=8 format=3 uid="uid://vks78qxn4hr8"]
 
-[ext_resource type="Texture2D" uid="uid://g0bii467ocxd" path="res://shared/background.png" id="1_680aw"]
 [ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_pdjn6"]
 [ext_resource type="Script" path="res://main/thanks/thanks.gd" id="3_ii5h2"]
+[ext_resource type="Texture2D" uid="uid://b50sqesjx8w1k" path="res://main/thanks/gdquest_logo_white.svg" id="4_tmbe6"]
+
+[sub_resource type="Gradient" id="Gradient_m2vbx"]
+colors = PackedColorArray(0.0470588, 0.0941176, 0.341176, 1, 0.0893424, 0.267308, 0.475823, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghvfg"]
+gradient = SubResource("Gradient_m2vbx")
+fill_from = Vector2(0.541284, 1)
+fill_to = Vector2(0.527523, 0)
+
+[sub_resource type="Gradient" id="Gradient_2kfkk"]
+offsets = PackedFloat32Array(0, 0.203008, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_16o6k"]
+gradient = SubResource("Gradient_2kfkk")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
 
 [node name="Thanks" type="TextureRect"]
 anchors_preset = 15
@@ -11,43 +28,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_pdjn6")
-texture = ExtResource("1_680aw")
+texture = SubResource("GradientTexture2D_ghvfg")
 expand_mode = 1
 stretch_mode = 6
 script = ExtResource("3_ii5h2")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(800, 0)
+[node name="GradientFadeTexture" type="TextureRect" parent="."]
+clip_children = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 507.0
-offset_right = -507.0
+offset_left = 499.0
+offset_top = 238.0
+offset_right = -446.0
+offset_bottom = -165.0
+texture = SubResource("GradientTexture2D_16o6k")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GradientFadeTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="GradientFadeTexture/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
-custom_minimum_size = Vector2(800, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="GradientFadeTexture/ScrollContainer/CenterContainer"]
+custom_minimum_size = Vector2(950, 0)
 layout_mode = 2
 
-[node name="LogoTextureRect" type="TextureRect" parent="ScrollContainer/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 400)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TitleLabel" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Info, Credits, Licensing"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
@@ -125,8 +146,20 @@ Unless required by applicable law or agreed to in writing, software distributed 
 fit_content = true
 selection_enabled = true
 
-[node name="Spacer" type="TextureRect" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Spacer" type="TextureRect" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 76.0
+offset_right = 172.0
+offset_bottom = 182.0
+texture = ExtResource("4_tmbe6")
+expand_mode = 1
