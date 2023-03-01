@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bb1khyn51vqjx"]
+[gd_scene load_steps=24 format=3 uid="uid://bb1khyn51vqjx"]
 
+[ext_resource type="Environment" uid="uid://nk6lbelidx8r" path="res://heightmap_physics/heightmap_environment.tres" id="1_8oc73"]
 [ext_resource type="Script" path="res://heightmap_physics/random_sound_player.gd" id="1_0408y"]
-[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="1_uccei"]
 [ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://heightmap_physics/assets/mountain_source_mesh_2.obj" id="2_1w5vu"]
 [ext_resource type="Script" path="res://heightmap_physics/death_plane.gd" id="3_ebjdu"]
 [ext_resource type="AudioStream" uid="uid://bq2c4kxtij52u" path="res://heightmap_physics/assets/small_impact/small_impact_1.wav" id="3_ucfob"]
@@ -13,20 +13,6 @@
 [ext_resource type="Script" path="res://heightmap_physics/mountain.gd" id="6_8i3u7"]
 [ext_resource type="AudioStream" uid="uid://dfvcjqhqhg75d" path="res://heightmap_physics/assets/small_impact/small_impact_4.wav" id="6_woiys"]
 [ext_resource type="ArrayMesh" uid="uid://boc744m8lf7n1" path="res://heightmap_physics/assets/cloud_1.obj" id="7_06v0e"]
-[ext_resource type="Material" uid="uid://bjrjat1nexdul" path="res://heightmap_physics/assets/cloud_mat.tres" id="7_lo74o"]
-
-[sub_resource type="Environment" id="Environment_6klb1"]
-background_mode = 2
-sky = ExtResource("1_uccei")
-ambient_light_color = Color(0.862745, 0.45098, 0.101961, 1)
-ambient_light_sky_contribution = 0.5
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(0.670588, 0.788235, 0.968627, 1)
-fog_density = 0.005
-fog_sky_affect = 0.0
-fog_height_density = 1.0
 
 [sub_resource type="Gradient" id="Gradient_7om1h"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -53,10 +39,37 @@ shader_parameter/base_color = Color(0.298039, 0.780392, 0.858824, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2i1t"]
 size = Vector3(100, 1, 100)
 
+[sub_resource type="Shader" id="Shader_ir2q7"]
+code = "shader_type spatial;
+
+uniform sampler2D noise_sampler;
+
+void vertex(){
+	float noise = texture(noise_sampler, VERTEX.xy + TIME * 0.05).x;
+	VERTEX += (NORMAL * noise) * 0.05;
+}
+
+void fragment() {
+	ALBEDO = vec3(1.0);
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sf35y"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hcns8"]
+seamless = true
+noise = SubResource("FastNoiseLite_sf35y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ki6p"]
+render_priority = 0
+shader = SubResource("Shader_ir2q7")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_hcns8")
+
 [node name="HeightmapPhysics" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_6klb1")
+environment = ExtResource("1_8oc73")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -114,30 +127,30 @@ shape = SubResource("BoxShape3D_y2i1t")
 
 [node name="Cloud1" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.49644, 0, 0.178867, 0, 4.5, 0, -0.178867, 0, 4.49644, 5.44132, 4.94296, -0.294241)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
 [node name="Cloud2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.7372, 0, -2.62286, 0, 3.791, 0, 2.62286, 0, -2.7372, -3.3633, 4.98894, 3.13415)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
 [node name="Cloud5" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.40758, 0, -0.673476, 0, 2.5, 0, 0.673476, 0, -2.40758, -1.86941, 9.65863, -0.0107639)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
 [node name="Cloud3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.60987, 0, 2.80022, 0, 3.23, 0, -2.80022, 0, 1.60987, 1.83095, 6.3573, -3.65573)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
 [node name="Cloud4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.39887, 0, 1.67909, 0, 3.791, 0, -1.67909, 0, -3.39887, -3.7851, 7.20514, -2.12915)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
 [node name="Cloud6" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.08844, 0, -2.464, 0, 3.23, 0, 2.464, 0, 2.08844, 1.6484, 8.06918, 1.87682)
-material_override = ExtResource("7_lo74o")
+material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
