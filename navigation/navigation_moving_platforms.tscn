@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://da551o3yjocf3"]
+[gd_scene load_steps=23 format=3 uid="uid://da551o3yjocf3"]
 
 [ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
 [ext_resource type="Script" path="res://navigation/moving_platform_handler.gd" id="3_k6sl3"]
-[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="4_xs3fr"]
+[ext_resource type="Environment" uid="uid://nk6lbelidx8r" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
 [ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="6_1qom3"]
 
@@ -149,22 +149,6 @@ _data = {
 "RESET": SubResource("Animation_215et"),
 "platform_loop": SubResource("Animation_mxhwk")
 }
-
-[sub_resource type="Environment" id="Environment_ah0wc"]
-background_mode = 2
-sky = ExtResource("4_xs3fr")
-ambient_light_color = Color(0.705882, 0.337255, 0, 1)
-ambient_light_sky_contribution = 0.5
-tonemap_mode = 2
-tonemap_exposure = 0.93
-tonemap_white = 0.95
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_use_occlusion = true
-sdfgi_bounce_feedback = 1.25
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0032
-volumetric_fog_emission = Color(0.682353, 0.627451, 0.619608, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
 
@@ -328,7 +312,7 @@ size_flags_vertical = 8
 text = "Toggle Platform"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ah0wc")
+environment = ExtResource("4_deorg")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
