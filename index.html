@@ -985,6 +985,7 @@ button {
     <h2 class="title">Godot 4.0 is here!</h2>
     <p class="banner-content">
       <span class="banner-content-main">Megasale on all our courses and bundles</span>
+      <span class="banner-content-main" style="font-size: 1.3rem; color:#ffd500;">With free update to upcoming Godot 4 courses*</span>
       <span class="banner-content-main">Get 50% off</span>
       <span class="banner-content-secondary">
         <span class="banner-content-secondary-content">with coupon code
@@ -1007,7 +1008,7 @@ button {
     >
     Shop our Godot courses
     </a>
-
+    <p class="banner-content-tertiary banner-small-bottom-text">* Godot 4 courses are currently planned for Learn to Code, Node Essentials, and Shaders Secrets</p>
     <a href="#" class="banner-button banner-button-hide" id="hide_banner_button" title="hide banner"></a>
   </div>
 </div>
@@ -1158,6 +1159,10 @@ button {
 		color: black;
 		font-family: var(--font-title);
   }
+  .banner-container .show-only-when-closed{
+    background-color: rgba(255, 213, 0, 0);
+    transition: background-color .2s ease-in-out;
+  }
   .banner-closed .banner-container .show-only-when-closed{
     display: flex;
     position: absolute;
@@ -1169,6 +1174,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: .5em;
+    transition: background-color .2s ease-in-out .2s;
   }
   .banner-closed .banner-container .only-on-close{
     display: flex;
@@ -1233,7 +1239,9 @@ button {
   .banner-closed .banner-container{
     max-height: 2rem;
   }
-
+ .banner-small-bottom-text{
+    margin-top:1rem;
+  }
   @media screen and (max-width: 480px) {
     .banner-container{
       padding: 1em 1em;
@@ -1247,7 +1255,7 @@ button {
     .banner-container .banner-content-coupon{
       font-size: 1em;
     }
-    .banner-container .banner-content-tertiary{
+    .banner-content-tertiary{
       font-size: .7em;
     }
     .banner-container .banner-container .button-link{
@@ -1257,6 +1265,9 @@ button {
       left: 50%;
       transform: translateX(-50%);
       width: calc(var(--banner-button-size) * 2);
+    }
+    .banner-closed .banner-container .countdown, .banner-closed .banner-container .only-on-close{
+      font-size: .8rem;
     }
   }
 </style>
