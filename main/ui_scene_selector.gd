@@ -40,6 +40,12 @@ var DEMOS : Array[DemoData] = [
 		"Spawns plenty of round shapes to test physics"
 	),
 	DemoData.setup(
+		"2D Skeleton",
+		preload("./thumbnails/2d_skeleton_thumbnail.png"),
+		preload("res://2d_skeleton/2d_skeleton.tscn").resource_path,
+		"Create simple rig with the modification stack"
+	),
+	DemoData.setup(
 		"3D Animation Tree Audio",
 		preload("./thumbnails/3d_animation_tree_audio.png"),
 		preload("res://3d_animation_tree_audio/3d_animation_tree_audio.tscn").resource_path,
@@ -76,7 +82,7 @@ var DEMOS : Array[DemoData] = [
 		"Click to move the beetles and see them recalculate their navigation mesh in real time"
 	),
 	DemoData.setup(
-		"Navigation with Dynamic Obstacles",
+		"Dynamic Obstacles",
 		preload("./thumbnails/navigation_2.png"),
 		preload("res://navigation/navigation_moving_platforms.tscn").resource_path,
 		"Those beetles patiently wait for their path to clear up to go to their destination"

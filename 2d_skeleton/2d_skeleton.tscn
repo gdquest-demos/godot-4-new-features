@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci4ui6jmga0d2"]
+
+[ext_resource type="Script" path="res://2d_skeleton/2d_skeleton.gd" id="1_c55fe"]
+[ext_resource type="PackedScene" uid="uid://cnfreetjiotgv" path="res://2d_skeleton/goblin/goblin.tscn" id="1_hqxo5"]
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="2_edvpb"]
+[ext_resource type="Script" path="res://cutout_character/assets/background_ratio.gd" id="3_dlput"]
+[ext_resource type="Texture2D" uid="uid://7dgd5rrwmmtc" path="res://2d_skeleton/assets/bone_pattern.png" id="3_tnk2l"]
+[ext_resource type="FontFile" uid="uid://cexxvyj54f4oj" path="res://interface/fonts/OpenSans-Bold.ttf" id="6_44wkh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6wj1"]
+shader = ExtResource("2_edvpb")
+shader_parameter/bg_color = Color(0.658824, 0.933333, 0.513726, 1)
+shader_parameter/pattern_color = Color(0.494118, 0.854902, 0.482353, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("3_tnk2l")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55cqc"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.784314)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="2D_skeleton" type="Node"]
+script = ExtResource("1_c55fe")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Pattern" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_k6wj1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_dlput")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+
+[node name="Goblin" parent="World" instance=ExtResource("1_hqxo5")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 187.0
+offset_bottom = 114.0
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_44wkh")
+theme_override_font_sizes/font_size = 20
+text = "Current Animation"
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/UI/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("6_44wkh")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_55cqc")
