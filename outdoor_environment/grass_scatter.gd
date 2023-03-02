@@ -2,6 +2,7 @@
 extends MultiMeshInstance3D
 
 @export var count := 600
+@export var base_scale := 1.0
 @export_node_path var target_mesh_path
 @onready var target_mesh_node := get_node(target_mesh_path) as MeshInstance3D
 
@@ -43,7 +44,7 @@ func _ready() -> void:
 	
 	for i in count:
 		var t := Transform3D(Basis(Vector3.UP, 0.0), get_random_point() + to_local(target_mesh_node.global_position))
-		t = t.scaled_local(Vector3.ONE * randfn(0.6, 0.1))
+		t = t.scaled_local(base_scale * Vector3.ONE * randfn(0.6, 0.1))
 		multimesh.set_instance_transform(i, t)
 
 
