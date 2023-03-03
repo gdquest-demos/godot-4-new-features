@@ -36,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 	# Wait for the next location to be accessible, for example, a moving platform.
 	var next_location := _navigation_agent.get_next_path_position()
 
-	look_at(next_location)
+	global_transform = global_transform.interpolate_with(global_transform.looking_at(next_location), 0.1)
 	
 	var direction := (next_location - global_position).normalized()
 	
