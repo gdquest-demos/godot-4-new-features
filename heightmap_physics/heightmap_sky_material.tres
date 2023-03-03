@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://x2mx74bhjtbh"]
+
+[ext_resource type="Shader" path="res://shared/shaders/gradient_sky.gdshader" id="1_fnrnb"]
+
+[sub_resource type="Gradient" id="Gradient_e3l0n"]
+offsets = PackedFloat32Array(0.658451, 0.846244)
+colors = PackedColorArray(0, 0, 0, 1, 0.971354, 0.942708, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lam37"]
+noise_type = 4
+frequency = 0.012
+fractal_octaves = 4
+fractal_lacunarity = 2.194
+fractal_gain = 0.525
+fractal_weighted_strength = 0.05
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 4.0
+domain_warp_frequency = 0.067
+domain_warp_fractal_octaves = 2
+domain_warp_fractal_lacunarity = 2.36
+domain_warp_fractal_gain = 0.605
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbp1v"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_e3l0n")
+noise = SubResource("FastNoiseLite_lam37")
+
+[resource]
+shader = ExtResource("1_fnrnb")
+shader_parameter/top_color = Color(0.341176, 0.678431, 0.980392, 1)
+shader_parameter/bottom_color = Color(0.192157, 0.415686, 0.752941, 1)
+shader_parameter/sun_scatter = Color(0.737255, 0.607843, 1, 1)
+shader_parameter/star_stength = 0.0
+shader_parameter/clouds_tint = Color(1, 1, 1, 1)
+shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_gbp1v")

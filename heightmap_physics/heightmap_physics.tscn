@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://bb1khyn51vqjx"]
 
-[ext_resource type="Environment" uid="uid://nk6lbelidx8r" path="res://heightmap_physics/heightmap_environment.tres" id="1_8oc73"]
+[ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="1_8oc73"]
 [ext_resource type="Script" path="res://heightmap_physics/random_sound_player.gd" id="1_0408y"]
 [ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://heightmap_physics/assets/mountain_source_mesh_2.obj" id="2_1w5vu"]
 [ext_resource type="Script" path="res://heightmap_physics/death_plane.gd" id="3_ebjdu"]
