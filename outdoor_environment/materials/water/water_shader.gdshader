@@ -1,8 +1,10 @@
 shader_type spatial;
 render_mode depth_draw_always;
 
-uniform sampler2D main_noise_sampler : hint_normal;
-uniform sampler2D caustic_sampler : hint_normal, filter_linear_mipmap;
+uniform sampler2D main_noise_sampler;
+uniform sampler2D caustic_sampler : filter_linear_mipmap;
+
+uniform sampler2D caustic_fade_sampler;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
@@ -40,7 +42,7 @@ float fresnel(vec3 normal, vec3 view, float power){
 void fragment() {
 	
 	float caustic_1 = texture(caustic_sampler, UV * water_texture_scale + TIME * 0.05).x;
-	float final_caustic = caustic_1 * (1.0 - fresnel(NORMAL, VIEW, 1.0)) * 0.25;
+	float final_caustic = caustic_1 * texture(caustic_fade_sampler, vec2(fresnel(NORMAL, VIEW, 2.0), 0.0)).x;
 	
 	float depth_tex = textureLod(DEPTH_TEXTURE,SCREEN_UV,0.0).r;
 	vec4 world_pos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV*2.0-1.0,depth_tex,1.0);

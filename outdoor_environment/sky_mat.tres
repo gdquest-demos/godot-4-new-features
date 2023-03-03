@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://cbceraxhc2dpp"]
+
+[ext_resource type="Shader" path="res://outdoor_environment/sky/sky.gdshader" id="1_hoa61"]
+
+[sub_resource type="Gradient" id="Gradient_p25ll"]
+offsets = PackedFloat32Array(0.686981, 0.711911)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r4fqw"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fmivi"]
+seamless = true
+color_ramp = SubResource("Gradient_p25ll")
+noise = SubResource("FastNoiseLite_r4fqw")
+
+[resource]
+shader = ExtResource("1_hoa61")
+shader_parameter/top_color = Color(0.45098, 0.729412, 0.92549, 1)
+shader_parameter/bottom_color = Color(0.176471, 0.396078, 0.690196, 1)
+shader_parameter/sun_scatter = Color(0.290196, 0.447059, 0.623529, 1)
+shader_parameter/star_stength = 0.0
+shader_parameter/clouds_tint = Color(1, 1, 1, 1)
+shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_fmivi")

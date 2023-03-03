@@ -60,7 +60,9 @@ void sky() {
 	// Clouds
 	vec2 cloud_uv = EYEDIR.xz / EYEDIR.y;
 	float cloud_mask = texture(clouds_sampler, cloud_uv * 0.05 + TIME * 0.001).x;
-	cloud_mask *= step(SKY_COORDS.y, 0.5);
+	cloud_mask *= step(SKY_COORDS.y, 0.5) * 
+	clamp((1.0 - distance(vec2(0.5), cloud_uv) * 0.1), 0.0, 1.0)
+	;
 
 	COLOR.rgb = mix(
 		COLOR.rgb,

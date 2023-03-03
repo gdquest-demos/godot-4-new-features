@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://c2h4ojpjajlme"]
+
+[ext_resource type="Material" uid="uid://cbceraxhc2dpp" path="res://outdoor_environment/sky_mat.tres" id="1_na25l"]
+
+[sub_resource type="Sky" id="Sky_6exh6"]
+sky_material = ExtResource("1_na25l")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_6exh6")
+ambient_light_color = Color(0.862745, 0.45098, 0.101961, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
+tonemap_exposure = 0.9
+tonemap_white = 1.1
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.564706, 0.74902, 0.831373, 1)
+fog_density = 0.0005
+fog_sky_affect = 0.0
+fog_height = 1.0
+fog_height_density = 0.25
+volumetric_fog_density = 0.0025
+volumetric_fog_emission = Color(1, 1, 1, 1)
