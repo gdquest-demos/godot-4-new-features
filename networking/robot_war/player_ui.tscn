@@ -66,7 +66,8 @@ grow_vertical = 2
 texture = ExtResource("2_t1d31")
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="PlayerPortrait"]
+[node name="PortraitBackgroundColor" type="ColorRect" parent="PlayerPortrait"]
+unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15

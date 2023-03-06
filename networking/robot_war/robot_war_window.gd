@@ -72,6 +72,7 @@ func set_as_host() -> void:
 
 
 func register_player(player: PlayerBody) -> void:
+	_player_uis[player.name].set_portrait_color(player.color)
 	get_tree().process_frame.connect(
 		func():
 			_player_uis[player.name].update_damage(player.damage_amount)
