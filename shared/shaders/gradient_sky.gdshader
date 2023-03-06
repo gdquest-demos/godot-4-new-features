@@ -8,6 +8,8 @@ uniform vec3 sun_scatter : source_color = vec3(1.0);
 uniform float star_stength : hint_range(0.0, 5.0, 0.1) = 0.0;
 uniform vec3 clouds_tint : source_color = vec3(1.0);
 
+uniform bool draw_clouds = true;
+
 // Voronoi method credit:
 // The MIT License
 // Copyright © 2013 Inigo Quilez
@@ -58,15 +60,17 @@ void sky() {
 		COLOR.rgb += smoothstep(0.025 + ((1.0 + sin(TIME + stars.y)) / 2.0) * 0.05, 0.0, stars.x) * star_stength;
 	}
 	// Clouds
-	vec2 cloud_uv = EYEDIR.xz / EYEDIR.y;
-	float cloud_mask = texture(clouds_sampler, cloud_uv * 0.05 + TIME * 0.001).x;
-	cloud_mask *= step(SKY_COORDS.y, 0.5) * 
-	clamp((1.0 - distance(vec2(0.5), cloud_uv) * 0.1), 0.0, 1.0)
-	;
+	if(draw_clouds){
+		vec2 cloud_uv = EYEDIR.xz / EYEDIR.y;
+		float cloud_mask = texture(clouds_sampler, cloud_uv * 0.05 + TIME * 0.001).x;
+		cloud_mask *= step(SKY_COORDS.y, 0.5) * 
+		clamp((1.0 - distance(vec2(0.5), cloud_uv) * 0.1), 0.0, 1.0)
+		;
 
-	COLOR.rgb = mix(
-		COLOR.rgb,
-		clouds_tint,
-		cloud_mask
-	);
+		COLOR.rgb = mix(
+			COLOR.rgb,
+			clouds_tint,
+			cloud_mask
+		);
+	}
 }
