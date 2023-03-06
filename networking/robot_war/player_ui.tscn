@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1av8dpn3l2cn"]
 
-[ext_resource type="Texture2D" uid="uid://bdfgu6dhltmjh" path="res://icon.svg" id="1_24y5e"]
 [ext_resource type="Script" path="res://networking/robot_war/player_ui.gd" id="1_t1ygp"]
+[ext_resource type="Texture2D" uid="uid://dp3ytfrbbvce6" path="res://networking/robot_war/assets/gdbot-portrait.png" id="2_t1d31"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4e234"]
 font_size = 48
@@ -63,8 +63,18 @@ offset_right = -23.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_24y5e")
+texture = ExtResource("2_t1d31")
 expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="PlayerPortrait"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.352941, 0.372549, 0.858824, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
