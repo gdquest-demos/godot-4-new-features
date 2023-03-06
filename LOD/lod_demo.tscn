@@ -1,0 +1,151 @@
+[gd_scene load_steps=17 format=3 uid="uid://be2jls86gsb5p"]
+
+[ext_resource type="Shader" path="res://shared/shaders/gradient_sky.gdshader" id="1_cqdiy"]
+[ext_resource type="Script" path="res://LOD/lod_demo.gd" id="1_v8yre"]
+[ext_resource type="Shader" path="res://LOD/assets/shaders/bg.gdshader" id="3_78lg7"]
+[ext_resource type="Script" path="res://LOD/assets/scripts/rotate_object.gd" id="4_12j7o"]
+[ext_resource type="PackedScene" uid="uid://boqo1ke3p4aib" path="res://LOD/assets/godot_bot/godot_bot.glb" id="5_3c0yr"]
+[ext_resource type="Shader" path="res://LOD/assets/shaders/ground.gdshader" id="6_o314y"]
+[ext_resource type="Texture2D" uid="uid://dl4y8uyl76c71" path="res://LOD/assets/icons/camera_icon.png" id="7_gqo3c"]
+[ext_resource type="Texture2D" uid="uid://d2utmo1u8wwur" path="res://LOD/assets/icons/target_icon.png" id="8_3srog"]
+
+[sub_resource type="Curve" id="Curve_qwndj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.56783, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbisq"]
+shader = ExtResource("1_cqdiy")
+shader_parameter/top_color = Color(0.278431, 0.635294, 0.960784, 1)
+shader_parameter/bottom_color = Color(0.0627451, 0.380392, 0.639216, 1)
+shader_parameter/sun_scatter = Color(0.752941, 0.666667, 0.972549, 1)
+shader_parameter/star_stength = 0.0
+shader_parameter/clouds_tint = Color(1, 1, 1, 1)
+shader_parameter/draw_clouds = false
+
+[sub_resource type="Sky" id="Sky_bqrjj"]
+sky_material = SubResource("ShaderMaterial_qbisq")
+
+[sub_resource type="Environment" id="Environment_arpbq"]
+background_mode = 2
+sky = SubResource("Sky_bqrjj")
+tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vlmg"]
+render_priority = 0
+shader = ExtResource("3_78lg7")
+shader_parameter/border_color = Color(0.0509804, 0.0666667, 0.0784314, 1)
+shader_parameter/center_color = Color(0.156863, 0.172549, 0.207843, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_54fwo"]
+size = Vector2(7.937, 4.494)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xd5tv"]
+render_priority = 0
+shader = ExtResource("6_o314y")
+shader_parameter/grid_color = Color(1, 1, 1, 1)
+shader_parameter/grid_opacity = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_srpfb"]
+
+[node name="LOD" type="Node" node_paths=PackedStringArray("target_mesh")]
+script = ExtResource("1_v8yre")
+target_mesh = NodePath("World3D/ObjectRoot/godot_bot/GodotBotFused")
+lod_curve = SubResource("Curve_qwndj")
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+environment = SubResource("Environment_arpbq")
+
+[node name="Center" type="Node3D" parent="World3D"]
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.517859, 0)
+
+[node name="BGPlane" type="MeshInstance3D" parent="World3D/Center"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, -10)
+material_override = SubResource("ShaderMaterial_0vlmg")
+mesh = SubResource("QuadMesh_54fwo")
+skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="World3D/Center"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+current = true
+fov = 25.0
+
+[node name="ObjectRoot" type="Node3D" parent="World3D"]
+script = ExtResource("4_12j7o")
+
+[node name="godot_bot" parent="World3D/ObjectRoot" instance=ExtResource("5_3c0yr")]
+
+[node name="BackLight" type="OmniLight3D" parent="World3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1851, -0.503183, -0.587773)
+
+[node name="Sun" type="DirectionalLight3D" parent="World3D"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 20.0
+
+[node name="GroundPlane" type="MeshInstance3D" parent="World3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_xd5tv")
+mesh = SubResource("PlaneMesh_srpfb")
+
+[node name="TopUI" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="TopUI"]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.8
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Footer" type="Control" parent="TopUI/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="Left" type="Control" parent="TopUI/UI/Footer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="CameraIcon" type="Sprite2D" parent="TopUI/UI/Footer/Left"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("7_gqo3c")
+
+[node name="Right" type="Control" parent="TopUI/UI/Footer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="TargetIcon" type="Sprite2D" parent="TopUI/UI/Footer/Right"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_3srog")
+
+[editable path="World3D/ObjectRoot/godot_bot"]

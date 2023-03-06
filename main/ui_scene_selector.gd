@@ -46,6 +46,12 @@ var DEMOS : Array[DemoData] = [
 		"Create simple rig with the modification stack"
 	),
 	DemoData.setup(
+		"Auto LOD",
+		preload("./thumbnails/lod_thumbnail.png"),
+		preload("res://LOD/lod_demo.tscn").resource_path,
+		"Reduces 3D model detail based on camera distance for performance benefits."
+	),
+	DemoData.setup(
 		"3D Animation Tree Audio",
 		preload("./thumbnails/3d_animation_tree_audio.png"),
 		preload("res://3d_animation_tree_audio/3d_animation_tree_audio.tscn").resource_path,
