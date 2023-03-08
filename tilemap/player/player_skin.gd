@@ -17,10 +17,10 @@ func set_blend_position(blend_position: Vector2, speed: float = 1.0) -> void:
 		_animation_tree.set("parameters/" + _current_state + "/blend_position", blend_position)
 	
 	if _current_state == "Move":
-		_animation_tree.set("parameters/Movement/4/TimeScale/scale", speed)
-		_animation_tree.set("parameters/Movement/5/TimeScale/scale", speed)
-		_animation_tree.set("parameters/Movement/6/TimeScale/scale", speed)
-		_animation_tree.set("parameters/Movement/7/TimeScale/scale", speed)
+		_animation_tree.set("parameters/Move/0/TimeScale/scale", speed)
+		_animation_tree.set("parameters/Move/1/TimeScale/scale", speed)
+		_animation_tree.set("parameters/Move/2/TimeScale/scale", speed)
+		_animation_tree.set("parameters/Move/3/TimeScale/scale", speed)
 
 
 func play_animation(anim_name: String, _from_position: Vector2 = Vector2.ZERO) -> void:
