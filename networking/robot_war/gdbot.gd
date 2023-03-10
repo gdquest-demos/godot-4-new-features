@@ -5,7 +5,7 @@ const JUMP_FORCE := 20.0
 const GRAVITY_FORCE := 1.0
 
 var speed := 10
-var turning_speed := 5
+var turning_speed := 0.01
 var damage_tick := INVULNERABILITY_TICK_DURATION
 
 @export var forward_speed := 0.0
@@ -87,11 +87,14 @@ func _physics_process(delta: float) -> void:
 		var direction := (transform.basis * Vector3(0, 0, forward_speed)).normalized()
 
 		velocity = direction * speed
-		
-		global_rotation.y += input_dir.x * turning_speed * delta
 	
 	velocity.y = vel_y
 	move_and_slide()
+
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		global_rotation.y += -event.relative.x * turning_speed
 
 
 @rpc("any_peer", "call_local")

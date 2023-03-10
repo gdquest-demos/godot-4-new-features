@@ -12,6 +12,7 @@ const PlayerBodyScene = preload("gdbot.tscn")
 @onready var multiplayer_settings: Node = %MultiplayerSettings
 @onready var spawner : MultiplayerSpawner = %MultiplayerSpawner
 @onready var game_ui : HBoxContainer = %GameUI
+@onready var input_grabber : Control = %InputGrabber
 
 
 func _ready() -> void:
@@ -20,6 +21,11 @@ func _ready() -> void:
 	lobby.visible = toggle_button.button_pressed
 	multiplayer_settings.player_added.connect(_on_player_added)
 	multiplayer_settings.player_removed.connect(_on_player_removed)
+	input_grabber.gui_input.connect(func(ev):
+		if ev is InputEventMouseButton and ev.is_pressed():
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	)
+	
 	# This function will run on the network
 	spawner.spawn_function = func spawn_player_custom(data: Array) -> PlayerBody:
 		if typeof(data) != TYPE_ARRAY or data.size() != 3 \
@@ -39,7 +45,13 @@ func _ready() -> void:
 		return player_body
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
 func _on_close_requested() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	queue_free()
 
 
