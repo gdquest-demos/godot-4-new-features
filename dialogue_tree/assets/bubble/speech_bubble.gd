@@ -54,7 +54,7 @@ func _tween_text(progress: float) -> void:
 	var pos: int = floor(text_length * progress)
 	if pos == _last_pos: return
 	var letter := rich_text_label.text.substr(pos, 1)
-	if ["a","e","i","o","u"].has(letter):
+	if ["a","e","i","o","u","ا","ي","و"].has(letter):
 		emit_signal("vowel_appeared")
 	_last_pos = pos
 
