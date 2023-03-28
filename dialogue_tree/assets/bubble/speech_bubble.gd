@@ -16,7 +16,7 @@ var _last_pos := -1
 
 
 func _ready() -> void:
-	margin.connect("resized", _resize_buble_tail)
+	margin.connect("resized", _resize_bubble_tail)
 	scale = Vector2.ZERO
 	modulate.a = 0.0
 
@@ -54,7 +54,7 @@ func _tween_text(progress: float) -> void:
 	var pos: int = floor(text_length * progress)
 	if pos == _last_pos: return
 	var letter := rich_text_label.text.substr(pos, 1)
-	if ["a","e","i","o","u"].has(letter):
+	if ["a","e","i","o","u","ا","ي","و"].has(letter):
 		emit_signal("vowel_appeared")
 	_last_pos = pos
 
@@ -73,7 +73,7 @@ func close() -> void:
 	close_tween.tween_property(self, "modulate:a", 0.0, 0.1)
 
 
-func _resize_buble_tail() -> void:
+func _resize_bubble_tail() -> void:
 	var half_size := (margin.size / 2.0)
 	margin.pivot_offset = half_size
 	panel.pivot_offset = half_size
