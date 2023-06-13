@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhcw3bsqrv71g"]
+
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="1_n7j86"]
+[ext_resource type="Texture2D" uid="uid://b3x32i7av8vb2" path="res://2d_lighting_normal_map/assets/sun_pattern.png" id="2_t7fda"]
+[ext_resource type="Texture2D" uid="uid://4qq352a1j6m4" path="res://2d_lighting_normal_map/assets/dog_albedo.png" id="3_1lvlp"]
+[ext_resource type="Texture2D" uid="uid://djebcop0tgdes" path="res://2d_lighting_normal_map/assets/dog_normal.png" id="4_x0lag"]
+[ext_resource type="Script" path="res://additional/snippets/110-first-class-functions-assign.gd" id="5_ldbeg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jhywx"]
+diffuse_texture = ExtResource("3_1lvlp")
+normal_texture = ExtResource("4_x0lag")
+specular_shininess = 0.1
+texture_filter = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1hlk"]
+shader = ExtResource("1_n7j86")
+shader_parameter/bg_color = Color(0.12549, 0.121569, 0.180392, 1)
+shader_parameter/pattern_color = Color(0.192157, 0.211765, 0.321569, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("2_t7fda")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Dog" type="Sprite2D" parent="."]
+position = Vector2(940, 548)
+scale = Vector2(1.17366, 1.17366)
+texture = SubResource("CanvasTexture_jhywx")
+offset = Vector2(0, -28)
+script = ExtResource("5_ldbeg")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Background" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_x1hlk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
