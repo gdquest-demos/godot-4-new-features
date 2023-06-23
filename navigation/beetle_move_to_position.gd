@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 const SPEED := 3.0
 
+
 var target_global_position := Vector3.INF:
 	set(new_target_global_position):
 		target_global_position = new_target_global_position
@@ -9,16 +10,15 @@ var target_global_position := Vector3.INF:
 		var has_new_target := not is_near_target and target_global_position != Vector3.INF
 		set_physics_process(has_new_target)
 		if has_new_target:
+			_navigation_agent.velocity_computed.connect(move)
 			_navigation_agent.target_position = target_global_position
 			_beetle_skin.walk()
-
 
 @onready var _beetle_skin: Node3D = %BeetlebotSkin
 @onready var _navigation_agent: NavigationAgent3D = %NavigationAgent3D
 
 
 func _ready() -> void:
-	_navigation_agent.connect("velocity_computed", _on_navigation_agent_3d_velocity_computed)
 	_navigation_agent.max_speed = SPEED
 	_beetle_skin.idle()
 	set_physics_process(false)
@@ -37,20 +37,21 @@ func _physics_process(_delta: float) -> void:
 	var next_location := _navigation_agent.get_next_path_position()
 
 	global_transform = global_transform.interpolate_with(global_transform.looking_at(next_location), 0.1)
-	
+
 	var direction := (next_location - global_position).normalized()
-	
+
+	var new_velocity := direction * SPEED
 	if _navigation_agent.avoidance_enabled:
-		_navigation_agent.set_velocity(direction * SPEED)
+		_navigation_agent.velocity = new_velocity
 	else:
-		velocity = direction * SPEED
-		move_and_slide()
-	
+		move(new_velocity)
+
 	if _navigation_agent.is_navigation_finished():
 		_beetle_skin.idle()
 		set_physics_process(false)
+		_navigation_agent.velocity_computed.disconnect(move)
 
 
-func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+func move(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
 	move_and_slide()
