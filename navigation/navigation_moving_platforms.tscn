@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
 [ext_resource type="Script" path="res://navigation/moving_platform_handler.gd" id="3_k6sl3"]
-[ext_resource type="Environment" uid="uid://nk6lbelidx8r" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
+[ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
 [ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="6_1qom3"]
 

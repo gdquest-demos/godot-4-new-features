@@ -32,11 +32,10 @@ func set_avoidance_radius(radius: float) -> void:
 	_navigation_agent.radius = radius
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Wait for the next location to be accessible, for example, a moving platform.
 	var next_location := _navigation_agent.get_next_path_position()
 
-	global_transform = global_transform.interpolate_with(global_transform.looking_at(next_location), 0.1)
 
 	var direction := (next_location - global_position).normalized()
 
@@ -54,4 +53,10 @@ func _physics_process(_delta: float) -> void:
 
 func move(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
+	
+	# Make the model turn towards where the agent is moving.
+	var current_model_transform := _beetle_skin.global_transform
+	_beetle_skin.look_at(global_position + velocity, Vector3.UP, true)
+	_beetle_skin.global_transform = current_model_transform.interpolate_with(_beetle_skin.global_transform, 10.0 * get_physics_process_delta_time())
+
 	move_and_slide()

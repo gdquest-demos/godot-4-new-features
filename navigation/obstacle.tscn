@@ -17,7 +17,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_veodu"]
 resource_name = "default"
-length = 3.0
+length = 4.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -26,8 +26,8 @@ tracks/0/path = NodePath("NavigationOffset:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector3(0.0613372, 0.95, 2.19116), Vector3(0.0613372, 0.95, -1.37318)]
 }
