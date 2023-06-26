@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://bb174uqemf8ud" path="res://exported_node_array/elements/pipes/pipe.glb" id="1_i3jk3"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="2_78q0l"]
+
+[node name="Pipe" instance=ExtResource("1_i3jk3")]
+
+[node name="Pipe" parent="." index="0"]
+material_override = ExtResource("2_78q0l")

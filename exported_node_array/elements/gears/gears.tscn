@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://4kr8y3pk7rqb"]
+
+[ext_resource type="PackedScene" uid="uid://c3om34qgfl6qa" path="res://exported_node_array/elements/gears/gears.glb" id="1_65ivy"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="2_3ig0g"]
+[ext_resource type="Script" path="res://exported_node_array/elements/gears/gears.gd" id="2_kmcl4"]
+
+[node name="Gears" instance=ExtResource("1_65ivy")]
+script = ExtResource("2_kmcl4")
+
+[node name="BigGear" parent="." index="0"]
+unique_name_in_owner = true
+material_override = ExtResource("2_3ig0g")
+
+[node name="SmallGear" parent="Empty" index="0"]
+unique_name_in_owner = true
+material_override = ExtResource("2_3ig0g")
