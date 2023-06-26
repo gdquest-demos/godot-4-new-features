@@ -42,6 +42,8 @@ _data = {
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_reh6l"]
+radius = 0.8
+height = 1.6
 
 [node name="Obstacle" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613372, 0.95, 2.19116)
