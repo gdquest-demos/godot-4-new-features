@@ -10,6 +10,12 @@ const MainMenu := preload("res://main/menu_scene_selector/main_menu.gd")
 
 var DEMOS : Array[DemoData] = [
 	DemoData.setup(
+		"Particles Turbulence",
+		preload("./thumbnails/particles_turbulence.png"),
+		preload("res://particles_turbulence/main_particles_turbulence.tscn").resource_path,
+		"Godot 4.1's improved particles turbulence"
+	),
+	DemoData.setup(
 		"2D clipping",
 		preload("./thumbnails/2d_clipping_thumbnail.png"),
 		preload("res://2d_clipping/2d_clipping_background.tscn").resource_path,

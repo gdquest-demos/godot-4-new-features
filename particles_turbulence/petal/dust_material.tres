@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2k61l3mwdj6a"]
+
+[ext_resource type="Shader" path="res://particles_turbulence/petal/dust.gdshader" id="1_khes6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_khes6")
