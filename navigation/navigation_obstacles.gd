@@ -14,7 +14,7 @@ const Beetle = preload("beetle_move_to_position.gd")
 @onready var line = %Line
 
 
-func _ready():
+func _ready() -> void:
 	beetle_navigation_agent.path_changed.connect(_on_path_changed)
 	avoidance_toggle.toggled.connect(_on_avoidance_toggled)
 	radius_slide.value_changed.connect(_on_radius_value_changed)
@@ -22,7 +22,7 @@ func _ready():
 	_on_radius_value_changed(radius_slide.value)
 
 
-func _on_path_changed():
+func _on_path_changed() -> void:
 	line.create_line(beetle_navigation_agent.get_current_navigation_path())
 
 

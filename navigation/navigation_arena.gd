@@ -21,7 +21,7 @@ func _ready():
 
 func _on_path_changed():
 	line.create_line(beetle_navigation_agent.get_current_navigation_path())
-	
+
 func _on_avoidance_toggled(toggled: bool) -> void:
 	beetle.set_avoidance_enabled(toggled)
 
