@@ -35,4 +35,5 @@ shader_parameter/bottom_color = Color(0.192157, 0.415686, 0.752941, 1)
 shader_parameter/sun_scatter = Color(0.737255, 0.607843, 1, 1)
 shader_parameter/star_stength = 0.0
 shader_parameter/clouds_tint = Color(1, 1, 1, 1)
+shader_parameter/draw_clouds = true
 shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_gbp1v")
