@@ -146,4 +146,5 @@ path_desired_distance = 2.0
 target_desired_distance = 0.2
 path_height_offset = 0.5
 path_max_distance = 1.51
+avoidance_enabled = true
 radius = 0.2

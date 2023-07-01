@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 const SPEED := 3.0
 
-
 var target_global_position := Vector3.INF:
 	set(new_target_global_position):
 		target_global_position = new_target_global_position

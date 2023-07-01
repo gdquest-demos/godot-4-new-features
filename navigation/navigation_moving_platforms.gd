@@ -1,38 +1,38 @@
 extends Node3D
 
+signal moving_platform_touched
+
 const Beetle = preload("beetle_moving_platforms.gd")
 
-# For a complete level we'd probably want to use a graph and the AStar pathfinding algorithm.
-# But to keep the scene simple, we hard code the path the agent can take.
-@onready var patrol_points := [%PatrolPointA, %PatrolPointB]
-@onready var patrol_points_reverse := [%PatrolPointB, %PatrolPointA]
-@onready var beetle1: Beetle = %Beetle1
-@onready var beetle2: Beetle = %Beetle2
-@onready var moving_platform_handler: Node3D = %MovingPlatformHandler
+@onready var beetles: Node3D = %Beetles
+@onready var moving_platform: NavigationRegion3D = %MovingPlatform
+@onready var moving_platform_area: Area3D = moving_platform.get_node("Area3D")
+@onready var patrol_points := [
+	[
+		%PatrolPointB.global_position,
+		%PatrolPointA.global_position
+	],
+		[
+		%PatrolPointA.global_position,
+		%PatrolPointB.global_position
+	],
+]
 
 
 func _ready() -> void:
-	# If our navigation mesh setup works correctly we do not need inbetween points, only the final position
-	beetle1.move_targets = patrol_points_reverse
-	beetle2.move_targets = patrol_points
-
-	# for bettle 1 & 2 add the navigation layer 2 so they can use the NavigationLink3D that uses navigation layer 2
-	beetle1._navigation_agent.set_navigation_layer_value(2, true)
-	beetle2._navigation_agent.set_navigation_layer_value(2, true)
-
-	# add debug labels to see platform state
-	for bettle in $Beetles.get_children():
-		var new_label_3d : Label3D = Label3D.new()
-		new_label_3d.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
-		new_label_3d.double_sided = false
-		new_label_3d.no_depth_test = true
-		bettle.add_child(new_label_3d)
-		new_label_3d.position.y = 1.7
-		new_label_3d.scale *= 2.0
-		new_label_3d.name = "PlatformUsageStateLabel"
-		bettle.agent_state_label = new_label_3d
-		new_label_3d.hide()
+	for index in range(beetles.get_child_count()):
+		var beetle: Beetle = beetles.get_child(index)
+		moving_platform_touched.connect(beetle.refresh)
+		moving_platform_area.body_entered.connect(_on_moving_platform_area_body.bind(true))
+		moving_platform_area.body_exited.connect(_on_moving_platform_area_body.bind(false))
+		beetle.platform_reached.connect(_on_beetle_platform_reached)
+		beetle.setup(%MovingPlatform.get_child(index))
+		beetle.target_global_positions = patrol_points[index]
 
 
-func _on_button_pressed() -> void:
-	moving_platform_handler.toggle()
+func _on_beetle_platform_reached() -> void:
+	%AnimationPlayer.play()
+
+
+func _on_moving_platform_area_body(body: Node3D, has_entered: bool) -> void:
+	body.is_on_platform = body is Beetle and has_entered
