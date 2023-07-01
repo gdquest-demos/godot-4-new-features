@@ -4,26 +4,20 @@ itchio: https://gdquest-demos.itch.io/godot-40-new-features
 youtube: 
   - https://youtu.be/chXAjMQrcZk
 tags: demos 2d 3d physics clipping 2d_lighting 2d_particles 2d_physics audio 3d_particles 3d_physics animation audio_polyphony fonts heightmap ui voxelgi navigation networking sdfgi  tilemap tweens
-description: A set of more than 20 demos showing the new features of Godot 4.0
+description: A set of more than 20 demos showing the new features of Godot 4
 ---
 
 
 
-# Godot 4.0: New Features demos
+# Godot 4: New Features demos
 
 ![A demo showing the new font handling: a person with a bubble that says, "hey, wake up! It's time to make video games"](static/dialogue.png)
 
-It's here!
-
-After a very long wait (even by Godot standards!), we finally have our hands on Godot 4.
-
-In this project, we've built upwards of 20 simple demos you can play with and learn from to try some of Godot 4.0's new features.
-
+In this project, we've built upwards of 20 simple demos you can play with and learn from to try some of Godot 4's new features.
 
 ![The demos navigation menu](static/navigation.png)
 
 Feel free to run the project and test them out!
-
 
 ## A Few Things of Note
 
