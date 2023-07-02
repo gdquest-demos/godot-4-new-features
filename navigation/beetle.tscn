@@ -148,3 +148,4 @@ path_height_offset = 0.5
 path_max_distance = 1.51
 avoidance_enabled = true
 radius = 0.2
+debug_enabled = true

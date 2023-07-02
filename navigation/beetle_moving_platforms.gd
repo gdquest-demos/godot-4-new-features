@@ -9,14 +9,14 @@ var is_on_platform := false
 var target_index := 0:
 	set(value):
 		target_index = wrapi(value, 0, target_global_positions.size())
-		refresh()
+		start()
 
 var target_global_positions := []:
 	set(value):
 		target_global_positions = value
 		if target_global_positions.is_empty():
 			return
-		refresh()
+		start()
 
 var remote_transform: RemoteTransform3D = null
 
@@ -29,6 +29,8 @@ func setup(remote_transformm: RemoteTransform3D) -> void:
 
 
 func _ready() -> void:
+	navigation_agent.velocity_computed.connect(move)
+	navigation_agent.navigation_finished.connect(stop)
 	navigation_agent.max_speed = SPEED
 	set_physics_process(false)
 
@@ -39,18 +41,6 @@ func _physics_process(delta: float) -> void:
 	var new_velocity := direction * SPEED
 	navigation_agent.velocity = new_velocity
 
-	if navigation_agent.is_navigation_finished():
-		beetle_skin.idle()
-		set_physics_process(false)
-		navigation_agent.velocity_computed.disconnect(move)
-		if global_position.distance_to(navigation_agent.target_position) < navigation_agent.path_desired_distance:
-			target_index += 1
-		elif is_on_platform:
-			remote_transform.global_position = global_position
-			remote_transform.global_rotation = global_rotation
-			remote_transform.remote_path = remote_transform.get_path_to(self)
-			platform_reached.emit()
-
 
 func move(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
@@ -60,10 +50,22 @@ func move(safe_velocity: Vector3) -> void:
 	move_and_slide()
 
 
-func refresh() -> void:
+func start() -> void:
 	set_physics_process(true)
-	if not navigation_agent.velocity_computed.is_connected(move):
-		navigation_agent.velocity_computed.connect(move)
-	navigation_agent.target_position = target_global_positions[target_index]
+	navigation_agent.avoidance_enabled = true
 	remote_transform.remote_path = ^""
+	navigation_agent.target_position = target_global_positions[target_index]
 	beetle_skin.walk()
+
+
+func stop() -> void:
+	beetle_skin.idle()
+	set_physics_process(false)
+	navigation_agent.avoidance_enabled = false
+	if global_position.distance_to(navigation_agent.target_position) < navigation_agent.path_desired_distance:
+		target_index += 1
+	elif is_on_platform:
+		remote_transform.global_position = global_position
+		remote_transform.global_rotation = global_rotation
+		remote_transform.remote_path = remote_transform.get_path_to(self)
+		platform_reached.emit()

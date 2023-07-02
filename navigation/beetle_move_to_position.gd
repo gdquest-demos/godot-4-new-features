@@ -19,6 +19,7 @@ var target_global_position := Vector3.INF:
 
 
 func _ready() -> void:
+	_navigation_agent.navigation_finished.connect(stop)
 	_navigation_agent.max_speed = SPEED
 	_beetle_skin.idle()
 	set_physics_process(false)
@@ -45,11 +46,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		move(new_velocity)
 
-	if _navigation_agent.is_navigation_finished():
-		_beetle_skin.idle()
-		set_physics_process(false)
-		_navigation_agent.velocity_computed.disconnect(move)
-
 
 func move(safe_velocity: Vector3) -> void:
 	velocity = safe_velocity
@@ -60,3 +56,9 @@ func move(safe_velocity: Vector3) -> void:
 	_beetle_skin.global_transform = current_model_transform.interpolate_with(_beetle_skin.global_transform, 10.0 * get_physics_process_delta_time())
 
 	move_and_slide()
+
+
+func stop() -> void:
+	_beetle_skin.idle()
+	set_physics_process(false)
+	set_avoidance_enabled(false)

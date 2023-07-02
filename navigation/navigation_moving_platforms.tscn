@@ -11,7 +11,7 @@ vertices = PackedVector3Array(-4.5, 1, -26.5, -4.5, 1, -17.5, 4.5, 1, -17.5, 4.5
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_txvch"]
-vertices = PackedVector3Array(-1.50001, 1, -1.50001, -1.50001, 1, 1.49999, 1.49999, 1, 1.49999, 1.49999, 1, -1.50001)
+vertices = PackedVector3Array(-1.5, 1, -1.5, -1.5, 1, 1.5, 1.5, 1, 1.5, 1.5, 1, -1.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k68ho"]
@@ -175,10 +175,10 @@ enabled = false
 start_position = Vector3(0, 0, 7)
 end_position = Vector3(0, 0, -7)
 
-[node name="MovingPlatform" type="NavigationRegion3D" parent="."]
+[node name="MovingPlatform" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
-navigation_mesh = SubResource("NavigationMesh_txvch")
+collision_mask = 3
 
 [node name="Beetle1RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -186,13 +186,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Beetle2RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="MovingPlatform"]
-size = Vector3(4, 1, 4)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="MovingPlatform"]
+navigation_mesh = SubResource("NavigationMesh_txvch")
 
-[node name="Area3D" type="Area3D" parent="MovingPlatform"]
-collision_mask = 3
+[node name="CSGBox3D" type="CSGBox3D" parent="MovingPlatform/NavigationRegion3D"]
+size = Vector3(6, 1, 4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_k68ho")
 
@@ -227,13 +227,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
 material_override = SubResource("ShaderMaterial_wsun8")
 mesh = SubResource("PlaneMesh_uso6y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-autoplay = "platform_loop"
-libraries = {
-"": SubResource("AnimationLibrary_7tc6i")
-}
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
 
@@ -243,3 +236,10 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_deorg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+autoplay = "platform_loop"
+libraries = {
+"": SubResource("AnimationLibrary_7tc6i")
+}
