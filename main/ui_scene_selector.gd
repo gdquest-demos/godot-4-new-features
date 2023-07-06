@@ -106,6 +106,12 @@ var DEMOS : Array[DemoData] = [
 		"Those beetles patiently wait for their path to clear up to go to their destination"
 	),
 	DemoData.setup(
+		"Avoidance Priority",
+		preload("./thumbnails/navigation_priority.png"),
+		preload("res://navigation/navigation_priority.tscn").resource_path,
+		"See how those big and angry beetles bully the tiny ones because of their higher avoidance priority"
+	),
+	DemoData.setup(
 		"Audio Polyphony",
 		preload("./thumbnails/audio_polyphony.png"),
 		preload("res://audio_polyphony/audio_polyphony.tscn").resource_path,

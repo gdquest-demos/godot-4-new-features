@@ -30,7 +30,7 @@ rings = 8
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rcl0u"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3dvh"]
 seamless = true
 noise = SubResource("FastNoiseLite_c510s")
 
@@ -42,7 +42,7 @@ shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
 shader_parameter/water_edge_distance = 0.5
 shader_parameter/water_depth_distance = 4.0
 shader_parameter/water_texture_scale = 40.0
-shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_rcl0u")
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_g3dvh")
 shader_parameter/caustic_sampler = ExtResource("6_1qom3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uso6y"]

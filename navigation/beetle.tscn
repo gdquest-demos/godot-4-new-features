@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://btkjvs4pjpbqo"]
 
 [ext_resource type="Script" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
-[ext_resource type="PackedScene" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
+[ext_resource type="PackedScene" uid="uid://bb15s2222kbth" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 
 [sub_resource type="Animation" id="Animation_5pcps"]
 length = 0.001
