@@ -40,6 +40,8 @@ func _physics_process(delta: float) -> void:
 	var direction := (next_location - global_position).normalized()
 	var new_velocity := direction * SPEED
 	navigation_agent.velocity = new_velocity
+	if is_on_platform:
+		stop()
 
 
 func move(safe_velocity: Vector3) -> void:
@@ -51,6 +53,7 @@ func move(safe_velocity: Vector3) -> void:
 
 
 func start() -> void:
+	is_on_platform = false
 	set_physics_process(true)
 	navigation_agent.avoidance_enabled = true
 	remote_transform.remote_path = ^""
