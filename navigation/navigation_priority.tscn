@@ -1,0 +1,112 @@
+[gd_scene load_steps=14 format=3 uid="uid://htitg74hao2i"]
+
+[ext_resource type="Script" path="res://navigation/navigation_priority.gd" id="1_ldfkf"]
+[ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="2_j1wnd"]
+[ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="3_neqil"]
+[ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="4_u2bep"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_hy0au"]
+vertices = PackedVector3Array(-14.5, 0.5, 0, -14.5, 0.5, 9.5, -7.25, 0.5, 9.5, 7.25, 0.5, 9.5, 14.5, 0.5, 9.5, 14.5, 0.5, 0, 14.5, 0.5, 0, 14.5, 0.5, -9.5, 7.25, 0.5, -9.5, -7.25, 0.5, -9.5, -14.5, 0.5, -9.5, -14.5, 0.5, 0, 0, 0.5, -9.5, -14.5, 0.5, 0, -7.25, 0.5, 9.5, 0, 0.5, 9.5, 14.5, 0.5, 0, 7.25, 0.5, -9.5, 0, 0.5, 9.5, 7.25, 0.5, 9.5, 14.5, 0.5, 0, 0, 0.5, -9.5, -7.25, 0.5, -9.5, -14.5, 0.5, 0)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(17, 16, 12), PackedInt32Array(12, 16, 15), PackedInt32Array(12, 15, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(20, 19, 18), PackedInt32Array(23, 22, 21)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tmm7l"]
+size = Vector2(30, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jxbe"]
+shading_mode = 0
+albedo_color = Color(0.388235, 0.168627, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rhmyj"]
+material = SubResource("StandardMaterial3D_0jxbe")
+radius = 0.25
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngh8i"]
+shading_mode = 0
+albedo_color = Color(0.717647, 0.152941, 0.298039, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_luu2a"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rcl0u"]
+seamless = true
+noise = SubResource("FastNoiseLite_luu2a")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6b0t"]
+render_priority = 0
+shader = ExtResource("2_j1wnd")
+shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
+shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
+shader_parameter/water_edge_distance = 0.5
+shader_parameter/water_depth_distance = 4.0
+shader_parameter/water_texture_scale = 40.0
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_rcl0u")
+shader_parameter/caustic_sampler = ExtResource("3_neqil")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d2pp0"]
+size = Vector2(400, 400)
+subdivide_width = 40
+subdivide_depth = 40
+
+[node name="NavigationPriority" type="Node3D"]
+script = ExtResource("1_ldfkf")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_hy0au")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_tmm7l")
+
+[node name="Beetles" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="PatrolPointGroups" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="PatrolPoints1" type="Node3D" parent="PatrolPointGroups"]
+
+[node name="PatrolPointA" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1361, 9.53674e-07, 0.614939)
+mesh = SubResource("SphereMesh_rhmyj")
+
+[node name="PatrolPointB" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06763, 0, -5.30495)
+mesh = SubResource("SphereMesh_rhmyj")
+
+[node name="PatrolPointC" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31018, 0, 4.41741)
+mesh = SubResource("SphereMesh_rhmyj")
+
+[node name="PatrolPoints2" type="Node3D" parent="PatrolPointGroups"]
+
+[node name="PatrolPointA" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.87882, 0, 0.67507)
+mesh = SubResource("SphereMesh_rhmyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ngh8i")
+
+[node name="PatrolPointB" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57539, 0, -5.14726)
+mesh = SubResource("SphereMesh_rhmyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ngh8i")
+
+[node name="PatrolPointC" type="MeshInstance3D" parent="PatrolPointGroups/PatrolPoints2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.39091, 0, 2.49656)
+mesh = SubResource("SphereMesh_rhmyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_ngh8i")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
+material_override = SubResource("ShaderMaterial_n6b0t")
+mesh = SubResource("PlaneMesh_d2pp0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 17.0007, 17.0021)
+fov = 50.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_u2bep")

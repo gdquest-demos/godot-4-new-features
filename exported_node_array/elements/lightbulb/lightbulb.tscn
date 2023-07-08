@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://km840n4mowb7"]
+
+[ext_resource type="PackedScene" uid="uid://rpdp50np4l67" path="res://exported_node_array/elements/lightbulb/lightbulb.glb" id="1_6u35p"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="2_64uuo"]
+[ext_resource type="Material" uid="uid://c6oq4wm7pg5n5" path="res://exported_node_array/elements/lightbulb/bulb_mat.tres" id="2_jo41x"]
+
+[node name="LightBulb" instance=ExtResource("1_6u35p")]
+
+[node name="Bulb" parent="." index="0"]
+unique_name_in_owner = true
+material_override = ExtResource("2_jo41x")
+
+[node name="BulbBase" parent="." index="1"]
+material_override = ExtResource("2_64uuo")

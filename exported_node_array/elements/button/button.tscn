@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://66g8haplfp77"]
+
+[ext_resource type="PackedScene" uid="uid://c8g15ke3j8y73" path="res://exported_node_array/elements/button/button.glb" id="1_6k8gl"]
+[ext_resource type="Script" path="res://exported_node_array/elements/button/button.gd" id="2_m65o2"]
+[ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="3_nm7r0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygx4g"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.435294, 0.0784314, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apx60"]
+
+[node name="Button" instance=ExtResource("1_6k8gl")]
+script = ExtResource("2_m65o2")
+off_color = Color(1, 0.435294, 0.0784314, 1)
+on_color = Color(0.964706, 0.65098, 1, 1)
+
+[node name="Button" parent="." index="0"]
+unique_name_in_owner = true
+material_override = SubResource("StandardMaterial3D_ygx4g")
+lod_bias = 10.0
+
+[node name="ButtonBase" parent="." index="1"]
+material_override = ExtResource("3_nm7r0")
+lod_bias = 10.0
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("BoxShape3D_apx60")

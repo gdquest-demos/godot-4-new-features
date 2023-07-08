@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl5jro2aopj7s"]
+
+[ext_resource type="Material" uid="uid://cg2lpg5nxomkx" path="res://particles_turbulence/petal/petal_material.tres" id="1_v8iur"]
+[ext_resource type="Material" uid="uid://dxd2ls85gp6o0" path="res://particles_turbulence/petal/petal_process_material.tres" id="2_4vk16"]
+[ext_resource type="ArrayMesh" uid="uid://u008f35lywsi" path="res://particles_turbulence/petal/petal_mesh.obj" id="4_gaxyt"]
+[ext_resource type="Material" uid="uid://d2k61l3mwdj6a" path="res://particles_turbulence/petal/dust_material.tres" id="4_muqwj"]
+[ext_resource type="PackedScene" uid="uid://x5jvn64pwqrc" path="res://shared/orbit_controls/orbit_controls.tscn" id="6_5c34i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pj8wl"]
+sky_top_color = Color(0.415686, 0.65098, 0.960784, 1)
+sky_horizon_color = Color(0.737255, 0.760784, 0.945098, 1)
+ground_bottom_color = Color(0.737255, 0.760784, 0.945098, 1)
+ground_horizon_color = Color(0.737255, 0.760784, 0.945098, 1)
+
+[sub_resource type="Sky" id="Sky_6amf0"]
+sky_material = SubResource("ProceduralSkyMaterial_pj8wl")
+
+[sub_resource type="Environment" id="Environment_vjx21"]
+background_mode = 1
+background_color = Color(0.341176, 0.776471, 0.666667, 1)
+sky = SubResource("Sky_6amf0")
+ambient_light_source = 2
+ambient_light_color = Color(0.8, 0.8, 0.8, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_light_color = Color(0.411765, 0.835294, 0.976471, 1)
+volumetric_fog_albedo = Color(0.627451, 0.631373, 0.992157, 1)
+
+[sub_resource type="Curve" id="Curve_f4mkc"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_k1bd1"]
+curve = SubResource("Curve_f4mkc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gp340"]
+lifetime_randomness = 0.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.25
+scale_min = 0.02
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_k1bd1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_knlxg"]
+
+[node name="MainParticlesTurbulence" type="Node"]
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+environment = SubResource("Environment_vjx21")
+
+[node name="Petals" type="GPUParticles3D" parent="World3D"]
+material_override = ExtResource("1_v8iur")
+amount = 2048
+sub_emitter = NodePath("../Dust")
+lifetime = 6.0
+preprocess = 2.0
+process_material = ExtResource("2_4vk16")
+draw_pass_1 = ExtResource("4_gaxyt")
+
+[node name="Dust" type="GPUParticles3D" parent="World3D"]
+material_override = ExtResource("4_muqwj")
+emitting = false
+amount = 512
+transform_align = 3
+process_material = SubResource("ParticleProcessMaterial_gp340")
+draw_pass_1 = SubResource("QuadMesh_knlxg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World3D"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+directional_shadow_max_distance = 20.0
+
+[node name="OrbitControls" parent="World3D" instance=ExtResource("6_5c34i")]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://btkjvs4pjpbqo"]
 
 [ext_resource type="Script" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
-[ext_resource type="PackedScene" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
+[ext_resource type="PackedScene" uid="uid://bb15s2222kbth" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 
 [sub_resource type="Animation" id="Animation_5pcps"]
 length = 0.001
@@ -142,7 +142,10 @@ transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 unique_name_in_owner = true
-path_desired_distance = 0.2
+path_desired_distance = 2.0
 target_desired_distance = 0.2
-agent_height_offset = 0.5
-time_horizon = 0.5
+path_height_offset = 0.5
+path_max_distance = 1.51
+avoidance_enabled = true
+radius = 0.2
+debug_enabled = true

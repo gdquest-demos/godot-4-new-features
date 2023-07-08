@@ -1,30 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://8d4cudcb6xpc"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_id3s4"]
-
-[sub_resource type="Animation" id="Animation_veodu"]
-resource_name = "default"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.0613372, 0.95, 2.19116), Vector3(0.0613372, 0.95, -1.37318)]
-}
+[gd_scene load_steps=6 format=3 uid="uid://8d4cudcb6xpc"]
 
 [sub_resource type="Animation" id="Animation_e4hp1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("NavigationOffset:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,6 +13,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.0613372, 0.95, 2.19116)]
+}
+
+[sub_resource type="Animation" id="Animation_veodu"]
+resource_name = "default"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NavigationOffset:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(0.0613372, 0.95, 2.19116), Vector3(0.0613372, 0.95, -1.37318)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l5lp8"]
@@ -44,16 +42,11 @@ _data = {
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_reh6l"]
+radius = 0.8
+height = 1.6
 
-[node name="Obstacle" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613372, 0.95, 0.29285)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_id3s4")
-
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
-estimate_radius = false
-radius = 0.5
+[node name="Obstacle" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613372, 0.95, 2.19116)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
@@ -61,6 +54,13 @@ libraries = {
 "": SubResource("AnimationLibrary_l5lp8")
 }
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="NavigationOffset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0613372, 0.95, 2.19116)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationOffset"]
+radius = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationOffset"]
 material_override = SubResource("StandardMaterial3D_rekvp")
 mesh = SubResource("SphereMesh_reh6l")
+skeleton = NodePath("../..")

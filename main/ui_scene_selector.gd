@@ -10,6 +10,12 @@ const MainMenu := preload("res://main/menu_scene_selector/main_menu.gd")
 
 var DEMOS : Array[DemoData] = [
 	DemoData.setup(
+		"Particles Turbulence",
+		preload("./thumbnails/particles_turbulence.png"),
+		preload("res://particles_turbulence/main_particles_turbulence.tscn").resource_path,
+		"Godot 4.1's improved particles turbulence"
+	),
+	DemoData.setup(
 		"2D clipping",
 		preload("./thumbnails/2d_clipping_thumbnail.png"),
 		preload("res://2d_clipping/2d_clipping_background.tscn").resource_path,
@@ -85,13 +91,25 @@ var DEMOS : Array[DemoData] = [
 		"Navigation",
 		preload("./thumbnails/navigation_1.png"),
 		preload("res://navigation/navigation_arena.tscn").resource_path,
-		"Click to move the beetles and see them recalculate their navigation mesh in real time"
+		"Click to move the beetle with navigation mesh in real time"
 	),
 	DemoData.setup(
-		"Dynamic Obstacles",
+		"Dynamic Avoidance",
+		preload("./thumbnails/navigation_obstacles.png"),
+		preload("res://navigation/navigation_obstacles.tscn").resource_path,
+		"Click to move the beetle and see it avoid the balls with navigating mesh in real time"
+	),
+	DemoData.setup(
+		"Dynamic Paths",
 		preload("./thumbnails/navigation_2.png"),
 		preload("res://navigation/navigation_moving_platforms.tscn").resource_path,
 		"Those beetles patiently wait for their path to clear up to go to their destination"
+	),
+	DemoData.setup(
+		"Avoidance Priority",
+		preload("./thumbnails/navigation_priority.png"),
+		preload("res://navigation/navigation_priority.tscn").resource_path,
+		"See how those big and angry beetles bully the tiny ones because of their higher avoidance priority"
 	),
 	DemoData.setup(
 		"Audio Polyphony",
@@ -159,6 +177,12 @@ var DEMOS : Array[DemoData] = [
 		preload("./thumbnails/flow_container.png"),
 		preload("res://ui_flexbox/flow_container_demo.tscn").resource_path,
 		"Add or remove items and see how they neatly stack next to each other dynamically"
+	),
+	DemoData.setup(
+		"Exported Node Array",
+		preload("./thumbnails/exported_node_array.png"),
+		preload("res://exported_node_array/exported_node_array.tscn").resource_path,
+		"Click on the buttons to find out the correct combination to open the door"
 	),
 	DemoData.setup(
 		"Info & Credits",

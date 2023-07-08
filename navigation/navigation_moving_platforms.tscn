@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://da551o3yjocf3"]
+[gd_scene load_steps=18 format=3 uid="uid://da551o3yjocf3"]
 
 [ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
-[ext_resource type="Script" path="res://navigation/moving_platform_handler.gd" id="3_k6sl3"]
-[ext_resource type="Environment" uid="uid://nk6lbelidx8r" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
+[ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
 [ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="6_1qom3"]
 
@@ -11,148 +10,27 @@
 vertices = PackedVector3Array(-4.5, 1, -26.5, -4.5, 1, -17.5, 4.5, 1, -17.5, 4.5, 1, -26.5, -4.5, 1, -4.5, -4.5, 1, 4.5, 4.5, 1, 4.5, 4.5, 1, -4.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
-[sub_resource type="BoxMesh" id="BoxMesh_cckqs"]
-size = Vector3(10, 1, 10)
+[sub_resource type="NavigationMesh" id="NavigationMesh_txvch"]
+vertices = PackedVector3Array(-1.5, 1, -1.5, -1.5, 1, 1.5, 1.5, 1, 1.5, 1.5, 1, -1.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kwrk7"]
-size = Vector3(10, 1, 10)
+[sub_resource type="BoxShape3D" id="BoxShape3D_k68ho"]
+size = Vector3(0.5, 1, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jxlw5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh0hw"]
 shading_mode = 0
 albedo_color = Color(0.388235, 0.168627, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_kifhs"]
-material = SubResource("StandardMaterial3D_jxlw5")
+material = SubResource("StandardMaterial3D_fh0hw")
 radius = 0.25
 height = 0.5
 radial_segments = 16
 rings = 8
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_txvch"]
-vertices = PackedVector3Array(-1.5, 1, -1.5, -1.5, 1, 1.5, 1.5, 1, 1.5, 1.5, 1, -1.5)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iil7m"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_q77s7"]
-size = Vector3(4, 1, 4)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_v0bl2"]
-size = Vector3(4, 1, 4)
-
-[sub_resource type="Animation" id="Animation_215et"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatformHandler/MovingPlatformAnchor:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MovingPlatformHandler:platform_connected_to_b")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MovingPlatformHandler:platform_connected_to_a")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MovingPlatformHandler/MovingPlatformAnchor:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mxhwk"]
-resource_name = "platform_loop"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatformHandler/MovingPlatformAnchor:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 4), Vector3(0, 0, 4), Vector3(0, 0, 0), Vector3(0, 0, -4), Vector3(0, 0, -4), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MovingPlatformHandler:platform_connected_to_b")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MovingPlatformHandler:platform_connected_to_a")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MovingPlatformHandler/MovingPlatformAnchor:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0), Vector3(0, 6.28319, 0), Vector3(0, 3.14159, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tc6i"]
-_data = {
-"RESET": SubResource("Animation_215et"),
-"platform_loop": SubResource("Animation_mxhwk")
-}
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rcl0u"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3dvh"]
 seamless = true
 noise = SubResource("FastNoiseLite_c510s")
 
@@ -164,7 +42,7 @@ shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
 shader_parameter/water_edge_distance = 0.5
 shader_parameter/water_depth_distance = 4.0
 shader_parameter/water_texture_scale = 40.0
-shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_rcl0u")
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_g3dvh")
 shader_parameter/caustic_sampler = ExtResource("6_1qom3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uso6y"]
@@ -172,48 +50,174 @@ size = Vector2(400, 400)
 subdivide_width = 40
 subdivide_depth = 40
 
+[sub_resource type="Animation" id="Animation_215et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:moving_platform_is_touching")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mxhwk"]
+resource_name = "platform_loop"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingPlatform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -11), Vector3(0, 0, -7), Vector3(0, 0, -7), Vector3(0, 0, -15), Vector3(0, 0, -15)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"pause"
+}, {
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MovingPlatform:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"moving_platform_touched"],
+"method": &"emit_signal"
+}, {
+"args": [&"moving_platform_touched"],
+"method": &"emit_signal"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:moving_platform_is_touching")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9, 2.2, 3.9, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tc6i"]
+_data = {
+"RESET": SubResource("Animation_215et"),
+"platform_loop": SubResource("Animation_mxhwk")
+}
+
 [node name="Navigation" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 script = ExtResource("1_avpy2")
 
 [node name="Beetles" type="Node3D" parent="."]
+unique_name_in_owner = true
 
 [node name="Beetle1" parent="Beetles" instance=ExtResource("2_2uwum")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, 3)
 
 [node name="Beetle2" parent="Beetles" instance=ExtResource("2_2uwum")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, -25)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_f1mbg")
-navigation_layers = 3
 
-[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D"]
-mesh = SubResource("BoxMesh_cckqs")
-skeleton = NodePath("StaticBody3D")
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+size = Vector3(10, 1, 10)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
-shape = SubResource("BoxShape3D_kwrk7")
-
-[node name="Ground2" type="MeshInstance3D" parent="NavigationRegion3D"]
-unique_name_in_owner = true
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
-mesh = SubResource("BoxMesh_cckqs")
-skeleton = NodePath("StaticBody3D")
+size = Vector3(10, 1, 10)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground2"]
+[node name="MovingPlatformNavigationLink3D" type="NavigationLink3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+start_position = Vector3(0, 0, -4.5)
+end_position = Vector3(0, 0, -17.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground2/StaticBody3D"]
-shape = SubResource("BoxShape3D_kwrk7")
+[node name="MovingPlatform" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+collision_mask = 3
 
-[node name="AlternativeSolidPath" type="Node3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -11)
+[node name="Beetle1RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
+[node name="Beetle2RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="MovingPlatform"]
+navigation_mesh = SubResource("NavigationMesh_txvch")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="MovingPlatform/NavigationRegion3D"]
+size = Vector3(6, 1, 4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_k68ho")
 
 [node name="PatrolPointA" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -225,99 +229,40 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -22)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
-shadow_enabled = true
-
-[node name="MovingPlatformHandler" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
-script = ExtResource("3_k6sl3")
-
-[node name="MovingPlatformNavigationLink3D" type="NavigationLink3D" parent="MovingPlatformHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515, 0)
-navigation_layers = 2
-start_position = Vector3(0, 0, 7)
-end_position = Vector3(0, 0, -7)
-
-[node name="MovingPlatformEnterA" type="Marker3D" parent="MovingPlatformHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 7)
-
-[node name="AB" type="MeshInstance3D" parent="MovingPlatformHandler/MovingPlatformEnterA"]
+[node name="MovingPlatformEnterA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
 mesh = SubResource("SphereMesh_kifhs")
-skeleton = NodePath("../../..")
 
-[node name="MovingPlatformEnterB" type="Marker3D" parent="MovingPlatformHandler"]
+[node name="MovingPlatformEnterB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -18)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="MovingPlatformExitA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="MovingPlatformExitB" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
-
-[node name="BC" type="MeshInstance3D" parent="MovingPlatformHandler/MovingPlatformEnterB"]
 mesh = SubResource("SphereMesh_kifhs")
-skeleton = NodePath("../../..")
-
-[node name="MovingPlatformExitA" type="Marker3D" parent="MovingPlatformHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
-
-[node name="BC3" type="MeshInstance3D" parent="MovingPlatformHandler/MovingPlatformExitA"]
-mesh = SubResource("SphereMesh_kifhs")
-skeleton = NodePath("../../..")
-
-[node name="MovingPlatformExitB" type="Marker3D" parent="MovingPlatformHandler"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 5)
-
-[node name="BC2" type="MeshInstance3D" parent="MovingPlatformHandler/MovingPlatformExitB"]
-mesh = SubResource("SphereMesh_kifhs")
-skeleton = NodePath("../../..")
-
-[node name="MovingPlatformWaitForUserTimer" type="Timer" parent="MovingPlatformHandler"]
-one_shot = true
-
-[node name="MovingPlatformAnchor" type="Node3D" parent="MovingPlatformHandler"]
-transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
-
-[node name="MovingPlatformNavigationRegion3D" type="NavigationRegion3D" parent="MovingPlatformHandler/MovingPlatformAnchor"]
-navigation_mesh = SubResource("NavigationMesh_txvch")
-
-[node name="MovingPlatformVisualMesh" type="MeshInstance3D" parent="MovingPlatformHandler/MovingPlatformAnchor/MovingPlatformNavigationRegion3D"]
-unique_name_in_owner = true
-material_override = SubResource("StandardMaterial3D_iil7m")
-mesh = SubResource("BoxMesh_q77s7")
-skeleton = NodePath("StaticBody3D")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MovingPlatformHandler/MovingPlatformAnchor/MovingPlatformNavigationRegion3D/MovingPlatformVisualMesh"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatformHandler/MovingPlatformAnchor/MovingPlatformNavigationRegion3D/MovingPlatformVisualMesh/StaticBody3D"]
-shape = SubResource("BoxShape3D_v0bl2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatformHandler/MovingPlatformAnchor"]
-root_node = NodePath("../../..")
-autoplay = "platform_loop"
-libraries = {
-"": SubResource("AnimationLibrary_7tc6i")
-}
-
-[node name="MovingPlatformAttachmentPoint" type="Marker3D" parent="MovingPlatformHandler/MovingPlatformAnchor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Button" type="Button" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 802.0
-offset_top = 996.0
-offset_right = -802.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
-text = "Toggle Platform"
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_deorg")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
 material_override = SubResource("ShaderMaterial_wsun8")
 mesh = SubResource("PlaneMesh_uso6y")
 
-[connection signal="timeout" from="MovingPlatformHandler/MovingPlatformWaitForUserTimer" to="MovingPlatformHandler" method="_on_moving_platform_wait_for_user_timer_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_deorg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+autoplay = "platform_loop"
+libraries = {
+"": SubResource("AnimationLibrary_7tc6i")
+}

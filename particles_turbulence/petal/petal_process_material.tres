@@ -1,0 +1,62 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=11 format=3 uid="uid://dxd2ls85gp6o0"]
+
+[sub_resource type="Gradient" id="Gradient_5v8to"]
+colors = PackedColorArray(0, 1, 1, 1, 0.9, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wi8sm"]
+gradient = SubResource("Gradient_5v8to")
+
+[sub_resource type="Gradient" id="Gradient_bd7q2"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_grviq"]
+gradient = SubResource("Gradient_bd7q2")
+
+[sub_resource type="Curve" id="Curve_2ulvv"]
+min_value = -1.0
+_data = [Vector2(0, 1.49012e-08), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rtlke"]
+curve = SubResource("Curve_2ulvv")
+
+[sub_resource type="Curve" id="Curve_8xn22"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ojaw5"]
+curve = SubResource("Curve_8xn22")
+
+[sub_resource type="Curve" id="Curve_f6hy6"]
+_data = [Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wchcx"]
+curve = SubResource("Curve_f6hy6")
+
+[resource]
+lifetime_randomness = 0.35
+emission_shape = 2
+emission_sphere_radius = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 10.0
+scale_min = 0.05
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_ojaw5")
+color_ramp = SubResource("GradientTexture1D_grviq")
+color_initial_ramp = SubResource("GradientTexture1D_wi8sm")
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_rtlke")
+turbulence_enabled = true
+turbulence_noise_strength = 1.25
+turbulence_noise_scale = 6.0
+turbulence_influence_max = 0.2
+turbulence_influence_over_life = SubResource("CurveTexture_wchcx")
+anim_speed_min = 0.1
+anim_speed_max = 1.0
+anim_offset_max = 1.0
+sub_emitter_mode = 1
+sub_emitter_frequency = 50.0

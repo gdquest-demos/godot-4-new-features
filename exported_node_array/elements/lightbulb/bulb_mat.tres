@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c6oq4wm7pg5n5"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 1
+albedo_color = Color(1, 1, 1, 0.235294)
+roughness = 0.54
+emission_enabled = true
+emission = Color(1, 0.717647, 0, 1)
+emission_energy_multiplier = 0.0
+emission_operator = 1
+rim_enabled = true
+clearcoat_roughness = 0.0
+refraction_enabled = true
+refraction_scale = 0.02
