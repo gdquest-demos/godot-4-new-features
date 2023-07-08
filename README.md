@@ -4,7 +4,7 @@ itchio: https://gdquest-demos.itch.io/godot-40-new-features
 youtube: 
   - https://youtu.be/chXAjMQrcZk
 tags: demos 2d 3d physics clipping 2d_lighting 2d_particles 2d_physics audio 3d_particles 3d_physics animation audio_polyphony fonts heightmap ui voxelgi navigation networking sdfgi  tilemap tweens
-description: A set of more than 20 demos showing the new features of Godot 4.0
+description: A set of more than 20 demos showing the new features of Godot 4
 ---
 
 # Godot 4: New Features demos
@@ -97,3 +97,4 @@ Most demos use:
 - <kbd>␣ Space</kbd>
 
 Where relevant, we've described the controls.
+
