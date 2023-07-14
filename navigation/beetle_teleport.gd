@@ -1,10 +1,6 @@
 extends CharacterBody3D
 
-signal platform_reached
-
 const SPEED := 3.0
-
-var is_on_platform := false
 
 var target_index := 0:
 	set(value):
@@ -18,7 +14,9 @@ var target_global_positions := []:
 			return
 		start()
 
-var remote_transform: RemoteTransform3D = null
+var target_global_position := Vector3.INF:
+	get:
+		return target_global_positions[target_index]
 
 @onready var beetle_skin: Node3D = %BeetlebotSkin
 @onready var navigation_agent: NavigationAgent3D = %NavigationAgent3D
@@ -40,8 +38,6 @@ func _physics_process(delta: float) -> void:
 	var direction := (next_location - global_position).normalized()
 	var new_velocity := direction * SPEED
 	navigation_agent.velocity = new_velocity
-	if is_on_platform:
-		stop()
 
 
 func move(safe_velocity: Vector3) -> void:
@@ -53,10 +49,8 @@ func move(safe_velocity: Vector3) -> void:
 
 
 func start() -> void:
-	is_on_platform = false
 	set_physics_process(true)
 	navigation_agent.avoidance_enabled = true
-	remote_transform.remote_path = ^""
 	navigation_agent.target_position = target_global_positions[target_index]
 	beetle_skin.walk()
 
@@ -67,8 +61,3 @@ func stop() -> void:
 	navigation_agent.avoidance_enabled = false
 	if global_position.distance_to(navigation_agent.target_position) < navigation_agent.path_desired_distance:
 		target_index += 1
-	elif is_on_platform:
-		remote_transform.global_position = global_position
-		remote_transform.global_rotation = global_rotation
-		remote_transform.remote_path = remote_transform.get_path_to(self)
-		platform_reached.emit()

@@ -112,6 +112,12 @@ var DEMOS : Array[DemoData] = [
 		"See how those big and angry beetles bully the tiny ones because of their higher avoidance priority"
 	),
 	DemoData.setup(
+		"Navigation Teleportation via Links",
+		preload("./thumbnails/navigation_teleport.png"),
+		preload("res://navigation/navigation_teleport.tscn").resource_path,
+		"Watch the beetle get teleported to the other island with the help of navigation links"
+	),
+	DemoData.setup(
 		"Audio Polyphony",
 		preload("./thumbnails/audio_polyphony.png"),
 		preload("res://audio_polyphony/audio_polyphony.tscn").resource_path,

@@ -1,0 +1,159 @@
+[gd_scene load_steps=18 format=3 uid="uid://2l3w4kpeqlt1"]
+
+[ext_resource type="Script" path="res://navigation/navigation_teleport.gd" id="1_7ni87"]
+[ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_ebn2o"]
+[ext_resource type="Script" path="res://navigation/beetle_teleport.gd" id="3_682xh"]
+[ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="3_w4xmb"]
+[ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="4_y82ax"]
+[ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="5_tbjx6"]
+
+[sub_resource type="Animation" id="Animation_hf5dd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5lir2"]
+resource_name = "teleport"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wndk8"]
+_data = {
+"RESET": SubResource("Animation_hf5dd"),
+"teleport": SubResource("Animation_5lir2")
+}
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
+vertices = PackedVector3Array(-22.5, 1, -41.5, -22.5, 1, -32.5, -13.5, 1, -32.5, -13.5, 1, -41.5, -4.5, 1, -4.5, -4.5, 1, 4.5, 4.5, 1, 4.5, 4.5, 1, -4.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fh0hw"]
+shading_mode = 0
+albedo_color = Color(0.388235, 0.168627, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kifhs"]
+material = SubResource("StandardMaterial3D_fh0hw")
+radius = 0.25
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orw6r"]
+transparency = 1
+albedo_color = Color(0.988235, 0.109804, 0.254902, 0.643137)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3dvh"]
+seamless = true
+noise = SubResource("FastNoiseLite_c510s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsun8"]
+render_priority = 0
+shader = ExtResource("3_w4xmb")
+shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
+shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
+shader_parameter/water_edge_distance = 0.5
+shader_parameter/water_depth_distance = 4.0
+shader_parameter/water_texture_scale = 40.0
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_g3dvh")
+shader_parameter/caustic_sampler = ExtResource("4_y82ax")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uso6y"]
+size = Vector2(400, 400)
+subdivide_width = 40
+subdivide_depth = 40
+
+[node name="NavigationTeleport" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+script = ExtResource("1_7ni87")
+
+[node name="Beetle" parent="." instance=ExtResource("2_ebn2o")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, 3)
+script = ExtResource("3_682xh")
+
+[node name="NavigationAgent3D" parent="Beetle" index="5"]
+path_desired_distance = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Beetle"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_wndk8")
+}
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_f1mbg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -37)
+size = Vector3(10, 1, 10)
+
+[node name="MovingPlatformNavigationLink3D" type="NavigationLink3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+start_position = Vector3(-2.546, 0, 1.852)
+end_position = Vector3(-15.4742, 0, -39.6166)
+
+[node name="PatrolPointA" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="PatrolPointB" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.5, -37)
+mesh = SubResource("SphereMesh_kifhs")
+
+[node name="Teleporters" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Teleporters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54608, 1, 1.85184)
+radius = 1.0
+sides = 16
+material = SubResource("StandardMaterial3D_orw6r")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Teleporters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.474, 1, -39.617)
+radius = 1.0
+sides = 16
+material = SubResource("StandardMaterial3D_orw6r")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
+material_override = SubResource("ShaderMaterial_wsun8")
+mesh = SubResource("PlaneMesh_uso6y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33301e-08, 1.35501e-07, 18.6101, 16.5499, -11.2698)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_tbjx6")
+
+[editable path="Beetle"]

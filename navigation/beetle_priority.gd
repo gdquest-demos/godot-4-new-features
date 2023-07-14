@@ -39,7 +39,7 @@ func _on_navigation_agent_navigation_finished():
 	patrol_index = wrapi(patrol_index + 1, 0, patrol_points.size())
 
 
-func set_patrol_points(the_patrol_points: Array) -> void:
-	patrol_points = the_patrol_points
+func set_patrol_points(value: Array) -> void:
+	patrol_points = value
 	if patrol_points.size() > 0:
 		navigation_agent.set_target_position(patrol_points[patrol_index])
