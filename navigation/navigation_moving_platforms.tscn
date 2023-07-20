@@ -193,11 +193,6 @@ size = Vector3(10, 1, 10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 size = Vector3(10, 1, 10)
 
-[node name="MovingPlatformNavigationLink3D" type="NavigationLink3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-start_position = Vector3(0, 0, -4.5)
-end_position = Vector3(0, 0, -17.5)
-
 [node name="MovingPlatform" type="Area3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)

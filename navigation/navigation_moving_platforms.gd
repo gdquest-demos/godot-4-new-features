@@ -28,10 +28,5 @@ func _ready() -> void:
 		moving_platform.body_entered.connect(func(body: Node3D) -> void: body.is_on_platform = true)
 		moving_platform.body_exited.connect(func(body: Node3D) -> void: body.is_on_platform = false)
 		beetle.platform_reached.connect(animation_player.play)
-		beetle.navigation_agent.link_reached.connect(
-			func(details: Dictionary) -> void:
-				if not moving_platform_is_touching or (moving_platform.global_position - beetle.global_position).length() > 6.0:
-					beetle.stop()
-		)
 		beetle.setup(moving_platform.get_child(index))
 		beetle.target_global_positions = patrol_points[index]
