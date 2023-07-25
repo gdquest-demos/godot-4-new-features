@@ -8,6 +8,7 @@ var target_global_position := Vector3.INF:
 		var is_near_target := global_position.distance_to(target_global_position) < _navigation_agent.target_desired_distance
 		var has_new_target := not is_near_target and target_global_position != Vector3.INF
 		set_physics_process(has_new_target)
+		set_avoidance_enabled(has_new_target)
 		if has_new_target:
 			if not _navigation_agent.velocity_computed.is_connected(move):
 				_navigation_agent.velocity_computed.connect(move)
