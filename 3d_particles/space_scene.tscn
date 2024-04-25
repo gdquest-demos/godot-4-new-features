@@ -14,9 +14,9 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 0.1, 0.1)
 direction = Vector3(0, 0, 1)
 spread = 5.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = -2.0
 linear_accel_max = -2.0
 tangential_accel_min = -5.0
@@ -36,20 +36,20 @@ rings = 4
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7nrvb"]
 direction = Vector3(0, 0, 1)
 spread = 5.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = 50.0
 linear_accel_max = 50.0
 scale_min = 5.0
 scale_max = 5.0
 color = Color(1, 0.345098, 0.509804, 1)
-sub_emitter_mode = 3
-sub_emitter_amount_at_collision = 1
 collision_mode = 1
 collision_friction = 1.0
 collision_bounce = 0.06
 collision_use_scale = true
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvl1f"]
 shading_mode = 0
@@ -63,9 +63,9 @@ radial_steps = 3
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_000e4"]
 direction = Vector3(0, 0, -1)
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
 scale_min = 5.0
 scale_max = 5.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=14 format=3 uid="uid://jgxlmt615qaj"]
 
 [ext_resource type="Script" path="res://shared/models/gdbot/gdbot_face.gd" id="1_g7fgr"]
 [ext_resource type="Texture2D" uid="uid://cbp882a2a27qw" path="res://shared/models/gdbot/texture/parts/eye_happy.png" id="2_fa0xy"]

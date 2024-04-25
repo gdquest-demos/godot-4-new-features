@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://shared/models/shared/shaders/screen_shader.gdshader" id="3_johvk"]
 [ext_resource type="Material" uid="uid://4ugdxr58llu8" path="res://shared/models/gdbot/materials/glass_mat.tres" id="4_jt2os"]
 [ext_resource type="Animation" uid="uid://b627b68jhaqwt" path="res://shared/models/gdbot/custom_animations/default_heartbeat.tres" id="5_5hfe5"]
-[ext_resource type="PackedScene" path="res://shared/models/gdbot/gdbot_face.tscn" id="7_6dl0h"]
+[ext_resource type="PackedScene" uid="uid://jgxlmt615qaj" path="res://shared/models/gdbot/gdbot_face.tscn" id="7_6dl0h"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0dla7"]
 viewport_path = NodePath("SubViewport")
@@ -2664,7 +2664,7 @@ nodes/Add2/position = Vector2(140, 220)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_pu2xo")
 nodes/StateMachine/position = Vector2(-120, 480)
 nodes/output/position = Vector2(360, 220)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation 2"]
+node_connections = [&"Add2", 0, &"StateMachine", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wvioj"]
 
