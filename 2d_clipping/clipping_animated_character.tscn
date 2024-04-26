@@ -8,8 +8,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
 shader = ExtResource("1_kqj15")
-shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
-shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
+shader_parameter/bg_color = Color(0.552941, 0.0980392, 0.843137, 1)
+shader_parameter/pattern_color = Color(0.746575, 0.481212, 1, 1)
 shader_parameter/scale = 4.0
 shader_parameter/ratio = 0.56
 shader_parameter/pattern_sampler = ExtResource("2_q4fd6")
@@ -26,12 +26,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.890196, 0.996078, 1)
 script = ExtResource("3_jlvgm")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(0.156863, 0.0784314, 0.305882, 0.435294)
+position = Vector2(930, 583)
+scale = Vector2(1.78872, 1.78872)
+texture = ExtResource("4_x3jw2")
 
 [node name="Border" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0.478431, 0.764706, 1)
-position = Vector2(909.424, 520.424)
+position = Vector2(922, 556)
 scale = Vector2(1.78872, 1.78872)
 texture = ExtResource("4_x3jw2")
 
