@@ -58,10 +58,11 @@ offset_right = 164.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
 [node name="Circle" type="TextureRect" parent="UI/HBoxContainer/NoClip"]
-self_modulate = Color(0.580392, 0.517647, 0.317647, 1)
+self_modulate = Color(0.580392, 0.492726, 0.278732, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -74,20 +75,21 @@ offset_right = 154.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("2_xxpnk")
 
 [node name="Frog" type="TextureRect" parent="UI/HBoxContainer/NoClip/Circle"]
-custom_minimum_size = Vector2(320, 320)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.308
-offset_top = -160.0
-offset_right = 203.308
-offset_bottom = 160.0
+offset_left = -204.511
+offset_top = -120.0
+offset_right = 204.511
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nf42m")
@@ -132,6 +134,7 @@ offset_right = 164.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
 [node name="Circle" type="TextureRect" parent="UI/HBoxContainer/Clip"]
@@ -149,20 +152,21 @@ offset_right = 154.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("2_xxpnk")
 
 [node name="Frog" type="TextureRect" parent="UI/HBoxContainer/Clip/Circle"]
-custom_minimum_size = Vector2(320, 320)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.308
-offset_top = -160.0
-offset_right = 203.308
-offset_bottom = 160.0
+offset_left = -204.511
+offset_top = -120.0
+offset_right = 204.511
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nf42m")
@@ -207,10 +211,11 @@ offset_right = 164.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
 [node name="Circle" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw"]
-self_modulate = Color(0.580392, 0.517647, 0.317647, 1)
+self_modulate = Color(0.580392, 0.492726, 0.278732, 1)
 clip_children = 2
 layout_mode = 1
 anchors_preset = 8
@@ -224,20 +229,21 @@ offset_right = 154.0
 offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(154, 154)
 texture = ExtResource("2_xxpnk")
 
 [node name="Frog" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw/Circle"]
-custom_minimum_size = Vector2(320, 320)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -203.308
-offset_top = -160.0
-offset_right = 203.308
-offset_bottom = 160.0
+offset_left = -204.511
+offset_top = -120.0
+offset_right = 204.511
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_nf42m")
