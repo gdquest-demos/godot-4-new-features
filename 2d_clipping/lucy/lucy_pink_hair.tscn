@@ -1,0 +1,681 @@
+[gd_scene load_steps=37 format=3 uid="uid://by3uuu8cf5uv4"]
+
+[ext_resource type="Script" path="res://2d_clipping/lucy/character_2d.gd" id="1_aqg68"]
+[ext_resource type="Texture2D" uid="uid://crwptra6o3yie" path="res://2d_clipping/lucy/pink_parts/back_hair.png" id="2_sm1mg"]
+[ext_resource type="Texture2D" uid="uid://dcyiyv2qevcsv" path="res://2d_clipping/lucy/pink_parts/body.png" id="3_bspqj"]
+[ext_resource type="Texture2D" uid="uid://b27c1v1128qsd" path="res://2d_clipping/lucy/pink_parts/head.png" id="4_fqs6o"]
+[ext_resource type="Texture2D" uid="uid://dmfebmibpkbqx" path="res://2d_clipping/lucy/pink_parts/eyebrow.png" id="5_ee8qe"]
+[ext_resource type="Script" path="res://2d_clipping/lucy/node_picker.gd" id="6_h3vak"]
+[ext_resource type="Texture2D" uid="uid://2pibq315fcux" path="res://2d_clipping/lucy/pink_parts/eye_open.png" id="7_om21c"]
+[ext_resource type="Texture2D" uid="uid://cdp34j6xvka7g" path="res://2d_clipping/lucy/pink_parts/eye_close.png" id="8_u7grn"]
+[ext_resource type="Texture2D" uid="uid://cbc06df4fn4jy" path="res://2d_clipping/lucy/pink_parts/eye_happy_close.png" id="9_vea1u"]
+[ext_resource type="Texture2D" uid="uid://8ng7ywro8egi" path="res://2d_clipping/lucy/eye_happy_close.png" id="10_pmgrj"]
+[ext_resource type="Script" path="res://2d_clipping/lucy/group_picker.gd" id="11_4o7e8"]
+[ext_resource type="Texture2D" uid="uid://c173ryuln0xp4" path="res://2d_clipping/lucy/pink_parts/mouth_smile.png" id="12_t43u3"]
+[ext_resource type="Texture2D" uid="uid://blio61v86nlf4" path="res://2d_clipping/lucy/pink_parts/mouth_smile_open.png" id="13_n36dk"]
+[ext_resource type="Texture2D" uid="uid://m7tgleow7wc2" path="res://2d_clipping/lucy/pink_parts/mouth_open_o.png" id="14_f2pht"]
+[ext_resource type="Texture2D" uid="uid://caf27kquhglo6" path="res://2d_clipping/lucy/pink_parts/mouth_sad.png" id="15_4c7kk"]
+[ext_resource type="Texture2D" uid="uid://d1kqc2s5vi88q" path="res://2d_clipping/lucy/pink_parts/mouth_sad_open.png" id="16_t2srm"]
+[ext_resource type="Texture2D" uid="uid://cjvk8hr1bhloo" path="res://2d_clipping/lucy/pink_parts/fringe.png" id="17_p7tqh"]
+
+[sub_resource type="Animation" id="Animation_e1sdr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Body/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Body/Head/BackHairStart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Body/Head/BackHairStart/BackHairEnd:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Body/Head/FringeStart:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0698132]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Body/Head/FringeStart/FringeEnd:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0698132]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VisualRoot/Head/EyebrowR:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59, -141)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VisualRoot/Head/EyebrowL:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-59, -141)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VisualRoot/Head/EyebrowL:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("VisualRoot/Head/EyebrowR:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("VisualRoot/Head/EyeR:current_idx")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VisualRoot/Head/EyeL:current_idx")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oa1w7"]
+resource_name = "expression_default"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Head/EyeR:current_idx")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/Head/EyeL:current_idx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ss8ox"]
+resource_name = "expression_happy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Head/EyeR:current_idx")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/Head/EyeL:current_idx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualRoot/Head/EyebrowR:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.349066]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VisualRoot/Head/EyebrowL:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_jseyl"]
+resource_name = "expression_sad"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/Head/EyebrowR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59, -145)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/Head/EyebrowL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-59, -145)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualRoot/Head/EyebrowL:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.349066]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VisualRoot/Head/EyebrowR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.349066]
+}
+
+[sub_resource type="Animation" id="Animation_n4fw7"]
+resource_name = "expression_surprised"
+
+[sub_resource type="Animation" id="Animation_sdr81"]
+resource_name = "hair_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Body/Head/BackHairStart:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Body/Head/BackHairStart/BackHairEnd:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1.2, 2.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Body/Head/FringeStart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1.2, 2.2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0349066]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Body/Head/FringeStart/FringeEnd:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1.4, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0349066, -0.0349066, 0.0349066]
+}
+
+[sub_resource type="Animation" id="Animation_1b3wf"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.00349066, -0.00349066, 0.00349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Body/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.5, 4.5),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [0.0174533, -0.0174533, 0.0174533]
+}
+
+[sub_resource type="Animation" id="Animation_wr7xa"]
+resource_name = "surprised"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_viggd"]
+_data = {
+"RESET": SubResource("Animation_e1sdr"),
+"expression_default": SubResource("Animation_oa1w7"),
+"expression_happy": SubResource("Animation_ss8ox"),
+"expression_sad": SubResource("Animation_jseyl"),
+"expression_surprised": SubResource("Animation_n4fw7"),
+"hair_idle": SubResource("Animation_sdr81"),
+"idle": SubResource("Animation_1b3wf"),
+"surprised": SubResource("Animation_wr7xa")
+}
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_c45dt"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_xm4h7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qre0h"]
+animation = &"hair_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rn3qj"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6fb4l"]
+xfade_time = 0.1
+input_0/name = "default"
+input_0/auto_advance = false
+input_0/reset = true
+input_1/name = "happy"
+input_1/auto_advance = false
+input_1/reset = true
+input_2/name = "surprised"
+input_2/auto_advance = false
+input_2/reset = true
+input_3/name = "sad"
+input_3/auto_advance = false
+input_3/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n27mg"]
+animation = &"expression_default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lk72c"]
+animation = &"expression_happy"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aniot"]
+animation = &"expression_sad"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6sb0u"]
+animation = &"expression_surprised"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5fvqu"]
+graph_offset = Vector2(-171.802, -48.7574)
+"nodes/Add Expressions/node" = SubResource("AnimationNodeAdd2_c45dt")
+"nodes/Add Expressions/position" = Vector2(700, 120)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_xm4h7")
+nodes/Add2/position = Vector2(360, -60)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_rn3qj")
+nodes/Animation/position = Vector2(200, -60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_qre0h")
+"nodes/Animation 2/position" = Vector2(200, 80)
+nodes/ExpressionTransition/node = SubResource("AnimationNodeTransition_6fb4l")
+nodes/ExpressionTransition/position = Vector2(480, 240)
+nodes/default/node = SubResource("AnimationNodeAnimation_n27mg")
+nodes/default/position = Vector2(180, 240)
+nodes/happy/node = SubResource("AnimationNodeAnimation_lk72c")
+nodes/happy/position = Vector2(180, 360)
+nodes/output/position = Vector2(900, 120)
+nodes/sad/node = SubResource("AnimationNodeAnimation_aniot")
+nodes/sad/position = Vector2(180, 640)
+nodes/surprised/node = SubResource("AnimationNodeAnimation_6sb0u")
+nodes/surprised/position = Vector2(180, 500)
+node_connections = [&"Add Expressions", 0, &"Add2", &"Add Expressions", 1, &"ExpressionTransition", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"ExpressionTransition", 0, &"default", &"ExpressionTransition", 1, &"happy", &"ExpressionTransition", 2, &"surprised", &"ExpressionTransition", 3, &"sad", &"output", 0, &"Add Expressions"]
+
+[node name="LucyPinkHair" type="Node2D"]
+script = ExtResource("1_aqg68")
+
+[node name="VisualRoot" type="Node2D" parent="."]
+
+[node name="BackHair" type="Polygon2D" parent="VisualRoot"]
+texture_repeat = 1
+position = Vector2(-61, -279)
+offset = Vector2(-124, -17)
+texture = ExtResource("2_sm1mg")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(80.6122, -19.3878, 27.0408, 34.1837, -15.8163, 113.776, 14.2857, 184.694, 117.347, 206.633, 169.898, 143.367, 188.776, 21.4286, 146.429, -16.8367, 93.8775, 97.449)
+uv = PackedVector2Array(80.6122, -19.3878, 27.0408, 34.1837, -15.8163, 113.776, 14.2857, 184.694, 117.347, 206.633, 169.898, 143.367, 188.776, 21.4286, 146.429, -16.8367, 93.8775, 97.449)
+polygons = [PackedInt32Array(0, 7, 8, 1), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(3, 8, 5, 4), PackedInt32Array(3, 2, 1, 8)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart", PackedFloat32Array(1, 1, 0, 0, 0, 1, 1, 1, 1), "Body/Head/BackHairStart/BackHairEnd", PackedFloat32Array(0, 0.5, 1, 1, 1, 0.5, 0, 0, 0.5)]
+internal_vertex_count = 1
+
+[node name="Body" type="Sprite2D" parent="VisualRoot"]
+position = Vector2(-0.244211, -69.9993)
+rotation = -0.00348875
+scale = Vector2(0.999996, 0.999996)
+texture = ExtResource("3_bspqj")
+
+[node name="Head" type="Node2D" parent="VisualRoot"]
+position = Vector2(1.46887, -210.991)
+rotation = 0.0149894
+scale = Vector2(0.999991, 0.999991)
+
+[node name="Head" type="Sprite2D" parent="VisualRoot/Head"]
+position = Vector2(0, -96.0025)
+texture = ExtResource("4_fqs6o")
+
+[node name="EyebrowR" type="Node2D" parent="VisualRoot/Head"]
+position = Vector2(59, -141)
+
+[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowR"]
+scale = Vector2(1.00001, 1.00001)
+texture = ExtResource("5_ee8qe")
+
+[node name="EyebrowL" type="Node2D" parent="VisualRoot/Head"]
+position = Vector2(-59, -141)
+scale = Vector2(-1, 1)
+
+[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowL"]
+scale = Vector2(1.00001, 1.00001)
+texture = ExtResource("5_ee8qe")
+
+[node name="EyeR" type="Node2D" parent="VisualRoot/Head"]
+unique_name_in_owner = true
+position = Vector2(62, -83)
+script = ExtResource("6_h3vak")
+
+[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+position = Vector2(7.62939e-06, -0.0262453)
+texture = ExtResource("7_om21c")
+
+[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+visible = false
+position = Vector2(3.81467e-06, 17.974)
+texture = ExtResource("8_u7grn")
+
+[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+visible = false
+position = Vector2(3.81467e-06, 6)
+texture = ExtResource("9_vea1u")
+
+[node name="EyeL" type="Node2D" parent="VisualRoot/Head"]
+unique_name_in_owner = true
+position = Vector2(-62, -83)
+scale = Vector2(-1, 1)
+script = ExtResource("6_h3vak")
+
+[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+position = Vector2(7.62939e-06, -0.0262453)
+texture = ExtResource("7_om21c")
+
+[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+visible = false
+position = Vector2(3.81467e-06, 17.974)
+texture = ExtResource("8_u7grn")
+
+[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+visible = false
+position = Vector2(3.81467e-06, 6)
+texture = ExtResource("10_pmgrj")
+
+[node name="Mouth" type="Node2D" parent="VisualRoot/Head"]
+unique_name_in_owner = true
+position = Vector2(0, 17)
+scale = Vector2(1.00001, 1.00001)
+script = ExtResource("11_4o7e8")
+
+[node name="Default" type="Node2D" parent="VisualRoot/Head/Mouth"]
+
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+texture = ExtResource("12_t43u3")
+
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+visible = false
+texture = ExtResource("13_n36dk")
+
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+visible = false
+texture = ExtResource("14_f2pht")
+
+[node name="Happy" type="Node2D" parent="VisualRoot/Head/Mouth"]
+
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+visible = false
+texture = ExtResource("13_n36dk")
+
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+visible = false
+texture = ExtResource("12_t43u3")
+
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+visible = false
+texture = ExtResource("14_f2pht")
+
+[node name="Surprised" type="Node2D" parent="VisualRoot/Head/Mouth"]
+
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+visible = false
+texture = ExtResource("14_f2pht")
+
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+visible = false
+texture = ExtResource("13_n36dk")
+
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+visible = false
+texture = ExtResource("12_t43u3")
+
+[node name="Sad" type="Node2D" parent="VisualRoot/Head/Mouth"]
+
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+visible = false
+texture = ExtResource("15_4c7kk")
+
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+visible = false
+texture = ExtResource("16_t2srm")
+
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+visible = false
+texture = ExtResource("14_f2pht")
+
+[node name="Fringe" type="Polygon2D" parent="VisualRoot"]
+position = Vector2(-5, -391)
+offset = Vector2(-220, -120)
+texture = ExtResource("17_p7tqh")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(110.714, -25.5102, 18.3673, 54.5918, -32.1429, 217.347, 36.7347, 296.429, 163.265, 279.592, 221.939, 198.469, 256.633, 39.7959, 208.163, -37.7551, 125.51, 120.918)
+uv = PackedVector2Array(110.714, -25.5102, 18.3673, 54.5918, -32.1429, 217.347, 36.7347, 296.429, 163.265, 279.592, 221.939, 198.469, 256.633, 39.7959, 208.163, -37.7551, 125.51, 120.918)
+polygons = [PackedInt32Array(0, 7, 8, 1), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(8, 5, 4, 3), PackedInt32Array(1, 8, 3, 2)]
+bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart/BackHairEnd", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/FringeStart", PackedFloat32Array(1, 1, 0, 0, 0, 1, 1, 1, 1), "Body/Head/FringeStart/FringeEnd", PackedFloat32Array(0, 0.5, 1, 1, 1, 0.5, 0, 0, 0.5)]
+internal_vertex_count = 1
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
+
+[node name="Body" type="Bone2D" parent="Skeleton2D"]
+scale = Vector2(0.999996, 0.999996)
+rest = Transform2D(0.999997, 0, 0, 0.999997, 0, 0)
+
+[node name="Head" type="Bone2D" parent="Skeleton2D/Body"]
+position = Vector2(0, -147)
+scale = Vector2(0.999995, 0.999995)
+rest = Transform2D(0.999997, 0, 0, 0.999997, 0, -147)
+auto_calculate_length_and_angle = false
+length = 64.0
+bone_angle = -90.0
+
+[node name="RemoteHead" type="RemoteTransform2D" parent="Skeleton2D/Body/Head"]
+position = Vector2(0, -64)
+remote_path = NodePath("../../../../VisualRoot/Head")
+
+[node name="BackHairStart" type="Bone2D" parent="Skeleton2D/Body/Head"]
+position = Vector2(-60.0004, -131.001)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -60.0004, -131.001)
+
+[node name="BackHairEnd" type="Bone2D" parent="Skeleton2D/Body/Head/BackHairStart"]
+position = Vector2(-28.0002, 82.0005)
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(1, 0, 0, 1, -28.0002, 82.0005)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 1.49999
+
+[node name="FringeStart" type="Bone2D" parent="Skeleton2D/Body/Head"]
+position = Vector2(0, -239.002)
+rotation = 0.0698132
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(1, 0, 0, 1, 0, -239.002)
+
+[node name="FringeEnd" type="Bone2D" parent="Skeleton2D/Body/Head/FringeStart"]
+position = Vector2(-104.001, 13.0001)
+rotation = 0.0698132
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -104.001, 13.0001)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 1.98
+
+[node name="RemoteBody" type="RemoteTransform2D" parent="Skeleton2D/Body"]
+position = Vector2(0, -42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_viggd")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeBlendTree_5fvqu")
+anim_player = NodePath("../AnimationPlayer")
+"parameters/Add Expressions/add_amount" = 1.0
+parameters/Add2/add_amount = 1.0
+parameters/ExpressionTransition/current_state = "default"
+parameters/ExpressionTransition/transition_request = ""
+parameters/ExpressionTransition/current_index = 0

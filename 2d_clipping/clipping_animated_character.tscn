@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8n30pc1qe5ri"]
+
+[ext_resource type="Shader" path="res://dialogue_tree/assets/bubble_background.gdshader" id="1_kqj15"]
+[ext_resource type="Texture2D" uid="uid://4f8gvseynjd" path="res://dialogue_tree/assets/bubble_pattern.png" id="2_q4fd6"]
+[ext_resource type="Script" path="res://dialogue_tree/bg_color.gd" id="3_jlvgm"]
+[ext_resource type="Texture2D" uid="uid://sejeu4wvayj2" path="res://2d_clipping/assets/border.png" id="4_x3jw2"]
+[ext_resource type="PackedScene" uid="uid://by3uuu8cf5uv4" path="res://2d_clipping/lucy/lucy_pink_hair.tscn" id="5_ld65y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
+shader = ExtResource("1_kqj15")
+shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
+shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/pattern_sampler = ExtResource("2_q4fd6")
+
+[node name="Scene" type="Node"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BackgroundColor" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_c7tyd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.890196, 0.996078, 1)
+script = ExtResource("3_jlvgm")
+
+[node name="Border" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.478431, 0.764706, 1)
+position = Vector2(909.424, 520.424)
+scale = Vector2(1.78872, 1.78872)
+texture = ExtResource("4_x3jw2")
+
+[node name="Frame" type="Sprite2D" parent="Border"]
+self_modulate = Color(0.0235294, 0.113725, 0.329412, 1)
+clip_children = 2
+position = Vector2(-3.05176e-05, -6.10352e-05)
+scale = Vector2(0.945835, 0.945835)
+texture = ExtResource("4_x3jw2")
+
+[node name="LucyPinkHair" parent="Border/Frame" instance=ExtResource("5_ld65y")]
+position = Vector2(5.66038, 171.752)
+scale = Vector2(0.591073, 0.591073)
