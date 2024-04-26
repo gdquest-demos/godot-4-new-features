@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://c6uqw21noymao"]
 
 [ext_resource type="PackedScene" uid="uid://drkqkt2fp2jca" path="res://exported_node_array/elements/goal/goal.glb" id="1_gjsm0"]
 [ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="2_nc066"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3]
+[gd_scene load_steps=37 format=3 uid="uid://c0dc04yxul750"]
 
 [ext_resource type="PackedScene" uid="uid://d0gfx2lihdq44" path="res://shared/models/bee_bot/bee_bot.glb" id="1_ehj7o"]
 [ext_resource type="Script" path="res://shared/models/bee_bot/bee_bot_skin.gd" id="1_vvvv8"]
@@ -1243,7 +1243,7 @@ nodes/Animation/position = Vector2(100, 300)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_incpp")
 nodes/Blend2/position = Vector2(360, 180)
 nodes/output/position = Vector2(800, 140)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"Animation 3", &"Blend2", 1, &"Animation"]
+node_connections = [&"Blend2", 0, &"Animation 3", &"Blend2", 1, &"Animation", &"output", 0, &"Blend2"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lhhoc"]
 filter_enabled = true
@@ -1263,7 +1263,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_e265g")
 nodes/Animation/position = Vector2(-160, 200)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_to54y")
 "nodes/Animation 2/position" = Vector2(-180, 80)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2"]
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t6py0"]
 animation = &"Idle"
@@ -1284,7 +1284,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_4g0j2")
 nodes/Animation/position = Vector2(-240, 100)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_fo401")
 "nodes/Animation 2/position" = Vector2(-240, 220)
-node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2"]
+node_connections = [&"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"output", 0, &"Add2"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0rw3e"]
 advance_mode = 2

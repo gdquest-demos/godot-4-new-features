@@ -6,13 +6,13 @@
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_55e7h"]
 properties/0/path = NodePath(".:color")
 properties/0/spawn = false
-properties/0/sync = true
+properties/0/replication_mode = 1
 properties/1/path = NodePath(".:position")
 properties/1/spawn = false
-properties/1/sync = true
+properties/1/replication_mode = 1
 properties/2/path = NodePath(".:nickname")
 properties/2/spawn = false
-properties/2/sync = true
+properties/2/replication_mode = 1
 
 [node name="Cursor" type="CharacterBody2D"]
 script = ExtResource("1_q014o")

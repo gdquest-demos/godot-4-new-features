@@ -112,10 +112,10 @@ bones/34/rotation = Quaternion(0.0263684, 0.996263, -0.0380116, -0.0729373)
 bones/35/rotation = Quaternion(0.111296, 0.746128, -0.654416, -0.0514341)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="mini_sophia_noik"]
-autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
 libraries = {
 "RobotDanceLibrary": ExtResource("2_4y8rl")
 }
+autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
 
 [node name="gdbot-noik" parent="." instance=ExtResource("1_241xh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
@@ -124,7 +124,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 bones/0/position = Vector3(-0.00193779, 0.401465, 0.00634487)
 bones/0/rotation = Quaternion(0.000997488, -0.0882294, -0.0282757, 0.995698)
 bones/1/rotation = Quaternion(0.0313482, 0.0193715, 0.0286159, 0.998911)
-bones/2/rotation = Quaternion(-0.0199453, -0.00739252, 0.0315643, 0.999276)
+bones/2/rotation = Quaternion(-0.0199453, -0.00739251, 0.0315643, 0.999275)
 bones/3/rotation = Quaternion(0.00236704, -0.00933571, 0.0828213, 0.996518)
 bones/4/rotation = Quaternion(0.420218, 0.565544, 0.495662, -0.507835)
 bones/5/rotation = Quaternion(0.623014, 0.78155, -0.0181304, 0.0265579)
@@ -132,13 +132,13 @@ bones/6/rotation = Quaternion(0.0236081, -0.706713, 0.0236081, 0.706713)
 bones/7/rotation = Quaternion(-0.0821124, 0.69593, 0.121647, 0.702952)
 bones/16/rotation = Quaternion(-0.170258, 0.708142, 0.174228, 0.662716)
 bones/17/rotation = Quaternion(0.00814529, 0.00629619, -0.0210347, 0.999726)
-bones/18/rotation = Quaternion(-0.313595, 0.601479, 0.665975, 0.310416)
+bones/18/rotation = Quaternion(0.313595, -0.601479, -0.665975, -0.310416)
 bones/19/rotation = Quaternion(-0.397719, 0.915952, 0.0225961, 0.0483872)
 bones/20/rotation = Quaternion(0.0827408, 0.702249, -0.0827407, 0.702249)
 bones/21/rotation = Quaternion(-0.363015, -0.700912, -0.229303, 0.569529)
 bones/30/rotation = Quaternion(-0.162836, -0.711625, -0.174587, 0.660753)
 bones/31/rotation = Quaternion(-0.00747561, 0.00145657, 0.0217411, 0.999735)
-bones/32/rotation = Quaternion(-0.129466, -0.0371536, -0.985515, 0.103049)
+bones/32/rotation = Quaternion(0.129466, 0.0371536, 0.985515, -0.103049)
 bones/33/rotation = Quaternion(0.00217517, 0.9942, -0.0832551, 0.0680435)
 bones/34/rotation = Quaternion(0.0381435, 0.685162, -0.714462, 0.136536)
 bones/35/rotation = Quaternion(-0.0586787, 0.0481782, 0.996042, 0.046218)
@@ -149,10 +149,10 @@ bones/37/rotation = Quaternion(0.111296, 0.746128, -0.654416, -0.0514341)
 surface_material_override/1 = ExtResource("4_4qd0u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="gdbot-noik"]
-autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
 libraries = {
 "RobotDanceLibrary": ExtResource("2_4y8rl")
 }
+autoplay = "RobotDanceLibrary/Robot Hip Hop Dance"
 
 [node name="RobotDanceModel" parent="." instance=ExtResource("1_i8uby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.4)
@@ -252,7 +252,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../RobotDanceModel/Armature/GeneralSkeleton")
 
 [node name="GdBotHips" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.982832, 0.0561321, -0.175756, -0.0564842, 0.998399, 0.0030031, 0.175643, 0.00697589, 0.984429, -0.00193779, 0.401465, 0.406345)
+transform = Transform3D(0.982832, 0.0561322, -0.175756, -0.0564842, 0.998399, 0.0030031, 0.175643, 0.00697589, 0.984429, -0.00193779, 0.401465, 0.406345)
 bone_name = "Hips"
 bone_idx = 0
 use_external_skeleton = true

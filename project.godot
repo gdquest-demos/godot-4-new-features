@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="New features in Godot 4.0 (GDQuest)"
+config/name="New features in Godot 4 (GDQuest)"
 run/main_scene="res://main/ui_scene_selector.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 

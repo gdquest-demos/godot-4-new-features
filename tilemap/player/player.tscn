@@ -445,7 +445,7 @@ nodes/MoveLeft/node = SubResource("AnimationNodeAnimation_0xx6i")
 nodes/MoveLeft/position = Vector2(-160, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_76wf3")
 nodes/TimeScale/position = Vector2(60, 120)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveLeft"]
+node_connections = [&"TimeScale", 0, &"MoveLeft", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3gssu"]
 animation = &"MoveRight"
@@ -458,7 +458,7 @@ nodes/MoveRight/node = SubResource("AnimationNodeAnimation_3gssu")
 nodes/MoveRight/position = Vector2(-180, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_715fc")
 nodes/TimeScale/position = Vector2(60, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveRight"]
+node_connections = [&"TimeScale", 0, &"MoveRight", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4m2uy"]
 animation = &"MoveUp"
@@ -471,7 +471,7 @@ nodes/MoveUp/node = SubResource("AnimationNodeAnimation_4m2uy")
 nodes/MoveUp/position = Vector2(-160, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_85giw")
 nodes/TimeScale/position = Vector2(60, 120)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveUp"]
+node_connections = [&"TimeScale", 0, &"MoveUp", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v64qp"]
 animation = &"MoveDown"
@@ -484,7 +484,7 @@ nodes/MoveDown/node = SubResource("AnimationNodeAnimation_v64qp")
 nodes/MoveDown/position = Vector2(-140, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1bunu")
 nodes/TimeScale/position = Vector2(80, 120)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveDown"]
+node_connections = [&"TimeScale", 0, &"MoveDown", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tenae"]
 blend_point_0/node = SubResource("AnimationNodeBlendTree_5vnqq")

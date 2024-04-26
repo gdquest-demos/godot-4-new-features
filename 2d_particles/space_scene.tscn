@@ -56,16 +56,14 @@ point_count = 2
 curve = SubResource("Curve_kwb40")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jqd0v"]
+particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(32, 1, 1)
-particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 60.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = -100.0
 linear_accel_max = -100.0
 tangential_accel_min = -50.0
@@ -80,29 +78,25 @@ sub_emitter_amount_at_end = 1
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 5.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 800.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 linear_accel_min = 500.0
 linear_accel_max = 500.0
 scale_min = 5.0
 scale_max = 5.0
 color = Color(1, 0.345098, 0.509804, 1)
-sub_emitter_mode = 3
-sub_emitter_amount_at_collision = 1
 collision_mode = 1
 collision_friction = 0.9
 collision_bounce = 0.06
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8bweu"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 5.0
 initial_velocity_max = 5.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
 scale_min = 50.0
 scale_max = 50.0
 
