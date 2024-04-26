@@ -1,0 +1,31 @@
+GIMP Palette
+Name: gdquest.gpl
+#
+  0 122 195 Blue
+ 16 178 239 BlueAlt
+  6  29  84 BlueDark
+207 221 255 BlueLight
+108  44 218 Purple
+141  25 215 PurpleAlt
+ 40  20  78 PurpleDark
+235 224 255 PurpleLight
+196  29  61 Red
+255  65 125 RedAlt/Pink
+115  39  92 RedDark
+255 219 244 RedLight
+255 183  48 Yellow
+255 213   0 YellowAlt
+222  80  43 YellowDark/Orange
+255 236 201 YellowLight
+ 99 204  95 Green
+159 221  81 GreenAlt/Lime
+ 21  89  63 GreenDark
+221 255 242 GreenLight/Mint
+109  61  44 Brown
+176  87  55 BrownAlt
+106  25   0 BrownDark
+255 227 227 BrownLight
+202 202 202 Gray
+255 255 255 White
+ 39  43  48 Deep
+243 248 254 Light
