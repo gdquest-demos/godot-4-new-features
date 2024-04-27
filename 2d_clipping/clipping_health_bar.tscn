@@ -1,0 +1,182 @@
+[gd_scene load_steps=23 format=3 uid="uid://b73x75prxdfaf"]
+
+[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="1_fnga0"]
+[ext_resource type="Texture2D" uid="uid://b3x32i7av8vb2" path="res://2d_lighting_normal_map/assets/sun_pattern.png" id="2_tiyue"]
+[ext_resource type="Texture2D" uid="uid://dawsab5objsh2" path="res://2d_clipping/assets/bar_background.png" id="3_3mrld"]
+[ext_resource type="Texture2D" uid="uid://b27ye5v0n3tub" path="res://2d_clipping/assets/bar_fill.png" id="4_slcxx"]
+[ext_resource type="Texture2D" uid="uid://b01mnp8qxfbh7" path="res://2d_clipping/assets/small_circle.png" id="5_sxq8w"]
+[ext_resource type="Shader" path="res://2d_clipping/assets/flame_shape.gdshader" id="6_thdhv"]
+[ext_resource type="Texture2D" uid="uid://88m347xt4ima" path="res://2d_clipping/assets/flame_shape.png" id="7_gde0j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q301s"]
+shader = ExtResource("1_fnga0")
+shader_parameter/bg_color = Color(0.0235294, 0.113725, 0.329412, 1)
+shader_parameter/pattern_color = Color(0.079797, 0.298541, 0.579861, 1)
+shader_parameter/scale = 4.0
+shader_parameter/ratio = 0.56
+shader_parameter/direction = Vector2(0.025, 0.025)
+shader_parameter/pattern_sampler = ExtResource("2_tiyue")
+
+[sub_resource type="Gradient" id="Gradient_ivkyp"]
+offsets = PackedFloat32Array(0.547442, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.462675, 0.284941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e0mke"]
+gradient = SubResource("Gradient_ivkyp")
+
+[sub_resource type="Curve" id="Curve_o2trs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.766062, 0.758273), -0.89666, -0.89666, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0slke"]
+curve = SubResource("Curve_o2trs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cf5ao"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 37.23
+spread = 28.0
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, -40, 0)
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_0slke")
+color = Color(1, 0.842143, 0.265389, 1)
+color_ramp = SubResource("GradientTexture1D_e0mke")
+
+[sub_resource type="Gradient" id="Gradient_tnvw3"]
+offsets = PackedFloat32Array(0, 0.205326, 0.456186, 1)
+colors = PackedColorArray(1, 0.0125973, 0, 1, 1, 0.4, 0, 1, 1, 0.716667, 0, 1, 1, 0.835294, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_od6wt"]
+gradient = SubResource("Gradient_tnvw3")
+
+[sub_resource type="Gradient" id="Gradient_0uux0"]
+offsets = PackedFloat32Array(0, 0.136598, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.392361, 0.392361, 0.392361, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e0pic"]
+noise_type = 2
+frequency = 0.0105
+fractal_type = 2
+fractal_octaves = 2
+fractal_lacunarity = 2.745
+fractal_gain = 0.315
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fd618"]
+seamless = true
+color_ramp = SubResource("Gradient_0uux0")
+noise = SubResource("FastNoiseLite_e0pic")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bmip"]
+resource_local_to_scene = true
+shader = ExtResource("6_thdhv")
+shader_parameter/time_scale = 1.0
+shader_parameter/offset = Vector2(0.715, 0.295)
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_fd618")
+shader_parameter/flame_gradient = SubResource("GradientTexture1D_od6wt")
+
+[sub_resource type="Gradient" id="Gradient_t7585"]
+offsets = PackedFloat32Array(0, 0.164089, 0.469931, 1)
+colors = PackedColorArray(1, 0.0125973, 0, 1, 1, 0.4, 0, 1, 1, 0.716667, 0, 1, 1, 0.835294, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5nngw"]
+gradient = SubResource("Gradient_t7585")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gtfv"]
+resource_local_to_scene = true
+shader = ExtResource("6_thdhv")
+shader_parameter/time_scale = 0.7
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_fd618")
+shader_parameter/flame_gradient = SubResource("GradientTexture1D_5nngw")
+
+[node name="ClippingHealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_q301s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarBackground" type="TextureRect" parent="."]
+self_modulate = Color(0.979787, 0.698736, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -64.0
+offset_right = 452.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3mrld")
+
+[node name="BarFill" type="TextureRect" parent="BarBackground"]
+self_modulate = Color(1, 0.355844, 0.185381, 1)
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = -13.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_slcxx")
+
+[node name="Sparks" type="GPUParticles2D" parent="BarBackground/BarFill"]
+position = Vector2(198, 31)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_cf5ao")
+texture = ExtResource("5_sxq8w")
+lifetime = 3.0
+randomness = 0.5
+
+[node name="Sparks2" type="GPUParticles2D" parent="BarBackground/BarFill"]
+position = Vector2(328, 128)
+rotation = -0.46751
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_cf5ao")
+texture = ExtResource("5_sxq8w")
+lifetime = 3.0
+randomness = 0.5
+
+[node name="Flame2" type="Sprite2D" parent="BarBackground/BarFill"]
+material = SubResource("ShaderMaterial_2bmip")
+position = Vector2(429, 107)
+rotation = 1.33626
+scale = Vector2(1.11954, 2.21433)
+texture = ExtResource("7_gde0j")
+
+[node name="Flame3" type="Sprite2D" parent="BarBackground/BarFill"]
+material = SubResource("ShaderMaterial_2bmip")
+position = Vector2(536, -35)
+rotation = 1.72083
+scale = Vector2(1.05216, 2.29799)
+texture = ExtResource("7_gde0j")
+
+[node name="Flame" type="Sprite2D" parent="BarBackground/BarFill"]
+material = SubResource("ShaderMaterial_3gtfv")
+position = Vector2(182, 42)
+rotation = 1.50106
+scale = Vector2(0.734281, 3.38555)
+texture = ExtResource("7_gde0j")
