@@ -129,7 +129,7 @@ grow_vertical = 2
 texture = ExtResource("3_3mrld")
 
 [node name="BarFill" type="TextureRect" parent="BarBackground"]
-self_modulate = Color(1, 0.355844, 0.185381, 1)
+self_modulate = Color(1, 0.317647, 0.027451, 1)
 clip_children = 2
 layout_mode = 1
 anchors_preset = 15

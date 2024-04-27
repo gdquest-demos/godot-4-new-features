@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://dialogue_tree/assets/bubble_background.gdshader" id="1_kqj15"]
 [ext_resource type="Texture2D" uid="uid://4f8gvseynjd" path="res://dialogue_tree/assets/bubble_pattern.png" id="2_q4fd6"]
 [ext_resource type="Script" path="res://dialogue_tree/bg_color.gd" id="3_jlvgm"]
-[ext_resource type="Texture2D" uid="uid://sejeu4wvayj2" path="res://2d_clipping/assets/border.png" id="4_x3jw2"]
+[ext_resource type="Texture2D" uid="uid://sejeu4wvayj2" path="res://2d_clipping/assets/circle_mask.png" id="4_x3jw2"]
 [ext_resource type="PackedScene" uid="uid://by3uuu8cf5uv4" path="res://2d_clipping/lucy/lucy_pink_hair.tscn" id="5_ld65y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
