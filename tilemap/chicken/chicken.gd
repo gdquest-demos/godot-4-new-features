@@ -11,16 +11,18 @@ var _player: Node2D
 
 
 func _ready() -> void:
-	_area.connect("body_entered", func (body: Node2D) -> void:
-		_player = body
-		_animated_sprite.play("move")
-		set_physics_process(true)
+	_area.body_entered.connect(
+		func(body: Node2D) -> void:
+			_player = body
+			_animated_sprite.play("move")
+			set_physics_process(true)
 	)
-	_area.connect("body_exited", func (_body: Node2D) -> void:
-		_animated_sprite.play("idle")
-		set_physics_process(false)
+	_area.body_exited.connect(
+		func(_body: Node2D) -> void:
+			_animated_sprite.play("idle")
+			set_physics_process(false)
 	)
-	
+
 	set_physics_process(false)
 
 

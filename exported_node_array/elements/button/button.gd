@@ -1,5 +1,4 @@
-class_name Button3D
-extends Node3D
+class_name Button3D extends Node3D
 
 signal state_changed(state: bool)
 
@@ -10,16 +9,17 @@ var state := false:
 		state = value
 		state_changed.emit(value)
 
-@export var off_color : Color 
-@export var on_color : Color 
+@export var off_color: Color
+@export var on_color: Color
 
 @onready var button = %Button
 @onready var area_3d = %Area3D
 
 
 func _ready():
-	connect("state_changed", check_state)
-	area_3d.connect("input_event",
+	state_changed.connect(check_state)
+	area_3d.connect(
+		"input_event",
 		func(_camera, event, _pos, _normal, _shape_idx):
 			if !(event is InputEventMouseButton):
 				return

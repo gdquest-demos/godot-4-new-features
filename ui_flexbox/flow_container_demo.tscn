@@ -1,7 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://ciygc85q7b8fi"]
 
-[ext_resource type="Script" path="res://ui_flexbox/flow_container_demo.gd" id="1"]
+[ext_resource type="Script" uid="uid://csgjtf6nwiho0" path="res://ui_flexbox/flow_container_demo.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://beumur3oint63" path="res://ui_flexbox/assets/background.png" id="2"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="2_dqfcv"]
 [ext_resource type="Texture2D" uid="uid://cyh8gkbtix5pq" path="res://ui_flexbox/assets/mark_plus.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://de63oysl1vaf3" path="res://ui_flexbox/assets/pickup_ice.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://dirvqdky4ffcl" path="res://ui_flexbox/assets/pickup_health.png" id="6"]
@@ -13,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://senycubuhds7" path="res://ui_flexbox/assets/pickup_hammer.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://bovmx164tvfl8" path="res://ui_flexbox/assets/pickup_fire.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://bxv6kqlyi08gn" path="res://ui_flexbox/assets/pickup_stones.png" id="15"]
-[ext_resource type="Theme" uid="uid://b4xci2m0llrcv" path="res://ui_flexbox/interface/theme.tres" id="16"]
 [ext_resource type="Texture2D" uid="uid://5nxye373xxct" path="res://ui_flexbox/assets/mark_minus.png" id="17"]
 
 [node name="FlowContainerDemo" type="Control"]
@@ -44,7 +44,7 @@ offset_right = 572.0
 offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("16")
+theme = ExtResource("2_dqfcv")
 script = ExtResource("1")
 items = Array[Texture]([ExtResource("9"), ExtResource("15"), ExtResource("7"), ExtResource("10"), ExtResource("8"), ExtResource("5"), ExtResource("13"), ExtResource("6"), ExtResource("12"), ExtResource("14")])
 metadata/_edit_group_ = true

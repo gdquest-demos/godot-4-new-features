@@ -3,6 +3,10 @@ extends Control
 signal vowel_appeared
 signal speech_ended
 
+var _is_open := false
+var _text_tween: Tween = null
+var _last_pos := -1
+
 @onready var panel: Panel = %Panel
 @onready var margin: MarginContainer = %Margin
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
@@ -10,18 +14,13 @@ signal speech_ended
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 
-var _is_open := false
-var _text_tween : Tween = null
-var _last_pos := -1
-
-
 func _ready() -> void:
-	margin.connect("resized", _resize_bubble_tail)
+	margin.resized.connect(_resize_bubble_tail)
 	scale = Vector2.ZERO
 	modulate.a = 0.0
 
 
-func write(text : String) -> void:
+func write(text: String) -> void:
 	if not _is_open:
 		open()
 	audio_stream_player.play()
@@ -34,7 +33,7 @@ func write(text : String) -> void:
 
 	_text_tween = create_tween()
 	_text_tween.tween_method(_tween_text, 0.0, 1.0, text.length() / 30.0)
-	_text_tween.tween_callback(emit_signal.bind("speech_ended"))
+	_text_tween.tween_callback(speech_ended.emit)
 
 
 func set_font_size(new_size: int) -> void:
@@ -52,10 +51,11 @@ func _tween_text(progress: float) -> void:
 	rich_text_label.visible_ratio = progress
 	var text_length := rich_text_label.text.length()
 	var pos: int = floor(text_length * progress)
-	if pos == _last_pos: return
+	if pos == _last_pos:
+		return
 	var letter := rich_text_label.text.substr(pos, 1)
-	if ["a","e","i","o","u","ا","ي","و"].has(letter):
-		emit_signal("vowel_appeared")
+	if ["a", "e", "i", "o", "u", "ا", "ي", "و"].has(letter):
+		vowel_appeared.emit()
 	_last_pos = pos
 
 

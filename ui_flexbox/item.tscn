@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cic1w84lvvhpf"]
 
 [ext_resource type="Texture2D" uid="uid://kyuhn5kioyuv" path="res://ui_flexbox/assets/pickup_sword.png" id="1"]
-[ext_resource type="StyleBox" path="res://ui_flexbox/interface/item.tres" id="1_vd7u1"]
-[ext_resource type="Script" path="res://ui_flexbox/item.gd" id="2"]
+[ext_resource type="StyleBox" path="res://interface/item.tres" id="1_2v7p3"]
+[ext_resource type="Script" uid="uid://c50dbm2cmgeay" path="res://ui_flexbox/item.gd" id="2"]
 
 [node name="Item" type="Panel"]
 custom_minimum_size = Vector2(120, 120)
 pivot_offset = Vector2(60, 60)
-theme_override_styles/panel = ExtResource("1_vd7u1")
+theme_override_styles/panel = ExtResource("1_2v7p3")
 script = ExtResource("2")
 
 [node name="TextureRect" type="TextureRect" parent="."]

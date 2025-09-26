@@ -15,13 +15,13 @@ func _ready():
 		polyphony_label.text = str(polyphony_slider.value)
 		playback_label.text = str(playback_slider.value)
 		burst_label.text = str(burst_slider.value)
-	
+
 	polyphony_slider.value_changed.connect(fn_update_labels)
 	playback_slider.value_changed.connect(fn_update_labels)
 	burst_slider.value_changed.connect(fn_update_labels)
-	
+
 	fn_update_labels.call(0)
-	
+
 	play_button.pressed.connect(
 		func():
 			audio_stream_player.max_polyphony = int(polyphony_slider.value)

@@ -1,7 +1,6 @@
 extends Node2D
 
-
-var disappear_function: Callable = fade_and_hide
+var disappear_function := fade_and_hide
 
 
 func _ready():

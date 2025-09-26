@@ -1,6 +1,5 @@
 extends Node
 
-
 @export_enum("en", "ro", "ja", "ar") var language := "en"
 
 var _languages_button_group := ButtonGroup.new()
@@ -49,7 +48,7 @@ var _dialogue := [
 				"دعيني انام بعض القليل": 2,
 				"هيا بنا!": 1,
 			},
-		}
+		},
 	},
 	{
 		"expression": "neutral",
@@ -96,7 +95,7 @@ var _dialogue := [
 			"buttons": {
 				"Nu, chiar așa, lasă-mă să mai dorm": 0,
 				"Bine, voi încerca": 3,
-			}
+			},
 		},
 		"ja": {
 			"text": "ほら、楽しくなるよ。",
@@ -117,19 +116,19 @@ var _dialogue := [
 		"expression": "happy",
 		"en": {
 			"text": "That's the spirit! [wave]You can do it![/wave]",
-			"buttons": {"Quit": -1},
+			"buttons": { "Quit": -1 },
 		},
 		"ro": {
 			"text": "Ăsta-i spiritul! [wave]Hai că poți![/wave]",
-			"buttons": {"Ieși": -1}
+			"buttons": { "Ieși": -1 },
 		},
 		"ja": {
 			"text": "その意気だ！[wave]君ならできるよ！[/wave]",
-			"buttons": {"終了": -1,},
+			"buttons": { "終了": -1 },
 		},
 		"ar": {
 			"text": "احسنت! [wave]انت قادر على ذلك![/wave]",
-			"buttons": {"إنهاء": -1},
+			"buttons": { "إنهاء": -1 },
 		},
 	},
 ]
@@ -141,16 +140,16 @@ var _dialogue := [
 @onready var font_size_label: Label = %FontSizeLabel
 @onready var slider: HSlider = %FontSizeSlider
 @onready var pink_hair_character: Node2D = %PinkHairCharacter
-@export var round_button_scene : PackedScene
+@export var round_button_scene: PackedScene
 
 
 func _ready() -> void:
 	_languages_button_group.pressed.connect(set_language)
 	slider.value_changed.connect(set_font_size)
-	
+
 	speech_bubble.vowel_appeared.connect(pink_hair_character.random_mouth)
 	speech_bubble.speech_ended.connect(pink_hair_character.reset_mouth)
-	
+
 	for node in languages_row.get_children():
 		if node is Button:
 			node.button_group = _languages_button_group
@@ -189,8 +188,8 @@ func set_language(_button: Button) -> void:
 
 func create_buttons(buttons_data: Dictionary) -> void:
 	for text in buttons_data:
-		var button : Button = round_button_scene.instantiate()
+		var button: Button = round_button_scene.instantiate()
 		button.text = text
 		action_buttons.add_child(button)
 		var target_line_id: int = buttons_data[text]
-		button.connect("pressed", show_line.bind(target_line_id) if target_line_id >= 0 else get_tree().quit)
+		button.pressed.connect(show_line.bind(target_line_id) if target_line_id >= 0 else get_tree().quit)

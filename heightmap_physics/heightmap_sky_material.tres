@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://x2mx74bhjtbh"]
 
-[ext_resource type="Shader" path="res://shared/shaders/gradient_sky.gdshader" id="1_fnrnb"]
+[ext_resource type="Shader" uid="uid://ft8i5qfd8pm4" path="res://shared/shaders/gradient_sky.gdshader" id="1_fnrnb"]
 
 [sub_resource type="Gradient" id="Gradient_e3l0n"]
 offsets = PackedFloat32Array(0.658451, 0.846244)
@@ -24,16 +24,16 @@ domain_warp_fractal_gain = 0.605
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbp1v"]
 width = 1024
 height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_e3l0n")
 noise = SubResource("FastNoiseLite_lam37")
+color_ramp = SubResource("Gradient_e3l0n")
+seamless = true
 
 [resource]
 shader = ExtResource("1_fnrnb")
+shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_gbp1v")
 shader_parameter/top_color = Color(0.341176, 0.678431, 0.980392, 1)
 shader_parameter/bottom_color = Color(0.192157, 0.415686, 0.752941, 1)
 shader_parameter/sun_scatter = Color(0.737255, 0.607843, 1, 1)
 shader_parameter/star_stength = 0.0
 shader_parameter/clouds_tint = Color(1, 1, 1, 1)
 shader_parameter/draw_clouds = true
-shader_parameter/clouds_sampler = SubResource("NoiseTexture2D_gbp1v")

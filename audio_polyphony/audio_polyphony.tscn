@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvxfvcvt0112y"]
 
-[ext_resource type="Theme" uid="uid://df82jcs7jy51d" path="res://audio_polyphony/interface/theme.tres" id="1_juqhc"]
-[ext_resource type="Script" path="res://audio_polyphony/audio_polyphony.gd" id="2_81xos"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_nw56l"]
+[ext_resource type="Script" uid="uid://cwiv6et2e3c72" path="res://audio_polyphony/audio_polyphony.gd" id="2_81xos"]
 [ext_resource type="Texture2D" uid="uid://beumur3oint63" path="res://ui_flexbox/assets/background.png" id="2_uqchy"]
 [ext_resource type="AudioStream" uid="uid://fcphmrxu1hq7" path="res://audio_polyphony/completetask_0.mp3" id="3_shjmb"]
 
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_juqhc")
+theme = ExtResource("1_nw56l")
 script = ExtResource("2_81xos")
 
 [node name="Background" type="TextureRect" parent="."]

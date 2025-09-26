@@ -1,7 +1,6 @@
 extends Node2D
 
-
-var _blinking := false :
+var _blinking := false:
 	set(value):
 		_blinking = value
 		if _blinking:
@@ -9,10 +8,10 @@ var _blinking := false :
 		else:
 			_blinking_timer.stop()
 
-
-var current_face := "default" :
+var current_face := "default":
 	set(face_name):
-		if current_face == face_name: return
+		if current_face == face_name:
+			return
 		current_face = face_name
 		_animation_player.play("RESET")
 		_animation_player.seek(0.0, true)
@@ -25,22 +24,20 @@ var current_face := "default" :
 			return
 		_animation_player.play(face_name)
 
-
-@onready var _animation_player : AnimationPlayer = $AnimationPlayer
-@onready var _blinking_timer : Timer = $BlinkTimer
-@onready var _closed_eyes_timer : Timer = $ClosedTimer
-@onready var _left_eye : Sprite2D = $LeftEye
-@onready var _right_eye : Sprite2D = $RightEye
-
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _blinking_timer: Timer = $BlinkTimer
+@onready var _closed_eyes_timer: Timer = $ClosedTimer
+@onready var _left_eye: Sprite2D = $LeftEye
+@onready var _right_eye: Sprite2D = $RightEye
 
 var eyes_textures := {
-	"open" : preload("./texture/parts/eye_open.png"),
-	"closed" : preload("./texture/parts/eye_close.png")
+	"open": preload("./texture/parts/eye_open.png"),
+	"closed": preload("./texture/parts/eye_close.png"),
 }
 
 
 func _ready() -> void:
-	_blinking_timer.connect("timeout", _on_blink_timer_timeout)
+	_blinking_timer.timeout.connect(_on_blink_timer_timeout)
 	_blinking = true
 	current_face = "default"
 
@@ -64,7 +61,6 @@ func _on_blink_timer_timeout() -> void:
 	_blinking_timer.start()
 
 
-func _set_eyes(eyes_name : String) -> void:
+func _set_eyes(eyes_name: String) -> void:
 	_left_eye.texture = eyes_textures[eyes_name]
 	_right_eye.texture = eyes_textures[eyes_name]
-

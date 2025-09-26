@@ -15,14 +15,16 @@ extends Node2D
 @onready var mouth_atlas := {
 	"o": $Skeleton2D/Body/Neck/Head/Mouth/MouthO,
 	"closed": $Skeleton2D/Body/Neck/Head/Mouth/MouthSmile,
-	"wide": $Skeleton2D/Body/Neck/Head/Mouth/MouthWide
+	"wide": $Skeleton2D/Body/Neck/Head/Mouth/MouthWide,
 }
 
 var current_mouth := "closed"
 var babble_count := 0
 
+
 func _ready() -> void:
-	blink_timer.connect("timeout", _on_blink_timer_timeout)
+	blink_timer.timeout.connect(_on_blink_timer_timeout)
+
 
 func _on_blink_timer_timeout() -> void:
 	eyes_open.hide()

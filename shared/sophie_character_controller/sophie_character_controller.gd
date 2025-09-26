@@ -61,7 +61,7 @@ func _ready() -> void:
 	camera_controller.setup(self)
 
 func _physics_process(delta: float) -> void:
-	
+
 	# Calculate ground height for camera controller
 	if _ground_shapecast.get_collision_count() > 0:
 		for collision_result in _ground_shapecast.collision_result:
@@ -78,19 +78,19 @@ func _physics_process(delta: float) -> void:
 	# Get input and movement state
 	var move_direction := _get_camera_oriented_input()
 	var angle_to_move := velocity.signed_angle_to(move_direction, Vector3.UP)
-	
+
 
 	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
 	var is_air_boosting := Input.is_action_pressed("jump") and not is_on_floor() and y_velocity > 0.0
 	var is_sliding: bool = is_on_floor() and abs(angle_to_move) > (PI/2) * 1.01 and (velocity.length() > sliding_threshold_velocity or _sliding_buffer)
-	
+
 	_sliding_buffer = is_sliding
 	_is_on_floor_buffer = is_on_floor()
-	
+
 	# Count the frames the player is on the floor
 	if is_on_floor():
 		_frames_on_floor += 1
-	
+
 	# Horizontal movement logic
 	if _is_animating:
 		# Player can't move during animations
@@ -100,13 +100,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			if _frames_on_floor < floor_inertia_frames:
-				# If the player just touched the floor after jumping, avoid 
-				# making abrupt movements after controlling the character in 
+				# If the player just touched the floor after jumping, avoid
+				# making abrupt movements after controlling the character in
 				# mid-air.
 				var dot_velocity := _ground_direction.dot(velocity)
 				var minimum_length: float = max(stopping_speed, dot_velocity)
 				velocity = _ground_direction * minimum_length
-			
+
 			elif is_sliding:
 				velocity = velocity.lerp(Vector3.ZERO, acceleration * 2 * delta)
 				if velocity.length() < stopping_speed:
@@ -114,23 +114,23 @@ func _physics_process(delta: float) -> void:
 			else:
 				var angle_to_clamped := clampf(angle_to_move, -turning_speed * delta, turning_speed * delta)
 				velocity = velocity.rotated(Vector3.UP, angle_to_clamped)
-				
+
 				var velocity_length: float = clamp(velocity.length(), 0, move_speed)
 				if move_direction.is_zero_approx():
 					velocity_length = lerp(velocity_length, 0.0, break_force * delta)
 				else:
 					velocity_length = lerp(velocity_length, move_direction.length() * move_speed, acceleration * delta)
 				velocity = velocity.normalized() * velocity_length
-				
+
 				if move_direction.length() == 0 and velocity.length() < stopping_speed:
 					velocity = Vector3.ZERO
-			
+
 			if not velocity.is_zero_approx() and not is_just_jumping:
 				_ground_direction = velocity.normalized()
-			
+
 		else:
 			_ground_direction = _rotation_root.basis * Vector3.BACK
-			
+
 			var ortho_plane := Plane(_ground_direction)
 			var ortho_movement := ortho_plane.project(move_direction)
 			var parallel_movement := move_direction - ortho_movement
@@ -143,11 +143,11 @@ func _physics_process(delta: float) -> void:
 			parallel_velocity = parallel_velocity.limit_length(move_speed)
 
 			velocity = ortho_velocity + parallel_velocity
-	
+
 	# Restore y velocity and calculate gravity
 	var xz_velocity := Vector3(velocity.x, 0, velocity.z)
 	velocity.y = y_velocity
-	
+
 	if _is_animating:
 		# Gravity doesn't affect player during animations
 		pass
@@ -164,20 +164,20 @@ func _physics_process(delta: float) -> void:
 		_frames_on_floor = 0
 
 		var jump_force := first_jump_force
-			
+
 		velocity.y = jump_force
-			
+
 		if not xz_velocity.is_zero_approx():
 			_ground_direction = Vector3(velocity.x, 0.0, velocity.z).normalized()
 	elif is_air_boosting:
 		if _frames_holding_jump < max_frames_holding_jump:
 			_frames_holding_jump += 1
 			velocity.y += gravity * delta
-	
+
 	# Don't air boost anymore once player stop air boosting
 	if not is_on_floor() and not is_air_boosting:
 		_frames_holding_jump = 999
-	
+
 	# Check ledge grab state
 	# The ledge grab mechanic is very physics dependant, so we need to be extra careful on
 	# how we handle the player in a possible "bad" state (e.g. with geometry intersection)
@@ -190,11 +190,11 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor():
 		if xz_velocity.length() > walk_anim_threshold:
 			_character_skin.walk()
-			_character_skin.walk_run_blending = inverse_lerp(0.0, move_speed, xz_velocity.length()) 
+			_character_skin.walk_run_blending = inverse_lerp(0.0, move_speed, xz_velocity.length())
 		else:
 			_character_skin.idle()
 			_character_skin.walk_run_blending = 0.0
-	
+
 	# Set character orientation
 	if _is_animating:
 		# Don't turn character during animations
@@ -204,9 +204,9 @@ func _physics_process(delta: float) -> void:
 			_orient_character_to_direction(move_direction, 9999.9 if is_just_jumping else delta)
 	elif is_on_floor():
 		_orient_character_to_direction(xz_velocity, delta)
-	
+
 	_floor_slide_particles.emitting = is_sliding
-	
+
 	if get_real_velocity().length() > 0.01:
 		camera_controller.update_camera(global_position, delta)
 
@@ -240,7 +240,7 @@ func _orient_character_to_direction(direction: Vector3, delta: float) -> void:
 	var direction_normalized := direction.normalized()
 	var forward_axis := -(_rotation_root.transform * Vector3.FORWARD).normalized()
 	var angle_diff := forward_axis.signed_angle_to(direction_normalized, Vector3.DOWN)
-	
+
 	if not direction.is_zero_approx():
 		var left_axis := Vector3.UP.cross(direction_normalized)
 		var rotation_basis := Basis(left_axis, Vector3.UP, direction_normalized).orthonormalized().get_rotation_quaternion()
@@ -248,7 +248,7 @@ func _orient_character_to_direction(direction: Vector3, delta: float) -> void:
 		_rotation_root.transform.basis = Basis(_rotation_root.transform.basis.get_rotation_quaternion().slerp(rotation_basis, min(1.0, delta * rotation_speed))).scaled(
 			model_scale
 		)
-	
+
 	if direction.is_zero_approx():
 		var euler := _rotation_root.transform.basis.get_euler(2)
 		euler.z = lerp(euler.z, 0.0, 0.1)

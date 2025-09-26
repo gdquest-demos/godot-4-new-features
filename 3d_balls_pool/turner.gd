@@ -14,17 +14,17 @@ var _is_grabbing := false
 
 func _unhandled_input(event: InputEvent) -> void:
 	var wheel_direction := 0.0
-	if (event is InputEventMouseButton): 
+	if (event is InputEventMouseButton):
 		if event.button_index == MOUSE_BUTTON_RIGHT: _is_grabbing = event.pressed
 		var wheel_up: bool = event.button_index == MOUSE_BUTTON_WHEEL_UP
 		var wheel_down: bool = event.button_index == MOUSE_BUTTON_WHEEL_DOWN
-		
+
 		wheel_direction = float(wheel_down) - float(wheel_up)
-	
+
 	if wheel_direction != 0:
 		_camera.position.z += wheel_direction * 0.25
 		_camera.position.z = clamp(_camera.position.z, min_zoom, max_zoom)
-		
+
 	# Check mouse motion
 	if (event is InputEventMouseMotion):
 		if not _is_grabbing: return

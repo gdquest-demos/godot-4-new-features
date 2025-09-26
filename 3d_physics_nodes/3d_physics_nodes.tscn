@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://diyo8boss2ps"]
+[gd_scene load_steps=24 format=3 uid="uid://diyo8boss2ps"]
 
 [ext_resource type="PackedScene" uid="uid://c16aelv8g37ck" path="res://shared/sophie_character_controller/sophie_character_controller.tscn" id="1_l0g8y"]
-[ext_resource type="Shader" path="res://3d_physics_nodes/assets/sky/sky.gdshader" id="1_spmpj"]
+[ext_resource type="Shader" uid="uid://v47q88fasmdt" path="res://3d_physics_nodes/assets/sky/sky.gdshader" id="1_spmpj"]
 [ext_resource type="PackedScene" uid="uid://c6834elpmveog" path="res://3d_physics_nodes/marble_ball.tscn" id="2_qmsx2"]
 [ext_resource type="PackedScene" uid="uid://ch1mif52w8u2i" path="res://3d_physics_nodes/godot_doll/godot_rag_doll.tscn" id="3_0ulap"]
 [ext_resource type="Material" uid="uid://b8xivapgmplt3" path="res://3d_physics_nodes/assets/materials/cardboard_top/cadboard_top_paint.tres" id="3_likqa"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d26uqa6701okd" path="res://3d_physics_nodes/yarn_ball.tscn" id="6_ibxmb"]
 [ext_resource type="PackedScene" uid="uid://c1tls5uqo26x1" path="res://3d_physics_nodes/billiard_ball.tscn" id="7_g0vt4"]
 [ext_resource type="ArrayMesh" uid="uid://r62edxnms6ut" path="res://3d_physics_nodes/assets/cardboard_castle.obj" id="10_45nvv"]
+[ext_resource type="Material" uid="uid://clae0tlnax6hg" path="res://3d_balls_pool/assets/metal_mat.tres" id="11_hw831"]
+[ext_resource type="Texture2D" uid="uid://ismvrp3hwx22" path="res://exported_node_array/checkboard.png" id="12_eh6ey"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ar7u4"]
 shader = ExtResource("1_spmpj")
@@ -51,7 +53,15 @@ height = 14.0
 height = 14.0
 radius = 0.2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1wiw"]
+cull_mode = 2
+albedo_color = Color(0.180392, 0.690196, 0.364706, 1)
+albedo_texture = ExtResource("12_eh6ey")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 4.0
+
 [sub_resource type="QuadMesh" id="QuadMesh_i4i6l"]
+material = SubResource("StandardMaterial3D_e1wiw")
 size = Vector2(14, 4.6)
 subdivide_width = 9
 subdivide_depth = 10
@@ -152,7 +162,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2, 0.5, -2.8)
 
 [node name="Goals" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 3.7618, -10.6887)
-visible = false
 
 [node name="MetalBar" type="StaticBody3D" parent="Goals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.62138, 0)
@@ -161,6 +170,7 @@ collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("11_hw831")
 mesh = SubResource("CylinderMesh_6wsp6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar"]
@@ -173,6 +183,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar3"]
+material_override = ExtResource("11_hw831")
 mesh = SubResource("CylinderMesh_6wsp6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar3"]
@@ -184,6 +195,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Goals/MetalBar4"]
+material_override = ExtResource("11_hw831")
 mesh = SubResource("CylinderMesh_6wsp6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goals/MetalBar4"]
@@ -195,58 +207,22 @@ mesh = SubResource("QuadMesh_i4i6l")
 skeleton = NodePath("../..")
 collision_layer = 2
 collision_mask = 2
-pinned_points = [132, 143, 141, 139, 137, 135, 131, 129, 127, 125, 123, 121, 10, 8, 6, 4, 2, 0]
-attachments/0/point_index = 132
+pinned_points = [121, 123, 125, 127, 129, 131]
+attachments/0/point_index = 121
 attachments/0/spatial_attachment_path = NodePath("")
 attachments/0/offset = Vector3(0, 0, 0)
-attachments/1/point_index = 143
+attachments/1/point_index = 123
 attachments/1/spatial_attachment_path = NodePath("")
 attachments/1/offset = Vector3(0, 0, 0)
-attachments/2/point_index = 141
+attachments/2/point_index = 125
 attachments/2/spatial_attachment_path = NodePath("")
 attachments/2/offset = Vector3(0, 0, 0)
-attachments/3/point_index = 139
+attachments/3/point_index = 127
 attachments/3/spatial_attachment_path = NodePath("")
 attachments/3/offset = Vector3(0, 0, 0)
-attachments/4/point_index = 137
+attachments/4/point_index = 129
 attachments/4/spatial_attachment_path = NodePath("")
 attachments/4/offset = Vector3(0, 0, 0)
-attachments/5/point_index = 135
+attachments/5/point_index = 131
 attachments/5/spatial_attachment_path = NodePath("")
 attachments/5/offset = Vector3(0, 0, 0)
-attachments/6/point_index = 131
-attachments/6/spatial_attachment_path = NodePath("")
-attachments/6/offset = Vector3(0, 0, 0)
-attachments/7/point_index = 129
-attachments/7/spatial_attachment_path = NodePath("")
-attachments/7/offset = Vector3(0, 0, 0)
-attachments/8/point_index = 127
-attachments/8/spatial_attachment_path = NodePath("")
-attachments/8/offset = Vector3(0, 0, 0)
-attachments/9/point_index = 125
-attachments/9/spatial_attachment_path = NodePath("")
-attachments/9/offset = Vector3(0, 0, 0)
-attachments/10/point_index = 123
-attachments/10/spatial_attachment_path = NodePath("")
-attachments/10/offset = Vector3(0, 0, 0)
-attachments/11/point_index = 121
-attachments/11/spatial_attachment_path = NodePath("")
-attachments/11/offset = Vector3(0, 0, 0)
-attachments/12/point_index = 10
-attachments/12/spatial_attachment_path = NodePath("")
-attachments/12/offset = Vector3(0, 0, 0)
-attachments/13/point_index = 8
-attachments/13/spatial_attachment_path = NodePath("")
-attachments/13/offset = Vector3(0, 0, 0)
-attachments/14/point_index = 6
-attachments/14/spatial_attachment_path = NodePath("")
-attachments/14/offset = Vector3(0, 0, 0)
-attachments/15/point_index = 4
-attachments/15/spatial_attachment_path = NodePath("")
-attachments/15/offset = Vector3(0, 0, 0)
-attachments/16/point_index = 2
-attachments/16/spatial_attachment_path = NodePath("")
-attachments/16/offset = Vector3(0, 0, 0)
-attachments/17/point_index = 0
-attachments/17/spatial_attachment_path = NodePath("")
-attachments/17/offset = Vector3(0, 0, 0)

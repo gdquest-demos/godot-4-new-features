@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c16eheiqmtd0i"]
 
 [ext_resource type="Material" uid="uid://dgvw565jrsyux" path="res://2d_clipping/assets/waterlily_background.tres" id="1_f6d2v"]
+[ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_k7tv2"]
 [ext_resource type="Texture2D" uid="uid://sejeu4wvayj2" path="res://2d_clipping/assets/circle_mask.png" id="1_rq3ck"]
 [ext_resource type="Texture2D" uid="uid://7hfmqqujss3r" path="res://2d_clipping/assets/frog.png" id="3_nf42m"]
-[ext_resource type="Script" path="res://2d_clipping/shake_frog.gd" id="4_lawpx"]
-[ext_resource type="FontFile" uid="uid://dwt2j6fax5fcn" path="res://ui_flexbox/assets/fonts/Montserrat-Bold.ttf" id="6_cbg73"]
+[ext_resource type="Script" uid="uid://c8jftptp326lp" path="res://2d_clipping/shake_frog.gd" id="4_lawpx"]
 
 [node name="2DClipping" type="Node"]
 
@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_k7tv2")
 
 [node name="Background" type="ColorRect" parent="UI"]
 material = ExtResource("1_f6d2v")
@@ -110,9 +111,7 @@ offset_right = 40.0
 offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cbg73")
-theme_override_font_sizes/font_size = 40
+theme_type_variation = &"LargeLabel"
 text = "No Clip"
 horizontal_alignment = 1
 
@@ -188,9 +187,7 @@ offset_right = 50.0
 offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cbg73")
-theme_override_font_sizes/font_size = 40
+theme_type_variation = &"LargeLabel"
 text = "Clip Only"
 horizontal_alignment = 1
 
@@ -266,8 +263,6 @@ offset_right = 62.5
 offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_cbg73")
-theme_override_font_sizes/font_size = 40
+theme_type_variation = &"LargeLabel"
 text = "Clip + Draw"
 horizontal_alignment = 1

@@ -15,10 +15,10 @@ var current_item := 0
 func _ready() -> void:
 	add_item_button.pressed.connect(_add_item)
 	remove_item_button.pressed.connect(_remove_item)
-	
+
 	vslider.value = theme.get_constant("hseparation", "HFlowContainer")
 	vslider.value_changed.connect(_set_margins)
-	
+
 	for _i in 6:
 		_add_item()
 
@@ -28,7 +28,7 @@ func _add_item() -> void:
 	item.set_deferred("texture", items[current_item])
 	current_item = (current_item + 1) % items.size()
 	h_flow_container.add_child(item)
-	
+
 	# Ensures the animation plays as the container resets the scale otherwise
 	await get_tree().process_frame
 	var tween :=  create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)

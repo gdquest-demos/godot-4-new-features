@@ -11,7 +11,7 @@ func _physics_process(_delta: float) -> void:
 		var ball := BALL_SCENE.instantiate()
 		_balls_holder.add_child(ball)
 		ball.global_position = _spawn_position.global_position
-		
+
 		var impulse := randf_range(0.0, 3.0)
 		ball.apply_central_impulse(Vector3(
 			randf_range(-1.0, 1.0),
