@@ -32,6 +32,10 @@ window/stretch/aspect="keep_height"
 
 project/assembly_name="New features in Godot 4 (GDQuest)"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://interface/theme.tres"
