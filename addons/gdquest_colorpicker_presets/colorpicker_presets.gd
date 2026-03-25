@@ -10,7 +10,7 @@ func _enter_tree() -> void:
 	var presets_file := FileAccess.open(presets_path, FileAccess.READ)
 
 	if FileAccess.get_open_error() == OK:
-		var presets_raw := presets_file.get_as_text(true).strip_edges().split("\n")
+		var presets_raw := presets_file.get_as_text().strip_edges().split("\n")
 		presets_file.close()
 		presets_raw = presets_raw.slice(presets_raw.find("#") + 1)
 		var presets := Array(presets_raw).map(
