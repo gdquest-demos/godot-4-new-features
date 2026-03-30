@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci2iyu2edn6xg"]
+[gd_scene format=3 uid="uid://ci2iyu2edn6xg"]
 
-[ext_resource type="Script" path="res://networking/asteroids/laser.gd" id="1_esgrw"]
+[ext_resource type="Script" uid="uid://dtij03prwhej4" path="res://networking/asteroids/laser.gd" id="1_esgrw"]
 [ext_resource type="Texture2D" uid="uid://c3qtfmidu0eo" path="res://networking/asteroids/laser.svg" id="2_3wgoa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t6ka8"]
@@ -18,18 +18,18 @@ properties/2/path = NodePath(".:rotation")
 properties/2/spawn = true
 properties/2/replication_mode = 0
 
-[node name="Laser" type="Area2D"]
+[node name="Laser" type="Area2D" unique_id=585621929]
 script = ExtResource("1_esgrw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=274385112]
 position = Vector2(12, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_t6ka8")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1008824403]
 unique_name_in_owner = true
 rotation = -1.57079
 texture = ExtResource("2_3wgoa")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1421387265]
 replication_config = SubResource("SceneReplicationConfig_btqc3")

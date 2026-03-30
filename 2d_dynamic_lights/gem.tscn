@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ewcyamsf2i6r"]
+[gd_scene format=3 uid="uid://ewcyamsf2i6r"]
 
 [ext_resource type="Texture2D" uid="uid://cngtsvgjd34my" path="res://2d_dynamic_lights/assets/gem/0000.png" id="1_phuut"]
 [ext_resource type="Texture2D" uid="uid://c642uqpv75cw2" path="res://2d_dynamic_lights/assets/gem/0001.png" id="2_abc2q"]
@@ -48,14 +48,14 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="Gem" type="AnimatedSprite2D"]
+[node name="Gem" type="AnimatedSprite2D" unique_id=1257247355]
 modulate = Color(1.6, 1.2, 1.2, 1)
 light_mask = 0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_j704l")
 script = SubResource("GDScript_pof8r")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=517549271]
 color = Color(1, 0.964706, 0.737255, 1)
 energy = 1.6
 range_layer_min = -100

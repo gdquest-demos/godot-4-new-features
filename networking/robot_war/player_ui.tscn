@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1av8dpn3l2cn"]
+[gd_scene format=3 uid="uid://b1av8dpn3l2cn"]
 
-[ext_resource type="Script" path="res://networking/robot_war/player_ui.gd" id="1_t1ygp"]
+[ext_resource type="Script" uid="uid://b36dnuqvogrmf" path="res://networking/robot_war/player_ui.gd" id="1_t1ygp"]
 [ext_resource type="Texture2D" uid="uid://dp3ytfrbbvce6" path="res://networking/robot_war/assets/gdbot-portrait.png" id="2_t1d31"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4e234"]
@@ -13,13 +13,13 @@ font_size = 24
 outline_size = 20
 outline_color = Color(0, 0, 0, 1)
 
-[node name="PlayerUI" type="Control"]
+[node name="PlayerUI" type="Control" unique_id=2117008977]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
 script = ExtResource("1_t1ygp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1371988895]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.286275)
 
-[node name="PlayerNameLabel" type="Label" parent="ColorRect"]
+[node name="PlayerNameLabel" type="Label" parent="ColorRect" unique_id=50429477]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -50,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Player1"
 
-[node name="PlayerPortrait" type="TextureRect" parent="."]
+[node name="PlayerPortrait" type="TextureRect" parent="." unique_id=1773165695]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,7 +66,7 @@ grow_vertical = 2
 texture = ExtResource("2_t1d31")
 expand_mode = 1
 
-[node name="PortraitBackgroundColor" type="ColorRect" parent="PlayerPortrait"]
+[node name="PortraitBackgroundColor" type="ColorRect" parent="PlayerPortrait" unique_id=370773812]
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 1
@@ -77,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.352941, 0.372549, 0.858824, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=730412317]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,13 +91,13 @@ offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DamageLabel" type="Label" parent="HBoxContainer"]
+[node name="DamageLabel" type="Label" parent="HBoxContainer" unique_id=1289676100]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4e234")
 
-[node name="DamageLabelPercentage" type="Label" parent="HBoxContainer"]
+[node name="DamageLabelPercentage" type="Label" parent="HBoxContainer" unique_id=2130283445]
 layout_mode = 2
 text = "%"
 label_settings = SubResource("LabelSettings_3aaoe")

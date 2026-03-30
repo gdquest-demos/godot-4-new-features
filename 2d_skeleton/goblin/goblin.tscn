@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnfreetjiotgv"]
+[gd_scene format=3 uid="uid://cnfreetjiotgv"]
 
-[ext_resource type="Script" path="res://2d_skeleton/goblin/goblin.gd" id="1_ev5qu"]
+[ext_resource type="Script" uid="uid://ch24se1svyvv6" path="res://2d_skeleton/goblin/goblin.gd" id="1_ev5qu"]
 [ext_resource type="Texture2D" uid="uid://dx5unk35sbtky" path="res://2d_skeleton/goblin/parts/lower_arm_r.PNG" id="3_a5tsb"]
 [ext_resource type="Texture2D" uid="uid://bx3ynwd5a0v8q" path="res://2d_skeleton/goblin/parts/head.PNG" id="3_cl554"]
 [ext_resource type="Texture2D" uid="uid://coy38v5bd73g6" path="res://2d_skeleton/goblin/parts/upper_arm_r.PNG" id="4_nr2qi"]
@@ -836,37 +836,37 @@ tracks/17/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ghj84"]
 _data = {
-"RESET": SubResource("Animation_1cjjc"),
-"blink": SubResource("Animation_wgbq1"),
-"idle": SubResource("Animation_rqitu"),
-"run": SubResource("Animation_wnjpg")
+&"RESET": SubResource("Animation_1cjjc"),
+&"blink": SubResource("Animation_wgbq1"),
+&"idle": SubResource("Animation_rqitu"),
+&"run": SubResource("Animation_wnjpg")
 }
 
-[node name="Goblin" type="CanvasGroup"]
+[node name="Goblin" type="CanvasGroup" unique_id=164120389]
 script = ExtResource("1_ev5qu")
 
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1700727575]
 position = Vector2(0, -18.0514)
 modification_stack = SubResource("SkeletonModificationStack2D_ar4no")
 
-[node name="Center" type="Bone2D" parent="Skeleton2D"]
+[node name="Center" type="Bone2D" parent="Skeleton2D" unique_id=2017401842]
 position = Vector2(0, 88.4714)
-rotation = 0.139626
+rotation = 0.13962601
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 0, 85)
 
-[node name="Chest" type="Bone2D" parent="Skeleton2D/Center"]
+[node name="Chest" type="Bone2D" parent="Skeleton2D/Center" unique_id=1212791584]
 position = Vector2(0, -24)
 scale = Vector2(0.999923, 0.999923)
 rest = Transform2D(1, 0, 0, 1, 0, -24)
 
-[node name="Head" type="Bone2D" parent="Skeleton2D/Center/Chest"]
+[node name="Head" type="Bone2D" parent="Skeleton2D/Center/Chest" unique_id=636682641]
 position = Vector2(0, -25.7028)
-rotation = -0.138515
+rotation = -0.13851501
 scale = Vector2(0.999868, 0.999868)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
-[node name="Head" type="Sprite2D" parent="Skeleton2D/Center/Chest/Head"]
+[node name="Head" type="Sprite2D" parent="Skeleton2D/Center/Chest/Head" unique_id=585983497]
 z_index = 3
 position = Vector2(0.915825, -33.8936)
 scale = Vector2(0.899705, 0.899705)
@@ -874,53 +874,53 @@ texture = ExtResource("3_cl554")
 offset = Vector2(-36.0638, -97.3723)
 flip_h = true
 
-[node name="Arm_R" type="Bone2D" parent="Skeleton2D/Center/Chest"]
+[node name="Arm_R" type="Bone2D" parent="Skeleton2D/Center/Chest" unique_id=1574063884]
 position = Vector2(3.23999, -18)
 rotation = 1.34779
-scale = Vector2(0.999906, 0.999906)
+scale = Vector2(0.99990594, 0.99990594)
 rest = Transform2D(1, 0, 0, 1, 35, -18)
 
-[node name="LowerArm_R" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_R"]
+[node name="LowerArm_R" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_R" unique_id=797445989]
 position = Vector2(38, 0)
-rotation = -0.297338
-scale = Vector2(0.99988, 0.99988)
+rotation = -0.29733798
+scale = Vector2(0.99987996, 0.99987996)
 rest = Transform2D(1, 0, 0, 1, 38, 0)
 
-[node name="Hand_R" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_R/LowerArm_R"]
+[node name="Hand_R" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_R/LowerArm_R" unique_id=2009070801]
 position = Vector2(38, 0)
 rest = Transform2D(1, 0, 0, 1, 38, 0)
 editor_settings/show_bone_gizmo = false
 
-[node name="LowerArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_R/LowerArm_R"]
+[node name="LowerArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_R/LowerArm_R" unique_id=321303497]
 position = Vector2(22.737, -1)
 scale = Vector2(0.897, 0.897)
 texture = ExtResource("5_ttic5")
 flip_h = true
 
-[node name="UpperArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_R"]
+[node name="UpperArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_R" unique_id=965639992]
 position = Vector2(23, -1)
 scale = Vector2(0.897, 0.897)
 texture = ExtResource("6_61x3y")
 flip_h = true
 
-[node name="Arm_L" type="Bone2D" parent="Skeleton2D/Center/Chest"]
+[node name="Arm_L" type="Bone2D" parent="Skeleton2D/Center/Chest" unique_id=105078342]
 position = Vector2(-0.599861, -18)
-rotation = -0.900126
-scale = Vector2(0.999919, 0.999919)
+rotation = -0.9001259
+scale = Vector2(0.99991894, 0.99991894)
 rest = Transform2D(1, 0, 0, 1, -35, -18)
 
-[node name="LowerArm_L" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_L"]
+[node name="LowerArm_L" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_L" unique_id=2032436434]
 position = Vector2(-38, 0)
-rotation = -0.633505
+rotation = -0.6335049
 scale = Vector2(0.999881, 0.999881)
 rest = Transform2D(1, 0, 0, 1, -38, 0)
 
-[node name="Hand_L" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_L/LowerArm_L"]
+[node name="Hand_L" type="Bone2D" parent="Skeleton2D/Center/Chest/Arm_L/LowerArm_L" unique_id=1737103674]
 position = Vector2(-38, 0)
 rest = Transform2D(1, 0, 0, 1, -38, 0)
 editor_settings/show_bone_gizmo = false
 
-[node name="LowerArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_L/LowerArm_L"]
+[node name="LowerArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_L/LowerArm_L" unique_id=60795165]
 z_index = 2
 position = Vector2(-24.967, -1.223)
 scale = Vector2(0.897, 0.897)
@@ -928,7 +928,7 @@ texture = ExtResource("3_a5tsb")
 flip_h = true
 metadata/_edit_lock_ = true
 
-[node name="UpperArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_L"]
+[node name="UpperArm" type="Sprite2D" parent="Skeleton2D/Center/Chest/Arm_L" unique_id=1314694579]
 z_index = 2
 position = Vector2(-24.967, -1.223)
 scale = Vector2(0.897, 0.897)
@@ -936,57 +936,61 @@ texture = ExtResource("4_nr2qi")
 flip_h = true
 metadata/_edit_lock_ = true
 
-[node name="Body" type="Sprite2D" parent="Skeleton2D/Center"]
+[node name="Body" type="Sprite2D" parent="Skeleton2D/Center" unique_id=806151733]
 z_index = 1
 position = Vector2(-2, 0)
 rotation = -0.0624157
 scale = Vector2(0.897656, 0.897656)
 texture = ExtResource("8_n22ht")
 
-[node name="Hips" type="Bone2D" parent="Skeleton2D/Center"]
+[node name="Hips" type="Bone2D" parent="Skeleton2D/Center" unique_id=1995639039]
 position = Vector2(0, 30)
 rest = Transform2D(1, 0, 0, 1, 0, 30)
 
-[node name="Thigh_R" type="Bone2D" parent="Skeleton2D/Center/Hips"]
+[node name="Thigh_R" type="Bone2D" parent="Skeleton2D/Center/Hips" unique_id=734820191]
 position = Vector2(2.77714, 0)
 scale = Vector2(0.999979, 0.999979)
 rest = Transform2D(0.999992, 0, 0, 0.999992, 30, 0)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="Calf_R" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_R"]
+[node name="Calf_R" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_R" unique_id=1742681824]
 position = Vector2(0, 36)
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.999995, 0, 0, 0.999995, 0, 36)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="Foot_R" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_R/Calf_R"]
+[node name="Foot_R" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_R/Calf_R" unique_id=314908209]
 position = Vector2(0, 36)
 rest = Transform2D(1, 0, 0, 1, 0, 36)
 editor_settings/show_bone_gizmo = false
 
-[node name="LowerLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_R/Calf_R"]
+[node name="LowerLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_R/Calf_R" unique_id=718777832]
 position = Vector2(-3.00016, -5.9993)
 scale = Vector2(0.897008, 0.897008)
 texture = ExtResource("7_e741l")
 offset = Vector2(3.34428, 16.7224)
 flip_h = true
 
-[node name="UpperLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_R"]
+[node name="UpperLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_R" unique_id=1225092112]
 position = Vector2(-2.00003, -9.00014)
 scale = Vector2(0.897, 0.897)
 texture = ExtResource("8_qsqnv")
 offset = Vector2(5.57422, 30.1008)
 flip_h = true
 
-[node name="Thigh_L" type="Bone2D" parent="Skeleton2D/Center/Hips"]
+[node name="Thigh_L" type="Bone2D" parent="Skeleton2D/Center/Hips" unique_id=1657829800]
 position = Vector2(-2.77714, 0)
 scale = Vector2(0.999975, 0.999975)
 rest = Transform2D(0.999989, 0, 0, 0.999989, -30, 0)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="Calf_L" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_L"]
+[node name="Calf_L" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_L" unique_id=2012163885]
 position = Vector2(0, 36)
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(0.999998, 0, 0, 0.999998, 0, 36)
+metadata/_local_pose_override_enabled_ = true
 
-[node name="Foot_L" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_L/Calf_L"]
+[node name="Foot_L" type="Bone2D" parent="Skeleton2D/Center/Hips/Thigh_L/Calf_L" unique_id=2110328722]
 position = Vector2(0, 36)
 rest = Transform2D(1, 0, 0, 1, 0, 36)
 auto_calculate_length_and_angle = false
@@ -994,19 +998,19 @@ length = 16.0
 bone_angle = 0.0
 editor_settings/show_bone_gizmo = false
 
-[node name="LowerLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_L/Calf_L"]
+[node name="LowerLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_L/Calf_L" unique_id=2047270932]
 position = Vector2(-3.00016, -5.9993)
 scale = Vector2(0.897008, 0.897008)
 texture = ExtResource("7_th23m")
 offset = Vector2(3.34428, 16.7224)
 
-[node name="UpperLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_L"]
+[node name="UpperLeg" type="Sprite2D" parent="Skeleton2D/Center/Hips/Thigh_L" unique_id=583457115]
 position = Vector2(-2.00003, -9.00014)
 scale = Vector2(0.897, 0.897)
 texture = ExtResource("8_xc8bd")
 offset = Vector2(5.57422, 30.1008)
 
-[node name="FootCTRL_R" type="Bone2D" parent="Skeleton2D"]
+[node name="FootCTRL_R" type="Bone2D" parent="Skeleton2D" unique_id=1514573947]
 z_index = 10
 position = Vector2(-29.2789, 151.275)
 rotation = 1.0594
@@ -1018,7 +1022,7 @@ bone_angle = 180.0
 editor_settings/show_bone_gizmo = false
 metadata/_edit_group_ = true
 
-[node name="Foot_R" type="Sprite2D" parent="Skeleton2D/FootCTRL_R"]
+[node name="Foot_R" type="Sprite2D" parent="Skeleton2D/FootCTRL_R" unique_id=1102115040]
 z_index = -10
 position = Vector2(0, -0.00273132)
 scale = Vector2(0.897, 0.897)
@@ -1026,7 +1030,7 @@ texture = ExtResource("10_lioso")
 offset = Vector2(12.1388, 5.52874)
 flip_h = true
 
-[node name="FootCTRL_L" type="Bone2D" parent="Skeleton2D"]
+[node name="FootCTRL_L" type="Bone2D" parent="Skeleton2D" unique_id=81386907]
 z_index = 10
 position = Vector2(23.7806, 172.205)
 rotation = -0.687777
@@ -1038,17 +1042,15 @@ bone_angle = 180.0
 editor_settings/show_bone_gizmo = false
 metadata/_edit_group_ = true
 
-[node name="Foot_L" type="Sprite2D" parent="Skeleton2D/FootCTRL_L"]
+[node name="Foot_L" type="Sprite2D" parent="Skeleton2D/FootCTRL_L" unique_id=834641050]
 z_index = -10
 position = Vector2(1.58954, -1.81662)
 scale = Vector2(0.897, 0.897)
 texture = ExtResource("9_tjomq")
 offset = Vector2(12.1388, 5.52874)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1344716826]
 reset_on_save = false
+libraries/ = SubResource("AnimationLibrary_ghj84")
+autoplay = &"idle"
 playback_default_blend_time = 0.25
-libraries = {
-"": SubResource("AnimationLibrary_ghj84")
-}

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://x2mx74bhjtbh"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://x2mx74bhjtbh"]
 
 [ext_resource type="Shader" uid="uid://ft8i5qfd8pm4" path="res://shared/shaders/gradient_sky.gdshader" id="1_fnrnb"]
 

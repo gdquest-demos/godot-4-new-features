@@ -1,17 +1,13 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://dq0p7alpaoqf2"]
 
-[ext_resource type="Script" path="res://additional/custom_resources/inventory_item.gd" id="1_4asou"]
+[ext_resource type="Script" uid="uid://byv8xfi4aytn0" path="res://additional/custom_resources/inventory_item.gd" id="1_4asou"]
 [ext_resource type="Texture2D" uid="uid://cuxnttwdfup1q" path="res://ui_flexbox/assets/pickup_shield.png" id="2_fed70"]
+[ext_resource type="Script" uid="uid://bdcywjkm3do5s" path="res://additional/custom_resources/inventory_status_effect.gd" id="2_oob4x"]
 
 [resource]
 script = ExtResource("1_4asou")
 texture = ExtResource("2_fed70")
 item_type = 1
-price = 5
 item_name = "Shield"
-item_weight = 10
 status_name = "Basic"
-status_list = Array[Resource("res://additional/custom_resources/inventory_status_effect.gd")]([])
-is_container = true
-maximum_countenance = 10
 contents = Array[ExtResource("1_4asou")]([null, null, null, null, null, null, null, null, null, null])

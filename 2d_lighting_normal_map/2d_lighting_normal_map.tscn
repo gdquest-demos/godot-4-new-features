@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqnswebsqiujo"]
+[gd_scene format=3 uid="uid://bqnswebsqiujo"]
 
-[ext_resource type="Script" path="res://2d_lighting_normal_map/2d_lighting_normal_map.gd" id="1_cjskf"]
+[ext_resource type="Script" uid="uid://bw7xao5yxs3s0" path="res://2d_lighting_normal_map/2d_lighting_normal_map.gd" id="1_cjskf"]
 [ext_resource type="Texture2D" uid="uid://4qq352a1j6m4" path="res://2d_lighting_normal_map/assets/dog_albedo.png" id="2_kp3ns"]
 [ext_resource type="Texture2D" uid="uid://djebcop0tgdes" path="res://2d_lighting_normal_map/assets/dog_normal.png" id="3_yucla"]
 [ext_resource type="Texture2D" uid="uid://dr0s2xv81jkpy" path="res://2d_lighting_normal_map/assets/sun_icon.png" id="4_kngsb"]
-[ext_resource type="Script" path="res://2d_lighting_normal_map/wiggle.gd" id="4_vlpcx"]
-[ext_resource type="Script" path="res://2d_lighting_normal_map/spin.gd" id="5_7mrh3"]
-[ext_resource type="Shader" path="res://cutout_character/assets/moving_background.gdshader" id="7_e8ris"]
+[ext_resource type="Script" uid="uid://c5tl0das1a80e" path="res://2d_lighting_normal_map/wiggle.gd" id="4_vlpcx"]
+[ext_resource type="Script" uid="uid://btt71n31fvswn" path="res://2d_lighting_normal_map/spin.gd" id="5_7mrh3"]
+[ext_resource type="Shader" uid="uid://mu1fj6w4na6n" path="res://cutout_character/assets/moving_background.gdshader" id="7_e8ris"]
 [ext_resource type="Texture2D" uid="uid://b3x32i7av8vb2" path="res://2d_lighting_normal_map/assets/sun_pattern.png" id="8_6x13y"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_eo82y"]
@@ -28,45 +28,45 @@ fill_to = Vector2(1, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cbl"]
 shader = ExtResource("7_e8ris")
+shader_parameter/pattern_sampler = ExtResource("8_6x13y")
 shader_parameter/bg_color = Color(0.12549, 0.121569, 0.180392, 1)
 shader_parameter/pattern_color = Color(0.192157, 0.211765, 0.321569, 1)
 shader_parameter/scale = 4.0
 shader_parameter/ratio = 0.56
 shader_parameter/direction = Vector2(0.025, 0.025)
-shader_parameter/pattern_sampler = ExtResource("8_6x13y")
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=823913864]
 texture_filter = 1
 script = ExtResource("1_cjskf")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1984871832]
 zoom = Vector2(1.5, 1.5)
 
-[node name="Dog" type="Sprite2D" parent="."]
+[node name="Dog" type="Sprite2D" parent="." unique_id=779726561]
 position = Vector2(-1, -1)
 scale = Vector2(0.8, 0.8)
 texture = SubResource("CanvasTexture_eo82y")
 offset = Vector2(0, -28)
 script = ExtResource("4_vlpcx")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=1248465162]
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1917285786]
 self_modulate = Color(1, 0.768627, 0.301961, 1)
 light_mask = 0
 position = Vector2(256, 0)
 texture = ExtResource("4_kngsb")
 script = ExtResource("5_7mrh3")
 
-[node name="PointLight2D" type="PointLight2D" parent="Node2D/Sprite2D"]
+[node name="PointLight2D" type="PointLight2D" parent="Node2D/Sprite2D" unique_id=1437742810]
 unique_name_in_owner = true
 texture = SubResource("GradientTexture2D_02qvk")
 texture_scale = 4.5
 height = 15.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=181514027]
 
-[node name="UIRoot" type="Control" parent="CanvasLayer"]
+[node name="UIRoot" type="Control" parent="CanvasLayer" unique_id=1634201456]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,22 +74,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/UIRoot"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/UIRoot" unique_id=1969778917]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 34.0
 offset_right = 299.0
 offset_bottom = 116.0
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3"]
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3" unique_id=1690481910]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer" unique_id=1929824755]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Light energy"
 
-[node name="EnergySlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer"]
+[node name="EnergySlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer" unique_id=1203576087]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -97,24 +97,24 @@ size_flags_vertical = 3
 max_value = 5.0
 step = 0.01
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="CanvasLayer/UIRoot/VBoxContainer3" unique_id=1080943326]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2" unique_id=508061689]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Light height"
 
-[node name="HeightSlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2"]
+[node name="HeightSlider" type="HSlider" parent="CanvasLayer/UIRoot/VBoxContainer3/VBoxContainer2" unique_id=1282362447]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=730395279]
 layer = -10
 
-[node name="Background" type="ColorRect" parent="Background"]
+[node name="Background" type="ColorRect" parent="Background" unique_id=1578556472]
 material = SubResource("ShaderMaterial_88cbl")
 anchors_preset = 15
 anchor_right = 1.0

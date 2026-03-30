@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://7lcamjh3amdn"]
+[gd_scene format=3 uid="uid://7lcamjh3amdn"]
 
-[ext_resource type="Script" path="res://dialogue_tree/assets/bubble/speech_bubble.gd" id="1_qj6td"]
+[ext_resource type="Script" uid="uid://d0n14f26w7eod" path="res://dialogue_tree/assets/bubble/speech_bubble.gd" id="1_qj6td"]
 [ext_resource type="AudioStream" uid="uid://bs0taliapop1k" path="res://dialogue_tree/assets/boop_1.wav" id="2_e4253"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp5v3"]
@@ -10,14 +10,14 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="SpeechBubble" type="Control"]
+[node name="SpeechBubble" type="Control" unique_id=2126102417]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 script = ExtResource("1_qj6td")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1777308700]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -31,7 +31,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_wp5v3")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=262163625]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -50,7 +50,7 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Margin"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin" unique_id=928953446]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -58,18 +58,18 @@ size_flags_vertical = 4
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
 bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 visible_characters_behavior = 1
 
-[node name="Tail" type="Polygon2D" parent="."]
+[node name="Tail" type="Polygon2D" parent="." unique_id=144587828]
 unique_name_in_owner = true
 antialiased = true
 polygon = PackedVector2Array(-64, 0, 64, 0, -64, 128)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=54002084]
 unique_name_in_owner = true
 stream = ExtResource("2_e4253")

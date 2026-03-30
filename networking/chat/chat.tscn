@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1uabhpkm6gik"]
+[gd_scene format=3 uid="uid://b1uabhpkm6gik"]
 
-[ext_resource type="Script" path="res://networking/chat/chat.gd" id="1_2pm27"]
+[ext_resource type="Script" uid="uid://y6uj2h123heb" path="res://networking/chat/chat.gd" id="1_2pm27"]
 [ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="1_hdvcr"]
-[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_joywn"]
+[ext_resource type="Script" uid="uid://b4tw57hysa8c1" path="res://networking/common/multiplayer_settings.gd" id="3_joywn"]
 
-[node name="Chat" type="MarginContainer"]
+[node name="Chat" type="MarginContainer" unique_id=1616772483]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,59 +16,59 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_2pm27")
 
-[node name="MultiplayerSettings" type="Node" parent="."]
+[node name="MultiplayerSettings" type="Node" parent="." unique_id=702585078]
 unique_name_in_owner = true
 script = ExtResource("3_joywn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1217666990]
 layout_mode = 2
 
-[node name="Lobby" parent="VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("1_hdvcr")]
+[node name="Lobby" parent="VBoxContainer" unique_id=1332215348 node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("1_hdvcr")]
 unique_name_in_owner = true
 layout_mode = 2
 multiplayer_settings = NodePath("../../MultiplayerSettings")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1221818020]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1447055409]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1954415699]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StatusRichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="StatusRichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1237682763]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
 scroll_following = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=958685764]
 layout_mode = 2
 
-[node name="MessageLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="MessageLineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=200909615]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SendMessageButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="SendMessageButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1210077162]
 unique_name_in_owner = true
 layout_mode = 2
 text = "send"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=294511078]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=466098387]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PlayersVBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer"]
+[node name="PlayersVBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/ScrollContainer" unique_id=1224661460]
 unique_name_in_owner = true
 layout_mode = 2

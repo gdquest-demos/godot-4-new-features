@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://c2h4ojpjajlme"]
+[gd_resource type="Environment" format=3 uid="uid://c2h4ojpjajlme"]
 
 [ext_resource type="Material" uid="uid://cbceraxhc2dpp" path="res://outdoor_environment/sky_mat.tres" id="1_na25l"]
 

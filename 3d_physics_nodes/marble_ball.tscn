@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6834elpmveog"]
+[gd_scene format=3 uid="uid://c6834elpmveog"]
 
 [ext_resource type="PackedScene" uid="uid://c1tti2c25ukwy" path="res://3d_physics_nodes/assets/blue_marble_ball/blue_marble_ball.glb" id="2_68v14"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rqdwh"]
 radius = 0.8
 
-[node name="Ball" type="RigidBody3D"]
+[node name="Ball" type="RigidBody3D" unique_id=1195377642]
 collision_layer = 2
 collision_mask = 3
 mass = 2.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1600616117]
 shape = SubResource("SphereShape3D_rqdwh")
 
-[node name="blue_marble_ball" parent="." instance=ExtResource("2_68v14")]
+[node name="blue_marble_ball" parent="." unique_id=924988636 instance=ExtResource("2_68v14")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

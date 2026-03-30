@@ -1,4 +1,4 @@
-[gd_resource type="ParticleProcessMaterial" load_steps=11 format=3 uid="uid://dxd2ls85gp6o0"]
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dxd2ls85gp6o0"]
 
 [sub_resource type="Gradient" id="Gradient_5v8to"]
 colors = PackedColorArray(0, 1, 1, 1, 0.9, 1, 1, 1)
@@ -12,7 +12,7 @@ gradient = SubResource("Gradient_5v8to")
 gradient = SubResource("Gradient_bd7q2")
 
 [sub_resource type="Curve" id="Curve_2ulvv"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1.49012e-08), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

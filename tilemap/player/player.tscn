@@ -1,7 +1,7 @@
-[gd_scene load_steps=52 format=3 uid="uid://chutqcphfpgi5"]
+[gd_scene format=3 uid="uid://chutqcphfpgi5"]
 
-[ext_resource type="Script" path="res://tilemap/player/player.gd" id="1_o04l8"]
-[ext_resource type="Script" path="res://tilemap/player/player_skin.gd" id="2_nbx8u"]
+[ext_resource type="Script" uid="uid://cs31hcfb2fu6q" path="res://tilemap/player/player.gd" id="1_o04l8"]
+[ext_resource type="Script" uid="uid://bbihpj8o2h07s" path="res://tilemap/player/player_skin.gd" id="2_nbx8u"]
 [ext_resource type="Texture2D" uid="uid://b1020rg5tjl3a" path="res://tilemap/player/Walk.png" id="3_x47dy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0pjn5"]
@@ -400,15 +400,15 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbn4t"]
 _data = {
-"IdleDown": SubResource("Animation_el6ti"),
-"IdleLeft": SubResource("Animation_h8g7a"),
-"IdleRight": SubResource("Animation_ppjdb"),
-"IdleUp": SubResource("Animation_a1r43"),
-"MoveDown": SubResource("Animation_sx6rg"),
-"MoveLeft": SubResource("Animation_fa6xx"),
-"MoveRight": SubResource("Animation_7wjda"),
-"MoveUp": SubResource("Animation_qs10i"),
-"RESET": SubResource("Animation_1s0yu")
+&"IdleDown": SubResource("Animation_el6ti"),
+&"IdleLeft": SubResource("Animation_h8g7a"),
+&"IdleRight": SubResource("Animation_ppjdb"),
+&"IdleUp": SubResource("Animation_a1r43"),
+&"MoveDown": SubResource("Animation_sx6rg"),
+&"MoveLeft": SubResource("Animation_fa6xx"),
+&"MoveRight": SubResource("Animation_7wjda"),
+&"MoveUp": SubResource("Animation_qs10i"),
+&"RESET": SubResource("Animation_1s0yu")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_alfbe"]
@@ -445,7 +445,7 @@ nodes/MoveLeft/node = SubResource("AnimationNodeAnimation_0xx6i")
 nodes/MoveLeft/position = Vector2(-160, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_76wf3")
 nodes/TimeScale/position = Vector2(60, 120)
-node_connections = [&"TimeScale", 0, &"MoveLeft", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveLeft"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3gssu"]
 animation = &"MoveRight"
@@ -458,7 +458,7 @@ nodes/MoveRight/node = SubResource("AnimationNodeAnimation_3gssu")
 nodes/MoveRight/position = Vector2(-180, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_715fc")
 nodes/TimeScale/position = Vector2(60, 140)
-node_connections = [&"TimeScale", 0, &"MoveRight", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveRight"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4m2uy"]
 animation = &"MoveUp"
@@ -471,7 +471,7 @@ nodes/MoveUp/node = SubResource("AnimationNodeAnimation_4m2uy")
 nodes/MoveUp/position = Vector2(-160, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_85giw")
 nodes/TimeScale/position = Vector2(60, 120)
-node_connections = [&"TimeScale", 0, &"MoveUp", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveUp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v64qp"]
 animation = &"MoveDown"
@@ -484,7 +484,7 @@ nodes/MoveDown/node = SubResource("AnimationNodeAnimation_v64qp")
 nodes/MoveDown/position = Vector2(-140, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1bunu")
 nodes/TimeScale/position = Vector2(80, 120)
-node_connections = [&"TimeScale", 0, &"MoveDown", &"output", 0, &"TimeScale"]
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"MoveDown"]
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tenae"]
 blend_point_0/node = SubResource("AnimationNodeBlendTree_5vnqq")
@@ -506,44 +506,39 @@ states/Move/position = Vector2(554, 41)
 states/Start/position = Vector2(265, 41)
 graph_offset = Vector2(10, -66)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_sb0lv"]
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=153341015]
 z_index = 1
 y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_o04l8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163144779]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_0pjn5")
 
-[node name="PlayerSkin" type="Node2D" parent="."]
+[node name="PlayerSkin" type="Node2D" parent="." unique_id=482541782]
 unique_name_in_owner = true
 script = ExtResource("2_nbx8u")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerSkin"]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="PlayerSkin" unique_id=177173561]
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_hguhg")
 animation = &"MoveDown"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSkin"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSkin" unique_id=2021401056]
 unique_name_in_owner = true
 root_node = NodePath("../..")
-playback_process_mode = 0
-libraries = {
-"": SubResource("AnimationLibrary_tbn4t")
-}
+callback_mode_process = 0
+libraries/ = SubResource("AnimationLibrary_tbn4t")
 
-[node name="AnimationTree" type="AnimationTree" parent="PlayerSkin"]
+[node name="AnimationTree" type="AnimationTree" parent="PlayerSkin" unique_id=1505083016]
 unique_name_in_owner = true
+root_node = NodePath("%PlayerSkin/..")
+callback_mode_process = 0
 tree_root = SubResource("AnimationNodeStateMachine_f3eox")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-process_callback = 0
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_sb0lv")
 parameters/Idle/blend_position = Vector2(-0.000604987, -0.00436676)
 parameters/Move/blend_position = Vector2(0, 0)
 parameters/Move/0/TimeScale/scale = 1.0

@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://x2sjgn85dgll"]
+[gd_scene format=3 uid="uid://x2sjgn85dgll"]
 
-[ext_resource type="Script" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.gd" id="1_bman8"]
+[ext_resource type="Script" uid="uid://8g8h73b7kksj" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character.gd" id="1_bman8"]
 [ext_resource type="Texture2D" uid="uid://cc0ij375utxg6" path="res://dialogue_tree/assets/pink_hair_character/pink_hair_character_preview.png" id="1_fwdcm"]
 [ext_resource type="Texture2D" uid="uid://b3cfhdl2kkrxf" path="res://dialogue_tree/assets/pink_hair_character/parts/BackHair.PNG" id="2_w4vtk"]
 [ext_resource type="Texture2D" uid="uid://de80gjojee3cf" path="res://dialogue_tree/assets/pink_hair_character/parts/Bang.PNG" id="3_4so5s"]
@@ -72,8 +72,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yb0aa"]
 _data = {
-"Idle": SubResource("Animation_pga88"),
-"RESET": SubResource("Animation_ye8v3")
+&"Idle": SubResource("Animation_pga88"),
+&"RESET": SubResource("Animation_ye8v3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tq6ip"]
@@ -84,20 +84,20 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_tq6ip")
 nodes/Animation/position = Vector2(100, 120)
 node_connections = [&"output", 0, &"Animation"]
 
-[node name="PinkHairCharacter" type="Node2D"]
+[node name="PinkHairCharacter" type="Node2D" unique_id=1877966572]
 z_as_relative = false
 script = ExtResource("1_bman8")
 
-[node name="PinkHairCharacterPreview" type="Sprite2D" parent="."]
+[node name="PinkHairCharacterPreview" type="Sprite2D" parent="." unique_id=1538990518]
 visible = false
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(0, 7)
 texture = ExtResource("1_fwdcm")
 
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=839239091]
 position = Vector2(0, 3)
 
-[node name="Bang" type="Polygon2D" parent="Skeleton2D"]
+[node name="Bang" type="Polygon2D" parent="Skeleton2D" unique_id=165839397]
 z_index = 10
 position = Vector2(-8, -264)
 offset = Vector2(-273, -164)
@@ -109,7 +109,7 @@ polygons = [PackedInt32Array(0, 1, 8, 7), PackedInt32Array(1, 2, 3, 8), PackedIn
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head/BangStart", PackedFloat32Array(1, 1, 1, 0.5, 0, 0, 0, 0.5, 0.5), "Body/Neck/Head/BangStart/BangEnd", PackedFloat32Array(0, 0, 0, 0, 1, 1, 1, 0, 0.5), "Body/Neck/Head/BackHair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)]
 internal_vertex_count = 1
 
-[node name="BackHair" type="Polygon2D" parent="Skeleton2D"]
+[node name="BackHair" type="Polygon2D" parent="Skeleton2D" unique_id=1752824409]
 z_index = -10
 position = Vector2(-248, -76)
 texture = ExtResource("2_w4vtk")
@@ -120,101 +120,98 @@ polygons = [PackedInt32Array(1, 2, 8, 0), PackedInt32Array(0, 7, 6, 8), PackedIn
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head/BangStart", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head/BangStart/BangEnd", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Neck/Head/BackHairStart", PackedFloat32Array(1, 1, 0.5, 0, 0, 0, 0.5, 1, 0.5), "Body/Neck/Head/BackHairStart/BackHairEnd", PackedFloat32Array(0, 0, 0.5, 1, 1, 1, 0.5, 0, 1)]
 internal_vertex_count = 1
 
-[node name="Body" type="Bone2D" parent="Skeleton2D"]
+[node name="Body" type="Bone2D" parent="Skeleton2D" unique_id=353553610]
 position = Vector2(0, 355)
 rotation = 0.0349066
 rest = Transform2D(1, 0, 0, 1, 0, 355)
 
-[node name="Neck" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="Neck" type="Bone2D" parent="Skeleton2D/Body" unique_id=1070106994]
 position = Vector2(0, -184)
 rest = Transform2D(1, 0, 0, 1, 0, -184)
 
-[node name="Head" type="Bone2D" parent="Skeleton2D/Body/Neck"]
+[node name="Head" type="Bone2D" parent="Skeleton2D/Body/Neck" unique_id=771016667]
 position = Vector2(0, -61)
-scale = Vector2(1, 1)
+scale = Vector2(0.99999994, 0.99999994)
 rest = Transform2D(1, 0, 0, 1, 0, -61)
 
-[node name="BangStart" type="Bone2D" parent="Skeleton2D/Body/Neck/Head"]
+[node name="BangStart" type="Bone2D" parent="Skeleton2D/Body/Neck/Head" unique_id=475805075]
 position = Vector2(0, -374)
 rest = Transform2D(1, 0, 0, 1, 0, -374)
 
-[node name="BangEnd" type="Bone2D" parent="Skeleton2D/Body/Neck/Head/BangStart"]
+[node name="BangEnd" type="Bone2D" parent="Skeleton2D/Body/Neck/Head/BangStart" unique_id=731274945]
 position = Vector2(-163, 6)
 rest = Transform2D(1, 0, 0, 1, -163, 6)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
 
-[node name="Head" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head"]
+[node name="Head" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head" unique_id=1354800438]
 z_index = 5
 position = Vector2(0, -245.5)
 texture = ExtResource("7_2wbcy")
 
-[node name="Eyes" type="Node2D" parent="Skeleton2D/Body/Neck/Head"]
+[node name="Eyes" type="Node2D" parent="Skeleton2D/Body/Neck/Head" unique_id=1399463091]
 z_index = 5
 position = Vector2(0, -223.5)
 
-[node name="EyesClosed" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Eyes"]
+[node name="EyesClosed" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Eyes" unique_id=866346656]
 visible = false
 position = Vector2(0, 22.5)
 texture = ExtResource("5_bgynh")
 
-[node name="EyesOpen" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Eyes"]
+[node name="EyesOpen" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Eyes" unique_id=1310689768]
 texture = ExtResource("6_irkmy")
 
-[node name="Mouth" type="Node2D" parent="Skeleton2D/Body/Neck/Head"]
+[node name="Mouth" type="Node2D" parent="Skeleton2D/Body/Neck/Head" unique_id=782851391]
 z_index = 5
 position = Vector2(0, -75)
 
-[node name="MouthO" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth"]
+[node name="MouthO" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth" unique_id=406154168]
 visible = false
 texture = ExtResource("8_1pj3p")
 
-[node name="MouthSmile" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth"]
+[node name="MouthSmile" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth" unique_id=1124682849]
 texture = ExtResource("9_opypf")
 
-[node name="MouthWide" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth"]
+[node name="MouthWide" type="Sprite2D" parent="Skeleton2D/Body/Neck/Head/Mouth" unique_id=788509164]
 visible = false
 texture = ExtResource("10_e1txc")
 
-[node name="BackHairStart" type="Bone2D" parent="Skeleton2D/Body/Neck/Head"]
+[node name="BackHairStart" type="Bone2D" parent="Skeleton2D/Body/Neck/Head" unique_id=1789487283]
 position = Vector2(-92, -170)
 rest = Transform2D(1, 0, 0, 1, -92, -170)
 
-[node name="BackHairEnd" type="Bone2D" parent="Skeleton2D/Body/Neck/Head/BackHairStart"]
+[node name="BackHairEnd" type="Bone2D" parent="Skeleton2D/Body/Neck/Head/BackHairStart" unique_id=2048405573]
 position = Vector2(-45, 107)
 rest = Transform2D(1, 0, 0, 1, -45, 107)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
 
-[node name="Neck" type="Sprite2D" parent="Skeleton2D/Body/Neck"]
+[node name="Neck" type="Sprite2D" parent="Skeleton2D/Body/Neck" unique_id=1928870297]
 position = Vector2(0, -37)
 texture = ExtResource("11_0x45e")
 
-[node name="ShirtCollar" type="Sprite2D" parent="Skeleton2D/Body"]
+[node name="ShirtCollar" type="Sprite2D" parent="Skeleton2D/Body" unique_id=1602377038]
 position = Vector2(0, -211)
 texture = ExtResource("12_r0dua")
 
-[node name="Body" type="Sprite2D" parent="Skeleton2D/Body"]
+[node name="Body" type="Sprite2D" parent="Skeleton2D/Body" unique_id=1395821042]
 z_index = -5
 position = Vector2(0, -126)
 texture = ExtResource("4_ouc4s")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_yb0aa")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=163395289]
+libraries/ = SubResource("AnimationLibrary_yb0aa")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=489409827]
 tree_root = SubResource("AnimationNodeBlendTree_c2qio")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 
-[node name="BlinkTimer" type="Timer" parent="."]
+[node name="BlinkTimer" type="Timer" parent="." unique_id=685329113]
 one_shot = true
 autostart = true
 
-[node name="ClosedEyesTimer" type="Timer" parent="."]
+[node name="ClosedEyesTimer" type="Timer" parent="." unique_id=1265601692]
 wait_time = 0.25
 one_shot = true

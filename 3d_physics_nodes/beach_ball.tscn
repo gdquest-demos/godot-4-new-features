@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1bohelx7terf"]
+[gd_scene format=3 uid="uid://d1bohelx7terf"]
 
 [ext_resource type="PackedScene" uid="uid://cc4qoawv2rpnc" path="res://3d_physics_nodes/assets/beach_ball/beach_ball.glb" id="2_25lbm"]
 
@@ -8,14 +8,14 @@ bounce = 0.5
 [sub_resource type="SphereShape3D" id="SphereShape3D_rqdwh"]
 radius = 2.5
 
-[node name="Ball" type="RigidBody3D"]
+[node name="Ball" type="RigidBody3D" unique_id=2005976389]
 collision_layer = 2
 collision_mask = 3
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_ostvg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=900280194]
 shape = SubResource("SphereShape3D_rqdwh")
 
-[node name="beach_ball" parent="." instance=ExtResource("2_25lbm")]
+[node name="beach_ball" parent="." unique_id=977689020 instance=ExtResource("2_25lbm")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)

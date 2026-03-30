@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1nix10k7rlbq"]
+[gd_scene format=3 uid="uid://c1nix10k7rlbq"]
 
 [ext_resource type="Texture2D" uid="uid://clqit06m3f2b3" path="res://tweens/player/player.png" id="1_7cxjc"]
-[ext_resource type="Script" path="res://tweens/player/player.gd" id="2_bu7s7"]
+[ext_resource type="Script" uid="uid://dwblmx041leom" path="res://tweens/player/player.gd" id="2_bu7s7"]
 [ext_resource type="AudioStream" uid="uid://bm673bh8n7l1f" path="res://tweens/player/Flamethrower Fire Loop 5.wav" id="3_7dbvb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_25jsp"]
@@ -32,27 +32,27 @@ scale_max = 15.0
 scale_curve = SubResource("CurveTexture_qb1ux")
 color_ramp = SubResource("GradientTexture1D_2hmwn")
 
-[node name="Player" type="Sprite2D"]
+[node name="Player" type="Sprite2D" unique_id=30005039]
 position = Vector2(967, 544)
 texture = ExtResource("1_7cxjc")
 script = ExtResource("2_bu7s7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=2073637370]
 collision_mask = 0
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=31041569]
 shape = SubResource("CircleShape2D_25jsp")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=959927502]
 stream = ExtResource("3_7dbvb")
 volume_db = -30.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1513968397]
 show_behind_parent = true
 position = Vector2(0, 50)
 amount = 50
-process_material = SubResource("ParticleProcessMaterial_2pw3g")
 lifetime = 0.25
 speed_scale = 2.0
 fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_2pw3g")

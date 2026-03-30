@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci4ui6jmga0d2"]
+[gd_scene format=3 uid="uid://ci4ui6jmga0d2"]
 
 [ext_resource type="Script" uid="uid://c46t0bu4l1gfd" path="res://2d_skeleton/2d_skeleton.gd" id="1_c55fe"]
 [ext_resource type="PackedScene" uid="uid://cnfreetjiotgv" path="res://2d_skeleton/goblin/goblin.tscn" id="1_hqxo5"]
@@ -16,13 +16,13 @@ shader_parameter/scale = 4.0
 shader_parameter/ratio = 0.56
 shader_parameter/direction = Vector2(0.025, 0.025)
 
-[node name="2D_skeleton" type="Node"]
+[node name="2D_skeleton" type="Node" unique_id=403321122]
 script = ExtResource("1_c55fe")
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=1385909025]
 layer = -10
 
-[node name="Pattern" type="ColorRect" parent="Background"]
+[node name="Pattern" type="ColorRect" parent="Background" unique_id=247310500]
 material = SubResource("ShaderMaterial_k6wj1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,16 +31,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_dlput")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=420339270]
 
-[node name="Camera2D" type="Camera2D" parent="World"]
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=462861321]
 
-[node name="Goblin" parent="World" instance=ExtResource("1_hqxo5")]
+[node name="Goblin" parent="World" unique_id=292442138 instance=ExtResource("1_hqxo5")]
 unique_name_in_owner = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=949352821]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1704214489]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,18 +49,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_uuvml")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=385318634]
 layout_mode = 1
 offset_left = 48.0
 offset_top = 48.0
 offset_right = 187.0
 offset_bottom = 114.0
 
-[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer" unique_id=829942617]
 layout_mode = 2
 text = "Current Animation"
 
-[node name="OptionButton" type="OptionButton" parent="CanvasLayer/UI/VBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/UI/VBoxContainer" unique_id=1174917692]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0

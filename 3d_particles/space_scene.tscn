@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://spxdx6fynt25"]
+[gd_scene format=3 uid="uid://spxdx6fynt25"]
 
-[ext_resource type="Script" path="res://3d_particles/ship.gd" id="1_wqxjo"]
+[ext_resource type="Script" uid="uid://dngddu365ypri" path="res://3d_particles/ship.gd" id="1_wqxjo"]
 
 [sub_resource type="Curve" id="Curve_kwb40"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.364372, 1), 0.0, 0.0, 0, 0]
@@ -135,8 +135,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yftl1"]
 _data = {
-"RESET": SubResource("Animation_5muq1"),
-"move": SubResource("Animation_4oach")
+&"RESET": SubResource("Animation_5muq1"),
+&"move": SubResource("Animation_4oach")
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_72x23"]
@@ -166,35 +166,35 @@ volumetric_fog_anisotropy = -0.37
 volumetric_fog_detail_spread = 1.06066
 volumetric_fog_ambient_inject = 0.6
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=107507142]
 
-[node name="TargetShip" type="Node3D" parent="."]
+[node name="TargetShip" type="Node3D" parent="." unique_id=861531380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.36563, 0, 23.807)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TargetShip"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="TargetShip" unique_id=665365098]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 cone = true
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="TargetShip"]
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="TargetShip" unique_id=1366889981]
 size = Vector3(2, 1, 1)
 
-[node name="ShootingShip" type="Node3D" parent="."]
+[node name="ShootingShip" type="Node3D" parent="." unique_id=2099987279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08544, 0, 0)
 script = ExtResource("1_wqxjo")
 target_path = NodePath("../TargetShip")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ShootingShip"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ShootingShip" unique_id=551349494]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 cone = true
 
-[node name="ProjectileGPUParticles3D" type="GPUParticles3D" parent="ShootingShip"]
+[node name="ProjectileGPUParticles3D" type="GPUParticles3D" parent="ShootingShip" unique_id=429291311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.332211)
 sub_emitter = NodePath("ShootingGPUParticles2D")
 visibility_aabb = AABB(-2.02552, -0.780716, -0.117562, 5.08254, 1.4491, 9.68977)
 process_material = SubResource("ParticleProcessMaterial_3h623")
 draw_pass_1 = SubResource("SphereMesh_qq5vv")
 
-[node name="ShootingGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D"]
+[node name="ShootingGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D" unique_id=752115650]
 unique_name_in_owner = true
 emitting = false
 sub_emitter = NodePath("SmokeGPUParticles2D")
@@ -203,23 +203,21 @@ trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_7nrvb")
 draw_pass_1 = SubResource("TubeTrailMesh_n111r")
 
-[node name="SmokeGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D/ShootingGPUParticles2D"]
+[node name="SmokeGPUParticles2D" type="GPUParticles3D" parent="ShootingShip/ProjectileGPUParticles3D/ShootingGPUParticles2D" unique_id=410677199]
 emitting = false
 visibility_aabb = AABB(-1.52401, -0.928911, -1.50131, 3.04801, 1.85782, 3.00262)
 process_material = SubResource("ParticleProcessMaterial_000e4")
 draw_pass_1 = SubResource("BoxMesh_cg2nn")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=524882412]
 transform = Transform3D(0.810916, 0.113474, -0.574054, 0.0241186, 0.973702, 0.226544, 0.584665, -0.197553, 0.786854, -18.1027, 7.17755, 38.5076)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "move"
-libraries = {
-"": SubResource("AnimationLibrary_yftl1")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1567044687]
+libraries/ = SubResource("AnimationLibrary_yftl1")
+autoplay = &"move"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1347916645]
 transform = Transform3D(0.965926, 0.103945, 0.237029, -0.12941, -0.599151, 0.790109, 0.224144, -0.79386, -0.565284, 0, 0, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=776195092]
 environment = SubResource("Environment_1xk8j")

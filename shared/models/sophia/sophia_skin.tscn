@@ -1,13 +1,22 @@
-[gd_scene load_steps=53 format=3 uid="uid://dgvq4io2wgwv"]
+[gd_scene format=3 uid="uid://dgvq4io2wgwv"]
 
 [ext_resource type="PackedScene" uid="uid://douscbe20506q" path="res://shared/models/sophia/mini_sophia.glb" id="1_f2l4o"]
-[ext_resource type="Script" path="res://shared/models/sophia/sophia_skin.gd" id="1_n654l"]
-[ext_resource type="Material" path="res://shared/models/sophia/materials/sophia_eyes.tres" id="3_hrjkk"]
+[ext_resource type="Script" uid="uid://4yaqg20fo7a4" path="res://shared/models/sophia/sophia_skin.gd" id="1_n654l"]
 [ext_resource type="Texture2D" uid="uid://bhraucuo8k2yp" path="res://shared/models/sophia/textures/eyes_diffuse_map.png" id="4_otigg"]
 [ext_resource type="Texture2D" uid="uid://b02thoifvyg4r" path="res://shared/models/sophia/textures/eyes_normal_map.png" id="5_it8hg"]
 [ext_resource type="Material" path="res://shared/models/sophia/materials/sophia_mouth.tres" id="6_yl3ne"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r7u4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifax5"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("4_otigg")
+normal_enabled = true
+normal_texture = ExtResource("5_it8hg")
+uv1_scale = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gi7v"]
 resource_local_to_scene = true
 transparency = 2
 alpha_scissor_threshold = 0.5
@@ -9447,20 +9456,20 @@ tracks/102/keys = PackedFloat32Array(0, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t0vul"]
 _data = {
-"Chill": SubResource("Animation_heaue"),
-"Chocked": SubResource("Animation_7gter"),
-"Disgust": SubResource("Animation_xl33k"),
-"EyeBlink": SubResource("Animation_nh3r2"),
-"RESET": SubResource("Animation_w6gdi"),
-"Show": SubResource("Animation_or2k1"),
-"Surprised": SubResource("Animation_o6mo7"),
-"edge_grab": SubResource("Animation_o0yhk"),
-"fall": SubResource("Animation_0dok1"),
-"happy_run": SubResource("Animation_ov7aj"),
-"idle": SubResource("Animation_k5kqq"),
-"jump_up": SubResource("Animation_d4opw"),
-"walk": SubResource("Animation_bnche"),
-"wall_slide": SubResource("Animation_y0lu1")
+&"Chill": SubResource("Animation_heaue"),
+&"Chocked": SubResource("Animation_7gter"),
+&"Disgust": SubResource("Animation_xl33k"),
+&"EyeBlink": SubResource("Animation_nh3r2"),
+&"RESET": SubResource("Animation_w6gdi"),
+&"Show": SubResource("Animation_or2k1"),
+&"Surprised": SubResource("Animation_o6mo7"),
+&"edge_grab": SubResource("Animation_o0yhk"),
+&"fall": SubResource("Animation_0dok1"),
+&"happy_run": SubResource("Animation_ov7aj"),
+&"idle": SubResource("Animation_k5kqq"),
+&"jump_up": SubResource("Animation_d4opw"),
+&"walk": SubResource("Animation_bnche"),
+&"wall_slide": SubResource("Animation_y0lu1")
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hi8vv"]
@@ -9569,114 +9578,40 @@ graph_offset = Vector2(-19, -46)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0cs6v"]
 graph_offset = Vector2(-659.306, 12)
+nodes/output/position = Vector2(420, 40)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sx10c")
 nodes/StateMachine/position = Vector2(-80, 40)
-nodes/output/position = Vector2(420, 40)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7wk21"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_c40bs"]
-
-[node name="SophiaSkin" type="Node3D"]
+[node name="SophiaSkin" type="Node3D" unique_id=205225617]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_n654l")
 _force_loop = PackedStringArray("idle", "walk", "happy_run", "wall_slide", "jump_up", "fall", "edge_grab")
 
-[node name="mini_sophia" parent="." instance=ExtResource("1_f2l4o")]
+[node name="mini_sophia" parent="." unique_id=14225443 instance=ExtResource("1_f2l4o")]
 
-[node name="Skeleton3D" parent="mini_sophia/Armature" index="0"]
-bones/0/rotation = Quaternion(-0.443119, -0.497597, -0.497597, 0.555373)
-bones/1/rotation = Quaternion(-0.108987, 0.0559973, -0.042929, 0.991536)
-bones/2/rotation = Quaternion(-0.0961838, -0.0993768, -0.00368602, 0.990383)
-bones/5/rotation = Quaternion(-0.121656, -0.118047, 0.0285343, 0.985114)
-bones/6/rotation = Quaternion(-0.298048, 0.0396242, 0.0232654, 0.953444)
-bones/7/rotation = Quaternion(-0.343356, -0.329734, 0.111078, 0.872378)
-bones/8/rotation = Quaternion(-0.128978, -0.0216333, 0.0456235, 0.990361)
-bones/14/rotation = Quaternion(0, 0, 1, 0)
-bones/15/rotation = Quaternion(0.707107, 0, 0, 0.707107)
-bones/17/rotation = Quaternion(0.989575, 0.100714, 0.100715, 0.0213051)
-bones/18/rotation = Quaternion(0.989575, -0.100714, -0.100715, 0.0213051)
-bones/19/rotation = Quaternion(0.000214855, 0.630725, 0.776006, 0.000214861)
-bones/20/rotation = Quaternion(-0.438947, 0.000320724, 0.000167189, 0.898513)
-bones/21/rotation = Quaternion(0.146819, 0.591777, 0.761991, -0.218207)
-bones/22/rotation = Quaternion(-0.416936, 0.00468471, -0.0706963, 0.90617)
-bones/23/rotation = Quaternion(-0.146819, 0.591777, 0.761991, 0.218207)
-bones/24/rotation = Quaternion(-0.416936, -0.00468471, 0.0706963, 0.90617)
-bones/25/rotation = Quaternion(-0.276752, 0.0779268, -0.446293, 0.847442)
-bones/26/rotation = Quaternion(6.70552e-08, 1.00583e-07, 1.86265e-07, 1)
-bones/27/rotation = Quaternion(-0.261325, 0.303535, -0.122104, 0.908111)
-bones/28/rotation = Quaternion(5.7742e-08, -4.44089e-16, 9.31323e-09, 1)
-bones/29/rotation = Quaternion(-0.276752, -0.0779268, 0.446293, 0.847442)
-bones/30/rotation = Quaternion(6.70552e-08, -1.00583e-07, -1.86265e-07, 1)
-bones/31/rotation = Quaternion(-0.261325, -0.303535, 0.122104, 0.908111)
-bones/32/rotation = Quaternion(5.7742e-08, 4.44089e-16, -9.31323e-09, 1)
-bones/33/rotation = Quaternion(-0.536383, -0.46079, -0.46079, 0.536319)
-bones/34/rotation = Quaternion(0.0066254, 0.00569849, -0.108173, 0.994094)
-bones/36/rotation = Quaternion(0.990445, 3.5574e-17, 3.5574e-17, 0.137908)
-bones/37/rotation = Quaternion(0.282881, 0.611408, -0.245002, 0.697232)
-bones/38/rotation = Quaternion(0.282881, -0.611408, 0.245002, 0.697232)
-bones/39/rotation = Quaternion(0.98408, 5.70245e-10, 5.70247e-10, -0.177725)
-bones/40/rotation = Quaternion(-0.127225, -8.90797e-10, 1.10353e-09, 0.991874)
-bones/41/rotation = Quaternion(-0.536383, -0.46079, -0.46079, 0.536319)
-bones/42/rotation = Quaternion(-0.0289601, -0.0248757, -0.0747634, 0.99647)
-bones/43/rotation = Quaternion(0.0066254, 0.00569849, -0.108173, 0.994094)
-bones/44/rotation = Quaternion(-0.536383, -0.46079, -0.46079, 0.536319)
-bones/45/rotation = Quaternion(0.0066254, 0.00569849, -0.108173, 0.994094)
-bones/46/rotation = Quaternion(0.0481183, 0.0518148, 0.0342935, 0.996907)
-bones/47/rotation = Quaternion(-0.536383, 0.46079, 0.46079, 0.536319)
-bones/48/rotation = Quaternion(0.0066254, -0.00569849, 0.108173, 0.994094)
-bones/50/rotation = Quaternion(-0.536383, 0.46079, 0.46079, 0.536319)
-bones/51/rotation = Quaternion(-0.0289601, 0.0248757, 0.0747634, 0.99647)
-bones/52/rotation = Quaternion(0.0066254, -0.00569849, 0.108173, 0.994094)
-bones/53/rotation = Quaternion(-0.536383, 0.46079, 0.46079, 0.536319)
-bones/54/rotation = Quaternion(0.0066254, -0.00569849, 0.108173, 0.994094)
-bones/55/rotation = Quaternion(0.0481183, -0.0518148, -0.0342935, 0.996907)
-bones/56/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/57/rotation = Quaternion(-0.0281204, -1.82538e-08, 1.82538e-08, 0.999605)
-bones/58/rotation = Quaternion(0.06973, 1.74777e-08, -1.89982e-08, 0.997566)
-bones/59/rotation = Quaternion(-0.0281204, 1.82538e-08, -1.82538e-08, 0.999605)
-bones/60/rotation = Quaternion(0.06973, -1.74777e-08, 1.89982e-08, 0.997566)
-bones/63/rotation = Quaternion(-1.39854e-08, 0.947435, -0.319948, 4.14137e-08)
-bones/64/rotation = Quaternion(3.84791e-08, 0.474421, 0.880298, 2.07376e-08)
-bones/71/rotation = Quaternion(-1.39854e-08, 0.947435, -0.319948, 4.14137e-08)
-bones/72/rotation = Quaternion(3.84791e-08, 0.474421, 0.880298, 2.07376e-08)
-bones/77/rotation = Quaternion(-0.443119, -0.497597, -0.497597, 0.555373)
-bones/79/rotation = Quaternion(-0.443119, 0.497597, 0.497597, 0.555373)
-bones/81/rotation = Quaternion(-0.443119, 0.497597, 0.497597, 0.555373)
-bones/82/rotation = Quaternion(-0.108987, -0.0559973, 0.042929, 0.991536)
-bones/83/rotation = Quaternion(-0.0961838, 0.0993768, 0.00368602, 0.990383)
-bones/86/rotation = Quaternion(-0.121656, 0.118047, -0.0285343, 0.985114)
-bones/87/rotation = Quaternion(-0.298048, -0.0396242, -0.0232654, 0.953444)
-bones/88/rotation = Quaternion(-0.343356, 0.329734, -0.111078, 0.872378)
-bones/89/rotation = Quaternion(-0.128978, 0.0216333, -0.0456235, 0.990361)
-
-[node name="sophia_mesh" parent="mini_sophia/Armature/Skeleton3D" index="0"]
+[node name="sophia_mesh" parent="mini_sophia/Armature/Skeleton3D" parent_id_path=PackedInt32Array(14225443, 62681319) index="0" unique_id=793890377]
 lod_bias = 5.0
-surface_material_override/1 = ExtResource("3_hrjkk")
-surface_material_override/2 = SubResource("StandardMaterial3D_8r7u4")
+surface_material_override/1 = SubResource("StandardMaterial3D_ifax5")
+surface_material_override/2 = SubResource("StandardMaterial3D_3gi7v")
 surface_material_override/3 = ExtResource("6_yl3ne")
 
-[node name="AnimationPlayer" parent="mini_sophia" index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_t0vul"),
-"custom_animations": SubResource("AnimationLibrary_hi8vv")
-}
+[node name="AnimationPlayer" parent="mini_sophia" index="1" unique_id=984794377]
+libraries/ = SubResource("AnimationLibrary_t0vul")
+libraries/custom_animations = SubResource("AnimationLibrary_hi8vv")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1452029005]
 unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/../mini_sophia")
 tree_root = SubResource("AnimationNodeBlendTree_0cs6v")
 anim_player = NodePath("../mini_sophia/AnimationPlayer")
-active = true
-parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_7wk21")
-parameters/StateMachine/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_c40bs")
-parameters/StateMachine/StateMachine/Walk/blend_position = 0
+parameters/StateMachine/StateMachine/Walk/blend_position = 0.0
 
-[node name="BlinkTimer" type="Timer" parent="."]
+[node name="BlinkTimer" type="Timer" parent="." unique_id=1951264313]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="ClosedTimer" type="Timer" parent="."]
+[node name="ClosedTimer" type="Timer" parent="." unique_id=918686898]
 unique_name_in_owner = true
 one_shot = true
 

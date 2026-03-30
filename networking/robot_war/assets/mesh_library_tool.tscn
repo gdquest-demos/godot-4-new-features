@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dric1v7rs2aej"]
+[gd_scene format=3 uid="uid://dric1v7rs2aej"]
 
 [sub_resource type="GDScript" id="GDScript_7rhfo"]
 script/source = "extends Node3D
@@ -70,5 +70,5 @@ func _ready() -> void:
 
 "
 
-[node name="MeshLibraryTool" type="Node3D"]
+[node name="MeshLibraryTool" type="Node3D" unique_id=1779030038]
 script = SubResource("GDScript_7rhfo")

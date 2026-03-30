@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddmcgrp8ceayg"]
+[gd_scene format=3 uid="uid://ddmcgrp8ceayg"]
 
-[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://outdoor_environment/sky/blue_sky.tres" id="1_ybpc5"]
-[ext_resource type="Script" path="res://heightmap_physics/mountain.gd" id="2_ssidq"]
+[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://heightmap_physics/assets/sky/blue_sky.tres" id="1_ybpc5"]
+[ext_resource type="Script" uid="uid://di4t5t88maopq" path="res://heightmap_physics/mountain.gd" id="2_ssidq"]
 [ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://heightmap_physics/assets/mountain_source_mesh_2.obj" id="3_7jj2k"]
-[ext_resource type="Shader" path="res://heightmap_physics/mountain_normal.gdshader" id="4_5726j"]
-[ext_resource type="Script" path="res://heightmap_physics/camera_root.gd" id="5_vtap2"]
+[ext_resource type="Shader" uid="uid://btsy65k8xq2sj" path="res://heightmap_physics/mountain_normal.gdshader" id="4_5726j"]
+[ext_resource type="Script" uid="uid://l6u5qipgrbty" path="res://heightmap_physics/camera_root.gd" id="5_vtap2"]
 [ext_resource type="Material" uid="uid://bjrjat1nexdul" path="res://heightmap_physics/assets/cloud_mat.tres" id="6_6nh4s"]
 [ext_resource type="ArrayMesh" uid="uid://boc744m8lf7n1" path="res://heightmap_physics/assets/cloud_1.obj" id="7_eul2r"]
 
@@ -35,8 +35,8 @@ frequency = 0.006
 fractal_octaves = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xk4gs"]
-seamless = true
 noise = SubResource("FastNoiseLite_f0imb")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnytx"]
 render_priority = 0
@@ -64,16 +64,16 @@ material = SubResource("StandardMaterial3D_t2cdj")
 radius = 0.02
 radial_steps = 3
 
-[node name="HeightmapPhysics" type="Node3D"]
+[node name="HeightmapPhysics" type="Node3D" unique_id=103864864]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1802724800]
 environment = SubResource("Environment_6klb1")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=372239825]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Mountain" type="Node3D" parent="." node_paths=PackedStringArray("target_mesh_instance")]
+[node name="Mountain" type="Node3D" parent="." unique_id=502973634 node_paths=PackedStringArray("target_mesh_instance")]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -0.0118475, 3.44766, -0.0157223)
 script = ExtResource("2_ssidq")
 top_colors = SubResource("Gradient_7om1h")
@@ -82,31 +82,31 @@ heightmap_texture = SubResource("NoiseTexture2D_xk4gs")
 source_mesh = ExtResource("3_7jj2k")
 target_mesh_instance = NodePath("TargetMeshInstance")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Mountain"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mountain" unique_id=1861028089]
 unique_name_in_owner = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mountain/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mountain/StaticBody3D" unique_id=1535358672]
 unique_name_in_owner = true
 
-[node name="TargetMeshInstance" type="MeshInstance3D" parent="Mountain"]
+[node name="TargetMeshInstance" type="MeshInstance3D" parent="Mountain" unique_id=1136593828]
 material_override = SubResource("ShaderMaterial_tnytx")
 mesh = ExtResource("3_7jj2k")
 
-[node name="CameraRoot" type="Node3D" parent="."]
+[node name="CameraRoot" type="Node3D" parent="." unique_id=1352691026]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 6, 0)
 script = ExtResource("5_vtap2")
 
-[node name="Camera3D" type="Camera3D" parent="CameraRoot"]
+[node name="Camera3D" type="Camera3D" parent="CameraRoot" unique_id=1932496190]
 transform = Transform3D(1, 0, 0, 0, 0.998342, 0.057564, 0, -0.057564, 0.998342, 0, 0, 15)
 current = true
 fov = 45.0
 
-[node name="Cloud1" type="MeshInstance3D" parent="."]
+[node name="Cloud1" type="MeshInstance3D" parent="." unique_id=892908158]
 transform = Transform3D(14.9881, 0, 0.357735, 0, 4.5, 0, -0.596224, 0, 8.99289, 0.0281725, 8.89613, -0.110708)
 material_override = ExtResource("6_6nh4s")
 mesh = ExtResource("7_eul2r")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1988849199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.96576, 0.177104)
 amount = 100
 lifetime = 2.0
@@ -119,7 +119,7 @@ trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_vvfcg")
 draw_pass_1 = SubResource("TubeTrailMesh_3bs0b")
 
-[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="." unique_id=769650631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.26381, 0)
 size = Vector3(6, 7.16331, 6)
 update_mode = 1

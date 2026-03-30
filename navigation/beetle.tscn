@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://btkjvs4pjpbqo"]
+[gd_scene format=3 uid="uid://btkjvs4pjpbqo"]
 
-[ext_resource type="Script" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
+[ext_resource type="Script" uid="uid://dnk5h3nvcp5us" path="res://navigation/beetle_moving_platforms.gd" id="1_mefon"]
 [ext_resource type="PackedScene" uid="uid://bb15s2222kbth" path="res://shared/models/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 
 [sub_resource type="Animation" id="Animation_5pcps"]
@@ -86,9 +86,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqtu2"]
 _data = {
-"RESET": SubResource("Animation_5pcps"),
-"found_player": SubResource("Animation_6k5ul"),
-"lost_player": SubResource("Animation_iekf1")
+&"RESET": SubResource("Animation_5pcps"),
+&"found_player": SubResource("Animation_6k5ul"),
+&"lost_player": SubResource("Animation_iekf1")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h03f6"]
@@ -100,14 +100,14 @@ radius = 0.489449
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm81s"]
 size = Vector3(1.4, 0.2, 1.4)
 
-[node name="Beetle" type="CharacterBody3D" groups=["damageables", "targeteables"]]
+[node name="Beetle" type="CharacterBody3D" unique_id=396152334 groups=["damageables", "targeteables"]]
 collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_mefon")
 
-[node name="ReactionLabel" type="Label3D" parent="."]
+[node name="ReactionLabel" type="Label3D" parent="." unique_id=365006113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23854, 0)
 visible = false
 billboard = 2
@@ -115,32 +115,30 @@ text = "!"
 font_size = 192
 outline_size = 32
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ReactionLabel" unique_id=419742718]
 unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_sqtu2")
-}
+libraries/ = SubResource("AnimationLibrary_sqtu2")
 
-[node name="PlayerDetectionArea" type="Area3D" parent="."]
+[node name="PlayerDetectionArea" type="Area3D" parent="." unique_id=890318474]
 unique_name_in_owner = true
 collision_layer = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea" unique_id=980683990]
 shape = SubResource("SphereShape3D_h03f6")
 
-[node name="CollisionShapeBody" type="CollisionShape3D" parent="."]
+[node name="CollisionShapeBody" type="CollisionShape3D" parent="." unique_id=137996100]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.596143, -0.00465555)
 shape = SubResource("CapsuleShape3D_g3iuo")
 
-[node name="CollisionShapeHead" type="CollisionShape3D" parent="."]
+[node name="CollisionShapeHead" type="CollisionShape3D" parent="." unique_id=2119295625]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.971111, -0.197939)
 shape = SubResource("BoxShape3D_bm81s")
 
-[node name="BeetlebotSkin" parent="." instance=ExtResource("2_1wpkj")]
+[node name="BeetlebotSkin" parent="." unique_id=1208065047 instance=ExtResource("2_1wpkj")]
 unique_name_in_owner = true
 transform = Transform3D(-1.4, 0, -2.11394e-07, 0, 1.4, 0, 2.11394e-07, 0, -1.4, 0, 0.0782327, 0.0372844)
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1363234401]
 unique_name_in_owner = true
 path_desired_distance = 2.0
 target_desired_distance = 0.2

@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://yq8sqpcq5f47"]
+[gd_scene format=3 uid="uid://yq8sqpcq5f47"]
 
-[ext_resource type="Script" path="res://tweens/tween_demo.gd" id="1_0jyno"]
+[ext_resource type="Script" uid="uid://dltih6om5mdgk" path="res://tweens/tween_demo.gd" id="1_0jyno"]
 [ext_resource type="PackedScene" uid="uid://c1nix10k7rlbq" path="res://tweens/player/player.tscn" id="3_1l8h0"]
 [ext_resource type="PackedScene" uid="uid://pe3y7hhxxr5" path="res://shared/space_background/space_background.tscn" id="3_o1wce"]
 
-[node name="TweenDemo" type="Node"]
+[node name="TweenDemo" type="Node" unique_id=1458028982]
 script = ExtResource("1_0jyno")
 
-[node name="SpaceBackground" parent="." instance=ExtResource("3_o1wce")]
+[node name="SpaceBackground" parent="." unique_id=548118998 instance=ExtResource("3_o1wce")]
 mouse_filter = 2
 
-[node name="Player" parent="." instance=ExtResource("3_1l8h0")]
+[node name="Player" parent="." unique_id=1675697475 instance=ExtResource("3_1l8h0")]

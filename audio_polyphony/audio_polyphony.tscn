@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvxfvcvt0112y"]
+[gd_scene format=3 uid="uid://cvxfvcvt0112y"]
 
 [ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_nw56l"]
 [ext_resource type="Script" uid="uid://cwiv6et2e3c72" path="res://audio_polyphony/audio_polyphony.gd" id="2_81xos"]
@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_i75i3"]
 font_size = 32
 
-[node name="AudioPolyphony" type="Control"]
+[node name="AudioPolyphony" type="Control" unique_id=2086941731]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,14 +18,14 @@ grow_vertical = 2
 theme = ExtResource("1_nw56l")
 script = ExtResource("2_81xos")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=94847018]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("2_uqchy")
 stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=749555725]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,69 +39,69 @@ offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1409725035]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=537092623]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Max Polyphony"
 label_settings = SubResource("LabelSettings_i75i3")
 
-[node name="PolyphonyLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="PolyphonyLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=181019373]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_i75i3")
 horizontal_alignment = 2
 
-[node name="PolyphonySlider" type="HSlider" parent="VBoxContainer"]
+[node name="PolyphonySlider" type="HSlider" parent="VBoxContainer" unique_id=1678950293]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 max_value = 10.0
 value = 5.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=311980725]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1194145385]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Playback Quantity"
 label_settings = SubResource("LabelSettings_i75i3")
 
-[node name="PlaybackLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="PlaybackLabel" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=909031102]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_i75i3")
 horizontal_alignment = 2
 
-[node name="PlaybackSlider" type="HSlider" parent="VBoxContainer"]
+[node name="PlaybackSlider" type="HSlider" parent="VBoxContainer" unique_id=1320201280]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 max_value = 10.0
 value = 5.0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=276611117]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=73458533]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Duration of Burst"
 label_settings = SubResource("LabelSettings_i75i3")
 
-[node name="BurstLabel" type="Label" parent="VBoxContainer/HBoxContainer3"]
+[node name="BurstLabel" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1264421344]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_i75i3")
 horizontal_alignment = 2
 
-[node name="BurstSlider" type="HSlider" parent="VBoxContainer"]
+[node name="BurstSlider" type="HSlider" parent="VBoxContainer" unique_id=1870454396]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
@@ -109,7 +109,7 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="PlayButton" type="Button" parent="."]
+[node name="PlayButton" type="Button" parent="." unique_id=1668947016]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -126,6 +126,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 64
 text = "Play!"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=411918854]
 unique_name_in_owner = true
 stream = ExtResource("3_shjmb")

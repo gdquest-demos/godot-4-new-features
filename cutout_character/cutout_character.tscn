@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlxy2225fdmeo"]
+[gd_scene format=3 uid="uid://dlxy2225fdmeo"]
 
 [ext_resource type="Texture2D" uid="uid://b01xlbl80r3nm" path="res://cutout_character/samurai_fox_parts/body.PNG" id="1_k5ksc"]
 [ext_resource type="Texture2D" uid="uid://bjuoqmxd2xgtq" path="res://cutout_character/samurai_fox_parts/arm.L.PNG" id="2_i32ej"]
@@ -305,154 +305,148 @@ _data = {
 &"animate": SubResource("Animation_yw57h")
 }
 
-[node name="CutoutCharacter" type="Node2D"]
+[node name="CutoutCharacter" type="Node2D" unique_id=840015585]
 
-[node name="NoCanvasGroup" type="Node2D" parent="."]
+[node name="NoCanvasGroup" type="Node2D" parent="." unique_id=417611539]
 position = Vector2(598, 714)
 scale = Vector2(0.75, 0.75)
 
-[node name="Body" type="Sprite2D" parent="NoCanvasGroup"]
+[node name="Body" type="Sprite2D" parent="NoCanvasGroup" unique_id=2132503814]
 rotation = -0.178908
 texture = ExtResource("1_k5ksc")
 offset = Vector2(0, -100)
 
-[node name="ArmR" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="ArmR" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=1358154867]
 show_behind_parent = true
 position = Vector2(-56, -184)
 rotation = -1.86741
 texture = ExtResource("3_qk2bx")
 offset = Vector2(-64, 88)
 
-[node name="ArmL" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="ArmL" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=1935985755]
 position = Vector2(48, -184)
 rotation = 1.47271
 texture = ExtResource("2_i32ej")
 offset = Vector2(64, 88)
 
-[node name="LegR" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="LegR" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=952040888]
 show_behind_parent = true
 position = Vector2(-48, -16)
 rotation = 0.745139
 texture = ExtResource("4_6d6ld")
 offset = Vector2(-8, 104)
 
-[node name="LegL" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="LegL" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=1004297888]
 show_behind_parent = true
 position = Vector2(40, -16)
 rotation = -0.732469
 texture = ExtResource("5_r7at0")
 offset = Vector2(-8, 104)
 
-[node name="Tail" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="Tail" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=1571168736]
 show_behind_parent = true
 position = Vector2(72, -72)
 rotation = -0.278799
 texture = ExtResource("6_ki5iv")
 offset = Vector2(216, 16)
 
-[node name="Head" type="Sprite2D" parent="NoCanvasGroup/Body"]
+[node name="Head" type="Sprite2D" parent="NoCanvasGroup/Body" unique_id=528921162]
 position = Vector2(16, -232)
 rotation = 0.1612
 texture = ExtResource("6_5aalc")
 offset = Vector2(0, -176)
 
-[node name="EarR" type="Sprite2D" parent="NoCanvasGroup/Body/Head"]
+[node name="EarR" type="Sprite2D" parent="NoCanvasGroup/Body/Head" unique_id=1656995283]
 show_behind_parent = true
 position = Vector2(-120, -312)
 rotation = 0.0658118
 texture = ExtResource("7_hfw4e")
 offset = Vector2(0, -112)
 
-[node name="EarL" type="Sprite2D" parent="NoCanvasGroup/Body/Head"]
+[node name="EarL" type="Sprite2D" parent="NoCanvasGroup/Body/Head" unique_id=146296558]
 position = Vector2(96, -296)
 rotation = 0.0731513
 texture = ExtResource("8_8axq2")
 offset = Vector2(0, -112)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NoCanvasGroup"]
-libraries = {
-&"": SubResource("AnimationLibrary_qx8ri")
-}
-autoplay = "walk"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NoCanvasGroup" unique_id=190528003]
+libraries/ = SubResource("AnimationLibrary_qx8ri")
+autoplay = &"walk"
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=178498021]
 position = Vector2(1304, 714)
 scale = Vector2(0.75, 0.75)
 
-[node name="Body" type="Sprite2D" parent="CanvasGroup"]
+[node name="Body" type="Sprite2D" parent="CanvasGroup" unique_id=290402416]
 rotation = -0.178908
 texture = ExtResource("1_k5ksc")
 offset = Vector2(0, -100)
 
-[node name="ArmR" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="ArmR" type="Sprite2D" parent="CanvasGroup/Body" unique_id=955977377]
 show_behind_parent = true
 position = Vector2(-56, -184)
 rotation = -1.86741
 texture = ExtResource("3_qk2bx")
 offset = Vector2(-64, 88)
 
-[node name="ArmL" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="ArmL" type="Sprite2D" parent="CanvasGroup/Body" unique_id=1130470572]
 position = Vector2(48, -184)
 rotation = 1.47271
 texture = ExtResource("2_i32ej")
 offset = Vector2(64, 88)
 
-[node name="LegR" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="LegR" type="Sprite2D" parent="CanvasGroup/Body" unique_id=113722208]
 show_behind_parent = true
 position = Vector2(-48, -16)
 rotation = 0.745139
 texture = ExtResource("4_6d6ld")
 offset = Vector2(-8, 104)
 
-[node name="LegL" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="LegL" type="Sprite2D" parent="CanvasGroup/Body" unique_id=2040553989]
 show_behind_parent = true
 position = Vector2(40, -16)
 rotation = -0.732469
 texture = ExtResource("5_r7at0")
 offset = Vector2(-8, 104)
 
-[node name="Tail" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="Tail" type="Sprite2D" parent="CanvasGroup/Body" unique_id=1488041735]
 show_behind_parent = true
 position = Vector2(72, -72)
 rotation = -0.278799
 texture = ExtResource("6_ki5iv")
 offset = Vector2(216, 16)
 
-[node name="Head" type="Sprite2D" parent="CanvasGroup/Body"]
+[node name="Head" type="Sprite2D" parent="CanvasGroup/Body" unique_id=968993298]
 position = Vector2(16, -232)
 rotation = 0.1612
 texture = ExtResource("6_5aalc")
 offset = Vector2(0, -176)
 
-[node name="EarR" type="Sprite2D" parent="CanvasGroup/Body/Head"]
+[node name="EarR" type="Sprite2D" parent="CanvasGroup/Body/Head" unique_id=698335177]
 show_behind_parent = true
 position = Vector2(-120, -312)
 rotation = 0.0658118
 texture = ExtResource("7_hfw4e")
 offset = Vector2(0, -112)
 
-[node name="EarL" type="Sprite2D" parent="CanvasGroup/Body/Head"]
+[node name="EarL" type="Sprite2D" parent="CanvasGroup/Body/Head" unique_id=1386752363]
 position = Vector2(96, -296)
 rotation = 0.0731513
 texture = ExtResource("8_8axq2")
 offset = Vector2(0, -112)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup"]
-libraries = {
-&"": SubResource("AnimationLibrary_qx8ri")
-}
-autoplay = "walk"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasGroup" unique_id=1350137762]
+libraries/ = SubResource("AnimationLibrary_qx8ri")
+autoplay = &"walk"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_et2ky")
-}
-autoplay = "animate"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=65524591]
+libraries/ = SubResource("AnimationLibrary_et2ky")
+autoplay = &"animate"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=355539505]
 layer = -10
 
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=11998895]
 material = ExtResource("10_3lqeb")
 anchors_preset = 15
 anchor_right = 1.0
@@ -461,7 +455,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_lejrc")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1055213407]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -479,7 +473,7 @@ theme_override_font_sizes/font_size = 60
 text = "Sprites Only"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="." unique_id=1983023416]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

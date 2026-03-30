@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=13 format=3 uid="uid://dsofkabo4cte1"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dsofkabo4cte1"]
 
-[ext_resource type="Shader" path="res://outdoor_environment/materials/terrain/terrain_shader.gdshader" id="1_vhiov"]
+[ext_resource type="Shader" uid="uid://bou51p0pau6lr" path="res://outdoor_environment/materials/terrain/terrain_shader.gdshader" id="1_vhiov"]
 [ext_resource type="Texture2D" uid="uid://ccle3gd0lgtig" path="res://outdoor_environment/materials/terrain/Textures/voronoi_rock_cliff/voronoi_rock_cliff_albedo.png" id="2_3erbm"]
 [ext_resource type="Texture2D" uid="uid://cqs4w0fnrsnda" path="res://outdoor_environment/materials/terrain/Textures/voronoi_rock_cliff/voronoi_rock_cliff_normal.png" id="3_7oxrh"]
 [ext_resource type="Texture2D" uid="uid://c5t0wkqsdvy0a" path="res://outdoor_environment/materials/terrain/Textures/voronoi_rock_cliff/voronoi_rock_cliff_orm.png" id="4_i73vk"]
@@ -16,14 +16,12 @@ noise_type = 3
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jhgfj"]
-seamless = true
 noise = SubResource("FastNoiseLite_dkxv0")
+seamless = true
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_vhiov")
-shader_parameter/wall_edge_offset = 1.25
-shader_parameter/cliff_scale = 0.7
 shader_parameter/grass_patch_pattern_sampler = SubResource("NoiseTexture2D_jhgfj")
 shader_parameter/wall_mask_sampler = ExtResource("10_opgjh")
 shader_parameter/cliff_albedo_sampler = ExtResource("2_3erbm")
@@ -35,6 +33,8 @@ shader_parameter/dirt_orm_sampler = ExtResource("7_5ev3h")
 shader_parameter/cliff_normal_sampler = ExtResource("3_7oxrh")
 shader_parameter/grass_normal_sampler = ExtResource("9_jafyx")
 shader_parameter/dirt_normal_sampler = ExtResource("6_rfwqv")
+shader_parameter/wall_edge_offset = 1.25
+shader_parameter/cliff_scale = 0.7
 shader_parameter/triplanar_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/triplanar_offset = Vector3(0, 0, 0)
 shader_parameter/triplanar_sharpness = 4.0

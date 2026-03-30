@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbm2yxfs04xs0"]
+[gd_scene format=3 uid="uid://bbm2yxfs04xs0"]
 
-[ext_resource type="Script" path="res://tweens/gem/gem.gd" id="1_asmyj"]
+[ext_resource type="Script" uid="uid://jnipadyhuh67" path="res://tweens/gem/gem.gd" id="1_asmyj"]
 [ext_resource type="Texture2D" uid="uid://bn38tgb4imh6c" path="res://tweens/gem/blue_gem.png" id="2_juwn7"]
 [ext_resource type="AudioStream" uid="uid://cu84ep5dj8e50" path="res://tweens/gem/collect_gem.wav" id="3_b25r1"]
 
@@ -10,12 +10,11 @@ radius = 76.0066
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5b8wt"]
 streams_count = 1
 stream_0/stream = ExtResource("3_b25r1")
-stream_0/weight = 1.0
 
-[node name="Gem" type="Node2D"]
+[node name="Gem" type="Node2D" unique_id=786990999]
 script = ExtResource("1_asmyj")
 
-[node name="Texture" type="TextureRect" parent="."]
+[node name="Texture" type="TextureRect" parent="." unique_id=1922370059]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,13 +24,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_juwn7")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1111908517]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=601643658]
 shape = SubResource("CircleShape2D_dd8gn")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=587956835]
 stream = SubResource("AudioStreamRandomizer_5b8wt")
 max_polyphony = 10

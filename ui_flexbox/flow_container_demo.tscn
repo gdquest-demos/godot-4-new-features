@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ciygc85q7b8fi"]
+[gd_scene format=3 uid="uid://ciygc85q7b8fi"]
 
 [ext_resource type="Script" uid="uid://csgjtf6nwiho0" path="res://ui_flexbox/flow_container_demo.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://beumur3oint63" path="res://ui_flexbox/assets/background.png" id="2"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bxv6kqlyi08gn" path="res://ui_flexbox/assets/pickup_stones.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://5nxye373xxct" path="res://ui_flexbox/assets/mark_minus.png" id="17"]
 
-[node name="FlowContainerDemo" type="Control"]
+[node name="FlowContainerDemo" type="Control" unique_id=796466377]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,14 +24,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=945453145]
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource("2")
 stretch_mode = 6
 
-[node name="FlowContainerDemo" type="PanelContainer" parent="."]
+[node name="FlowContainerDemo" type="PanelContainer" parent="." unique_id=1450546303]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,41 +49,41 @@ script = ExtResource("1")
 items = Array[Texture]([ExtResource("9"), ExtResource("15"), ExtResource("7"), ExtResource("10"), ExtResource("8"), ExtResource("5"), ExtResource("13"), ExtResource("6"), ExtResource("12"), ExtResource("14")])
 metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="FlowContainerDemo"]
+[node name="MarginContainer" type="MarginContainer" parent="FlowContainerDemo" unique_id=600615604]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="FlowContainerDemo/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="FlowContainerDemo/MarginContainer" unique_id=1326042415]
 layout_mode = 2
 
-[node name="VFlowContainer" type="VFlowContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer"]
+[node name="VFlowContainer" type="VFlowContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer" unique_id=899848324]
 layout_mode = 2
 
-[node name="AddItemButton" type="Button" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer"]
+[node name="AddItemButton" type="Button" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer" unique_id=1547869153]
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("3")
 
-[node name="RemoveItemButton" type="Button" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer"]
+[node name="RemoveItemButton" type="Button" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer" unique_id=1778827354]
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("17")
 
-[node name="VSlider" type="VSlider" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer"]
+[node name="VSlider" type="VSlider" parent="FlowContainerDemo/MarginContainer/HBoxContainer/VFlowContainer" unique_id=418746386]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 1
 value = 50.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer" unique_id=2091784959]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 follow_focus = true
 
-[node name="HFlowContainer" type="HFlowContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer/ScrollContainer"]
+[node name="HFlowContainer" type="HFlowContainer" parent="FlowContainerDemo/MarginContainer/HBoxContainer/ScrollContainer" unique_id=601548607]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 1000)
 layout_mode = 2

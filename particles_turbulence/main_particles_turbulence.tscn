@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bl5jro2aopj7s"]
+[gd_scene format=3 uid="uid://bl5jro2aopj7s"]
 
 [ext_resource type="Material" uid="uid://cg2lpg5nxomkx" path="res://particles_turbulence/petal/petal_material.tres" id="1_v8iur"]
 [ext_resource type="Material" uid="uid://dxd2ls85gp6o0" path="res://particles_turbulence/petal/petal_process_material.tres" id="2_4vk16"]
@@ -46,14 +46,14 @@ scale_curve = SubResource("CurveTexture_k1bd1")
 
 [sub_resource type="QuadMesh" id="QuadMesh_knlxg"]
 
-[node name="MainParticlesTurbulence" type="Node"]
+[node name="MainParticlesTurbulence" type="Node" unique_id=1840163589]
 
-[node name="World3D" type="Node3D" parent="."]
+[node name="World3D" type="Node3D" parent="." unique_id=191693977]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D" unique_id=861799660]
 environment = SubResource("Environment_vjx21")
 
-[node name="Petals" type="GPUParticles3D" parent="World3D"]
+[node name="Petals" type="GPUParticles3D" parent="World3D" unique_id=1633704595]
 material_override = ExtResource("1_v8iur")
 amount = 2048
 sub_emitter = NodePath("../Dust")
@@ -62,7 +62,7 @@ preprocess = 2.0
 process_material = ExtResource("2_4vk16")
 draw_pass_1 = ExtResource("4_gaxyt")
 
-[node name="Dust" type="GPUParticles3D" parent="World3D"]
+[node name="Dust" type="GPUParticles3D" parent="World3D" unique_id=2091671262]
 material_override = ExtResource("4_muqwj")
 emitting = false
 amount = 512
@@ -70,8 +70,8 @@ transform_align = 3
 process_material = SubResource("ParticleProcessMaterial_gp340")
 draw_pass_1 = SubResource("QuadMesh_knlxg")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World3D" unique_id=374337513]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 directional_shadow_max_distance = 20.0
 
-[node name="OrbitControls" parent="World3D" instance=ExtResource("6_5c34i")]
+[node name="OrbitControls" parent="World3D" unique_id=1318513318 instance=ExtResource("6_5c34i")]

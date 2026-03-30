@@ -1,16 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://bb1khyn51vqjx"]
+[gd_scene format=3 uid="uid://bb1khyn51vqjx"]
 
 [ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="1_8oc73"]
-[ext_resource type="Script" path="res://heightmap_physics/random_sound_player.gd" id="1_0408y"]
+[ext_resource type="Script" uid="uid://ciw3n15hxyenm" path="res://heightmap_physics/random_sound_player.gd" id="1_0408y"]
 [ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://heightmap_physics/assets/mountain_source_mesh_2.obj" id="2_1w5vu"]
-[ext_resource type="Script" path="res://heightmap_physics/death_plane.gd" id="3_ebjdu"]
+[ext_resource type="Script" uid="uid://36pbdf6u5h8w" path="res://heightmap_physics/death_plane.gd" id="3_ebjdu"]
 [ext_resource type="AudioStream" uid="uid://bq2c4kxtij52u" path="res://heightmap_physics/assets/small_impact/small_impact_1.wav" id="3_ucfob"]
 [ext_resource type="AudioStream" uid="uid://vnf2wmlctf31" path="res://heightmap_physics/assets/small_impact/small_impact_2.wav" id="4_aexha"]
-[ext_resource type="Script" path="res://heightmap_physics/camera_root.gd" id="4_om45k"]
+[ext_resource type="Script" uid="uid://l6u5qipgrbty" path="res://heightmap_physics/camera_root.gd" id="4_om45k"]
 [ext_resource type="AudioStream" uid="uid://dxjy4eo6dfmvb" path="res://heightmap_physics/assets/small_impact/small_impact_3.wav" id="5_m0mso"]
-[ext_resource type="Shader" path="res://heightmap_physics/mountain_normal.gdshader" id="5_n6vki"]
-[ext_resource type="Script" path="res://heightmap_physics/ball_spawner.gd" id="5_s1575"]
-[ext_resource type="Script" path="res://heightmap_physics/mountain.gd" id="6_8i3u7"]
+[ext_resource type="Shader" uid="uid://btsy65k8xq2sj" path="res://heightmap_physics/mountain_normal.gdshader" id="5_n6vki"]
+[ext_resource type="Script" uid="uid://5rdt7taa8vqv" path="res://heightmap_physics/ball_spawner.gd" id="5_s1575"]
+[ext_resource type="Script" uid="uid://di4t5t88maopq" path="res://heightmap_physics/mountain.gd" id="6_8i3u7"]
 [ext_resource type="AudioStream" uid="uid://dfvcjqhqhg75d" path="res://heightmap_physics/assets/small_impact/small_impact_4.wav" id="6_woiys"]
 [ext_resource type="ArrayMesh" uid="uid://boc744m8lf7n1" path="res://heightmap_physics/assets/cloud_1.obj" id="7_06v0e"]
 
@@ -27,8 +27,8 @@ frequency = 0.006
 fractal_octaves = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xk4gs"]
-seamless = true
 noise = SubResource("FastNoiseLite_f0imb")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnytx"]
 render_priority = 0
@@ -58,24 +58,24 @@ void fragment() {
 fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hcns8"]
-seamless = true
 noise = SubResource("FastNoiseLite_sf35y")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ki6p"]
 render_priority = 0
 shader = SubResource("Shader_ir2q7")
 shader_parameter/noise_sampler = SubResource("NoiseTexture2D_hcns8")
 
-[node name="HeightmapPhysics" type="Node3D"]
+[node name="HeightmapPhysics" type="Node3D" unique_id=309207428]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1387883484]
 environment = ExtResource("1_8oc73")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=218049492]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Mountain" type="Node3D" parent="." node_paths=PackedStringArray("target_mesh_instance")]
+[node name="Mountain" type="Node3D" parent="." unique_id=1199149700 node_paths=PackedStringArray("target_mesh_instance")]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -0.0118475, 3.44766, -0.0157223)
 script = ExtResource("6_8i3u7")
 top_colors = SubResource("Gradient_7om1h")
@@ -84,73 +84,73 @@ heightmap_texture = SubResource("NoiseTexture2D_xk4gs")
 source_mesh = ExtResource("2_1w5vu")
 target_mesh_instance = NodePath("TargetMeshInstance")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Mountain"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Mountain" unique_id=1317719819]
 unique_name_in_owner = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mountain/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mountain/StaticBody3D" unique_id=1843219662]
 unique_name_in_owner = true
 
-[node name="TargetMeshInstance" type="MeshInstance3D" parent="Mountain"]
+[node name="TargetMeshInstance" type="MeshInstance3D" parent="Mountain" unique_id=1537456454]
 material_override = SubResource("ShaderMaterial_tnytx")
 mesh = ExtResource("2_1w5vu")
 
-[node name="CameraRoot" type="Node3D" parent="."]
+[node name="CameraRoot" type="Node3D" parent="." unique_id=1263501758]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 6, 0)
 script = ExtResource("4_om45k")
 
-[node name="Camera3D" type="Camera3D" parent="CameraRoot"]
+[node name="Camera3D" type="Camera3D" parent="CameraRoot" unique_id=167695386]
 transform = Transform3D(1, 0, 0, 0, 0.998342, 0.057564, 0, -0.057564, 0.998342, 0, 0, 15)
 current = true
 fov = 45.0
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=622436371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.8863, 0)
 
-[node name="Balls" type="Node3D" parent="." node_paths=PackedStringArray("_spawn_position", "_random_sound_player")]
+[node name="Balls" type="Node3D" parent="." unique_id=1887056677 node_paths=PackedStringArray("_spawn_position", "_random_sound_player")]
 script = ExtResource("5_s1575")
 _spawn_position = NodePath("../Marker3D")
 _random_sound_player = NodePath("../RandomSoundPlayer")
 
-[node name="RandomSoundPlayer" type="Node" parent="."]
+[node name="RandomSoundPlayer" type="Node" parent="." unique_id=1160575593]
 script = ExtResource("1_0408y")
 sounds = Array[AudioStream]([ExtResource("3_ucfob"), ExtResource("4_aexha"), ExtResource("5_m0mso"), ExtResource("6_woiys")])
 
-[node name="SpawnPosition" type="Node3D" parent="."]
+[node name="SpawnPosition" type="Node3D" parent="." unique_id=1727304656]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.74597, 0)
 
-[node name="DeathPlane" type="Area3D" parent="."]
+[node name="DeathPlane" type="Area3D" parent="." unique_id=1890067867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.05598, 0)
 script = ExtResource("3_ebjdu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane" unique_id=121514472]
 shape = SubResource("BoxShape3D_y2i1t")
 
-[node name="Cloud1" type="MeshInstance3D" parent="."]
+[node name="Cloud1" type="MeshInstance3D" parent="." unique_id=1978815063]
 transform = Transform3D(4.49644, 0, 0.178867, 0, 4.5, 0, -0.178867, 0, 4.49644, 5.44132, 4.94296, -0.294241)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
-[node name="Cloud2" type="MeshInstance3D" parent="."]
+[node name="Cloud2" type="MeshInstance3D" parent="." unique_id=1338268162]
 transform = Transform3D(-2.7372, 0, -2.62286, 0, 3.791, 0, 2.62286, 0, -2.7372, -3.3633, 4.98894, 3.13415)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
-[node name="Cloud5" type="MeshInstance3D" parent="."]
+[node name="Cloud5" type="MeshInstance3D" parent="." unique_id=1226444127]
 transform = Transform3D(-2.40758, 0, -0.673476, 0, 2.5, 0, 0.673476, 0, -2.40758, -1.86941, 9.65863, -0.0107639)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
-[node name="Cloud3" type="MeshInstance3D" parent="."]
+[node name="Cloud3" type="MeshInstance3D" parent="." unique_id=1451572288]
 transform = Transform3D(1.60987, 0, 2.80022, 0, 3.23, 0, -2.80022, 0, 1.60987, 1.83095, 6.3573, -3.65573)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
-[node name="Cloud4" type="MeshInstance3D" parent="."]
+[node name="Cloud4" type="MeshInstance3D" parent="." unique_id=590213855]
 transform = Transform3D(-3.39887, 0, 1.67909, 0, 3.791, 0, -1.67909, 0, -3.39887, -3.7851, 7.20514, -2.12915)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")
 
-[node name="Cloud6" type="MeshInstance3D" parent="."]
+[node name="Cloud6" type="MeshInstance3D" parent="." unique_id=1035346527]
 transform = Transform3D(2.08844, 0, -2.464, 0, 3.23, 0, 2.464, 0, 2.08844, 1.6484, 8.06918, 1.87682)
 material_override = SubResource("ShaderMaterial_5ki6p")
 mesh = ExtResource("7_06v0e")

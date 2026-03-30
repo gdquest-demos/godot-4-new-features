@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbo3x6ub57x8j"]
+[gd_scene format=3 uid="uid://cbo3x6ub57x8j"]
 
-[ext_resource type="Script" path="res://main/menu_scene_selector/hint_text.gd" id="1_ti2mh"]
+[ext_resource type="Script" uid="uid://s0glsufaawdx" path="res://main/menu_scene_selector/hint_text.gd" id="1_ti2mh"]
 [ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="2_iq1y8"]
 [ext_resource type="Texture2D" uid="uid://cdek32l7bdxt2" path="res://main/gdquest-logo.svg" id="3_6jojq"]
 
-[node name="HintTextPanelContainer" type="PanelContainer"]
+[node name="HintTextPanelContainer" type="PanelContainer" unique_id=1926193004]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
@@ -14,12 +14,12 @@ theme = ExtResource("2_iq1y8")
 theme_type_variation = &"hint_text_bg"
 script = ExtResource("1_ti2mh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1110379416]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1425335868]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -27,7 +27,7 @@ size_flags_vertical = 0
 theme_type_variation = &"hint_text_title"
 text = "Title"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=468878303]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -37,7 +37,7 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
-[node name="InstructionsRichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="InstructionsRichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=911415671]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.603922)
@@ -50,7 +50,7 @@ text = "Press [ESCAPE] to go back to menu"
 fit_content = true
 scroll_active = false
 
-[node name="LogoTextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="LogoTextureRect" type="TextureRect" parent="VBoxContainer" unique_id=77802837]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(64, 64)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://fliusg050nnm"]
+[gd_scene format=3 uid="uid://fliusg050nnm"]
 
-[ext_resource type="Script" path="res://2d_physics_benchmark/2d_physics_benchmark.gd" id="2"]
-[ext_resource type="Script" path="res://2d_physics_benchmark/spawn.gd" id="2_88eml"]
+[ext_resource type="Script" uid="uid://i2fhitjexn47" path="res://2d_physics_benchmark/2d_physics_benchmark.gd" id="2"]
+[ext_resource type="Script" uid="uid://bh0paqkqwsr46" path="res://2d_physics_benchmark/spawn.gd" id="2_88eml"]
 [ext_resource type="Material" uid="uid://dpbefj0doi8wy" path="res://2d_physics_benchmark/assets/tileset_mat.tres" id="3_rqojw"]
 [ext_resource type="Texture2D" uid="uid://dl3wsnkvifhli" path="res://2d_physics_benchmark/assets/auto_tile.png" id="3_ug71f"]
 [ext_resource type="FontFile" uid="uid://cexxvyj54f4oj" path="res://interface/fonts/OpenSans-Bold.ttf" id="4_0y16x"]
@@ -406,48 +406,48 @@ size = Vector2(2304, 240)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbm61"]
 size = Vector2(240, 928)
 
-[node name="2DPhysicsBenchmark" type="Node2D"]
+[node name="2DPhysicsBenchmark" type="Node2D" unique_id=978662151]
 script = ExtResource("2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1362406868]
 position = Vector2(1024, 576)
 
-[node name="Spawn" type="Marker2D" parent="."]
+[node name="Spawn" type="Marker2D" parent="." unique_id=1069476782]
 unique_name_in_owner = true
 position = Vector2(960, 160)
 script = ExtResource("2_88eml")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." unique_id=1847317121]
 tile_set = SubResource("TileSet_rj6ho")
 format = 2
 layer_0/tile_data = PackedInt32Array(524288, 393216, 1, 458752, 720896, 2, 393216, 720896, 2, 327680, 720896, 2, 262144, 720896, 2, 196608, 720896, 2, 131072, 720896, 2, 65536, 720896, 2, 0, 393216, 2, 524303, 327680, 1, 524302, 655360, 0, 524301, 655360, 0, 524300, 655360, 0, 524299, 655360, 0, 524298, 655360, 0, 524297, 655360, 0, 524296, 655360, 0, 524295, 655360, 0, 524294, 655360, 0, 524293, 655360, 0, 524292, 655360, 0, 524291, 655360, 0, 524290, 655360, 0, 524289, 655360, 0, 458767, 524288, 1, 393231, 524288, 1, 327695, 524288, 1, 262159, 524288, 1, 196623, 524288, 1, 131087, 524288, 1, 65551, 524288, 1, 15, 327680, 2, 14, 589824, 3, 13, 589824, 3, 12, 589824, 3, 11, 589824, 3, 10, 589824, 3, 9, 589824, 3, 8, 589824, 3, 7, 589824, 3, 6, 589824, 3, 5, 589824, 3, 4, 589824, 3, 3, 589824, 3, 2, 589824, 3, 1, 589824, 3, 589823, 524288, 1, 524287, 524288, 1, 458751, 524288, 1, 393215, 524288, 1, 327679, 524288, 1, 262143, 524288, 1, 196607, 524288, 1, 131071, 524288, 1, 65535, 524288, 1, -1, 524288, 0, -65520, 720896, 0, -65521, 655360, 0, -65522, 655360, 0, -65523, 655360, 0, -65524, 655360, 0, -65525, 655360, 0, -65526, 655360, 0, -65527, 655360, 0, -65528, 655360, 0, -65529, 655360, 0, -65530, 655360, 0, -65531, 655360, 0, -65532, 655360, 0, -65533, 655360, 0, -65534, 655360, 0, -65535, 655360, 0, -65536, 655360, 0, 589840, 720896, 3, 524304, 720896, 2, 458768, 720896, 2, 393232, 720896, 2, 327696, 720896, 2, 262160, 720896, 2, 196624, 720896, 2, 131088, 720896, 2, 65552, 720896, 2, 16, 720896, 2, 589839, 589824, 3, 589838, 589824, 3, 589837, 589824, 3, 589836, 589824, 3, 589835, 589824, 3, 589834, 589824, 3, 589833, 589824, 3, 589832, 589824, 3, 589831, 589824, 3, 589830, 589824, 3, 589829, 589824, 3, 589828, 589824, 3, 589827, 589824, 3, 589826, 589824, 3, 589825, 589824, 3, 589824, 589824, 3, 655359, 524288, 3)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=616504813]
 position = Vector2(60, 0)
 rotation = -0.718865
 height = 0.15
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=841869116]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1678310256]
 position = Vector2(1024, -8)
 shape = SubResource("RectangleShape2D_ulr7s")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1357788724]
 position = Vector2(1024, 1160)
 shape = SubResource("RectangleShape2D_ulr7s")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1700843459]
 position = Vector2(2056, 576)
 shape = SubResource("RectangleShape2D_cbm61")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=319722894]
 position = Vector2(-8, 576)
 shape = SubResource("RectangleShape2D_cbm61")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=14612827]
 
-[node name="PerfLabel" type="Label" parent="UI"]
+[node name="PerfLabel" type="Label" parent="UI" unique_id=1980008048]
 unique_name_in_owner = true
 offset_left = 91.0
 offset_top = 86.0
@@ -457,10 +457,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_0y16x")
 theme_override_font_sizes/font_size = 22
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=138369453]
 layer = -10
 
-[node name="BackgroundColor" type="ColorRect" parent="Background"]
+[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=423294777]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

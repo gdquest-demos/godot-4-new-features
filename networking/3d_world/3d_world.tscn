@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw6u2njm5yyle"]
+[gd_scene format=3 uid="uid://cw6u2njm5yyle"]
 
-[ext_resource type="Script" path="res://networking/3d_world/3d_world.gd" id="1_p3hjv"]
+[ext_resource type="Script" uid="uid://dq82c7eus4mbb" path="res://networking/3d_world/3d_world.gd" id="1_p3hjv"]
 [ext_resource type="PackedScene" uid="uid://bfr3fim1m82gs" path="res://networking/common/lobby.tscn" id="2_apuly"]
-[ext_resource type="Script" path="res://networking/common/multiplayer_settings.gd" id="3_nodws"]
+[ext_resource type="Script" uid="uid://b4tw57hysa8c1" path="res://networking/common/multiplayer_settings.gd" id="3_nodws"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgisj"]
 content_margin_left = 10.0
@@ -20,20 +20,20 @@ size = Vector2(50, 50)
 ambient_light_color = Color(0.74902, 0.74902, 0.74902, 1)
 sdfgi_enabled = true
 
-[node name="FPS" type="Node3D"]
+[node name="FPS" type="Node3D" unique_id=1941119793]
 script = ExtResource("1_p3hjv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=758349609]
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1267100764]
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cgisj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1631242468]
 layout_mode = 2
 
-[node name="ToggleButton" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+[node name="ToggleButton" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1961168788]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -42,23 +42,23 @@ button_pressed = true
 text = "|||"
 flat = true
 
-[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("2_apuly")]
+[node name="Lobby" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=94521140 node_paths=PackedStringArray("multiplayer_settings") instance=ExtResource("2_apuly")]
 unique_name_in_owner = true
 layout_mode = 2
 multiplayer_settings = NodePath("../../../MultiplayerSettings")
 
-[node name="MultiplayerSettings" type="Node" parent="CanvasLayer"]
+[node name="MultiplayerSettings" type="Node" parent="CanvasLayer" unique_id=1332109745]
 unique_name_in_owner = true
 script = ExtResource("3_nodws")
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer"]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="CanvasLayer" unique_id=1584123988]
 unique_name_in_owner = true
-_spawnable_scenes = PackedStringArray("res://networking/3d_world/player_body.tscn")
+_spawnable_scenes = PackedStringArray("uid://cxfcyva513joe")
 spawn_path = NodePath("../..")
 
-[node name="GroundMeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="GroundMeshInstance3D" type="MeshInstance3D" parent="." unique_id=352872593]
 material_override = SubResource("StandardMaterial3D_nq823")
 mesh = SubResource("PlaneMesh_armnl")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=495749831]
 environment = SubResource("Environment_erl0c")

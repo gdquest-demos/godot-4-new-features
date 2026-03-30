@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://q0elnm5woxkb"]
+[gd_scene format=3 uid="uid://q0elnm5woxkb"]
 
-[ext_resource type="Script" path="res://main/menu_scene_selector/main_menu.gd" id="1_r1nxt"]
+[ext_resource type="Script" uid="uid://be8sd8fr68hxx" path="res://main/menu_scene_selector/main_menu.gd" id="1_r1nxt"]
 [ext_resource type="Texture2D" uid="uid://cr3g4o8nehftb" path="res://main/menu_scene_selector/assets/menu_arrow.png" id="2_ihupv"]
 [ext_resource type="Texture2D" uid="uid://bc6p2rpclbbwj" path="res://main/menu_scene_selector/assets/full-logo-White-no-bg.png" id="3_0o1jb"]
-[ext_resource type="Shader" path="res://main/menu_scene_selector/background.gdshader" id="3_r8m1g"]
-[ext_resource type="Script" path="res://main/menu_scene_selector/card_selector.gd" id="6_oo536"]
-[ext_resource type="Script" path="res://main/menu_scene_selector/arrow_button.gd" id="6_pncb4"]
+[ext_resource type="Shader" uid="uid://c7shi466gsamm" path="res://main/menu_scene_selector/background.gdshader" id="3_r8m1g"]
+[ext_resource type="Script" uid="uid://dqedf58y5ayhu" path="res://main/menu_scene_selector/card_selector.gd" id="6_oo536"]
+[ext_resource type="Script" uid="uid://bmaallbk78pqy" path="res://main/menu_scene_selector/arrow_button.gd" id="6_pncb4"]
 [ext_resource type="AudioStream" uid="uid://c8ru0g5qx2ty2" path="res://main/menu_scene_selector/assets/sounds/sonar/sonar_in.wav" id="8_fv17l"]
 [ext_resource type="Texture2D" uid="uid://ctqe6iimrisqr" path="res://main/menu_scene_selector/assets/icons/EscapeButton.png" id="8_iig7v"]
 [ext_resource type="AudioStream" uid="uid://cte6umfyt6sk" path="res://main/menu_scene_selector/assets/sounds/sonar/sonar_switch.wav" id="9_3wkvp"]
@@ -151,14 +151,14 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3t8ej"]
 _data = {
-"RESET": SubResource("Animation_yxlpw"),
-"appear": SubResource("Animation_x5cg5")
+&"RESET": SubResource("Animation_yxlpw"),
+&"appear": SubResource("Animation_x5cg5")
 }
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="CanvasLayer" unique_id=585498885]
 script = ExtResource("1_r1nxt")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1761226826]
 material = SubResource("ShaderMaterial_crhn1")
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +166,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="." unique_id=1516011408]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
@@ -180,7 +180,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 32
 
-[node name="Logo" type="TextureRect" parent="Main"]
+[node name="Logo" type="TextureRect" parent="Main" unique_id=2007879217]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
@@ -188,11 +188,11 @@ texture = ExtResource("3_0o1jb")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="Main"]
+[node name="Control" type="Control" parent="Main" unique_id=1257360607]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CardSelector" type="HBoxContainer" parent="Main/Control"]
+[node name="CardSelector" type="HBoxContainer" parent="Main/Control" unique_id=1549067306]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -208,7 +208,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 64
 script = ExtResource("6_oo536")
 
-[node name="LeftArrow" type="Control" parent="Main/Control/CardSelector"]
+[node name="LeftArrow" type="Control" parent="Main/Control/CardSelector" unique_id=1925484183]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -216,7 +216,7 @@ size_flags_stretch_ratio = 0.1
 focus_mode = 2
 script = ExtResource("6_pncb4")
 
-[node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/LeftArrow"]
+[node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/LeftArrow" unique_id=251237745]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -231,7 +231,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ihupv")
 
-[node name="Grid" type="GridContainer" parent="Main/Control/CardSelector"]
+[node name="Grid" type="GridContainer" parent="Main/Control/CardSelector" unique_id=1769027885]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -239,7 +239,7 @@ theme_override_constants/h_separation = 32
 theme_override_constants/v_separation = 32
 columns = 4
 
-[node name="RightArrow" type="Control" parent="Main/Control/CardSelector"]
+[node name="RightArrow" type="Control" parent="Main/Control/CardSelector" unique_id=1813614621]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -247,7 +247,7 @@ size_flags_stretch_ratio = 0.1
 focus_mode = 2
 script = ExtResource("6_pncb4")
 
-[node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/RightArrow"]
+[node name="Arrow" type="TextureRect" parent="Main/Control/CardSelector/RightArrow" unique_id=711223395]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -263,62 +263,60 @@ grow_vertical = 2
 texture = ExtResource("2_ihupv")
 flip_h = true
 
-[node name="Footer" type="HBoxContainer" parent="Main"]
+[node name="Footer" type="HBoxContainer" parent="Main" unique_id=568132246]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 32
 
-[node name="CloseIndication" type="HBoxContainer" parent="Main/Footer"]
+[node name="CloseIndication" type="HBoxContainer" parent="Main/Footer" unique_id=1411050118]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Icon" type="TextureRect" parent="Main/Footer/CloseIndication"]
+[node name="Icon" type="TextureRect" parent="Main/Footer/CloseIndication" unique_id=1934670408]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("8_iig7v")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Main/Footer/CloseIndication"]
+[node name="Label" type="Label" parent="Main/Footer/CloseIndication" unique_id=1807316624]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_6lndb")
 theme_override_font_sizes/font_size = 18
 text = "Close menu"
 
-[node name="QuitIndication" type="HBoxContainer" parent="Main/Footer"]
+[node name="QuitIndication" type="HBoxContainer" parent="Main/Footer" unique_id=1042745158]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Icon" type="TextureRect" parent="Main/Footer/QuitIndication"]
+[node name="Icon" type="TextureRect" parent="Main/Footer/QuitIndication" unique_id=875852456]
 custom_minimum_size = Vector2(42, 42)
 layout_mode = 2
 texture = ExtResource("9_s5dm6")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Main/Footer/QuitIndication"]
+[node name="Label" type="Label" parent="Main/Footer/QuitIndication" unique_id=778563840]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_6lndb")
 theme_override_font_sizes/font_size = 18
 text = "Quit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_3t8ej")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1083306299]
+libraries/ = SubResource("AnimationLibrary_3t8ej")
 
-[node name="JingleOpen" type="AudioStreamPlayer" parent="."]
+[node name="JingleOpen" type="AudioStreamPlayer" parent="." unique_id=909462863]
 stream = ExtResource("8_fv17l")
 volume_db = -20.0
 
-[node name="JingleSelect" type="AudioStreamPlayer" parent="."]
+[node name="JingleSelect" type="AudioStreamPlayer" parent="." unique_id=1672273565]
 stream = ExtResource("9_38xfg")
 volume_db = -20.0
 
-[node name="ArrowButtonSound" type="AudioStreamPlayer" parent="."]
+[node name="ArrowButtonSound" type="AudioStreamPlayer" parent="." unique_id=682385993]
 stream = ExtResource("9_3wkvp")
 volume_db = -20.0
 
-[node name="JingleClose" type="AudioStreamPlayer" parent="."]
+[node name="JingleClose" type="AudioStreamPlayer" parent="." unique_id=313956403]
 stream = ExtResource("9_lk27r")
 volume_db = -20.0

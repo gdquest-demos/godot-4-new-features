@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl82ubexcnsp0"]
+[gd_scene format=3 uid="uid://dl82ubexcnsp0"]
 
-[ext_resource type="Script" path="res://navigation/dbg/navigation_obstacles_dbg.gd" id="1_5g6g4"]
-[ext_resource type="Script" path="res://navigation/dbg/character_body_3d.gd" id="1_e4t47"]
+[ext_resource type="Script" uid="uid://b85q4v6bt4qrr" path="res://navigation/dbg/navigation_obstacles_dbg.gd" id="1_5g6g4"]
+[ext_resource type="Script" uid="uid://b4fm0w31vtfrw" path="res://navigation/dbg/character_body_3d.gd" id="1_e4t47"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_y1pqu"]
 vertices = PackedVector3Array(1.86495, 1.16156, 2, 2.61495, 0.911564, 2, 3.11495, 0.661564, 1, 1.61495, 1.16156, 0.25, 1.61495, 1.16156, -4.5, 0.364953, 1.41156, -4.5, 0.364953, 1.41156, -0.5, 1.61495, 1.16156, 0.25, -0.385047, 1.66156, 0.5, 1.86495, 1.16156, 2, 1.61495, 1.16156, 0.25, 0.364953, 1.41156, -0.5)
@@ -24,50 +24,50 @@ height = 0.4
 radial_segments = 16
 rings = 8
 
-[node name="NavigationObstaclesDBG" type="Node3D"]
+[node name="NavigationObstaclesDBG" type="Node3D" unique_id=1011950385]
 script = ExtResource("1_5g6g4")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=555489208]
 navigation_mesh = SubResource("NavigationMesh_y1pqu")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="NavigationRegion3D"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="NavigationRegion3D" unique_id=1409342455]
 use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 1, 1.99063, 0.839223, 1, 0)
 depth = 5.0
 
-[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="NavigationRegion3D/CSGPolygon3D"]
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="NavigationRegion3D/CSGPolygon3D" unique_id=1293718805]
 transform = Transform3D(-0.437728, 0.176777, -0.881558, 0, 0.980481, 0.196614, 0.899108, 0.0860632, -0.429184, -0.186933, 0.198019, -0.94777)
 polygon = PackedVector2Array(0, 0, -0.152864, 0.831842, 2.03916, 1.10015, 1, 0)
 depth = 4.0
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=626325830]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74553, 1.0489, -0.777185)
 script = ExtResource("1_e4t47")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CharacterBody3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CharacterBody3D" unique_id=1572482359]
 material_override = SubResource("StandardMaterial3D_wgit3")
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1651448860]
 shape = SubResource("BoxShape3D_aeg66")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=575257574]
 avoidance_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1471214168]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, -0.615661, 0.788011, 0, 0.788011, 0.615661, -1, 2.69114e-08, -3.44451e-08, 4.48837, 4.30665, 8.50039e-07)
 fov = 45.0
 
-[node name="Sphere" type="MeshInstance3D" parent="Camera3D"]
+[node name="Sphere" type="MeshInstance3D" parent="Camera3D" unique_id=1213469241]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 4.26326e-14, 0, 1, -8.58127e-15, 0, -8.58127e-15, 1, 0, -3.86904, -2.81114)
 visible = false
 mesh = SubResource("SphereMesh_efl3g")
 skeleton = NodePath("../..")
 
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=482488611]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 1.77636e-15, -1, -0.615661, 0.78801, 2.69114e-08, 0.78801, 0.615661, -3.4445e-08, 0, 0, 0)
 collision_mask = 3

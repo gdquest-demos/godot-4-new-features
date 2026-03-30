@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c16eheiqmtd0i"]
+[gd_scene format=3 uid="uid://c16eheiqmtd0i"]
 
 [ext_resource type="Material" uid="uid://dgvw565jrsyux" path="res://2d_clipping/assets/waterlily_background.tres" id="1_f6d2v"]
 [ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_k7tv2"]
@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://7hfmqqujss3r" path="res://2d_clipping/assets/frog.png" id="3_nf42m"]
 [ext_resource type="Script" uid="uid://c8jftptp326lp" path="res://2d_clipping/shake_frog.gd" id="4_lawpx"]
 
-[node name="2DClipping" type="Node"]
+[node name="2DClipping" type="Node" unique_id=765380946]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1849131992]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_k7tv2")
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Background" type="ColorRect" parent="UI" unique_id=926402063]
 material = ExtResource("1_f6d2v")
 layout_mode = 1
 anchors_preset = 15
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501961, 0.945098, 1, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=1872365571]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,12 +39,12 @@ offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NoClip" type="Control" parent="UI/HBoxContainer"]
+[node name="NoClip" type="Control" parent="UI/HBoxContainer" unique_id=1186364531]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_lawpx")
 
-[node name="Border" type="TextureRect" parent="UI/HBoxContainer/NoClip"]
+[node name="Border" type="TextureRect" parent="UI/HBoxContainer/NoClip" unique_id=1586498701]
 modulate = Color(0.737255, 0.666667, 0.447059, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -61,7 +61,7 @@ grow_vertical = 2
 pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
-[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/NoClip"]
+[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/NoClip" unique_id=176398887]
 self_modulate = Color(0.580392, 0.492726, 0.278732, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -80,7 +80,7 @@ pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 expand_mode = 3
 
-[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/NoClip/Circle"]
+[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/NoClip/Circle" unique_id=309236762]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -98,7 +98,7 @@ texture = ExtResource("3_nf42m")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/HBoxContainer/NoClip"]
+[node name="Label" type="Label" parent="UI/HBoxContainer/NoClip" unique_id=1833872930]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -115,12 +115,12 @@ theme_type_variation = &"LargeLabel"
 text = "No Clip"
 horizontal_alignment = 1
 
-[node name="Clip" type="Control" parent="UI/HBoxContainer"]
+[node name="Clip" type="Control" parent="UI/HBoxContainer" unique_id=180317371]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_lawpx")
 
-[node name="Border" type="TextureRect" parent="UI/HBoxContainer/Clip"]
+[node name="Border" type="TextureRect" parent="UI/HBoxContainer/Clip" unique_id=1863386423]
 modulate = Color(0.737255, 0.666667, 0.447059, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -137,7 +137,7 @@ grow_vertical = 2
 pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
-[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/Clip"]
+[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/Clip" unique_id=676265200]
 self_modulate = Color(0.580392, 0.517647, 0.317647, 1)
 clip_children = 1
 layout_mode = 1
@@ -156,7 +156,7 @@ scale = Vector2(0.932826, 0.932826)
 pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
-[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/Clip/Circle"]
+[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/Clip/Circle" unique_id=388529352]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -174,7 +174,7 @@ texture = ExtResource("3_nf42m")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/HBoxContainer/Clip"]
+[node name="Label" type="Label" parent="UI/HBoxContainer/Clip" unique_id=2076859361]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -191,12 +191,12 @@ theme_type_variation = &"LargeLabel"
 text = "Clip Only"
 horizontal_alignment = 1
 
-[node name="ClipAndDraw" type="Control" parent="UI/HBoxContainer"]
+[node name="ClipAndDraw" type="Control" parent="UI/HBoxContainer" unique_id=919030646]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("4_lawpx")
 
-[node name="Border" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw"]
+[node name="Border" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw" unique_id=1799213038]
 modulate = Color(0.737255, 0.666667, 0.447059, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -213,7 +213,7 @@ grow_vertical = 2
 pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
-[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw"]
+[node name="Circle" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw" unique_id=1774660069]
 self_modulate = Color(0.580392, 0.492726, 0.278732, 1)
 clip_children = 2
 layout_mode = 1
@@ -232,7 +232,7 @@ scale = Vector2(0.933736, 0.933736)
 pivot_offset = Vector2(154, 154)
 texture = ExtResource("1_rq3ck")
 
-[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw/Circle"]
+[node name="Frog" type="TextureRect" parent="UI/HBoxContainer/ClipAndDraw/Circle" unique_id=101973660]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -250,7 +250,7 @@ texture = ExtResource("3_nf42m")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UI/HBoxContainer/ClipAndDraw"]
+[node name="Label" type="Label" parent="UI/HBoxContainer/ClipAndDraw" unique_id=1757101431]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

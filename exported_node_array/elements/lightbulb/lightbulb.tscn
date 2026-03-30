@@ -1,14 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://km840n4mowb7"]
+[gd_scene format=3 uid="uid://km840n4mowb7"]
 
 [ext_resource type="PackedScene" uid="uid://rpdp50np4l67" path="res://exported_node_array/elements/lightbulb/lightbulb.glb" id="1_6u35p"]
 [ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="2_64uuo"]
-[ext_resource type="Material" uid="uid://c6oq4wm7pg5n5" path="res://exported_node_array/elements/lightbulb/bulb_mat.tres" id="2_jo41x"]
 
-[node name="LightBulb" instance=ExtResource("1_6u35p")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmfmg"]
+resource_local_to_scene = true
+render_priority = 1
+albedo_color = Color(1, 1, 1, 0.235294)
+roughness = 0.54
+emission_enabled = true
+emission = Color(1, 0.717647, 0, 1)
+emission_energy_multiplier = 0.0
+emission_operator = 1
+rim_enabled = true
+clearcoat_roughness = 0.0
+refraction_enabled = true
+refraction_scale = 0.02
 
-[node name="Bulb" parent="." index="0"]
+[node name="LightBulb" unique_id=1419346612 instance=ExtResource("1_6u35p")]
+
+[node name="Bulb" parent="." index="0" unique_id=1505321458]
 unique_name_in_owner = true
-material_override = ExtResource("2_jo41x")
+material_override = SubResource("StandardMaterial3D_jmfmg")
 
-[node name="BulbBase" parent="." index="1"]
+[node name="BulbBase" parent="." index="1" unique_id=140611523]
 material_override = ExtResource("2_64uuo")

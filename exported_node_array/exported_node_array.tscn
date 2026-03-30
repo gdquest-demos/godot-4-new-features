@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c54god6iy8wi0"]
+[gd_scene format=4 uid="uid://c54god6iy8wi0"]
 
 [ext_resource type="Material" path="res://exported_node_array/first_color.tres" id="1_mi6fj"]
 [ext_resource type="PackedScene" uid="uid://4kr8y3pk7rqb" path="res://exported_node_array/elements/gears/gears.tscn" id="2_1cwst"]
@@ -81,165 +81,163 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5jk4s")
 
-[node name="Mini3D" type="Node3D"]
+[node name="Mini3D" type="Node3D" unique_id=1406038691]
 
-[node name="Door" parent="." node_paths=PackedStringArray("switches") instance=ExtResource("6_sh8im")]
+[node name="Door" parent="." unique_id=533374762 node_paths=PackedStringArray("switches") instance=ExtResource("6_sh8im")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.48792, 2.5, 2.01813)
 switches = [NodePath("../Button"), NodePath("../Button2")]
 
-[node name="Button" parent="." instance=ExtResource("5_8hw56")]
+[node name="Button" parent="." unique_id=123492783 instance=ExtResource("5_8hw56")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 3.5)
 
-[node name="Button2" parent="." instance=ExtResource("5_8hw56")]
+[node name="Button2" parent="." unique_id=1422774148 instance=ExtResource("5_8hw56")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50432, 3, -0.00562263)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=343059060]
 environment = SubResource("Environment_t0llh")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=716436082]
 transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 0, 0)
 shadow_enabled = true
 shadow_bias = 0.025
 shadow_normal_bias = 1.0
 
-[node name="Ground" type="CSGCombiner3D" parent="."]
+[node name="Ground" type="CSGCombiner3D" parent="." unique_id=1730676683]
 material_override = ExtResource("1_mi6fj")
 use_collision = true
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Ground" unique_id=65353815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 size = Vector3(5, 4, 2)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Ground" unique_id=1273145751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -1, -4)
 size = Vector3(2, 5, 2)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="Ground" unique_id=1458182511]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2, -2.5)
 size = Vector3(1, 3, 1)
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="Ground" unique_id=649558842]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2, 4)
 size = Vector3(1, 3, 1)
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="Ground" unique_id=1395203876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.5, 8.5)
 size = Vector3(1, 4, 1)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Ground" unique_id=971921198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 9)
 size = Vector3(4, 5, 4)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Ground" unique_id=1722768274]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -1, 3)
 size = Vector3(2, 5, 8)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Ground" unique_id=140504043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3.5)
 size = Vector3(3, 4, 2)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Ground" unique_id=284029402]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.48792, 4.5, 2.01813)
 size = Vector3(1, 2, 2)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Ground"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="Ground" unique_id=965222227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 size = Vector3(3, 6, 2)
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Ground"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Ground" unique_id=1994348424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 1)
 polygon = PackedVector2Array(0, 0, 2, 1, 2, 0)
 depth = 2.0
 
-[node name="End" type="Marker3D" parent="."]
+[node name="End" type="Marker3D" parent="." unique_id=900592953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.87, 0)
 
-[node name="Gears3" parent="." instance=ExtResource("2_1cwst")]
+[node name="Gears3" parent="." unique_id=872928469 instance=ExtResource("2_1cwst")]
 transform = Transform3D(9.55343e-16, -0.5, -4.37114e-08, -0.353553, -3.09086e-08, 0.353553, -0.353553, 3.09086e-08, -0.353553, -0.5, 0.42, 3.7)
 
-[node name="Platform" type="Node3D" parent="."]
+[node name="Platform" type="Node3D" parent="." unique_id=317257051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.37, 0)
 
-[node name="Body" type="MeshInstance3D" parent="Platform"]
+[node name="Body" type="MeshInstance3D" parent="Platform" unique_id=2042094433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.87, 0)
 material_override = SubResource("StandardMaterial3D_uqkg3")
 mesh = SubResource("BoxMesh_ff1f3")
-skeleton = NodePath("")
 
-[node name="Gears2" parent="Platform" instance=ExtResource("2_1cwst")]
+[node name="Gears2" parent="Platform" unique_id=2145275974 instance=ExtResource("2_1cwst")]
 transform = Transform3D(-2.18557e-08, -2.18557e-08, 0.5, -0.5, 9.55343e-16, -2.18557e-08, 0, -0.5, -2.18557e-08, 0, -0.5, -1)
 
-[node name="Fog" type="MeshInstance3D" parent="."]
+[node name="Fog" type="MeshInstance3D" parent="." unique_id=143085468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 material_override = SubResource("StandardMaterial3D_m2rgo")
 mesh = SubResource("PlaneMesh_7dv5w")
-skeleton = NodePath("")
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1814309517]
 transform = Transform3D(-0.603208, 0.319312, -0.730876, 0, 0.916363, 0.400349, 0.797584, 0.241494, -0.552757, 0, 1.871, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+[node name="Camera3D" type="Camera3D" parent="Marker3D" unique_id=702645170]
 transform = Transform3D(1, -3.42727e-07, -1.19209e-07, 1.63913e-07, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.552126, 1.64397, 9.78512)
 fov = 35.0
 
-[node name="Props" type="Node3D" parent="."]
+[node name="Props" type="Node3D" parent="." unique_id=1580460894]
 
-[node name="cube" parent="Props" instance=ExtResource("7_3oaq5")]
+[node name="cube" parent="Props" unique_id=469152743 instance=ExtResource("7_3oaq5")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0.75, 0.5)
 
-[node name="Cube" parent="Props/cube" index="0"]
+[node name="Cube" parent="Props/cube" index="0" unique_id=780735551]
 material_override = SubResource("StandardMaterial3D_m1pri")
 
-[node name="cube3" parent="Props" instance=ExtResource("7_3oaq5")]
+[node name="cube3" parent="Props" unique_id=1448996720 instance=ExtResource("7_3oaq5")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 4, 1.75, 7.5)
 
-[node name="Cube" parent="Props/cube3" index="0"]
+[node name="Cube" parent="Props/cube3" index="0" unique_id=780735551]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.25, 0, 0.433013)
 material_override = SubResource("StandardMaterial3D_m1pri")
 mesh = SubResource("ArrayMesh_k0r8l")
 
-[node name="cube4" parent="Props" instance=ExtResource("7_3oaq5")]
+[node name="cube4" parent="Props" unique_id=542479777 instance=ExtResource("7_3oaq5")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 4.25, 1.75, 8.15)
 
-[node name="Cube" parent="Props/cube4" index="0"]
+[node name="Cube" parent="Props/cube4" index="0" unique_id=780735551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0.433012)
 material_override = SubResource("StandardMaterial3D_m1pri")
 mesh = SubResource("ArrayMesh_k0r8l")
 
-[node name="cube5" parent="Props" instance=ExtResource("7_3oaq5")]
+[node name="cube5" parent="Props" unique_id=2013766534 instance=ExtResource("7_3oaq5")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.1, 2.25, 7.85)
 
-[node name="Cube" parent="Props/cube5" index="0"]
+[node name="Cube" parent="Props/cube5" index="0" unique_id=780735551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.129409, 0, 0.482962)
 material_override = SubResource("StandardMaterial3D_m1pri")
 mesh = SubResource("ArrayMesh_k0r8l")
 
-[node name="Goal" parent="Props" instance=ExtResource("8_yhv6w")]
+[node name="Goal" parent="Props" unique_id=1082250337 instance=ExtResource("8_yhv6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.5, 10)
 
-[node name="Pipe" parent="Props" instance=ExtResource("9_imprq")]
+[node name="Pipe" parent="Props" unique_id=1761473006 instance=ExtResource("9_imprq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 1.5, -4.01865)
 
-[node name="Pipe2" parent="Props" instance=ExtResource("9_imprq")]
+[node name="Pipe2" parent="Props" unique_id=1906728842 instance=ExtResource("9_imprq")]
 transform = Transform3D(0.866025, -1.49012e-08, -0.5, 0.5, 2.58096e-08, 0.866025, 0, -1, 2.98023e-08, 2, 0.5, -1)
 
-[node name="LightBulb" parent="Props" instance=ExtResource("10_k2bbd")]
+[node name="LightBulb" parent="Props" unique_id=296518009 instance=ExtResource("10_k2bbd")]
 transform = Transform3D(9.55343e-16, 2.18557e-08, -0.5, 0.5, -2.18557e-08, 0, -2.18557e-08, -0.5, -2.18557e-08, 3.48792, 4.5, 1.51813)
 
-[node name="LightBulb2" parent="Props" instance=ExtResource("10_k2bbd")]
+[node name="LightBulb2" parent="Props" unique_id=1641473407 instance=ExtResource("10_k2bbd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, -0.5, -2.5)
 
-[node name="LightBulb5" parent="Props" instance=ExtResource("10_k2bbd")]
+[node name="LightBulb5" parent="Props" unique_id=498874866 instance=ExtResource("10_k2bbd")]
 transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 5.5, 1, -4)
 
-[node name="LightBulb6" parent="Props" instance=ExtResource("10_k2bbd")]
+[node name="LightBulb6" parent="Props" unique_id=490601977 instance=ExtResource("10_k2bbd")]
 transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 5.5, 0, -4)
 
-[node name="LightBulb7" parent="Props" instance=ExtResource("10_k2bbd")]
+[node name="LightBulb7" parent="Props" unique_id=743632095 instance=ExtResource("10_k2bbd")]
 transform = Transform3D(-2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 5.5, -1, -4)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=21865141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69324, 3.28283, -0.814471)
 shadow_enabled = true
 

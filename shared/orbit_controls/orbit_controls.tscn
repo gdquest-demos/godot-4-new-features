@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://x5jvn64pwqrc"]
+[gd_scene format=3 uid="uid://x5jvn64pwqrc"]
 
-[ext_resource type="Script" path="res://shared/orbit_controls/orbit_controls.gd" id="1_2en5x"]
+[ext_resource type="Script" uid="uid://68afqxqxrba7" path="res://shared/orbit_controls/orbit_controls.gd" id="1_2en5x"]
 
-[node name="OrbitControls" type="Node3D"]
+[node name="OrbitControls" type="Node3D" unique_id=2014112459]
 script = ExtResource("1_2en5x")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=995822227]
 unique_name_in_owner = true

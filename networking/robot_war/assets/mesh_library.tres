@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=148 format=4 uid="uid://cyfh7louw3ree"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://cyfh7louw3ree"]
 
 [ext_resource type="Texture2D" uid="uid://d2i5mlggp6c62" path="res://networking/robot_war/assets/models/barrel_prototypeworld.png" id="1_evwxv"]
 [ext_resource type="Texture2D" uid="uid://btguglv1txpdo" path="res://networking/robot_war/assets/models/block_A_prototypeworld.png" id="2_iqw6e"]

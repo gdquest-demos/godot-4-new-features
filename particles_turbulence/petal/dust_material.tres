@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2k61l3mwdj6a"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d2k61l3mwdj6a"]
 
-[ext_resource type="Shader" path="res://particles_turbulence/petal/dust.gdshader" id="1_khes6"]
+[ext_resource type="Shader" uid="uid://dpn38gaigr67g" path="res://particles_turbulence/petal/dust.gdshader" id="1_khes6"]
 
 [resource]
 render_priority = 0

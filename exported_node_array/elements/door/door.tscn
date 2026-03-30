@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3g6irsuxrca4"]
+[gd_scene format=3 uid="uid://d3g6irsuxrca4"]
 
 [ext_resource type="PackedScene" uid="uid://evkss3ufum08" path="res://exported_node_array/elements/door/door.glb" id="1_s58mb"]
-[ext_resource type="Script" path="res://exported_node_array/elements/door/door.gd" id="2_atvje"]
+[ext_resource type="Script" uid="uid://cl26nw0nqvfjd" path="res://exported_node_array/elements/door/door.gd" id="2_atvje"]
 [ext_resource type="Material" path="res://exported_node_array/first_color.tres" id="3_lvxiq"]
 [ext_resource type="Material" uid="uid://bpr3r6smcmxwr" path="res://exported_node_array/second_color.tres" id="3_wfovk"]
 [ext_resource type="Material" uid="uid://bfobi0i2pe46c" path="res://exported_node_array/elements/door/door_fade_mat.tres" id="5_uum0h"]
@@ -9,26 +9,26 @@
 [sub_resource type="QuadMesh" id="QuadMesh_do3m8"]
 size = Vector2(1.6, 0.45)
 
-[node name="Door" instance=ExtResource("1_s58mb")]
+[node name="Door" unique_id=1956066308 instance=ExtResource("1_s58mb")]
 script = ExtResource("2_atvje")
 
-[node name="DoorFrame" parent="." index="0"]
+[node name="DoorFrame" parent="." index="0" unique_id=8608390]
 material_override = ExtResource("3_lvxiq")
 
-[node name="DoorBottom" parent="." index="1"]
+[node name="DoorBottom" parent="." index="1" unique_id=993835357]
 unique_name_in_owner = true
 material_override = ExtResource("3_wfovk")
 
-[node name="DoorTop" parent="." index="2"]
+[node name="DoorTop" parent="." index="2" unique_id=1299491583]
 unique_name_in_owner = true
 material_override = ExtResource("3_wfovk")
 
-[node name="FadeBottom" type="MeshInstance3D" parent="." index="3"]
+[node name="FadeBottom" type="MeshInstance3D" parent="." index="3" unique_id=1281559024]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.8, 0)
 material_override = ExtResource("5_uum0h")
 mesh = SubResource("QuadMesh_do3m8")
 
-[node name="FadeTop" type="MeshInstance3D" parent="." index="4"]
+[node name="FadeTop" type="MeshInstance3D" parent="." index="4" unique_id=1040292981]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.8, 0)
 material_override = ExtResource("5_uum0h")
 mesh = SubResource("QuadMesh_do3m8")

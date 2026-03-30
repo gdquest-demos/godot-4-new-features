@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg2hsvffr5y5p"]
+[gd_scene format=3 uid="uid://dg2hsvffr5y5p"]
 
-[ext_resource type="Script" path="res://2d_physics_benchmark/ball.gd" id="1_g5mgu"]
+[ext_resource type="Script" uid="uid://dmlin3fpvd12a" path="res://2d_physics_benchmark/ball.gd" id="1_g5mgu"]
 [ext_resource type="Texture2D" uid="uid://b2yjwfm52qe6r" path="res://2d_physics_benchmark/assets/2d_ball.png" id="2_b36jb"]
 [ext_resource type="Texture2D" uid="uid://dag23qy5y0w7u" path="res://2d_physics_benchmark/assets/2d_ball_normal.png" id="3_tppwy"]
 
@@ -17,14 +17,14 @@ normal_texture = ExtResource("3_tppwy")
 specular_color = Color(0.168627, 0.168627, 0.168627, 1)
 specular_shininess = 0.5
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" unique_id=1438356742]
 script = ExtResource("1_g5mgu")
 gradient = SubResource("Gradient_xifmg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715781164]
 shape = SubResource("5")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1419194643]
 rotation = 1.5708
 scale = Vector2(0.158569, 0.158569)
 texture = SubResource("CanvasTexture_olcjy")

@@ -1,16 +1,16 @@
-[gd_scene load_steps=37 format=3 uid="uid://by3uuu8cf5uv4"]
+[gd_scene format=3 uid="uid://by3uuu8cf5uv4"]
 
-[ext_resource type="Script" path="res://2d_clipping/lucy/character_2d.gd" id="1_aqg68"]
+[ext_resource type="Script" uid="uid://dsdcut5pkx7l4" path="res://2d_clipping/lucy/character_2d.gd" id="1_aqg68"]
 [ext_resource type="Texture2D" uid="uid://crwptra6o3yie" path="res://2d_clipping/lucy/pink_parts/back_hair.png" id="2_sm1mg"]
 [ext_resource type="Texture2D" uid="uid://dcyiyv2qevcsv" path="res://2d_clipping/lucy/pink_parts/body.png" id="3_bspqj"]
 [ext_resource type="Texture2D" uid="uid://b27c1v1128qsd" path="res://2d_clipping/lucy/pink_parts/head.png" id="4_fqs6o"]
 [ext_resource type="Texture2D" uid="uid://dmfebmibpkbqx" path="res://2d_clipping/lucy/pink_parts/eyebrow.png" id="5_ee8qe"]
-[ext_resource type="Script" path="res://2d_clipping/lucy/node_picker.gd" id="6_h3vak"]
+[ext_resource type="Script" uid="uid://cr8fxenjaftpl" path="res://2d_clipping/lucy/node_picker.gd" id="6_h3vak"]
 [ext_resource type="Texture2D" uid="uid://2pibq315fcux" path="res://2d_clipping/lucy/pink_parts/eye_open.png" id="7_om21c"]
 [ext_resource type="Texture2D" uid="uid://cdp34j6xvka7g" path="res://2d_clipping/lucy/pink_parts/eye_close.png" id="8_u7grn"]
 [ext_resource type="Texture2D" uid="uid://cbc06df4fn4jy" path="res://2d_clipping/lucy/pink_parts/eye_happy_close.png" id="9_vea1u"]
 [ext_resource type="Texture2D" uid="uid://8ng7ywro8egi" path="res://2d_clipping/lucy/eye_happy_close.png" id="10_pmgrj"]
-[ext_resource type="Script" path="res://2d_clipping/lucy/group_picker.gd" id="11_4o7e8"]
+[ext_resource type="Script" uid="uid://f8uml4lfid4o" path="res://2d_clipping/lucy/group_picker.gd" id="11_4o7e8"]
 [ext_resource type="Texture2D" uid="uid://c173ryuln0xp4" path="res://2d_clipping/lucy/pink_parts/mouth_smile.png" id="12_t43u3"]
 [ext_resource type="Texture2D" uid="uid://blio61v86nlf4" path="res://2d_clipping/lucy/pink_parts/mouth_smile_open.png" id="13_n36dk"]
 [ext_resource type="Texture2D" uid="uid://m7tgleow7wc2" path="res://2d_clipping/lucy/pink_parts/mouth_open_o.png" id="14_f2pht"]
@@ -386,14 +386,14 @@ resource_name = "surprised"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_viggd"]
 _data = {
-"RESET": SubResource("Animation_e1sdr"),
-"expression_default": SubResource("Animation_oa1w7"),
-"expression_happy": SubResource("Animation_ss8ox"),
-"expression_sad": SubResource("Animation_jseyl"),
-"expression_surprised": SubResource("Animation_n4fw7"),
-"hair_idle": SubResource("Animation_sdr81"),
-"idle": SubResource("Animation_1b3wf"),
-"surprised": SubResource("Animation_wr7xa")
+&"RESET": SubResource("Animation_e1sdr"),
+&"expression_default": SubResource("Animation_oa1w7"),
+&"expression_happy": SubResource("Animation_ss8ox"),
+&"expression_sad": SubResource("Animation_jseyl"),
+&"expression_surprised": SubResource("Animation_n4fw7"),
+&"hair_idle": SubResource("Animation_sdr81"),
+&"idle": SubResource("Animation_1b3wf"),
+&"surprised": SubResource("Animation_wr7xa")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_c45dt"]
@@ -410,15 +410,19 @@ animation = &"idle"
 xfade_time = 0.1
 input_0/name = "default"
 input_0/auto_advance = false
+input_0/break_loop_at_end = false
 input_0/reset = true
 input_1/name = "happy"
 input_1/auto_advance = false
+input_1/break_loop_at_end = false
 input_1/reset = true
 input_2/name = "surprised"
 input_2/auto_advance = false
+input_2/break_loop_at_end = false
 input_2/reset = true
 input_3/name = "sad"
 input_3/auto_advance = false
+input_3/break_loop_at_end = false
 input_3/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n27mg"]
@@ -435,6 +439,7 @@ animation = &"expression_surprised"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5fvqu"]
 graph_offset = Vector2(-171.802, -48.7574)
+nodes/output/position = Vector2(900, 120)
 "nodes/Add Expressions/node" = SubResource("AnimationNodeAdd2_c45dt")
 "nodes/Add Expressions/position" = Vector2(700, 120)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_xm4h7")
@@ -449,19 +454,18 @@ nodes/default/node = SubResource("AnimationNodeAnimation_n27mg")
 nodes/default/position = Vector2(180, 240)
 nodes/happy/node = SubResource("AnimationNodeAnimation_lk72c")
 nodes/happy/position = Vector2(180, 360)
-nodes/output/position = Vector2(900, 120)
 nodes/sad/node = SubResource("AnimationNodeAnimation_aniot")
 nodes/sad/position = Vector2(180, 640)
 nodes/surprised/node = SubResource("AnimationNodeAnimation_6sb0u")
 nodes/surprised/position = Vector2(180, 500)
-node_connections = [&"Add Expressions", 0, &"Add2", &"Add Expressions", 1, &"ExpressionTransition", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"ExpressionTransition", 0, &"default", &"ExpressionTransition", 1, &"happy", &"ExpressionTransition", 2, &"surprised", &"ExpressionTransition", 3, &"sad", &"output", 0, &"Add Expressions"]
+node_connections = [&"output", 0, &"Add Expressions", &"Add Expressions", 0, &"Add2", &"Add Expressions", 1, &"ExpressionTransition", &"Add2", 0, &"Animation", &"Add2", 1, &"Animation 2", &"ExpressionTransition", 0, &"default", &"ExpressionTransition", 1, &"happy", &"ExpressionTransition", 2, &"surprised", &"ExpressionTransition", 3, &"sad"]
 
-[node name="LucyPinkHair" type="Node2D"]
+[node name="LucyPinkHair" type="Node2D" unique_id=1995406824]
 script = ExtResource("1_aqg68")
 
-[node name="VisualRoot" type="Node2D" parent="."]
+[node name="VisualRoot" type="Node2D" parent="." unique_id=584666726]
 
-[node name="BackHair" type="Polygon2D" parent="VisualRoot"]
+[node name="BackHair" type="Polygon2D" parent="VisualRoot" unique_id=351111794]
 texture_repeat = 1
 position = Vector2(-61, -279)
 offset = Vector2(-124, -17)
@@ -473,137 +477,137 @@ polygons = [PackedInt32Array(0, 7, 8, 1), PackedInt32Array(7, 6, 5, 8), PackedIn
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart", PackedFloat32Array(1, 1, 0, 0, 0, 1, 1, 1, 1), "Body/Head/BackHairStart/BackHairEnd", PackedFloat32Array(0, 0.5, 1, 1, 1, 0.5, 0, 0, 0.5)]
 internal_vertex_count = 1
 
-[node name="Body" type="Sprite2D" parent="VisualRoot"]
+[node name="Body" type="Sprite2D" parent="VisualRoot" unique_id=697008994]
 position = Vector2(-0.244211, -69.9993)
 rotation = -0.00348875
 scale = Vector2(0.999996, 0.999996)
 texture = ExtResource("3_bspqj")
 
-[node name="Head" type="Node2D" parent="VisualRoot"]
-position = Vector2(1.46887, -210.991)
-rotation = 0.0149894
-scale = Vector2(0.999991, 0.999991)
+[node name="Head" type="Node2D" parent="VisualRoot" unique_id=1844645448]
+position = Vector2(1.6117225, -210.9885)
+rotation = 0.017176813
+scale = Vector2(0.99999094, 0.99999094)
 
-[node name="Head" type="Sprite2D" parent="VisualRoot/Head"]
+[node name="Head" type="Sprite2D" parent="VisualRoot/Head" unique_id=1349517521]
 position = Vector2(0, -96.0025)
 texture = ExtResource("4_fqs6o")
 
-[node name="EyebrowR" type="Node2D" parent="VisualRoot/Head"]
+[node name="EyebrowR" type="Node2D" parent="VisualRoot/Head" unique_id=929082760]
 position = Vector2(59, -141)
 
-[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowR"]
+[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowR" unique_id=1036972254]
 scale = Vector2(1.00001, 1.00001)
 texture = ExtResource("5_ee8qe")
 
-[node name="EyebrowL" type="Node2D" parent="VisualRoot/Head"]
+[node name="EyebrowL" type="Node2D" parent="VisualRoot/Head" unique_id=129407626]
 position = Vector2(-59, -141)
 scale = Vector2(-1, 1)
 
-[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowL"]
+[node name="Eyebrow" type="Sprite2D" parent="VisualRoot/Head/EyebrowL" unique_id=286978946]
 scale = Vector2(1.00001, 1.00001)
 texture = ExtResource("5_ee8qe")
 
-[node name="EyeR" type="Node2D" parent="VisualRoot/Head"]
+[node name="EyeR" type="Node2D" parent="VisualRoot/Head" unique_id=1761742848]
 unique_name_in_owner = true
 position = Vector2(62, -83)
 script = ExtResource("6_h3vak")
 
-[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeR" unique_id=115947652]
 position = Vector2(7.62939e-06, -0.0262453)
 texture = ExtResource("7_om21c")
 
-[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeR" unique_id=1781246161]
 visible = false
 position = Vector2(3.81467e-06, 17.974)
 texture = ExtResource("8_u7grn")
 
-[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeR"]
+[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeR" unique_id=1097293425]
 visible = false
 position = Vector2(3.81467e-06, 6)
 texture = ExtResource("9_vea1u")
 
-[node name="EyeL" type="Node2D" parent="VisualRoot/Head"]
+[node name="EyeL" type="Node2D" parent="VisualRoot/Head" unique_id=1192993492]
 unique_name_in_owner = true
 position = Vector2(-62, -83)
 scale = Vector2(-1, 1)
 script = ExtResource("6_h3vak")
 
-[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+[node name="Open" type="Sprite2D" parent="VisualRoot/Head/EyeL" unique_id=1075901127]
 position = Vector2(7.62939e-06, -0.0262453)
 texture = ExtResource("7_om21c")
 
-[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+[node name="Close" type="Sprite2D" parent="VisualRoot/Head/EyeL" unique_id=1216007261]
 visible = false
 position = Vector2(3.81467e-06, 17.974)
 texture = ExtResource("8_u7grn")
 
-[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeL"]
+[node name="HappyClose" type="Sprite2D" parent="VisualRoot/Head/EyeL" unique_id=1896461692]
 visible = false
 position = Vector2(3.81467e-06, 6)
 texture = ExtResource("10_pmgrj")
 
-[node name="Mouth" type="Node2D" parent="VisualRoot/Head"]
+[node name="Mouth" type="Node2D" parent="VisualRoot/Head" unique_id=736019089]
 unique_name_in_owner = true
 position = Vector2(0, 17)
 scale = Vector2(1.00001, 1.00001)
 script = ExtResource("11_4o7e8")
 
-[node name="Default" type="Node2D" parent="VisualRoot/Head/Mouth"]
+[node name="Default" type="Node2D" parent="VisualRoot/Head/Mouth" unique_id=1364874789]
 
-[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default" unique_id=996336100]
 texture = ExtResource("12_t43u3")
 
-[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default" unique_id=1947533928]
 visible = false
 texture = ExtResource("13_n36dk")
 
-[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default"]
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Default" unique_id=707592950]
 visible = false
 texture = ExtResource("14_f2pht")
 
-[node name="Happy" type="Node2D" parent="VisualRoot/Head/Mouth"]
+[node name="Happy" type="Node2D" parent="VisualRoot/Head/Mouth" unique_id=266960567]
 
-[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy" unique_id=1488597939]
 visible = false
 texture = ExtResource("13_n36dk")
 
-[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy" unique_id=565009031]
 visible = false
 texture = ExtResource("12_t43u3")
 
-[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy"]
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Happy" unique_id=611542675]
 visible = false
 texture = ExtResource("14_f2pht")
 
-[node name="Surprised" type="Node2D" parent="VisualRoot/Head/Mouth"]
+[node name="Surprised" type="Node2D" parent="VisualRoot/Head/Mouth" unique_id=527969268]
 
-[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised" unique_id=2054512335]
 visible = false
 texture = ExtResource("14_f2pht")
 
-[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised" unique_id=2016076550]
 visible = false
 texture = ExtResource("13_n36dk")
 
-[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised"]
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Surprised" unique_id=2010884129]
 visible = false
 texture = ExtResource("12_t43u3")
 
-[node name="Sad" type="Node2D" parent="VisualRoot/Head/Mouth"]
+[node name="Sad" type="Node2D" parent="VisualRoot/Head/Mouth" unique_id=502312397]
 
-[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+[node name="1" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad" unique_id=779018267]
 visible = false
 texture = ExtResource("15_4c7kk")
 
-[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+[node name="2" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad" unique_id=2059735762]
 visible = false
 texture = ExtResource("16_t2srm")
 
-[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad"]
+[node name="3" type="Sprite2D" parent="VisualRoot/Head/Mouth/Sad" unique_id=362270908]
 visible = false
 texture = ExtResource("14_f2pht")
 
-[node name="Fringe" type="Polygon2D" parent="VisualRoot"]
+[node name="Fringe" type="Polygon2D" parent="VisualRoot" unique_id=2015067018]
 position = Vector2(-5, -391)
 offset = Vector2(-220, -120)
 texture = ExtResource("17_p7tqh")
@@ -614,14 +618,14 @@ polygons = [PackedInt32Array(0, 7, 8, 1), PackedInt32Array(7, 6, 5, 8), PackedIn
 bones = ["Body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/BackHairStart/BackHairEnd", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0), "Body/Head/FringeStart", PackedFloat32Array(1, 1, 0, 0, 0, 1, 1, 1, 1), "Body/Head/FringeStart/FringeEnd", PackedFloat32Array(0, 0.5, 1, 1, 1, 0.5, 0, 0, 0.5)]
 internal_vertex_count = 1
 
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1366223232]
 visible = false
 
-[node name="Body" type="Bone2D" parent="Skeleton2D"]
+[node name="Body" type="Bone2D" parent="Skeleton2D" unique_id=1202996411]
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.999997, 0, 0, 0.999997, 0, 0)
 
-[node name="Head" type="Bone2D" parent="Skeleton2D/Body"]
+[node name="Head" type="Bone2D" parent="Skeleton2D/Body" unique_id=66499684]
 position = Vector2(0, -147)
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(0.999997, 0, 0, 0.999997, 0, -147)
@@ -629,16 +633,16 @@ auto_calculate_length_and_angle = false
 length = 64.0
 bone_angle = -90.0
 
-[node name="RemoteHead" type="RemoteTransform2D" parent="Skeleton2D/Body/Head"]
+[node name="RemoteHead" type="RemoteTransform2D" parent="Skeleton2D/Body/Head" unique_id=1161471791]
 position = Vector2(0, -64)
 remote_path = NodePath("../../../../VisualRoot/Head")
 
-[node name="BackHairStart" type="Bone2D" parent="Skeleton2D/Body/Head"]
+[node name="BackHairStart" type="Bone2D" parent="Skeleton2D/Body/Head" unique_id=48568190]
 position = Vector2(-60.0004, -131.001)
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -60.0004, -131.001)
 
-[node name="BackHairEnd" type="Bone2D" parent="Skeleton2D/Body/Head/BackHairStart"]
+[node name="BackHairEnd" type="Bone2D" parent="Skeleton2D/Body/Head/BackHairStart" unique_id=1337598492]
 position = Vector2(-28.0002, 82.0005)
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -28.0002, 82.0005)
@@ -646,30 +650,28 @@ auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 1.49999
 
-[node name="FringeStart" type="Bone2D" parent="Skeleton2D/Body/Head"]
+[node name="FringeStart" type="Bone2D" parent="Skeleton2D/Body/Head" unique_id=265727372]
 position = Vector2(0, -239.002)
 rotation = 0.0698132
 scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, 0, -239.002)
 
-[node name="FringeEnd" type="Bone2D" parent="Skeleton2D/Body/Head/FringeStart"]
+[node name="FringeEnd" type="Bone2D" parent="Skeleton2D/Body/Head/FringeStart" unique_id=2070393905]
 position = Vector2(-104.001, 13.0001)
 rotation = 0.0698132
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -104.001, 13.0001)
 auto_calculate_length_and_angle = false
 length = 16.0
-bone_angle = 1.98
+bone_angle = 1.9799998
 
-[node name="RemoteBody" type="RemoteTransform2D" parent="Skeleton2D/Body"]
+[node name="RemoteBody" type="RemoteTransform2D" parent="Skeleton2D/Body" unique_id=1524669857]
 position = Vector2(0, -42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_viggd")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2044766763]
+libraries/ = SubResource("AnimationLibrary_viggd")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=601478773]
 unique_name_in_owner = true
 root_node = NodePath("%AnimationTree/..")
 tree_root = SubResource("AnimationNodeBlendTree_5fvqu")

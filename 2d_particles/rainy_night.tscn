@@ -1,21 +1,21 @@
-[gd_scene load_steps=33 format=3 uid="uid://8m7h0ffvx08u"]
+[gd_scene format=3 uid="uid://8m7h0ffvx08u"]
 
-[ext_resource type="Script" path="res://2d_particles/rainy_night.gd" id="1_p3avv"]
+[ext_resource type="Script" uid="uid://b0ge0te5v8d6o" path="res://2d_particles/rainy_night.gd" id="1_p3avv"]
 [ext_resource type="Material" uid="uid://d3y7erh2blmo" path="res://2d_particles/2d_sky/2d_sky_mat.tres" id="1_ypwdv"]
-[ext_resource type="Script" path="res://2d_particles/camera.gd" id="2_iyhsy"]
+[ext_resource type="Script" uid="uid://87hd61ip8g3y" path="res://2d_particles/camera.gd" id="2_iyhsy"]
 [ext_resource type="Texture2D" uid="uid://br4gfmji1bxlb" path="res://2d_particles/assets/houses/house_1.png" id="2_ka7yi"]
-[ext_resource type="Shader" path="res://2d_particles/shaders/house.gdshader" id="3_0bdhq"]
+[ext_resource type="Shader" uid="uid://chwr8lf7v8j2h" path="res://2d_particles/shaders/house.gdshader" id="3_0bdhq"]
 [ext_resource type="AudioStream" uid="uid://simd8bye5bot" path="res://2d_particles/assets/sounds/rain_window.ogg" id="4_1cuyv"]
 [ext_resource type="Texture2D" uid="uid://ctqxl2w7mqt5o" path="res://2d_particles/assets/hills/hill_2.png" id="4_o24h5"]
-[ext_resource type="Shader" path="res://2d_particles/shaders/bottom_fog.gdshader" id="5_7swb7"]
+[ext_resource type="Shader" uid="uid://bj578germ6juc" path="res://2d_particles/shaders/bottom_fog.gdshader" id="5_7swb7"]
 [ext_resource type="Texture2D" uid="uid://bgxb40xe6lgvh" path="res://2d_particles/assets/hills/hill_1.png" id="5_awb0c"]
-[ext_resource type="Script" path="res://2d_particles/random_player.gd" id="5_cl44u"]
+[ext_resource type="Script" uid="uid://b13rwnnp1h0vc" path="res://2d_particles/random_player.gd" id="5_cl44u"]
 [ext_resource type="AudioStream" uid="uid://b6382mqgfhyr4" path="res://2d_particles/assets/sounds/lightning_strike_01.ogg" id="6_3sgfq"]
-[ext_resource type="Shader" path="res://2d_particles/shaders/top_clouds.gdshader" id="6_sglpv"]
+[ext_resource type="Shader" uid="uid://dvd8ukrd51nw1" path="res://2d_particles/shaders/top_clouds.gdshader" id="6_sglpv"]
 [ext_resource type="AudioStream" uid="uid://c1di7ydo6xhqo" path="res://2d_particles/assets/sounds/lightning_strike_02.ogg" id="7_fvilx"]
 [ext_resource type="Texture2D" uid="uid://8h3bsf7idbnp" path="res://2d_particles/assets/houses/house_2.png" id="7_s1d1v"]
 [ext_resource type="AudioStream" uid="uid://bvvhl8vvw70bu" path="res://2d_particles/assets/sounds/lightning_strike_03.ogg" id="8_2e2qv"]
-[ext_resource type="Shader" path="res://2d_particles/shaders/glow.gdshader" id="8_fojyx"]
+[ext_resource type="Shader" uid="uid://pw6s128owlq4" path="res://2d_particles/shaders/glow.gdshader" id="8_fojyx"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_urv10"]
 particle_flag_disable_z = true
@@ -51,8 +51,8 @@ shader = ExtResource("5_7swb7")
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ckmn3"]
-seamless = true
 noise = SubResource("FastNoiseLite_xenwu")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_l7c56"]
 seed = 10
@@ -60,22 +60,22 @@ frequency = 0.015
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ihlkl"]
-seamless = true
 noise = SubResource("FastNoiseLite_l7c56")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_24etk"]
 shader = ExtResource("6_sglpv")
-shader_parameter/base_scale = 0.2
 shader_parameter/noise_sampler = SubResource("NoiseTexture2D_ckmn3")
 shader_parameter/noise_small_sampler = SubResource("NoiseTexture2D_ihlkl")
+shader_parameter/base_scale = 0.2
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gsw1h"]
 seed = 20
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_njuc7"]
-seamless = true
 noise = SubResource("FastNoiseLite_gsw1h")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mvs0l"]
 seed = 30
@@ -83,108 +83,108 @@ frequency = 0.015
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ajddh"]
-seamless = true
 noise = SubResource("FastNoiseLite_mvs0l")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vd01s"]
 shader = ExtResource("6_sglpv")
-shader_parameter/base_scale = 0.25
 shader_parameter/noise_sampler = SubResource("NoiseTexture2D_njuc7")
 shader_parameter/noise_small_sampler = SubResource("NoiseTexture2D_ajddh")
+shader_parameter/base_scale = 0.25
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iiw28"]
 shader = ExtResource("8_fojyx")
 
-[node name="RainyNight" type="Node"]
+[node name="RainyNight" type="Node" unique_id=419672117]
 script = ExtResource("1_p3avv")
 
-[node name="ThunderTimer" type="Timer" parent="."]
+[node name="ThunderTimer" type="Timer" parent="." unique_id=1799352979]
 unique_name_in_owner = true
 wait_time = 4.0
 one_shot = true
 autostart = true
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=1104371123]
 
-[node name="RainParticles" type="GPUParticles2D" parent="World"]
+[node name="RainParticles" type="GPUParticles2D" parent="World" unique_id=405116536]
 position = Vector2(960, -56)
 amount = 200
-process_material = SubResource("ParticleProcessMaterial_urv10")
 lifetime = 1.5
 preprocess = 4.0
 visibility_rect = Rect2(-1000, 0, 2000, 1200)
 trail_enabled = true
 trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_urv10")
 
-[node name="Camera2D" type="Camera2D" parent="World"]
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=46172286]
 position = Vector2(960, 536)
 script = ExtResource("2_iyhsy")
 
-[node name="House" type="Node2D" parent="World"]
+[node name="House" type="Node2D" parent="World" unique_id=289741173]
 position = Vector2(1328, 960)
 metadata/_edit_group_ = true
 
-[node name="Occluder" type="LightOccluder2D" parent="World/House"]
+[node name="Occluder" type="LightOccluder2D" parent="World/House" unique_id=1213984449]
 occluder = SubResource("OccluderPolygon2D_sn4id")
 
-[node name="House" type="Sprite2D" parent="World/House"]
+[node name="House" type="Sprite2D" parent="World/House" unique_id=1066503249]
 material = SubResource("ShaderMaterial_xj0s0")
 texture = ExtResource("2_ka7yi")
 
-[node name="BigHouse3" type="Node2D" parent="World"]
+[node name="BigHouse3" type="Node2D" parent="World" unique_id=1999534212]
 position = Vector2(196, 1056)
 metadata/_edit_group_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="World/BigHouse3"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="World/BigHouse3" unique_id=913211979]
 occluder = SubResource("OccluderPolygon2D_dbjr2")
 
-[node name="House" type="Sprite2D" parent="World/BigHouse3"]
+[node name="House" type="Sprite2D" parent="World/BigHouse3" unique_id=129254519]
 material = SubResource("ShaderMaterial_xj0s0")
 texture = ExtResource("7_s1d1v")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=2093988349]
 layer = -5
 
-[node name="BackHill" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="BackHill" type="ParallaxLayer" parent="ParallaxBackground" unique_id=686104305]
 modulate = Color(0.00392157, 0.172549, 0.235294, 1)
 motion_scale = Vector2(0.7, 0.762)
 
-[node name="Hill1" type="Sprite2D" parent="ParallaxBackground/BackHill"]
+[node name="Hill1" type="Sprite2D" parent="ParallaxBackground/BackHill" unique_id=510435375]
 position = Vector2(982, 912.25)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("4_o24h5")
 
-[node name="FrontHill" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="FrontHill" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1815972610]
 modulate = Color(0, 0.133333, 0.207843, 1)
 motion_scale = Vector2(0.8, 0.871)
 
-[node name="Hill1" type="Sprite2D" parent="ParallaxBackground/FrontHill"]
+[node name="Hill1" type="Sprite2D" parent="ParallaxBackground/FrontHill" unique_id=214376079]
 position = Vector2(982, 960.25)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("5_awb0c")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1586984409]
 motion_scale = Vector2(0.9, 0.98)
 
-[node name="BigHouse2" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="BigHouse2" type="Node2D" parent="ParallaxBackground/ParallaxLayer" unique_id=41105593]
 position = Vector2(1792, 1056)
 scale = Vector2(0.75, 0.75)
 metadata/_edit_group_ = true
 
-[node name="House" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/BigHouse2"]
+[node name="House" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/BigHouse2" unique_id=1287002589]
 material = SubResource("ShaderMaterial_xj0s0")
 texture = ExtResource("7_s1d1v")
 
-[node name="House2" type="Node2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="House2" type="Node2D" parent="ParallaxBackground/ParallaxLayer" unique_id=208761]
 position = Vector2(1008, 1024)
 scale = Vector2(0.7, 0.7)
 metadata/_edit_group_ = true
 
-[node name="House" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/House2"]
+[node name="House" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/House2" unique_id=1920609964]
 material = SubResource("ShaderMaterial_xj0s0")
 texture = ExtResource("2_ka7yi")
 
-[node name="BottomFog" type="ColorRect" parent="ParallaxBackground"]
+[node name="BottomFog" type="ColorRect" parent="ParallaxBackground" unique_id=1084059172]
 material = SubResource("ShaderMaterial_wf54h")
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,10 +194,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.6, 0.403922, 0.188235)
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=1990424977]
 layer = -10
 
-[node name="Sky" type="ColorRect" parent="Background"]
+[node name="Sky" type="ColorRect" parent="Background" unique_id=1648539274]
 material = ExtResource("1_ypwdv")
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,10 +205,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopLayer" type="CanvasLayer" parent="."]
+[node name="TopLayer" type="CanvasLayer" parent="." unique_id=1589392331]
 layer = 0
 
-[node name="TopClouds" type="ColorRect" parent="TopLayer"]
+[node name="TopClouds" type="ColorRect" parent="TopLayer" unique_id=1694932826]
 material = SubResource("ShaderMaterial_24etk")
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,7 +219,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.372549, 0.376471, 0.4, 0.337255)
 
-[node name="TopClouds2" type="ColorRect" parent="TopLayer"]
+[node name="TopClouds2" type="ColorRect" parent="TopLayer" unique_id=1751326646]
 material = SubResource("ShaderMaterial_vd01s")
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,7 +230,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.215686, 0.286275, 0.34902, 1)
 
-[node name="ThunderLight" type="ColorRect" parent="TopLayer"]
+[node name="ThunderLight" type="ColorRect" parent="TopLayer" unique_id=532600911]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -239,7 +239,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Glow" type="ColorRect" parent="TopLayer"]
+[node name="Glow" type="ColorRect" parent="TopLayer" unique_id=913601457]
 material = SubResource("ShaderMaterial_iiw28")
 anchors_preset = 15
 anchor_right = 1.0
@@ -247,13 +247,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RainSound" type="AudioStreamPlayer" parent="."]
+[node name="RainSound" type="AudioStreamPlayer" parent="." unique_id=1353129931]
 stream = ExtResource("4_1cuyv")
 autoplay = true
 
-[node name="ThunderSound" type="AudioStreamPlayer" parent="."]
+[node name="ThunderSound" type="AudioStreamPlayer" parent="." unique_id=1399840184]
 unique_name_in_owner = true
 script = ExtResource("5_cl44u")
 sounds = Array[AudioStream]([ExtResource("6_3sgfq"), ExtResource("7_fvilx"), ExtResource("8_2e2qv")])
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1663124545]

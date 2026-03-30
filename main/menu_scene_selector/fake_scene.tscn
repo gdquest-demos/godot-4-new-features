@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqqqtncv3x74l"]
+[gd_scene format=3 uid="uid://dqqqtncv3x74l"]
 
-[ext_resource type="Script" path="res://main/menu_scene_selector/fake_scene.gd" id="1_4hsu0"]
+[ext_resource type="Script" uid="uid://d2emi264evyrx" path="res://main/menu_scene_selector/fake_scene.gd" id="1_4hsu0"]
 [ext_resource type="PackedScene" uid="uid://q0elnm5woxkb" path="res://main/menu_scene_selector/main_menu.tscn" id="1_ptv5l"]
 [ext_resource type="PackedScene" uid="uid://e0d5j05s8kkb" path="res://interior-diorama/interior_diorama.tscn" id="2_uqy0f"]
 
-[node name="FakeScene" type="Node"]
+[node name="FakeScene" type="Node" unique_id=318045178]
 process_mode = 3
 script = ExtResource("1_4hsu0")
 
-[node name="SceneHolder" type="Node" parent="."]
+[node name="SceneHolder" type="Node" parent="." unique_id=925025561]
 process_mode = 1
 
-[node name="InteriorDiorama" parent="SceneHolder" instance=ExtResource("2_uqy0f")]
+[node name="InteriorDiorama" parent="SceneHolder" unique_id=950064955 instance=ExtResource("2_uqy0f")]
 
-[node name="MainMenu" parent="." instance=ExtResource("1_ptv5l")]
+[node name="MainMenu" parent="." unique_id=386673854 instance=ExtResource("1_ptv5l")]

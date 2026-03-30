@@ -1,25 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8n30pc1qe5ri"]
+[gd_scene format=3 uid="uid://b8n30pc1qe5ri"]
 
-[ext_resource type="Shader" path="res://dialogue_tree/assets/bubble_background.gdshader" id="1_kqj15"]
+[ext_resource type="Shader" uid="uid://b7hedkehxbbu0" path="res://dialogue_tree/assets/bubble_background.gdshader" id="1_kqj15"]
 [ext_resource type="Texture2D" uid="uid://4f8gvseynjd" path="res://dialogue_tree/assets/bubble_pattern.png" id="2_q4fd6"]
-[ext_resource type="Script" path="res://dialogue_tree/bg_color.gd" id="3_jlvgm"]
+[ext_resource type="Script" uid="uid://ckohmmmbvfb0n" path="res://dialogue_tree/bg_color.gd" id="3_jlvgm"]
 [ext_resource type="Texture2D" uid="uid://sejeu4wvayj2" path="res://2d_clipping/assets/circle_mask.png" id="4_x3jw2"]
 [ext_resource type="PackedScene" uid="uid://by3uuu8cf5uv4" path="res://2d_clipping/lucy/lucy_pink_hair.tscn" id="5_ld65y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c7tyd"]
 shader = ExtResource("1_kqj15")
+shader_parameter/pattern_sampler = ExtResource("2_q4fd6")
 shader_parameter/bg_color = Color(0.552941, 0.0980392, 0.843137, 1)
 shader_parameter/pattern_color = Color(0.746575, 0.481212, 1, 1)
 shader_parameter/scale = 4.0
 shader_parameter/ratio = 0.56
-shader_parameter/pattern_sampler = ExtResource("2_q4fd6")
 
-[node name="Scene" type="Node"]
+[node name="Scene" type="Node" unique_id=2042386758]
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=1230705182]
 layer = -1
 
-[node name="BackgroundColor" type="ColorRect" parent="Background"]
+[node name="BackgroundColor" type="ColorRect" parent="Background" unique_id=95215723]
 material = SubResource("ShaderMaterial_c7tyd")
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,25 +28,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_jlvgm")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=576564374]
 self_modulate = Color(0.156863, 0.0784314, 0.305882, 0.435294)
 position = Vector2(930, 583)
 scale = Vector2(1.78872, 1.78872)
 texture = ExtResource("4_x3jw2")
 
-[node name="Border" type="Sprite2D" parent="."]
+[node name="Border" type="Sprite2D" parent="." unique_id=580570875]
 self_modulate = Color(0, 0.478431, 0.764706, 1)
 position = Vector2(922, 556)
 scale = Vector2(1.78872, 1.78872)
 texture = ExtResource("4_x3jw2")
 
-[node name="Frame" type="Sprite2D" parent="Border"]
+[node name="Frame" type="Sprite2D" parent="Border" unique_id=1780464549]
 self_modulate = Color(0.0235294, 0.113725, 0.329412, 1)
 clip_children = 2
 position = Vector2(-3.05176e-05, -6.10352e-05)
 scale = Vector2(0.945835, 0.945835)
 texture = ExtResource("4_x3jw2")
 
-[node name="LucyPinkHair" parent="Border/Frame" instance=ExtResource("5_ld65y")]
+[node name="LucyPinkHair" parent="Border/Frame" unique_id=1798336452 instance=ExtResource("5_ld65y")]
 position = Vector2(5.66038, 171.752)
 scale = Vector2(0.591073, 0.591073)

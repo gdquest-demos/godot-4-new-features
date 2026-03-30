@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://coy2dvxsxkpc7"]
+[gd_resource type="Environment" format=3 uid="uid://coy2dvxsxkpc7"]
 
 [ext_resource type="Material" uid="uid://x2mx74bhjtbh" path="res://heightmap_physics/heightmap_sky_material.tres" id="1_xcen2"]
 

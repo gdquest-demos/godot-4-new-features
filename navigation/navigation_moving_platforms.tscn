@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://da551o3yjocf3"]
+[gd_scene format=3 uid="uid://da551o3yjocf3"]
 
-[ext_resource type="Script" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
+[ext_resource type="Script" uid="uid://dvqokm4v42cye" path="res://navigation/navigation_moving_platforms.gd" id="1_avpy2"]
 [ext_resource type="PackedScene" uid="uid://btkjvs4pjpbqo" path="res://navigation/beetle.tscn" id="2_2uwum"]
 [ext_resource type="Environment" uid="uid://coy2dvxsxkpc7" path="res://heightmap_physics/heightmap_environment.tres" id="4_deorg"]
-[ext_resource type="Shader" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
+[ext_resource type="Shader" uid="uid://dgpqin0y8wkfw" path="res://outdoor_environment/materials/water/water_shader.gdshader" id="5_kh450"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://outdoor_environment/materials/water/textures/caustic_texture.png" id="6_1qom3"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1mbg"]
@@ -31,19 +31,19 @@ rings = 8
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_c510s"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g3dvh"]
-seamless = true
 noise = SubResource("FastNoiseLite_c510s")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wsun8"]
 render_priority = 0
 shader = ExtResource("5_kh450")
+shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_g3dvh")
+shader_parameter/caustic_sampler = ExtResource("6_1qom3")
 shader_parameter/water_color = Color(0.133333, 0.490196, 0.823529, 1)
 shader_parameter/water_depth_color = Color(0.0627451, 0.380392, 0.666667, 1)
 shader_parameter/water_edge_distance = 0.5
 shader_parameter/water_depth_distance = 4.0
 shader_parameter/water_texture_scale = 40.0
-shader_parameter/main_noise_sampler = SubResource("NoiseTexture2D_g3dvh")
-shader_parameter/caustic_sampler = ExtResource("6_1qom3")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uso6y"]
 size = Vector2(400, 400)
@@ -166,98 +166,96 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7tc6i"]
 _data = {
-"RESET": SubResource("Animation_215et"),
-"platform_loop": SubResource("Animation_mxhwk")
+&"RESET": SubResource("Animation_215et"),
+&"platform_loop": SubResource("Animation_mxhwk")
 }
 
-[node name="Navigation" type="Node3D"]
+[node name="Navigation" type="Node3D" unique_id=1354486358]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 script = ExtResource("1_avpy2")
 
-[node name="Beetles" type="Node3D" parent="."]
+[node name="Beetles" type="Node3D" parent="." unique_id=2127002192]
 unique_name_in_owner = true
 
-[node name="Beetle1" parent="Beetles" instance=ExtResource("2_2uwum")]
+[node name="Beetle1" parent="Beetles" unique_id=1110912273 instance=ExtResource("2_2uwum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, 3)
 
-[node name="Beetle2" parent="Beetles" instance=ExtResource("2_2uwum")]
+[node name="Beetle2" parent="Beetles" unique_id=520971338 instance=ExtResource("2_2uwum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500352, -25)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1384118705]
 navigation_mesh = SubResource("NavigationMesh_f1mbg")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1281466104]
 size = Vector3(10, 1, 10)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1711234372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 size = Vector3(10, 1, 10)
 
-[node name="MovingPlatform" type="Area3D" parent="."]
+[node name="MovingPlatform" type="Area3D" parent="." unique_id=688153352]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 collision_mask = 3
 
-[node name="Beetle1RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
+[node name="Beetle1RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform" unique_id=2145959191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Beetle2RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform"]
+[node name="Beetle2RemoteTransform3D" type="RemoteTransform3D" parent="MovingPlatform" unique_id=780167621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="MovingPlatform"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="MovingPlatform" unique_id=1425475319]
 navigation_mesh = SubResource("NavigationMesh_txvch")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="MovingPlatform/NavigationRegion3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="MovingPlatform/NavigationRegion3D" unique_id=11045167]
 size = Vector3(6, 1, 4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform" unique_id=83644452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_k68ho")
 
-[node name="PatrolPointA" type="MeshInstance3D" parent="."]
+[node name="PatrolPointA" type="MeshInstance3D" parent="." unique_id=355322972]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="PatrolPointB" type="MeshInstance3D" parent="."]
+[node name="PatrolPointB" type="MeshInstance3D" parent="." unique_id=612068529]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -22)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="MovingPlatformEnterA" type="MeshInstance3D" parent="."]
+[node name="MovingPlatformEnterA" type="MeshInstance3D" parent="." unique_id=564688935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="MovingPlatformEnterB" type="MeshInstance3D" parent="."]
+[node name="MovingPlatformEnterB" type="MeshInstance3D" parent="." unique_id=589472538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -18)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="MovingPlatformExitA" type="MeshInstance3D" parent="."]
+[node name="MovingPlatformExitA" type="MeshInstance3D" parent="." unique_id=195600337]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="MovingPlatformExitB" type="MeshInstance3D" parent="."]
+[node name="MovingPlatformExitB" type="MeshInstance3D" parent="." unique_id=2080890433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
 mesh = SubResource("SphereMesh_kifhs")
 
-[node name="Water" type="MeshInstance3D" parent="."]
+[node name="Water" type="MeshInstance3D" parent="." unique_id=848261840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692534, 0)
 material_override = SubResource("ShaderMaterial_wsun8")
 mesh = SubResource("PlaneMesh_uso6y")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1864923543]
 transform = Transform3D(1.49012e-07, -0.5, 0.866025, 1.29048e-08, 0.866025, 0.5, -1, -6.33299e-08, 1.355e-07, 10, 5.52794, -11.5035)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=415784318]
 transform = Transform3D(0.0552974, -0.979473, 0.193841, 0.268697, 0.201574, 0.941897, -0.961636, 1.16168e-08, 0.274329, 0, 6.80633, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=14982343]
 environment = ExtResource("4_deorg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1702107103]
 unique_name_in_owner = true
-autoplay = "platform_loop"
-libraries = {
-"": SubResource("AnimationLibrary_7tc6i")
-}
+libraries/ = SubResource("AnimationLibrary_7tc6i")
+autoplay = &"platform_loop"

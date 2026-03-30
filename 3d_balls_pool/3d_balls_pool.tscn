@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brhbpdmco1p2g"]
+[gd_scene format=3 uid="uid://brhbpdmco1p2g"]
 
 [ext_resource type="Script" uid="uid://3803bbbxt6k1" path="res://3d_balls_pool/3d_balls_pool.gd" id="1_iilj0"]
 [ext_resource type="Script" uid="uid://brqtgbgypegpx" path="res://3d_balls_pool/death_plane.gd" id="2_lnerr"]
@@ -47,25 +47,25 @@ dof_blur_far_distance = 35.0
 dof_blur_far_transition = 10.0
 dof_blur_amount = 0.15
 
-[node name="3DBallsPool" type="Node3D"]
+[node name="3DBallsPool" type="Node3D" unique_id=1662110796]
 script = ExtResource("1_iilj0")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2143276515]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1639804077]
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 80.0
 offset_bottom = 90.0
 
-[node name="FPSLabel" type="Label" parent="UI/VBoxContainer"]
+[node name="FPSLabel" type="Label" parent="UI/VBoxContainer" unique_id=769200685]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "FPS 0"
 script = ExtResource("3_7pdjk")
 
-[node name="ActiveBalls" type="Label" parent="UI/VBoxContainer" node_paths=PackedStringArray("balls_holder")]
+[node name="ActiveBalls" type="Label" parent="UI/VBoxContainer" unique_id=42641224 node_paths=PackedStringArray("balls_holder")]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
@@ -73,124 +73,124 @@ text = "Ball count"
 script = ExtResource("3_u74w2")
 balls_holder = NodePath("../../../BallsHolder")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1107173531]
 environment = SubResource("Environment_d8f8m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1245354704]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=606067192]
 transform = Transform3D(0.999986, 0.00474539, -0.00221281, 0, 0.422618, 0.906308, 0.00523596, -0.906295, 0.422612, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 50.0
 
-[node name="DeathPlane" type="Area3D" parent="."]
+[node name="DeathPlane" type="Area3D" parent="." unique_id=1315846917]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
 script = ExtResource("2_lnerr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane" unique_id=294776896]
 shape = SubResource("WorldBoundaryShape3D_hr3rc")
 
-[node name="ball_spinner" parent="." instance=ExtResource("3_7cay3")]
+[node name="ball_spinner" parent="." unique_id=1269615630 instance=ExtResource("3_7cay3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Body" parent="ball_spinner" index="0"]
+[node name="Body" parent="ball_spinner" index="0" unique_id=1527938712]
 surface_material_override/0 = ExtResource("5_bh5rb")
 
-[node name="Spinner" parent="ball_spinner" index="1"]
+[node name="Spinner" parent="ball_spinner" index="1" unique_id=235301407]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 material_override = ExtResource("5_bh5rb")
 script = ExtResource("4_rxfqc")
 
-[node name="Bolt" parent="ball_spinner/Spinner" index="0"]
+[node name="Bolt" parent="ball_spinner/Spinner" index="0" unique_id=1217567092]
 material_override = ExtResource("8_rdn14")
 
-[node name="SpinnerCollision" type="StaticBody3D" parent="ball_spinner/Spinner" index="1"]
+[node name="SpinnerCollision" type="StaticBody3D" parent="ball_spinner/Spinner" index="1" unique_id=1845418442]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ball_spinner/Spinner/SpinnerCollision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball_spinner/Spinner/SpinnerCollision" unique_id=165771356]
 shape = SubResource("BoxShape3D_ad07j")
 
-[node name="Glass" parent="ball_spinner" index="2"]
+[node name="Glass" parent="ball_spinner" index="2" unique_id=320623570]
 material_override = ExtResource("7_d4ar3")
 
-[node name="BottomPipe" parent="ball_spinner" index="3"]
+[node name="BottomPipe" parent="ball_spinner" index="3" unique_id=1616175446]
 surface_material_override/0 = ExtResource("5_bh5rb")
 surface_material_override/1 = ExtResource("7_d4ar3")
 
-[node name="TopPipe" parent="ball_spinner" index="4"]
+[node name="TopPipe" parent="ball_spinner" index="4" unique_id=1609851794]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.6, 0)
 material_override = ExtResource("5_bh5rb")
 
-[node name="Teleporter" type="Area3D" parent="." node_paths=PackedStringArray("_out_position_node")]
+[node name="Teleporter" type="Area3D" parent="." unique_id=1286293408 node_paths=PackedStringArray("_out_position_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 2.735)
 script = ExtResource("12_rdkp1")
 _out_position_node = NodePath("../TeleporterOut")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Teleporter" unique_id=2007481284]
 shape = SubResource("BoxShape3D_ol647")
 
-[node name="TeleporterOut" type="Marker3D" parent="."]
+[node name="TeleporterOut" type="Marker3D" parent="." unique_id=145637298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8, 6.5, -0.2)
 
-[node name="Turner" type="Node3D" parent="."]
+[node name="Turner" type="Node3D" parent="." unique_id=781505202]
 transform = Transform3D(0.707107, 0.298836, -0.640856, 0, 0.906308, 0.422618, 0.707107, -0.298836, 0.640856, 0, 3, 0)
 script = ExtResource("5_c025w")
 min_zoom = 15.0
 max_zoom = 30.0
 metadata/_edit_group_ = true
 
-[node name="Camera3D" type="Camera3D" parent="Turner"]
+[node name="Camera3D" type="Camera3D" parent="Turner" unique_id=1782975645]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 0, 1, 0, 0, 28)
 attributes = SubResource("CameraAttributesPractical_a4gso")
 fov = 35.0
 
-[node name="SpawnPosition" type="Marker3D" parent="."]
+[node name="SpawnPosition" type="Marker3D" parent="." unique_id=933448342]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3, 0)
 
-[node name="BallsHolder" type="Node3D" parent="."]
+[node name="BallsHolder" type="Node3D" parent="." unique_id=759157713]
 unique_name_in_owner = true
 
-[node name="Pipes" type="Node3D" parent="."]
+[node name="Pipes" type="Node3D" parent="." unique_id=406199411]
 
-[node name="Pipe1" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe1" type="MeshInstance3D" parent="Pipes" unique_id=441503698]
 transform = Transform3D(0.707107, 1.06581e-14, 0.707107, -8.74228e-08, 1, 8.74228e-08, -0.707107, -1.23634e-07, 0.707107, 23.4, 8.8, -18.795)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="Pipe6" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe6" type="MeshInstance3D" parent="Pipes" unique_id=62787194]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 21.1662, 13.3, 4.34392)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="Pipe8" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe8" type="MeshInstance3D" parent="Pipes" unique_id=899896202]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -5.34753, 2.1, -10.0633)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="Pipe2" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe2" type="MeshInstance3D" parent="Pipes" unique_id=531091415]
 transform = Transform3D(-0.34202, 1.12051e-07, 0.939693, -8.74228e-08, -1, 8.74228e-08, 0.939693, -5.22502e-08, 0.34202, 27.8953, 18.4, -56.8916)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="Pipe9" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe9" type="MeshInstance3D" parent="Pipes" unique_id=1607604318]
 transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, 11.4948, 5.2, -34.8004)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="Pipe10" type="MeshInstance3D" parent="Pipes"]
+[node name="Pipe10" type="MeshInstance3D" parent="Pipes" unique_id=1293398069]
 transform = Transform3D(-0.573576, 0, -0.819152, 0, 1, 0, 0.819152, 0, -0.573576, 60.5782, 5.7, -51.4225)
 material_override = ExtResource("5_bh5rb")
 mesh = ExtResource("8_mga4t")
 skeleton = NodePath("../..")
 
-[node name="ball_spinner_collider" parent="." instance=ExtResource("13_afi71")]
+[node name="ball_spinner_collider" parent="." unique_id=1790933101 instance=ExtResource("13_afi71")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1622, 0)
 visible = false
 

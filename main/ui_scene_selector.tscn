@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4mjp57jai7ya"]
+[gd_scene format=3 uid="uid://d4mjp57jai7ya"]
 
-[ext_resource type="Script" path="res://main/ui_scene_selector.gd" id="1_x13la"]
+[ext_resource type="Script" uid="uid://cllhhtwxxedo4" path="res://main/ui_scene_selector.gd" id="1_x13la"]
 [ext_resource type="PackedScene" uid="uid://q0elnm5woxkb" path="res://main/menu_scene_selector/main_menu.tscn" id="2_aoh2w"]
 
-[node name="UISceneSelector" type="Node"]
+[node name="UISceneSelector" type="Node" unique_id=629323057]
 script = ExtResource("1_x13la")
 
-[node name="MainMenu" parent="." instance=ExtResource("2_aoh2w")]
+[node name="MainMenu" parent="." unique_id=1627923762 instance=ExtResource("2_aoh2w")]
 unique_name_in_owner = true
 layer = 10

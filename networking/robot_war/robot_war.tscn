@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwrcsode60t7m"]
+[gd_scene format=3 uid="uid://dwrcsode60t7m"]
 
-[ext_resource type="Script" path="res://networking/robot_war/robot_war.gd" id="1_k07rl"]
+[ext_resource type="Script" uid="uid://ki0o4mt30p22" path="res://networking/robot_war/robot_war.gd" id="1_k07rl"]
 
 [sub_resource type="Gradient" id="Gradient_m6v53"]
 colors = PackedColorArray(0.630525, 0.521397, 0.864113, 1, 0.367263, 0.123484, 0.586528, 1)
@@ -9,7 +9,7 @@ colors = PackedColorArray(0.630525, 0.521397, 0.864113, 1, 0.367263, 0.123484, 0
 gradient = SubResource("Gradient_m6v53")
 fill_from = Vector2(0, 1)
 
-[node name="robot_war" type="Control"]
+[node name="robot_war" type="Control" unique_id=1706690861]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k07rl")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=237799477]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_wylbv")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1491041405]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,16 +41,16 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=475130394]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=187303192]
 layout_mode = 2
 text = "To play the game:
 1. Click \"Spawn game Windows\".
 2. Press \"Host\" on the Server window, and \"Join\" on the Client window."
 
-[node name="SpawnWindowButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SpawnWindowButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=988353803]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Spawn Game Windows"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://be2jls86gsb5p"]
+[gd_scene format=3 uid="uid://be2jls86gsb5p"]
 
 [ext_resource type="Shader" uid="uid://ft8i5qfd8pm4" path="res://shared/shaders/gradient_sky.gdshader" id="1_cqdiy"]
 [ext_resource type="Script" uid="uid://brj3x588mbdec" path="res://lod/lod_demo.gd" id="1_v8yre"]
@@ -49,53 +49,53 @@ shader_parameter/grid_opacity = 0.1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_srpfb"]
 
-[node name="LOD" type="Node" node_paths=PackedStringArray("target_mesh")]
+[node name="LOD" type="Node" unique_id=238525575 node_paths=PackedStringArray("target_mesh")]
 script = ExtResource("1_v8yre")
 target_mesh = NodePath("World3D/ObjectRoot/godot_bot/GodotBotFused")
 lod_curve = SubResource("Curve_qwndj")
 
-[node name="World3D" type="Node3D" parent="."]
+[node name="World3D" type="Node3D" parent="." unique_id=1037578505]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World3D" unique_id=53598907]
 environment = SubResource("Environment_arpbq")
 
-[node name="Center" type="Node3D" parent="World3D"]
+[node name="Center" type="Node3D" parent="World3D" unique_id=200165202]
 transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0.517859, 0)
 
-[node name="BGPlane" type="MeshInstance3D" parent="World3D/Center"]
+[node name="BGPlane" type="MeshInstance3D" parent="World3D/Center" unique_id=1031866161]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, 0, 0, -10)
 material_override = SubResource("ShaderMaterial_0vlmg")
 mesh = SubResource("QuadMesh_54fwo")
 skeleton = NodePath("../../..")
 
-[node name="Camera3D" type="Camera3D" parent="World3D/Center"]
+[node name="Camera3D" type="Camera3D" parent="World3D/Center" unique_id=939839145]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 current = true
 fov = 25.0
 
-[node name="ObjectRoot" type="Node3D" parent="World3D"]
+[node name="ObjectRoot" type="Node3D" parent="World3D" unique_id=583121601]
 script = ExtResource("4_12j7o")
 
-[node name="godot_bot" parent="World3D/ObjectRoot" instance=ExtResource("5_3c0yr")]
+[node name="godot_bot" parent="World3D/ObjectRoot" unique_id=456386950 instance=ExtResource("5_3c0yr")]
 
-[node name="BackLight" type="OmniLight3D" parent="World3D"]
+[node name="BackLight" type="OmniLight3D" parent="World3D" unique_id=103363125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1851, -0.503183, -0.587773)
 
-[node name="Sun" type="DirectionalLight3D" parent="World3D"]
+[node name="Sun" type="DirectionalLight3D" parent="World3D" unique_id=62563102]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 20.0
 
-[node name="GroundPlane" type="MeshInstance3D" parent="World3D"]
+[node name="GroundPlane" type="MeshInstance3D" parent="World3D" unique_id=743991852]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_xd5tv")
 mesh = SubResource("PlaneMesh_srpfb")
 
-[node name="TopUI" type="CanvasLayer" parent="."]
+[node name="TopUI" type="CanvasLayer" parent="." unique_id=2113333420]
 
-[node name="UI" type="Control" parent="TopUI"]
+[node name="UI" type="Control" parent="TopUI" unique_id=1430686328]
 layout_mode = 3
 anchor_left = 0.2
 anchor_top = 0.8
@@ -106,7 +106,7 @@ grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Footer" type="Control" parent="TopUI/UI"]
+[node name="Footer" type="Control" parent="TopUI/UI" unique_id=1882684681]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -117,7 +117,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 
-[node name="Left" type="Control" parent="TopUI/UI/Footer"]
+[node name="Left" type="Control" parent="TopUI/UI/Footer" unique_id=938460280]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -127,11 +127,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="CameraIcon" type="Sprite2D" parent="TopUI/UI/Footer/Left"]
+[node name="CameraIcon" type="Sprite2D" parent="TopUI/UI/Footer/Left" unique_id=2122052998]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("7_gqo3c")
 
-[node name="Right" type="Control" parent="TopUI/UI/Footer"]
+[node name="Right" type="Control" parent="TopUI/UI/Footer" unique_id=1224862129]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -144,7 +144,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
-[node name="TargetIcon" type="Sprite2D" parent="TopUI/UI/Footer/Right"]
+[node name="TargetIcon" type="Sprite2D" parent="TopUI/UI/Footer/Right" unique_id=761346428]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("8_3srog")
 

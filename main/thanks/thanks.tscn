@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://vks78qxn4hr8"]
+[gd_scene format=3 uid="uid://vks78qxn4hr8"]
 
 [ext_resource type="Theme" uid="uid://bgpjrj0qf7awr" path="res://interface/theme.tres" id="1_pdjn6"]
-[ext_resource type="Script" path="res://main/thanks/thanks.gd" id="3_ii5h2"]
+[ext_resource type="Script" uid="uid://c2chpt8nggfb" path="res://main/thanks/thanks.gd" id="3_ii5h2"]
 [ext_resource type="Texture2D" uid="uid://b50sqesjx8w1k" path="res://main/thanks/gdquest_logo_white.svg" id="4_tmbe6"]
 
 [sub_resource type="Gradient" id="Gradient_m2vbx"]
@@ -21,7 +21,7 @@ gradient = SubResource("Gradient_2kfkk")
 fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
-[node name="Thanks" type="TextureRect"]
+[node name="Thanks" type="TextureRect" unique_id=60987184]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,7 +33,7 @@ expand_mode = 1
 stretch_mode = 6
 script = ExtResource("3_ii5h2")
 
-[node name="GradientFadeTexture" type="TextureRect" parent="."]
+[node name="GradientFadeTexture" type="TextureRect" parent="." unique_id=2104948399]
 clip_children = 1
 layout_mode = 1
 anchors_preset = 15
@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_16o6k")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GradientFadeTexture"]
+[node name="ScrollContainer" type="ScrollContainer" parent="GradientFadeTexture" unique_id=315988318]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,22 +55,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="GradientFadeTexture/ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="GradientFadeTexture/ScrollContainer" unique_id=1579848615]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GradientFadeTexture/ScrollContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GradientFadeTexture/ScrollContainer/CenterContainer" unique_id=2008327905]
 custom_minimum_size = Vector2(950, 0)
 layout_mode = 2
 
-[node name="TitleLabel" type="Label" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer" unique_id=788970660]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Info, Credits, Licensing"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1374730914]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
@@ -148,13 +148,13 @@ Unless required by applicable law or agreed to in writing, software distributed 
 fit_content = true
 selection_enabled = true
 
-[node name="Spacer" type="TextureRect" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Spacer" type="TextureRect" parent="GradientFadeTexture/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1088952063]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="." unique_id=55101536]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
